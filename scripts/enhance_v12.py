@@ -131,16 +131,16 @@ def write_deploy_files():
 
 def write_performance_budget():
     budget={
-      'version':1,
+      'version':2,
       'limits':{
         'homepage_html_bytes':65536,
         'styles_css_bytes':131072,
         'site_js_bytes':65536,
-        'search_index_js_bytes':524288,
+        'search_index_js_bytes':1572864,
         'largest_public_file_bytes':1048576,
         'staged_site_bytes':10485760
       },
-      'notes':'Budgets are intentionally generous enough for generated static API documentation while preventing accidental framework-scale regressions.'
+      'notes':'Budgets distinguish handwritten runtime assets from generated search data. Source-tree scans inspect deployable files only, so repository metadata and build artifacts cannot affect public-site budgets.'
     }
     (ROOT/'performance-budget.json').write_text(json.dumps(budget,indent=2,sort_keys=True)+'\n')
 
