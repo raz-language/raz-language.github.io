@@ -5,6 +5,7 @@
     "diagnostics": "./diagnostics.json",
     "docs": "./docs.json",
     "ecosystem": "./ecosystem.json",
+    "news": "./news.json",
     "package-api": "./packages/<package>/index.json",
     "package-docs": "./package-docs.json",
     "packages": "./packages.json",

@@ -12,18 +12,18 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 ENHANCER = ROOT / "scripts" / "enhance_v12.py"
 BUDGET = ROOT / "performance-budget.json"
-EXPECTED_SEARCH_LIMIT = 1572864
+EXPECTED_SEARCH_CORE_LIMIT = 524288
+EXPECTED_SEARCH_API_LIMIT = 1572864
 EXPECTED_STAGED_CORPUS_LIMIT = 67108864
 
 text = ENHANCER.read_text(encoding="utf-8")
-match = re.search(r"['\"]search_index_js_bytes['\"]\s*:\s*(\d+)", text)
-if not match:
-    raise SystemExit("ERROR: enhance_v12.py does not define search_index_js_bytes")
-value = int(match.group(1))
-if value != EXPECTED_SEARCH_LIMIT:
-    raise SystemExit(
-        f"ERROR: generated search-index budget is {value}; expected {EXPECTED_SEARCH_LIMIT}"
-    )
+for key, expected in (("search_core_json_bytes", EXPECTED_SEARCH_CORE_LIMIT), ("search_api_json_bytes", EXPECTED_SEARCH_API_LIMIT)):
+    match = re.search(rf"['\"]{key}['\"]\s*:\s*(\d+)", text)
+    if not match:
+        raise SystemExit(f"ERROR: enhance_v12.py does not define {key}")
+    value = int(match.group(1))
+    if value != expected:
+        raise SystemExit(f"ERROR: generated {key} budget is {value}; expected {expected}")
 
 
 match = re.search(r"[\'\"]staged_site_bytes[\'\"]\s*:\s*(\d+)", text)
@@ -36,11 +36,10 @@ if value != EXPECTED_STAGED_CORPUS_LIMIT:
     )
 
 budget = json.loads(BUDGET.read_text(encoding="utf-8"))
-actual = int(budget["limits"]["search_index_js_bytes"])
-if actual != EXPECTED_SEARCH_LIMIT:
-    raise SystemExit(
-        f"ERROR: checked-in search-index budget is {actual}; expected {EXPECTED_SEARCH_LIMIT}"
-    )
+for key, expected in (("search_core_json_bytes", EXPECTED_SEARCH_CORE_LIMIT), ("search_api_json_bytes", EXPECTED_SEARCH_API_LIMIT)):
+    actual = int(budget["limits"][key])
+    if actual != expected:
+        raise SystemExit(f"ERROR: checked-in {key} budget is {actual}; expected {expected}")
 
 actual_corpus = int(budget["limits"]["staged_site_bytes"])
 if actual_corpus != EXPECTED_STAGED_CORPUS_LIMIT:
@@ -50,5 +49,5 @@ if actual_corpus != EXPECTED_STAGED_CORPUS_LIMIT:
 
 print(
     f"OK: generated performance budgets remain stable "
-    f"(search={EXPECTED_SEARCH_LIMIT}, staged-corpus={EXPECTED_STAGED_CORPUS_LIMIT})"
+    f"(search-core={EXPECTED_SEARCH_CORE_LIMIT}, search-api={EXPECTED_SEARCH_API_LIMIT}, staged-corpus={EXPECTED_STAGED_CORPUS_LIMIT})"
 )

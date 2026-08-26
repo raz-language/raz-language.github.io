@@ -15,35 +15,30 @@
   };
   qa('[data-copy]').forEach(b=>b.addEventListener('click',()=>copyText(b,b.dataset.copy||'')));
 
-  const dialog=q('[data-search-dialog]'), input=q('[data-site-search]'), results=q('[data-search-results]');
-  let lastFocus=null;
-  const items=Array.isArray(window.RAZ_SEARCH)?window.RAZ_SEARCH:[];
-  const renderSearch=(term='')=>{
-    if(!results)return;
-    const words=term.trim().toLowerCase().split(/\s+/).filter(Boolean);
-    const ranked=items.map(item=>{
-      const hay=`${item.title} ${item.description} ${item.keywords||''}`.toLowerCase();
-      const score=words.reduce((n,w)=>n+(hay.includes(w)?1:0),0);
-      return {item,score};
-    }).filter(x=>!words.length||x.score===words.length).slice(0,8);
-    results.innerHTML=ranked.length?ranked.map(({item})=>{const href=/^(?:https?:)?\/\//.test(item.url)?item.url:`${window.RAZ_BASE||''}${item.url}`;return `<a class="search-result" href="${href}"><b>${item.title}</b><span>${item.description}</span></a>`;}).join(''):'<div class="search-result"><b>No results</b><span>Try a broader search.</span></div>';
-  };
-  const openSearch=()=>{if(!dialog)return;lastFocus=document.activeElement;dialog.hidden=false;document.body.style.overflow='hidden';renderSearch('');setTimeout(()=>input&&input.focus(),0);};
+  // v23 sharded lazy global search
+  const dialog=q('[data-search-dialog]'),input=q('[data-site-search]'),results=q('[data-search-results]');
+  let lastFocus=null,coreItems=null,apiItems=null,corePromise=null,apiPromise=null;
+  const coreVersion='4982ce7b3a56',apiVersion='7502246ded77';
+  const searchURL=(name,version)=>`${window.RAZ_BASE||''}assets/${name}?v=${version}`;
+  const loadCore=()=>{if(coreItems)return Promise.resolve(coreItems);if(!corePromise)corePromise=fetch(searchURL('search-core.json',coreVersion),{credentials:'same-origin'}).then(r=>{if(!r.ok)throw new Error(`search core ${r.status}`);return r.json();}).then(data=>{coreItems=Array.isArray(data)?data:[];return coreItems;});return corePromise;};
+  const loadAPI=()=>{if(apiItems)return Promise.resolve(apiItems);if(!apiPromise)apiPromise=fetch(searchURL('search-api.json',apiVersion),{credentials:'same-origin'}).then(r=>{if(!r.ok)throw new Error(`search api ${r.status}`);return r.json();}).then(data=>{apiItems=Array.isArray(data)?data:[];return apiItems;});return apiPromise;};
+  const escapeSearch=value=>String(value??'').replace(/[&<>\"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+  const searchKind=url=>url.startsWith('packages/')?'Package':url.startsWith('docs/diagnostics/')?'Diagnostic':url.startsWith('docs/stdlib/')?'Stdlib API':url.startsWith('docs/api/')?'API':url.startsWith('learn/')?'Book':url.startsWith('releases/')?'Release':url.startsWith('news/')?'News':url.startsWith('docs/')?'Docs':'Site';
+  const scoreSearch=(item,term,words)=>{if(!term)return 1;const title=String(item.title||'').toLowerCase(),description=String(item.description||'').toLowerCase(),keywords=String(item.keywords||'').toLowerCase(),url=String(item.url||'').toLowerCase(),hay=`${title} ${description} ${keywords}`;if(!words.every(w=>hay.includes(w)))return -1;let score=words.length*20;if(title===term)score+=240;if(title.startsWith(term))score+=130;if(title.includes(term))score+=70;if(keywords.split(/\s+/).includes(term))score+=55;if(url.includes(term.replace(/::/g,'/')))score+=35;if(/^d\d{4}$/i.test(term)&&title===term)score+=220;if(/^(?:raz\s+|razc\s+)/.test(term)&&keywords.includes('cli'))score+=80;if(term.includes('::')&&(title.includes(term)||keywords.includes(term)))score+=95;return score;};
+  const renderSearch=(term='',includeAPI=false)=>{if(!results)return;const normalized=term.trim().toLowerCase(),words=normalized.split(/\s+/).filter(Boolean);const source=[...(coreItems||[]),...(includeAPI?(apiItems||[]):[])];const ranked=source.map(item=>({item,score:scoreSearch(item,normalized,words)})).filter(x=>x.score>=0).sort((a,b)=>b.score-a.score||String(a.item.title).localeCompare(String(b.item.title))).slice(0,12);results.innerHTML=ranked.length?ranked.map(({item})=>{const href=/^(?:https?:)?\/\//.test(item.url)?item.url:`${window.RAZ_BASE||''}${item.url}`;return `<a class="search-result" href="${escapeSearch(href)}"><span class="search-result-top"><b>${escapeSearch(item.title)}</b><em>${escapeSearch(searchKind(String(item.url||'')))}</em></span><span>${escapeSearch(item.description||'')}</span></a>`;}).join(''):'<div class="search-result search-empty"><b>No results</b><span>Try a package, diagnostic code, command, module, or symbol name.</span></div>';};
+  const runSearch=async()=>{const term=(input?.value||'').trim();await loadCore();if(term.length>=2){if(results&&!apiItems)results.setAttribute('aria-busy','true');try{await loadAPI();}finally{results&&results.removeAttribute('aria-busy');}renderSearch(term,true);}else renderSearch(term,false);};
+  const openSearch=async()=>{if(!dialog)return;lastFocus=document.activeElement;dialog.hidden=false;document.body.style.overflow='hidden';if(results)results.innerHTML='<div class="search-result search-loading"><b>Loading search…</b><span>Preparing the Raz documentation index.</span></div>';setTimeout(()=>input&&input.focus(),0);try{await loadCore();renderSearch(input?.value||'',false);if((input?.value||'').trim().length>=2)await runSearch();}catch(_){if(results)results.innerHTML='<div class="search-result search-empty"><b>Search unavailable</b><span>The index could not be loaded. Try again in a moment.</span></div>';}};
   const closeSearch=()=>{if(!dialog)return;dialog.hidden=true;document.body.style.overflow='';lastFocus&&lastFocus.focus&&lastFocus.focus();};
-  qa('[data-search-open]').forEach(b=>b.addEventListener('click',openSearch)); qa('[data-search-close]').forEach(b=>b.addEventListener('click',closeSearch));
-  input&&input.addEventListener('input',()=>renderSearch(input.value));
-  document.addEventListener('keydown',e=>{
-    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSearch();}
-    if(e.key==='Escape'&&dialog&&!dialog.hidden){closeSearch();}
-    if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&document.activeElement?.tagName!=='INPUT'&&document.activeElement?.tagName!=='TEXTAREA'){e.preventDefault();openSearch();}
-  });
-
+  const resultLinks=()=>results?qa('a.search-result',results):[];let searchTimer=null;
+  qa('[data-search-open]').forEach(b=>b.addEventListener('click',openSearch));qa('[data-search-close]').forEach(b=>b.addEventListener('click',closeSearch));input&&input.addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>runSearch().catch(()=>{}),90);});
+  document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSearch();}if(e.key==='Escape'&&dialog&&!dialog.hidden){e.preventDefault();closeSearch();}if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&document.activeElement?.tagName!=='INPUT'&&document.activeElement?.tagName!=='TEXTAREA'){e.preventDefault();openSearch();}if(dialog&&!dialog.hidden&&(e.key==='ArrowDown'||e.key==='ArrowUp')){const links=resultLinks();if(!links.length)return;e.preventDefault();const current=links.indexOf(document.activeElement),delta=e.key==='ArrowDown'?1:-1,next=current<0?(delta>0?0:links.length-1):(current+delta+links.length)%links.length;links[next].focus();}if(dialog&&!dialog.hidden&&e.key==='Tab'){const focusable=qa('button:not([disabled]),a[href],input:not([disabled])',dialog).filter(el=>el.offsetParent!==null);if(!focusable.length)return;const first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+  // end v23 sharded lazy global search
   const platformButtons=qa('[data-platform-button]'), panels=qa('[data-platform-panel]'), detected=q('[data-platform-detected]');
   if(platformButtons.length){
-    const ua=(navigator.userAgent||'').toLowerCase(); let platform=ua.includes('windows')?'windows':ua.includes('linux')&&!ua.includes('android')?'linux':'source';
+    const ua=(navigator.userAgent||'').toLowerCase(); let platform=ua.includes('windows')?'windows':ua.includes('linux')&&!ua.includes('android')?'linux':'other';
     const select=name=>{platformButtons.forEach(b=>b.classList.toggle('active',b.dataset.platformButton===name));panels.forEach(p=>p.hidden=p.dataset.platformPanel!==name);};
     platformButtons.forEach(b=>b.addEventListener('click',()=>select(b.dataset.platformButton)));
-    select(platform); if(detected)detected.textContent=platform==='windows'?'Windows detected':platform==='linux'?'Linux detected':'Source path selected';
+    select(platform); if(detected)detected.textContent=platform==='windows'?'Windows detected':platform==='linux'?'Linux detected':'Other host selected';
   }
 
   const pkgSearch=q('[data-package-search]'), pkgButtons=qa('[data-package-filter]'), pkgItems=qa('[data-package]'), pkgCount=q('[data-package-count]'), pkgEmpty=q('[data-package-empty]');

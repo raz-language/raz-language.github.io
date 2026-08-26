@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Frontend, HIR, MIR, and pipeline structure">
+  <meta name="theme-color" content="#0b1018">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Raz">
+  <meta property="og:title" content="Architecture — Raz documentation">
+  <meta property="og:description" content="Frontend, HIR, MIR, and pipeline structure">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Architecture — Raz documentation">
+  <meta name="twitter:description" content="Frontend, HIR, MIR, and pipeline structure">
+  <title>Architecture — Raz documentation</title>
+  <link rel="icon" href="../../../../assets/favicon.png" type="image/png">
+  <link rel="manifest" href="../../../../site.webmanifest">
+  <link rel="stylesheet" href="../../../../assets/styles.css?v=765ceafd9920">
+  <script>window.RAZ_BASE="../";</script>
+  <script src="../../../../assets/site.js?v=b66e3676da9e" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz","codeRepository":"https://github.com/raz-language/raz","license":"https://www.apache.org/licenses/LICENSE-2.0","description":"A systems programming language for native software that has to be fast, safe, and predictable."}</script>
+  <meta name="raz-doc-version" content="1.0-snapshot">
+  <link rel="canonical" href="https://raz-language.github.io/docs/reference/architecture/">
+  <meta property="og:url" content="https://raz-language.github.io/docs/reference/architecture/">
+  <meta property="og:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
+  <meta property="og:image:type" content="image/png" data-v12-social="true">
+  <meta property="og:image:width" content="1200" data-v12-social="true">
+  <meta property="og:image:height" content="630" data-v12-social="true">
+  <meta property="og:image:alt" content="Raz — Fast. Safe. Predictable." data-v12-social="true">
+  <meta property="og:locale" content="en_US" data-v12-social="true">
+  <meta name="twitter:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
+  <meta name="robots" content="noindex,follow">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-inner">
+      <a class="brand" href="../../../../index.html" aria-label="Raz home">
+        <img src="../../../../assets/raz-mark-128.png" alt="" width="38" height="38">
+        <span>Raz</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-links"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
+      <nav class="primary-links" id="primary-links" aria-label="Primary navigation">
+        <a href="../../../../learn/index.html">Learn</a>
+        <a href="../../index.html" aria-current="page">Docs</a>
+        <a href="../../../../packages/index.html">Packages</a>
+        <a href="../../../../tools/index.html">Tools</a>
+        <a href="../../../../community/index.html">Community</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="Search site"><span aria-hidden="true">⌕</span><span class="search-label">Search</span><kbd>Ctrl K</kbd></button>
+        <a class="github-link" href="https://github.com/raz-language" target="_blank" rel="noopener" aria-label="Raz on GitHub">GitHub ↗</a>
+        <a class="button button-primary button-small" href="../../../../install/index.html">Get Raz</a>
+      </div>
+    </div>
+  </header>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="search-backdrop" data-search-close></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search Raz website">
+      <div class="search-box"><span aria-hidden="true">⌕</span><input type="search" data-site-search autocomplete="off" spellcheck="false" placeholder="Search Raz…" aria-label="Search Raz website"><kbd>Esc</kbd></div>
+      <div class="search-results" data-search-results role="status" aria-live="polite"></div>
+      <p class="search-hint">Search documentation, installation, packages, tools, and project pages.</p>
+    </section>
+  </div>
+<header class="page-hero doc-reference-hero"><div class="shell narrow"><details class="doc-version-switcher"><summary><span>Raz</span><b>1.0</b><em>snapshot</em></summary><div class="doc-version-menu"><a href="../../../reference/architecture/index.html" class=""><span>Current stable</span><b>1.0</b></a><a href="index.html" class="active"><span>Frozen snapshot</span><b>1.0</b></a></div></details><div class="doc-breadcrumbs"><a href="../../index.html">Docs</a><span>/</span><span>Compiler internals</span></div><p class="kicker">CANONICAL RAZ DOCUMENTATION</p><h1>Architecture</h1><p class="page-lead">Frontend, HIR, MIR, and pipeline structure</p><div class="doc-source-meta"><span>Synced from <code>docs/ARCHITECTURE.md</code></span><a href="https://github.com/raz-language/raz/blob/main/docs/ARCHITECTURE.md">View source ↗</a></div></div></header>
+<main id="main" class="after-hero"><div class="shell doc-reference-layout"><aside class="doc-reference-sidebar"><a class="back-docs" href="../../index.html">← All documentation</a><p>ON THIS PAGE</p><nav aria-label="On this page"><a class="toc-level-2" href="#compilation-pipeline">Compilation pipeline</a><a class="toc-level-2" href="#production-compiler">Production compiler</a><a class="toc-level-2" href="#hir-and-semantic-queries">HIR and semantic queries</a><a class="toc-level-2" href="#mir">MIR</a><a class="toc-level-2" href="#forge-backend">Forge backend</a><a class="toc-level-2" href="#llvm-backend">LLVM backend</a><a class="toc-level-2" href="#runtime-and-standard-library">Runtime and standard library</a><a class="toc-level-2" href="#incremental-compilation">Incremental compilation</a><a class="toc-level-2" href="#determinism">Determinism</a><a class="toc-level-2" href="#native-source-organization">Native source organization</a></nav></aside><article class="doc-reference-content"><p>Raz uses a multi-backend compiler architecture with one language-semantic pipeline. Forge is the default native backend; LLVM is a first-class alternate backend. RXE and WebAssembly are additional code-generation targets.</p>
+<h2 id="compilation-pipeline">Compilation pipeline<a class="heading-anchor" href="#compilation-pipeline" aria-label="Link to this section">#</a></h2>
+<ol>
+<li>load <code>raz.toml</code>, dependencies, and the deterministic module graph;</li>
+<li>lex and parse source modules;</li>
+<li>perform semantic analysis, type checking, ownership and lifetime validation, trait resolution, and generic resolution;</li>
+<li>construct typed HIR;</li>
+<li>lower to backend-neutral MIR and elaborate cleanup/drop behavior;</li>
+<li>verify MIR ownership and control-flow invariants;</li>
+<li>run MIR transformations;</li>
+<li>dispatch to the selected backend; and</li>
+<li>emit or link the requested artifact.</li>
+</ol>
+<p>Backends do not define Raz source-language semantics. Forge, LLVM, RXE, WebAssembly, and the interpreter consume the same semantic and MIR decisions.</p>
+<h2 id="production-compiler">Production compiler<a class="heading-anchor" href="#production-compiler" aria-label="Link to this section">#</a></h2>
+<p>The canonical compiler is implemented in Raz under <code>compiler/src/</code>. Modules are organized by responsibility and compiled through the normal package/module graph. <code>compiler/src/main.rz</code> is the process entry point; parsing, HIR, MIR, backend emission, project loading, package management, formatting, diagnostics, and tooling remain independent modules.</p>
+<p>A compact native host compiler under <code>src/bootstrap/compiler/</code> exists only to construct the production compiler from source. It is compatibility-pinned by <code>tests/data/host-compiler-contract.sha256</code>; language evolution belongs in <code>compiler/src/</code> rather than being duplicated in the host compiler.</p>
+<p>See <a href="../compiler-bootstrap/index.html">Compiler bootstrap</a> and <a href="../compiler-reproducibility/index.html">Compiler reproducibility</a>.</p>
+<h2 id="hir-and-semantic-queries">HIR and semantic queries<a class="heading-anchor" href="#hir-and-semantic-queries" aria-label="Link to this section">#</a></h2>
+<p>HIR carries typed source semantics after parsing and resolution. Compiler semantic services share a Raz-owned query database with canonical request identities, memoization, dependency tracking, cycle detection, fingerprints, and targeted reverse-dependent invalidation.</p>
+<p>Physical modules retain source and exported-interface fingerprints so downstream packages are invalidated only when their relevant semantic inputs change. See <a href="https://github.com/raz-language/raz/blob/main/docs/SEMANTIC-QUERIES.md">Semantic queries</a>.</p>
+<h2 id="mir">MIR<a class="heading-anchor" href="#mir" aria-label="Link to this section">#</a></h2>
+<p>MIR is the verified semantic boundary before execution or backend emission. It owns explicit basic blocks, values, places, storage lifetimes, moves, borrows, drops, and control-flow facts.</p>
+<p>HIR remains authoritative for source-level borrow legality. MIR verification ensures backend consumers cannot observe structurally invalid ownership or lifetime state. Projection-aware metadata distinguishes fields, array elements, enum payloads, and dynamic-index aliases. Stores reinitialize the affected projection; CFG joins conservatively preserve ownership state.</p>
+<p>Transformation passes preserve or explicitly remap instruction identities where required. See <a href="../mir/index.html">MIR</a>.</p>
+<h2 id="forge-backend">Forge backend<a class="heading-anchor" href="#forge-backend" aria-label="Link to this section">#</a></h2>
+<p>Forge lives under <code>src/forge/</code> and is the default native backend. It owns:</p>
+<ul>
+<li>typed SSA verification;</li>
+<li>optimization;</li>
+<li>machine IR;</li>
+<li>ABI lowering;</li>
+<li>register allocation;</li>
+<li>instruction encoding;</li>
+<li>JIT infrastructure; and</li>
+<li>deterministic ELF/COFF object generation.</li>
+</ul>
+<p>The Raz compiler integrates Forge in-process through the audited <code>raz_forge_bridge</code> boundary. Structured Forge APIs carry scalar and aggregate values, globals, functions, blocks, target features, source ranges, alignment, attributes, and optimization settings without requiring a compiler-sized textual intermediate file.</p>
+<p>Textual Forge IR remains available for diagnostics, inspection, compatibility, and testing.</p>
+<h2 id="llvm-backend">LLVM backend<a class="heading-anchor" href="#llvm-backend" aria-label="Link to this section">#</a></h2>
+<p>The LLVM backend is implemented under <code>compiler/src/backend/llvm/</code> and consumes the same MIR as Forge. It emits LLVM IR and uses the configured LLVM/Clang toolchain for native object or executable production.</p>
+<p>Target triples, CPU/features, optimization, LTO, relocation/code models, visibility, libraries, and linker options are compiler configuration rather than language semantics. LLVM does not silently fall back to Forge.</p>
+<p>See <a href="https://github.com/raz-language/raz/blob/main/docs/BACKENDS.md">Backends</a>.</p>
+<h2 id="runtime-and-standard-library">Runtime and standard library<a class="heading-anchor" href="#runtime-and-standard-library" aria-label="Link to this section">#</a></h2>
+<p><code>src/runtime/</code> is the narrow native boundary for operations that inherently cross the host ABI or operating system. It provides primitives for allocation, raw memory, atomics, threading, clocks, file/process handles, sockets/DNS, TLS, platform queries, and cryptographic engines.</p>
+<p>Higher-level policy lives in Raz under:</p>
+<div class="doc-code" data-language="text"><div class="doc-code-toolbar"><span class="doc-code-label">text</span><button type="button" class="doc-code-copy" data-copy="library/core/     language and low-level foundations
+library/alloc/    allocation-backed data structures
+library/std/      operating-system and application APIs">Copy</button></div><pre><code>library/core/     language and low-level foundations
+library/alloc/    allocation-backed data structures
+library/std/      operating-system and application APIs</code></pre></div>
+<p>The standard library owns channels, task policy, recursive filesystem operations, buffered I/O, HTTP behavior, connection reuse, DNS caching, logging, compression, and other compositional services above the primitive native boundary.</p>
+<p>The native boundary is audited by <code>tests/python/check-native-boundary.py</code>.</p>
+<h2 id="incremental-compilation">Incremental compilation<a class="heading-anchor" href="#incremental-compilation" aria-label="Link to this section">#</a></h2>
+<p>The project driver owns the persistent build module graph, while the production language server keeps unsaved editor documents in memory and analyzes them through the compiler frontend. Module fingerprints incorporate source, imports, target/profile configuration, and relevant dependency interfaces. Unrelated package changes therefore do not force broad recompilation.</p>
+<p>Incremental build metadata tracks semantic, HIR, MIR, backend IR, and final build fingerprints. Native builds emit cached module objects where safe, canonicalize equivalent generated specializations to deterministic owners, and content-address final link inputs so unchanged artifacts are not rewritten unnecessarily.</p>
+<h2 id="determinism">Determinism<a class="heading-anchor" href="#determinism" aria-label="Link to this section">#</a></h2>
+<p>Project discovery, dependency traversal, package interfaces, lockfiles, module ordering, compiler metadata, backend output, and native link inputs are deterministic for equivalent inputs. Release qualification rebuilds the production compiler recursively and requires deterministic convergence.</p>
+<h2 id="native-source-organization">Native source organization<a class="heading-anchor" href="#native-source-organization" aria-label="Link to this section">#</a></h2>
+<p>Native code is split by responsibility rather than file-size targets:</p>
+<div class="doc-code" data-language="text"><div class="doc-code-toolbar"><span class="doc-code-label">text</span><button type="button" class="doc-code-copy" data-copy="src/bootstrap/   host compiler and host-side tool entry points
+src/runtime/     permanent host/ABI runtime primitives
+src/forge/       Forge backend">Copy</button></div><pre><code>src/bootstrap/   host compiler and host-side tool entry points
+src/runtime/     permanent host/ABI runtime primitives
+src/forge/       Forge backend</code></pre></div>
+<p>Private implementation headers under <code>detail/</code> are used when multiple routines intentionally share one translation-unit state model. <code>.inc</code> implementation files are not used.</p><nav class="doc-pager" aria-label="Documentation pagination"><a href="../language-server/index.html"><span>Previous</span><b>← Language server</b></a><a class="next" href="../mir/index.html"><span>Next</span><b>MIR →</b></a></nav></article></div></main><footer class="site-footer">
+    <div class="shell footer-main">
+      <div class="footer-intro"><a class="footer-wordmark" href="../../../../index.html">Raz</a><p>Fast, safe, predictable systems programming with a visible cost model.</p></div>
+      <div><h2>Learn</h2><a href="../../../../learn/index.html">Getting started</a><a href="../../index.html">Documentation</a><a href="../../../../packages/index.html">Packages</a><a href="../../../../install/index.html">Install</a></div>
+      <div><h2>Reference</h2><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SPECIFICATION.md">Specification ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY.md">Standard library ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/CLI.md">CLI reference ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/PLATFORM-SUPPORT.md">Platforms ↗</a></div>
+      <div><h2>Project</h2><a href="https://github.com/raz-language">GitHub ↗</a><a href="https://github.com/raz-language/raz/blob/main/CONTRIBUTING.md">Contributing ↗</a><a href="https://github.com/raz-language/raz/blob/main/SECURITY.md">Security ↗</a><a <a data-project-release-link href="../../../../releases/index.html">Releases</a><a data-project-news-link href="../../../../news/index.html">News</a>href="../../../../status/index.html">Status</a><a href="https://github.com/raz-language/raz/blob/main/LICENSE">Apache-2.0 ↗</a></div>
+    </div>
+    <div class="shell footer-meta"><span>Raz 1.0 stable</span><span>Built in the open</span><span>© 2026 Raz Project</span></div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="15 public items in the Raz alloc::arena module.">
+  <meta name="theme-color" content="#0b1018">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Raz">
+  <meta property="og:title" content="alloc::arena — Raz standard library">
+  <meta property="og:description" content="15 public items in the Raz alloc::arena module.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="alloc::arena — Raz standard library">
+  <meta name="twitter:description" content="15 public items in the Raz alloc::arena module.">
+  <title>alloc::arena — Raz standard library</title>
+  <link rel="icon" href="../../../../../assets/favicon.png" type="image/png">
+  <link rel="manifest" href="../../../../../site.webmanifest">
+  <link rel="stylesheet" href="../../../../../assets/styles.css?v=765ceafd9920">
+  <script>window.RAZ_BASE="../";</script>
+  <script src="../../../../../assets/site.js?v=b66e3676da9e" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz","codeRepository":"https://github.com/raz-language/raz","license":"https://www.apache.org/licenses/LICENSE-2.0","description":"A systems programming language for native software that has to be fast, safe, and predictable."}</script>
+  <meta name="raz-doc-version" content="1.0-snapshot">
+  <link rel="canonical" href="https://raz-language.github.io/docs/stdlib/alloc/arena/">
+  <meta property="og:url" content="https://raz-language.github.io/docs/stdlib/alloc/arena/">
+  <meta property="og:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
+  <meta property="og:image:type" content="image/png" data-v12-social="true">
+  <meta property="og:image:width" content="1200" data-v12-social="true">
+  <meta property="og:image:height" content="630" data-v12-social="true">
+  <meta property="og:image:alt" content="Raz — Fast. Safe. Predictable." data-v12-social="true">
+  <meta property="og:locale" content="en_US" data-v12-social="true">
+  <meta name="twitter:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
+  <meta name="robots" content="noindex,follow">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-inner">
+      <a class="brand" href="../../../../../index.html" aria-label="Raz home">
+        <img src="../../../../../assets/raz-mark-128.png" alt="" width="38" height="38">
+        <span>Raz</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-links"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
+      <nav class="primary-links" id="primary-links" aria-label="Primary navigation">
+        <a href="../../../../../learn/index.html">Learn</a>
+        <a href="../../../index.html" aria-current="page">Docs</a>
+        <a href="../../../../../packages/index.html">Packages</a>
+        <a href="../../../../../tools/index.html">Tools</a>
+        <a href="../../../../../community/index.html">Community</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="Search site"><span aria-hidden="true">⌕</span><span class="search-label">Search</span><kbd>Ctrl K</kbd></button>
+        <a class="github-link" href="https://github.com/raz-language" target="_blank" rel="noopener" aria-label="Raz on GitHub">GitHub ↗</a>
+        <a class="button button-primary button-small" href="../../../../../install/index.html">Get Raz</a>
+      </div>
+    </div>
+  </header>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="search-backdrop" data-search-close></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search Raz website">
+      <div class="search-box"><span aria-hidden="true">⌕</span><input type="search" data-site-search autocomplete="off" spellcheck="false" placeholder="Search Raz…" aria-label="Search Raz website"><kbd>Esc</kbd></div>
+      <div class="search-results" data-search-results role="status" aria-live="polite"></div>
+      <p class="search-hint">Search documentation, installation, packages, tools, and project pages.</p>
+    </section>
+  </div>
+<header class="page-hero api-module-hero"><div class="shell narrow"><details class="doc-version-switcher"><summary><span>Raz</span><b>1.0</b><em>snapshot</em></summary><div class="doc-version-menu"><a href="../../../../stdlib/alloc/arena/index.html" class=""><span>Current stable</span><b>1.0</b></a><a href="index.html" class="active"><span>Frozen snapshot</span><b>1.0</b></a></div></details><div class="doc-breadcrumbs"><a href="../../index.html">Standard library</a><span>/</span><span>alloc::arena</span></div><p class="kicker">ALLOC · MODULE</p><h1><code>alloc::arena</code></h1><p class="page-lead">15 public items in the Raz alloc::arena module.</p><div class="button-row"><a class="button button-primary" href="https://github.com/raz-language/raz/blob/main/library/alloc/arena/arena.rz">Source ↗</a><a class="button button-secondary" href="../../index.html">All modules</a></div></div></header>
+<main id="main" class="after-hero"><section class="section section-white"><div class="shell"><div class="api-module-stats"><div><b>15</b><span>public items</span></div><div><b>15</b><span>documented here</span></div><div><b>alloc</b><span>library layer</span></div></div><div class="api-source-path"><span>Source</span><code>library/alloc/arena/arena.rz</code></div><div class="reference-toolbar api-local-search"><label><span class="sr-only">Search this module</span><input type="search" placeholder="Search alloc::arena…" data-stdlib-item-search></label><span data-stdlib-item-count role="status" aria-live="polite">15 documented items</span></div><div data-stdlib-item-groups><section class="api-group"><div class="api-group-title"><h2>Types</h2><span>1 item</span></div><div class="api-item-list"><a class="api-item-row" href="struct/bumparena/index.html" data-stdlib-api-item data-search="bumparena struct bumparena struct  "><span class="api-kind">struct</span><div><code class="language-raz">struct BumpArena</code></div><b>→</b></a></div></section><section class="api-group"><div class="api-group-title"><h2>Functions</h2><span>13 items</span></div><div class="api-item-list"><a class="api-item-row" href="function/create-aligned/index.html" data-stdlib-api-item data-search="create_aligned fn create_aligned(i64 capacity, i64 max_alignment) -&gt; bumparena function  "><span class="api-kind">function</span><div><code class="language-raz">fn create_aligned(i64 capacity, i64 max_alignment) -&gt; BumpArena</code></div><b>→</b></a><a class="api-item-row" href="function/create/index.html" data-stdlib-api-item data-search="create fn create(i64 capacity) -&gt; bumparena function  creates an arena suitable for ordinary cacheline-aligned data structures."><span class="api-kind">function</span><div><code class="language-raz">fn create(i64 capacity) -&gt; BumpArena</code><p>Creates an arena suitable for ordinary cacheline-aligned data structures.</p></div><b>→</b></a><a class="api-item-row" href="function/valid/index.html" data-stdlib-api-item data-search="valid fn valid(bumparena&amp; arena) -&gt; bool function  "><span class="api-kind">function</span><div><code class="language-raz">fn valid(BumpArena&amp; arena) -&gt; bool</code></div><b>→</b></a><a class="api-item-row" href="function/capacity/index.html" data-stdlib-api-item data-search="capacity fn capacity(bumparena&amp; arena) -&gt; i64 function  "><span class="api-kind">function</span><div><code class="language-raz">fn capacity(BumpArena&amp; arena) -&gt; i64</code></div><b>→</b></a><a class="api-item-row" href="function/used/index.html" data-stdlib-api-item data-search="used fn used(bumparena&amp; arena) -&gt; i64 function  "><span class="api-kind">function</span><div><code class="language-raz">fn used(BumpArena&amp; arena) -&gt; i64</code></div><b>→</b></a><a class="api-item-row" href="function/remaining/index.html" data-stdlib-api-item data-search="remaining fn remaining(bumparena&amp; arena) -&gt; i64 function  "><span class="api-kind">function</span><div><code class="language-raz">fn remaining(BumpArena&amp; arena) -&gt; i64</code></div><b>→</b></a><a class="api-item-row" href="function/allocate/index.html" data-stdlib-api-item data-search="allocate fn allocate(bumparena&amp;mut arena, i64 size, i64 alignment) -&gt; usize function  "><span class="api-kind">function</span><div><code class="language-raz">fn allocate(BumpArena&amp;mut arena, i64 size, i64 alignment) -&gt; usize</code></div><b>→</b></a><a class="api-item-row" href="function/allocate-zeroed/index.html" data-stdlib-api-item data-search="allocate_zeroed fn allocate_zeroed(bumparena&amp;mut arena, i64 size, i64 alignment) -&gt; usize function  "><span class="api-kind">function</span><div><code class="language-raz">fn allocate_zeroed(BumpArena&amp;mut arena, i64 size, i64 alignment) -&gt; usize</code></div><b>→</b></a><a class="api-item-row" href="function/mark/index.html" data-stdlib-api-item data-search="mark fn mark(bumparena&amp; arena) -&gt; i64 function  captures a cheap stack-like checkpoint for scoped scratch allocations."><span class="api-kind">function</span><div><code class="language-raz">fn mark(BumpArena&amp; arena) -&gt; i64</code><p>Captures a cheap stack-like checkpoint for scoped scratch allocations.</p></div><b>→</b></a><a class="api-item-row" href="function/rewind/index.html" data-stdlib-api-item data-search="rewind fn rewind(bumparena&amp;mut arena, i64 checkpoint) -&gt; bool function  releases every allocation made after the checkpoint in o(1)."><span class="api-kind">function</span><div><code class="language-raz">fn rewind(BumpArena&amp;mut arena, i64 checkpoint) -&gt; bool</code><p>Releases every allocation made after the checkpoint in O(1).</p></div><b>→</b></a><a class="api-item-row" href="function/reset/index.html" data-stdlib-api-item data-search="reset fn reset(bumparena&amp;mut arena) function  releases all arena allocations in o(1) while retaining the backing block."><span class="api-kind">function</span><div><code class="language-raz">fn reset(BumpArena&amp;mut arena)</code><p>Releases all arena allocations in O(1) while retaining the backing block.</p></div><b>→</b></a><a class="api-item-row" href="function/contains/index.html" data-stdlib-api-item data-search="contains fn contains(bumparena&amp; arena, usize pointer) -&gt; bool function  "><span class="api-kind">function</span><div><code class="language-raz">fn contains(BumpArena&amp; arena, usize pointer) -&gt; bool</code></div><b>→</b></a><a class="api-item-row" href="function/destroy/index.html" data-stdlib-api-item data-search="destroy fn destroy(bumparena&amp;mut arena) function  "><span class="api-kind">function</span><div><code class="language-raz">fn destroy(BumpArena&amp;mut arena)</code></div><b>→</b></a></div></section><section class="api-group"><div class="api-group-title"><h2>Methods on `BumpArena : Drop`</h2><span>1 item</span></div><div class="api-item-list"><a class="api-item-row" href="method/bumparena-drop/drop/index.html" data-stdlib-api-item data-search="drop fn drop(bumparena&amp;mut self) method bumparena : drop "><span class="api-kind">method</span><div><code class="language-raz">fn drop(BumpArena&amp;mut self)</code></div><b>→</b></a></div></section></div><div class="empty-state" data-stdlib-item-empty hidden>No items match that search.</div></div></section></main><footer class="site-footer">
+    <div class="shell footer-main">
+      <div class="footer-intro"><a class="footer-wordmark" href="../../../../../index.html">Raz</a><p>Fast, safe, predictable systems programming with a visible cost model.</p></div>
+      <div><h2>Learn</h2><a href="../../../../../learn/index.html">Getting started</a><a href="../../../index.html">Documentation</a><a href="../../../../../packages/index.html">Packages</a><a href="../../../../../install/index.html">Install</a></div>
+      <div><h2>Reference</h2><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SPECIFICATION.md">Specification ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY.md">Standard library ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/CLI.md">CLI reference ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/PLATFORM-SUPPORT.md">Platforms ↗</a></div>
+      <div><h2>Project</h2><a href="https://github.com/raz-language">GitHub ↗</a><a href="https://github.com/raz-language/raz/blob/main/CONTRIBUTING.md">Contributing ↗</a><a href="https://github.com/raz-language/raz/blob/main/SECURITY.md">Security ↗</a><a <a data-project-release-link href="../../../../../releases/index.html">Releases</a><a data-project-news-link href="../../../../../news/index.html">News</a>href="../../../../../status/index.html">Status</a><a href="https://github.com/raz-language/raz/blob/main/LICENSE">Apache-2.0 ↗</a></div>
+    </div>
+    <div class="shell footer-meta"><span>Raz 1.0 stable</span><span>Built in the open</span><span>© 2026 Raz Project</span></div>
+  </footer>
+</body>
+</html>

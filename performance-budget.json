@@ -2,11 +2,12 @@
   "limits": {
     "homepage_html_bytes": 65536,
     "largest_public_file_bytes": 1048576,
-    "search_index_js_bytes": 1572864,
+    "search_api_json_bytes": 1572864,
+    "search_core_json_bytes": 524288,
     "site_js_bytes": 65536,
     "staged_site_bytes": 67108864,
     "styles_css_bytes": 131072
   },
-  "notes": "Budgets distinguish per-request performance from total generated documentation corpus size. Handwritten runtime assets and generated search data stay tightly bounded; staged_site_bytes is a 64 MiB corpus-growth guardrail, not a page-load budget. Source-tree scans inspect deployable files only, so repository metadata and build artifacts cannot affect public-site budgets.",
-  "version": 3
+  "notes": "Budgets distinguish per-request performance from total generated documentation corpus size. Handwritten runtime assets and sharded lazy-loaded search data stay tightly bounded; staged_site_bytes is a 64 MiB corpus-growth guardrail, not a page-load budget. Source-tree scans inspect deployable files only, so repository metadata and build artifacts cannot affect public-site budgets.",
+  "version": 5
 }

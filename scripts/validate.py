@@ -324,7 +324,8 @@ def validate_required(root, source_mode, errors):
     public_required = [
         "assets/styles.css",
         "assets/site.js",
-        "assets/search-index.js",
+        "assets/search-core.json",
+        "assets/search-api.json",
         "site.webmanifest",
         "robots.txt",
         "404.html",
@@ -353,7 +354,7 @@ def validate_js(root, errors):
     node = shutil.which("node")
     if not node:
         return False
-    for rel in ["assets/site.js", "assets/search-index.js"]:
+    for rel in ["assets/site.js"]:
         path = root / rel
         if not path.exists():
             continue

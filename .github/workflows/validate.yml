@@ -22,12 +22,26 @@ jobs:
         run: python3 scripts/sync_site.py --offline --check
       - name: Run generator regression tests
         run: python3 scripts/test_sync_regressions.py
+      - name: Check release/news publication
+        run: python3 scripts/test_release_news.py
+      - name: Check official release distribution
+        run: python3 scripts/test_release_distribution.py
       - name: Check package search contract
         run: python3 scripts/test_package_search.py
+      - name: Check versioned documentation snapshots
+        run: python3 scripts/test_versioned_docs.py
+      - name: Check package product UX
+        run: python3 scripts/test_package_product_ux.py
+      - name: Check lazy global search
+        run: python3 scripts/test_lazy_search.py
       - name: Check browser asset cache keys
         run: python3 scripts/test_asset_cache_busting.py
       - name: Check generated performance budget regression
         run: python3 scripts/test_performance_budget_generation.py
+      - name: Check accessibility contract
+        run: python3 scripts/test_accessibility_contract.py
+      - name: Check production metadata
+        run: python3 scripts/test_production_metadata.py
       - name: Validate source tree
         run: python3 scripts/validate.py
       - name: Check performance budgets

@@ -1,12 +1,81 @@
 {
   "binary_releases": {
-    "count": 0,
-    "latest": null,
+    "count": 1,
+    "latest": {
+      "assets": [
+        {
+          "content_type": "application/x-gzip",
+          "digest": "sha256:2f5096484daadd874a822d3bc5060d89ce0698b362b38466753f8456c576b95d",
+          "name": "raz-1.0.0-linux-x86_64.tar.gz",
+          "size": 11041377,
+          "url": "https://github.com/raz-language/raz/releases/download/v1.0.0/raz-1.0.0-linux-x86_64.tar.gz"
+        },
+        {
+          "content_type": "application/octet-stream",
+          "digest": "sha256:206b23f6a251ce79eefa4b2d85cc3e0972a7237eb840fe45318f8283a65e7103",
+          "name": "raz-1.0.0-linux-x86_64.tar.gz.sha256",
+          "size": 96,
+          "url": "https://github.com/raz-language/raz/releases/download/v1.0.0/raz-1.0.0-linux-x86_64.tar.gz.sha256"
+        },
+        {
+          "content_type": "application/octet-stream",
+          "digest": "sha256:3d3c7cafba2a8d0ca4364cce15db95a90d6241504385b8b32552adaa7b147ce6",
+          "name": "raz-1.0.0-windows-x64.msi",
+          "size": 3427262,
+          "url": "https://github.com/raz-language/raz/releases/download/v1.0.0/raz-1.0.0-windows-x64.msi"
+        },
+        {
+          "content_type": "application/octet-stream",
+          "digest": "sha256:2fee3156aaf4dbfec931f1498ca012df88ff2f621c7916ff6d6f31f0638fd4e3",
+          "name": "raz-1.0.0-windows-x64.msi.sha256",
+          "size": 92,
+          "url": "https://github.com/raz-language/raz/releases/download/v1.0.0/raz-1.0.0-windows-x64.msi.sha256"
+        },
+        {
+          "content_type": "application/x-zip-compressed",
+          "digest": "sha256:0256f7593782dd427717e189e6ae751d5dc10f00c067bca3773ac8da6ff6e514",
+          "name": "raz-1.0.0-windows-x86_64.zip",
+          "size": 10693431,
+          "url": "https://github.com/raz-language/raz/releases/download/v1.0.0/raz-1.0.0-windows-x86_64.zip"
+        },
+        {
+          "content_type": "application/octet-stream",
+          "digest": "sha256:179204f0e339478cbfbca5768504e9d9577d46df79aab4c965af6d2dfb65232b",
+          "name": "raz-1.0.0-windows-x86_64.zip.sha256",
+          "size": 95,
+          "url": "https://github.com/raz-language/raz/releases/download/v1.0.0/raz-1.0.0-windows-x86_64.zip.sha256"
+        },
+        {
+          "content_type": "text/markdown",
+          "digest": "sha256:4156dd46b2243b378cf855db701e9d39acc2affff770e5bf4b9e789ca6c8d736",
+          "name": "RELEASE-NOTES.md",
+          "size": 973,
+          "url": "https://github.com/raz-language/raz/releases/download/v1.0.0/RELEASE-NOTES.md"
+        },
+        {
+          "content_type": "application/octet-stream",
+          "digest": null,
+          "name": "SHA256SUMS",
+          "size": 457,
+          "url": "https://github.com/raz-language/raz/releases/download/v1.0.0/SHA256SUMS"
+        }
+      ],
+      "name": "v1.0.0",
+      "prerelease": false,
+      "published_at": "2026-08-24T20:18:50Z",
+      "tag": "v1.0.0",
+      "url": "https://github.com/raz-language/raz/releases/tag/v1.0.0"
+    },
     "nightly": {
       "status": "pending",
       "version": "1.0.0"
     },
-    "published": false
+    "published": true,
+    "source": {
+      "api": "https://api.github.com/repos/raz-language/raz/releases",
+      "repository": "raz-language/raz",
+      "url": "https://github.com/raz-language/raz/releases"
+    }
   },
   "language": {
     "stability": "stable",

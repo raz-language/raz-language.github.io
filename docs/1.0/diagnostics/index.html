@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search stable Raz compiler diagnostic codes by category and message.">
+  <meta name="theme-color" content="#0b1018">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Raz">
+  <meta property="og:title" content="Diagnostics — Raz documentation">
+  <meta property="og:description" content="Search stable Raz compiler diagnostic codes by category and message.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Diagnostics — Raz documentation">
+  <meta name="twitter:description" content="Search stable Raz compiler diagnostic codes by category and message.">
+  <title>Diagnostics — Raz documentation</title>
+  <link rel="icon" href="../../../assets/favicon.png" type="image/png">
+  <link rel="manifest" href="../../../site.webmanifest">
+  <link rel="stylesheet" href="../../../assets/styles.css?v=765ceafd9920">
+  <script>window.RAZ_BASE="../";</script>
+  <script src="../../../assets/site.js?v=b66e3676da9e" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz","codeRepository":"https://github.com/raz-language/raz","license":"https://www.apache.org/licenses/LICENSE-2.0","description":"A systems programming language for native software that has to be fast, safe, and predictable."}</script>
+  <meta name="raz-doc-version" content="1.0-snapshot">
+  <link rel="canonical" href="https://raz-language.github.io/docs/diagnostics/">
+  <meta property="og:url" content="https://raz-language.github.io/docs/diagnostics/">
+  <meta property="og:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
+  <meta property="og:image:type" content="image/png" data-v12-social="true">
+  <meta property="og:image:width" content="1200" data-v12-social="true">
+  <meta property="og:image:height" content="630" data-v12-social="true">
+  <meta property="og:image:alt" content="Raz — Fast. Safe. Predictable." data-v12-social="true">
+  <meta property="og:locale" content="en_US" data-v12-social="true">
+  <meta name="twitter:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
+  <meta name="robots" content="noindex,follow">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-inner">
+      <a class="brand" href="../../../index.html" aria-label="Raz home">
+        <img src="../../../assets/raz-mark-128.png" alt="" width="38" height="38">
+        <span>Raz</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-links"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
+      <nav class="primary-links" id="primary-links" aria-label="Primary navigation">
+        <a href="../../../learn/index.html">Learn</a>
+        <a href="../index.html" aria-current="page">Docs</a>
+        <a href="../../../packages/index.html">Packages</a>
+        <a href="../../../tools/index.html">Tools</a>
+        <a href="../../../community/index.html">Community</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="Search site"><span aria-hidden="true">⌕</span><span class="search-label">Search</span><kbd>Ctrl K</kbd></button>
+        <a class="github-link" href="https://github.com/raz-language" target="_blank" rel="noopener" aria-label="Raz on GitHub">GitHub ↗</a>
+        <a class="button button-primary button-small" href="../../../install/index.html">Get Raz</a>
+      </div>
+    </div>
+  </header>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="search-backdrop" data-search-close></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search Raz website">
+      <div class="search-box"><span aria-hidden="true">⌕</span><input type="search" data-site-search autocomplete="off" spellcheck="false" placeholder="Search Raz…" aria-label="Search Raz website"><kbd>Esc</kbd></div>
+      <div class="search-results" data-search-results role="status" aria-live="polite"></div>
+      <p class="search-hint">Search documentation, installation, packages, tools, and project pages.</p>
+    </section>
+  </div>
+<header class="page-hero"><div class="shell narrow"><details class="doc-version-switcher"><summary><span>Raz</span><b>1.0</b><em>snapshot</em></summary><div class="doc-version-menu"><a href="../../diagnostics/index.html" class=""><span>Current stable</span><b>1.0</b></a><a href="index.html" class="active"><span>Frozen snapshot</span><b>1.0</b></a></div></details><div class="doc-breadcrumbs"><a href="../index.html">Docs</a><span>/</span><span>Diagnostics</span></div><p class="kicker">COMPILER DIAGNOSTICS</p><h1>Find an error by stable diagnostic code.</h1><p class="page-lead">Raz diagnostic codes keep their meaning even when message wording improves, making errors searchable and suitable for warning policy.</p><div class="button-row"><a class="button button-primary" href="https://github.com/raz-language/raz/blob/main/docs/DIAGNOSTIC-INDEX.md">Canonical index ↗</a><a class="button button-secondary" href="https://github.com/raz-language/raz/blob/main/docs/CLI.md#diagnostics">CLI diagnostics ↗</a></div></div></header>
+<main id="main" class="after-hero"><section class="section section-white"><div class="shell"><div class="reference-toolbar"><label><span class="sr-only">Search diagnostics</span><input type="search" placeholder="Search D2054, borrow, trait…" data-diagnostic-search></label><div class="reference-filters" aria-label="Filter diagnostics"><button type="button" class="active" data-diagnostic-filter="all">All</button><button type="button" data-diagnostic-filter="lexer">Lexer</button><button type="button" data-diagnostic-filter="parser">Parser</button><button type="button" data-diagnostic-filter="semantic">Semantic</button><button type="button" data-diagnostic-filter="lowering">Lowering</button><button type="button" data-diagnostic-filter="backend">Backend</button></div></div><div class="reference-summary"><div><b data-diagnostic-count role="status" aria-live="polite">40</b><span>diagnostics in this snapshot</span></div><div><b>5</b><span>stable categories</span></div><div><b>Offline seed; full catalog syncs during refresh</b><span>source state</span></div></div><div class="diagnostic-list"><article class="diagnostic-row" id="d0001" data-diagnostic data-category="lexer" data-search="d0001 lexer unterminated block comment">
+          <a class="diagnostic-code" href="#d0001">D0001</a>
+          <span class="diagnostic-category">lexer</span>
+          <p>unterminated block comment</p>
+        </article><article class="diagnostic-row" id="d0004" data-diagnostic data-category="lexer" data-search="d0004 lexer unterminated string literal">
+          <a class="diagnostic-code" href="#d0004">D0004</a>
+          <span class="diagnostic-category">lexer</span>
+          <p>unterminated string literal</p>
+        </article><article class="diagnostic-row" id="d0006" data-diagnostic data-category="lexer" data-search="d0006 lexer character literal must contain exactly one character">
+          <a class="diagnostic-code" href="#d0006">D0006</a>
+          <span class="diagnostic-category">lexer</span>
+          <p>character literal must contain exactly one character</p>
+        </article><article class="diagnostic-row" id="d0007" data-diagnostic data-category="lexer" data-search="d0007 lexer unexpected character in source file">
+          <a class="diagnostic-code" href="#d0007">D0007</a>
+          <span class="diagnostic-category">lexer</span>
+          <p>unexpected character in source file</p>
+        </article><article class="diagnostic-row" id="d1001" data-diagnostic data-category="parser" data-search="d1001 parser expected &lt;...&gt; (message names the construct the parser required)">
+          <a class="diagnostic-code" href="#d1001">D1001</a>
+          <span class="diagnostic-category">parser</span>
+          <p>expected &lt;...&gt; (message names the construct the parser required)</p>
+        </article><article class="diagnostic-row" id="d2001" data-diagnostic data-category="semantic" data-search="d2001 semantic duplicate top-level declaration &#x27;&lt;...&gt;&#x27;">
+          <a class="diagnostic-code" href="#d2001">D2001</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>duplicate top-level declaration &#x27;&lt;...&gt;&#x27;</p>
+        </article><article class="diagnostic-row" id="d2005" data-diagnostic data-category="semantic" data-search="d2005 semantic cannot initialize &#x27;&lt;...&gt;&#x27; with &#x27;&lt;...&gt;&#x27;">
+          <a class="diagnostic-code" href="#d2005">D2005</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>cannot initialize &#x27;&lt;...&gt;&#x27; with &#x27;&lt;...&gt;&#x27;</p>
+        </article><article class="diagnostic-row" id="d2007" data-diagnostic data-category="semantic" data-search="d2007 semantic condition must have type &#x27;bool&#x27;">
+          <a class="diagnostic-code" href="#d2007">D2007</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>condition must have type &#x27;bool&#x27;</p>
+        </article><article class="diagnostic-row" id="d2008" data-diagnostic data-category="semantic" data-search="d2008 semantic unknown name &#x27;&lt;...&gt;&#x27;">
+          <a class="diagnostic-code" href="#d2008">D2008</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>unknown name &#x27;&lt;...&gt;&#x27;</p>
+        </article><article class="diagnostic-row" id="d2009" data-diagnostic data-category="semantic" data-search="d2009 semantic binary operands have incompatible types &#x27;&lt;...&gt;&#x27; and &#x27;&lt;...&gt;&#x27;">
+          <a class="diagnostic-code" href="#d2009">D2009</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>binary operands have incompatible types &#x27;&lt;...&gt;&#x27; and &#x27;&lt;...&gt;&#x27;</p>
+        </article><article class="diagnostic-row" id="d2011" data-diagnostic data-category="semantic" data-search="d2011 semantic unknown function &#x27;&lt;...&gt;&#x27;">
+          <a class="diagnostic-code" href="#d2011">D2011</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>unknown function &#x27;&lt;...&gt;&#x27;</p>
+        </article><article class="diagnostic-row" id="d2038" data-diagnostic data-category="semantic" data-search="d2038 semantic non-exhaustive match; missing variant &#x27;&lt;...&gt;.&lt;...&gt;&#x27;">
+          <a class="diagnostic-code" href="#d2038">D2038</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>non-exhaustive match; missing variant &#x27;&lt;...&gt;.&lt;...&gt;&#x27;</p>
+        </article><article class="diagnostic-row" id="d2047" data-diagnostic data-category="semantic" data-search="d2047 semantic the &#x27;?&#x27; operator requires result&lt;t,e&gt; or option&lt;t&gt;">
+          <a class="diagnostic-code" href="#d2047">D2047</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>the &#x27;?&#x27; operator requires Result&lt;T,E&gt; or Option&lt;T&gt;</p>
+        </article><article class="diagnostic-row" id="d2050" data-diagnostic data-category="semantic" data-search="d2050 semantic deferred code cannot contain return, break, or continue">
+          <a class="diagnostic-code" href="#d2050">D2050</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>deferred code cannot contain return, break, or continue</p>
+        </article><article class="diagnostic-row" id="d2052" data-diagnostic data-category="semantic" data-search="d2052 semantic moving copy value &#x27;&lt;...&gt;&#x27; is equivalent to copying it">
+          <a class="diagnostic-code" href="#d2052">D2052</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>moving Copy value &#x27;&lt;...&gt;&#x27; is equivalent to copying it</p>
+        </article><article class="diagnostic-row" id="d2053" data-diagnostic data-category="semantic" data-search="d2053 semantic value &#x27;&lt;...&gt;&#x27; has already been moved">
+          <a class="diagnostic-code" href="#d2053">D2053</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>value &#x27;&lt;...&gt;&#x27; has already been moved</p>
+        </article><article class="diagnostic-row" id="d2054" data-diagnostic data-category="semantic" data-search="d2054 semantic use of moved value &#x27;&lt;...&gt;&#x27;">
+          <a class="diagnostic-code" href="#d2054">D2054</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>use of moved value &#x27;&lt;...&gt;&#x27;</p>
+        </article><article class="diagnostic-row" id="d2055" data-diagnostic data-category="semantic" data-search="d2055 semantic cannot move &#x27;&lt;...&gt;&#x27; while it is borrowed">
+          <a class="diagnostic-code" href="#d2055">D2055</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>cannot move &#x27;&lt;...&gt;&#x27; while it is borrowed</p>
+        </article><article class="diagnostic-row" id="d2056" data-diagnostic data-category="semantic" data-search="d2056 semantic cannot mutably borrow &#x27;&lt;...&gt;&#x27; while an overlapping borrow is active">
+          <a class="diagnostic-code" href="#d2056">D2056</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>cannot mutably borrow &#x27;&lt;...&gt;&#x27; while an overlapping borrow is active</p>
+        </article><article class="diagnostic-row" id="d2057" data-diagnostic data-category="semantic" data-search="d2057 semantic cannot immutably borrow &#x27;&lt;...&gt;&#x27; while an overlapping mutable borrow is active">
+          <a class="diagnostic-code" href="#d2057">D2057</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>cannot immutably borrow &#x27;&lt;...&gt;&#x27; while an overlapping mutable borrow is active</p>
+        </article><article class="diagnostic-row" id="d2064" data-diagnostic data-category="semantic" data-search="d2064 semantic cannot return a reference to local storage &#x27;&lt;...&gt;&#x27;">
+          <a class="diagnostic-code" href="#d2064">D2064</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>cannot return a reference to local storage &#x27;&lt;...&gt;&#x27;</p>
+        </article><article class="diagnostic-row" id="d2068" data-diagnostic data-category="semantic" data-search="d2068 semantic type &#x27;&lt;...&gt;&#x27; cannot implement both copy and drop">
+          <a class="diagnostic-code" href="#d2068">D2068</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>type &#x27;&lt;...&gt;&#x27; cannot implement both Copy and Drop</p>
+        </article><article class="diagnostic-row" id="d2097" data-diagnostic data-category="semantic" data-search="d2097 semantic type &#x27;&lt;...&gt;&#x27; does not satisfy trait bound &#x27;&lt;...&gt;&#x27;">
+          <a class="diagnostic-code" href="#d2097">D2097</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>type &#x27;&lt;...&gt;&#x27; does not satisfy trait bound &#x27;&lt;...&gt;&#x27;</p>
+        </article><article class="diagnostic-row" id="d2114" data-diagnostic data-category="semantic" data-search="d2114 semantic implementation of &#x27;&lt;...&gt;&#x27; requires supertrait &#x27;&lt;...&gt;&#x27; for &#x27;&lt;...&gt;&#x27;">
+          <a class="diagnostic-code" href="#d2114">D2114</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>implementation of &#x27;&lt;...&gt;&#x27; requires supertrait &#x27;&lt;...&gt;&#x27; for &#x27;&lt;...&gt;&#x27;</p>
+        </article><article class="diagnostic-row" id="d2125" data-diagnostic data-category="semantic" data-search="d2125 semantic fnonce closure &#x27;&lt;...&gt;&#x27; has already been called">
+          <a class="diagnostic-code" href="#d2125">D2125</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>FnOnce closure &#x27;&lt;...&gt;&#x27; has already been called</p>
+        </article><article class="diagnostic-row" id="d2135" data-diagnostic data-category="semantic" data-search="d2135 semantic cannot partially move &#x27;&lt;...&gt;&#x27; because &#x27;&lt;...&gt;&#x27; implements drop">
+          <a class="diagnostic-code" href="#d2135">D2135</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>cannot partially move &#x27;&lt;...&gt;&#x27; because &#x27;&lt;...&gt;&#x27; implements Drop</p>
+        </article><article class="diagnostic-row" id="d2155" data-diagnostic data-category="semantic" data-search="d2155 semantic assignment through a shared slice is not allowed">
+          <a class="diagnostic-code" href="#d2155">D2155</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>assignment through a shared slice is not allowed</p>
+        </article><article class="diagnostic-row" id="d2205" data-diagnostic data-category="semantic" data-search="d2205 semantic division by zero during compile-time evaluation">
+          <a class="diagnostic-code" href="#d2205">D2205</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>division by zero during compile-time evaluation</p>
+        </article><article class="diagnostic-row" id="d2212" data-diagnostic data-category="semantic" data-search="d2212 semantic compile-time assertion failed">
+          <a class="diagnostic-code" href="#d2212">D2212</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>compile-time assertion failed</p>
+        </article><article class="diagnostic-row" id="d2215" data-diagnostic data-category="semantic" data-search="d2215 semantic @no_panic function contains an operation that may panic">
+          <a class="diagnostic-code" href="#d2215">D2215</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>@no_panic function contains an operation that may panic</p>
+        </article><article class="diagnostic-row" id="d2240" data-diagnostic data-category="semantic" data-search="d2240 semantic compile-time execution exceeded 100000 steps">
+          <a class="diagnostic-code" href="#d2240">D2240</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>compile-time execution exceeded 100000 steps</p>
+        </article><article class="diagnostic-row" id="d2286" data-diagnostic data-category="semantic" data-search="d2286 semantic type &#x27;&lt;...&gt;&#x27; does not implement trait &#x27;&lt;...&gt;&#x27;">
+          <a class="diagnostic-code" href="#d2286">D2286</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>type &#x27;&lt;...&gt;&#x27; does not implement trait &#x27;&lt;...&gt;&#x27;</p>
+        </article><article class="diagnostic-row" id="d2289" data-diagnostic data-category="semantic" data-search="d2289 semantic &#x27;as&#x27; requires numeric types or an unsafe raw-pointer cast">
+          <a class="diagnostic-code" href="#d2289">D2289</a>
+          <span class="diagnostic-category">semantic</span>
+          <p>&#x27;as&#x27; requires numeric types or an unsafe raw-pointer cast</p>
+        </article><article class="diagnostic-row" id="d3001" data-diagnostic data-category="lowering" data-search="d3001 lowering function &#x27;&lt;...&gt;&#x27; may exit without returning a value">
+          <a class="diagnostic-code" href="#d3001">D3001</a>
+          <span class="diagnostic-category">lowering</span>
+          <p>function &#x27;&lt;...&gt;&#x27; may exit without returning a value</p>
+        </article><article class="diagnostic-row" id="d3006" data-diagnostic data-category="lowering" data-search="d3006 lowering break used outside a loop">
+          <a class="diagnostic-code" href="#d3006">D3006</a>
+          <span class="diagnostic-category">lowering</span>
+          <p>break used outside a loop</p>
+        </article><article class="diagnostic-row" id="d3007" data-diagnostic data-category="lowering" data-search="d3007 lowering continue used outside a loop">
+          <a class="diagnostic-code" href="#d3007">D3007</a>
+          <span class="diagnostic-category">lowering</span>
+          <p>continue used outside a loop</p>
+        </article><article class="diagnostic-row" id="d3033" data-diagnostic data-category="lowering" data-search="d3033 lowering dynamic trait object lowering requires a reference or compatible object initializer">
+          <a class="diagnostic-code" href="#d3033">D3033</a>
+          <span class="diagnostic-category">lowering</span>
+          <p>dynamic trait object lowering requires a reference or compatible object initializer</p>
+        </article><article class="diagnostic-row" id="d4000" data-diagnostic data-category="backend" data-search="d4000 backend forge ir verification failed: &lt;...&gt;">
+          <a class="diagnostic-code" href="#d4000">D4000</a>
+          <span class="diagnostic-category">backend</span>
+          <p>Forge IR verification failed: &lt;...&gt;</p>
+        </article><article class="diagnostic-row" id="d4004" data-diagnostic data-category="backend" data-search="d4004 backend unsupported numeric cast from &#x27;&lt;...&gt;&#x27; to &#x27;&lt;...&gt;&#x27;">
+          <a class="diagnostic-code" href="#d4004">D4004</a>
+          <span class="diagnostic-category">backend</span>
+          <p>unsupported numeric cast from &#x27;&lt;...&gt;&#x27; to &#x27;&lt;...&gt;&#x27;</p>
+        </article><article class="diagnostic-row" id="d4013" data-diagnostic data-category="backend" data-search="d4013 backend trait method invocation has no typed dispatch abi descriptor">
+          <a class="diagnostic-code" href="#d4013">D4013</a>
+          <span class="diagnostic-category">backend</span>
+          <p>trait method invocation has no typed dispatch ABI descriptor</p>
+        </article></div><div class="empty-state" data-diagnostic-empty hidden>No diagnostics match that search.</div></div></section></main><footer class="site-footer">
+    <div class="shell footer-main">
+      <div class="footer-intro"><a class="footer-wordmark" href="../../../index.html">Raz</a><p>Fast, safe, predictable systems programming with a visible cost model.</p></div>
+      <div><h2>Learn</h2><a href="../../../learn/index.html">Getting started</a><a href="../index.html">Documentation</a><a href="../../../packages/index.html">Packages</a><a href="../../../install/index.html">Install</a></div>
+      <div><h2>Reference</h2><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SPECIFICATION.md">Specification ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY.md">Standard library ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/CLI.md">CLI reference ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/PLATFORM-SUPPORT.md">Platforms ↗</a></div>
+      <div><h2>Project</h2><a href="https://github.com/raz-language">GitHub ↗</a><a href="https://github.com/raz-language/raz/blob/main/CONTRIBUTING.md">Contributing ↗</a><a href="https://github.com/raz-language/raz/blob/main/SECURITY.md">Security ↗</a><a <a data-project-release-link href="../../../releases/index.html">Releases</a><a data-project-news-link href="../../../news/index.html">News</a>href="../../../status/index.html">Status</a><a href="https://github.com/raz-language/raz/blob/main/LICENSE">Apache-2.0 ↗</a></div>
+    </div>
+    <div class="shell footer-meta"><span>Raz 1.0 stable</span><span>Built in the open</span><span>© 2026 Raz Project</span></div>
+  </footer>
+</body>
+</html>

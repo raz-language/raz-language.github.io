@@ -32,12 +32,12 @@ def write_status(site):
     platforms=site.get('platforms',[])
     rows=''.join(f'''<tr><td><code>{esc(p.get('target',''))}</code></td><td>{esc(p.get('host_use',''))}</td><td>{esc(p.get('backend',''))}</td><td>{esc(p.get('abi',''))}</td><td>{esc(p.get('object',''))}</td></tr>''' for p in platforms)
     br=site.get('binary_releases',{}); nightly=br.get('nightly') or {}
-    release_state='Published' if br.get('published') else 'Not yet published'
+    latest=br.get('latest') or {}; latest_label=(latest.get('tag') or latest.get('name') or '').strip(); release_state=latest_label if br.get('published') and latest_label else ('Published' if br.get('published') else 'Not published')
     release_class='status-good' if br.get('published') else 'status-pending'
     nightly_state=str(nightly.get('status') or 'unknown')
     warnings=site.get('source_audit',{}).get('warnings',[])
     warning_html=''.join(f'<li><code>{esc(w.get("code"))}</code><span>{esc(w.get("message"))}</span></li>' for w in warnings) or '<li><span>No source consistency warnings.</span></li>'
-    body=f'''<header class="page-hero"><div class="shell narrow"><div class="doc-breadcrumbs"><a href="../docs/index.html">Docs</a><span>/</span><span>Status</span></div><p class="kicker">QUALIFICATION STATUS</p><h1>What Raz supports today.</h1><p class="page-lead">A generated compatibility view of the stable language contract, qualified native targets, backend selection, and published toolchain availability.</p></div></header><main id="main" class="after-hero"><section class="section section-white"><div class="shell"><div class="status-summary-grid"><article><span>LANGUAGE</span><b>Raz {esc(site.get('language',{}).get('version','1.0'))}</b><p><strong class="status-good">Stable</strong> within the documented 1.x compatibility contract.</p></article><article><span>NATIVE TARGETS</span><b>{len(platforms)}</b><p>Qualified target triples in the current platform-support contract.</p></article><article><span>BINARY RELEASES</span><b>{esc(release_state)}</b><p><strong class="{release_class}">{esc(release_state)}</strong> · nightly channel: {esc(nightly_state)}</p></article><article><span>SOURCE AUDIT</span><b>{len(warnings)}</b><p>Known upstream documentation consistency warning{'' if len(warnings)==1 else 's'}.</p></article></div></div></section><section class="section section-soft"><div class="shell"><div class="section-top compact"><div><p class="kicker">QUALIFIED TARGETS</p><h2>Native platform matrix.</h2></div><p>Backend support is a toolchain qualification contract; it does not change Raz source-language semantics.</p></div><div class="status-table-wrap"><table class="status-table"><thead><tr><th>Target</th><th>Host use</th><th>Backend</th><th>ABI</th><th>Object</th></tr></thead><tbody>{rows}</tbody></table></div><div class="status-note"><b>AArch64 qualification</b><p>LLVM is the release-default native backend on Linux AArch64 and macOS arm64. Forge has experimental AArch64 machine/object support, but recursive bootstrap and remaining backend qualification gaps keep LLVM as the qualified default.</p></div></div></section><section class="section section-white"><div class="shell two-col"><div><p class="kicker">RELEASE AVAILABILITY</p><h2>Language stability and binary publication are separate.</h2><p class="section-copy">Raz 1.0 defines the stable language surface even when prebuilt toolchain artifacts have not yet been published. The installer channel and GitHub release feed remain the source of truth for binaries.</p><div class="button-row"><a class="button button-primary" href="../install/index.html">Install Raz</a><a class="button button-secondary" href="../releases/index.html">Release status</a></div></div><div class="fact-list"><div><b>Language</b><span>1.0 stable</span></div><div><b>Published binary releases</b><span>{esc(br.get('count',0))}</span></div><div><b>Nightly version</b><span>{esc(nightly.get('version','—'))}</span></div><div><b>Nightly status</b><span>{esc(nightly_state)}</span></div></div></div></section><section class="section section-soft"><div class="shell"><div class="section-top compact"><div><p class="kicker">SOURCE CONSISTENCY</p><h2>Known documentation drift.</h2></div><p>The website reports inconsistencies instead of silently rewriting canonical project claims.</p></div><ul class="status-warning-list">{warning_html}</ul></div></section></main>'''
+    body=f'''<header class="page-hero"><div class="shell narrow"><div class="doc-breadcrumbs"><a href="../docs/index.html">Docs</a><span>/</span><span>Status</span></div><p class="kicker">QUALIFICATION STATUS</p><h1>What Raz supports today.</h1><p class="page-lead">A generated compatibility view of the stable language contract, qualified native targets, backend selection, and published toolchain availability.</p></div></header><main id="main" class="after-hero"><section class="section section-white"><div class="shell"><div class="status-summary-grid"><article><span>LANGUAGE</span><b>Raz {esc(site.get('language',{}).get('version','1.0'))}</b><p><strong class="status-good">Stable</strong> within the documented 1.x compatibility contract.</p></article><article><span>NATIVE TARGETS</span><b>{len(platforms)}</b><p>Qualified target triples in the current platform-support contract.</p></article><article><span>BINARY RELEASES</span><b>{esc(release_state)}</b><p><strong class="{release_class}">{esc(release_state)}</strong> · nightly channel: {esc(nightly_state)}</p></article><article><span>SOURCE AUDIT</span><b>{len(warnings)}</b><p>Known upstream documentation consistency warning{'' if len(warnings)==1 else 's'}.</p></article></div></div></section><section class="section section-soft"><div class="shell"><div class="section-top compact"><div><p class="kicker">QUALIFIED TARGETS</p><h2>Native platform matrix.</h2></div><p>Backend support is a toolchain qualification contract; it does not change Raz source-language semantics.</p></div><div class="status-table-wrap"><table class="status-table"><thead><tr><th>Target</th><th>Host use</th><th>Backend</th><th>ABI</th><th>Object</th></tr></thead><tbody>{rows}</tbody></table></div><div class="status-note"><b>AArch64 qualification</b><p>LLVM is the release-default native backend on Linux AArch64 and macOS arm64. Forge has experimental AArch64 machine/object support, but recursive bootstrap and remaining backend qualification gaps keep LLVM as the qualified default.</p></div></div></section><section class="section section-white"><div class="shell two-col"><div><p class="kicker">RELEASE AVAILABILITY</p><h2>Official stable binaries are published.</h2><p class="section-copy">Stable Raz toolchains are synchronized directly from GitHub Releases on <code>raz-language/raz</code>. The current release includes Windows x64 and Linux x86-64 artifacts; nightly channel state is tracked separately.</p><div class="button-row"><a class="button button-primary" href="../install/index.html">Download Raz</a><a class="button button-secondary" href="../releases/index.html">Release details</a></div></div><div class="fact-list"><div><b>Language</b><span>1.0 stable</span></div><div><b>Current stable</b><span>{esc(latest_label or '—')}</span></div><div><b>Published releases</b><span>{esc(br.get('count',0))}</span></div><div><b>Release source</b><span>raz-language/raz</span></div></div></div></section><section class="section section-soft"><div class="shell"><div class="section-top compact"><div><p class="kicker">SOURCE CONSISTENCY</p><h2>Known documentation drift.</h2></div><p>The website reports inconsistencies instead of silently rewriting canonical project claims.</p></div><ul class="status-warning-list">{warning_html}</ul></div></section></main>'''
     page.write_text(pre+body+footer,encoding='utf-8')
     status={
       'language':site.get('language',{}),
@@ -84,8 +84,8 @@ def add_status_links():
         page.write_text(text,encoding='utf-8')
 
 def social_metadata():
-    base=os.getenv('RAZ_SITE_URL','').rstrip('/')
-    image=f'{base}/assets/raz-logo.png' if base else ''
+    base=(os.getenv('RAZ_SITE_URL') or 'https://raz-language.github.io').rstrip('/')
+    image=f'{base}/assets/raz-social.png' if base else ''
     generated_re=re.compile(r'\s*<meta [^>]*data-v12-social="true"[^>]*>')
     for page in ROOT.rglob('*.html'):
         if '_site' in page.parts: continue
@@ -95,7 +95,10 @@ def social_metadata():
         text=text.replace('<meta name="twitter:card" content="summary_large_image">','<meta name="twitter:card" content="summary">')
         if base:
             tags=(f'  <meta property="og:image" content="{esc(image)}" data-v12-social="true">\n'
-                  f'  <meta property="og:image:alt" content="Raz programming language logo" data-v12-social="true">\n'
+                  f'  <meta property="og:image:type" content="image/png" data-v12-social="true">\n'
+                  f'  <meta property="og:image:width" content="1200" data-v12-social="true">\n'
+                  f'  <meta property="og:image:height" content="630" data-v12-social="true">\n'
+                  f'  <meta property="og:image:alt" content="Raz — Fast. Safe. Predictable." data-v12-social="true">\n'
                   f'  <meta property="og:locale" content="en_US" data-v12-social="true">\n'
                   f'  <meta name="twitter:image" content="{esc(image)}" data-v12-social="true">\n')
             text=text.replace('</head>',tags+'</head>',1)
@@ -131,16 +134,17 @@ def write_deploy_files():
 
 def write_performance_budget():
     budget={
-      'version':3,
+      'version':5,
       'limits':{
         'homepage_html_bytes':65536,
         'styles_css_bytes':131072,
         'site_js_bytes':65536,
-        'search_index_js_bytes':1572864,
+        'search_core_json_bytes':524288,
+        'search_api_json_bytes':1572864,
         'largest_public_file_bytes':1048576,
         'staged_site_bytes':67108864
       },
-      'notes':'Budgets distinguish per-request performance from total generated documentation corpus size. Handwritten runtime assets and generated search data stay tightly bounded; staged_site_bytes is a 64 MiB corpus-growth guardrail, not a page-load budget. Source-tree scans inspect deployable files only, so repository metadata and build artifacts cannot affect public-site budgets.'
+      'notes':'Budgets distinguish per-request performance from total generated documentation corpus size. Handwritten runtime assets and sharded lazy-loaded search data stay tightly bounded; staged_site_bytes is a 64 MiB corpus-growth guardrail, not a page-load budget. Source-tree scans inspect deployable files only, so repository metadata and build artifacts cannot affect public-site budgets.'
     }
     (ROOT/'performance-budget.json').write_text(json.dumps(budget,indent=2,sort_keys=True)+'\n')
 

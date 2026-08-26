@@ -29,6 +29,7 @@ GITHUB = "https://github.com/raz-language"
 RAZ = f"{GITHUB}/raz"
 PACKAGES_REPO = f"{GITHUB}/packages"
 INSTALLER = f"{GITHUB}/installer"
+RAZ_RELEASES = f"{RAZ}/releases"
 
 URLS = {
     "packages-search.txt": "https://raw.githubusercontent.com/raz-language/packages/main/search.txt",
@@ -37,7 +38,7 @@ URLS = {
     "platform-support.md": "https://raw.githubusercontent.com/raz-language/raz/main/docs/PLATFORM-SUPPORT.md",
     "security.md": "https://raw.githubusercontent.com/raz-language/raz/main/SECURITY.md",
     "nightly.txt": "https://raw.githubusercontent.com/raz-language/installer/main/channels/nightly.txt",
-    "releases.json": "https://api.github.com/repos/raz-language/installer/releases",
+    "releases.json": "https://api.github.com/repos/raz-language/raz/releases",
     "raz-repo.json": "https://api.github.com/repos/raz-language/raz",
     "package-roadmap.md": "https://raw.githubusercontent.com/raz-language/packages/main/sources/PACKAGES.md",
 }
@@ -65,8 +66,8 @@ BASE_SEARCH = [
     ("Language guide", "Core language model, types, ownership and syntax", "docs/language/index.html", "language ownership borrowing types syntax"),
     ("Toolchain guide", "Projects, CLI, packages, tests and editor tooling", "docs/toolchain/index.html", "cli raz build run test fmt packages lsp"),
     ("Compiler guide", "HIR, MIR, Forge, LLVM, WebAssembly and RXE", "docs/compiler/index.html", "compiler backend forge llvm wasm rxe mir hir"),
-    ("Install Raz", "Install releases or build the toolchain from source", "install/index.html", "install download windows linux razup"),
-    ("Releases", "Published toolchains, channel status and source", "releases/index.html", "release stable nightly downloads checksums"),
+    ("Install Raz", "Download the official Raz toolchain for Windows or Linux", "install/index.html", "install download windows linux msi portable tarball"),
+    ("Releases", "Official Raz toolchain releases, checksums and release notes", "releases/index.html", "release stable nightly downloads checksums windows linux"),
     ("Packages", "Search the official Raz package catalog", "packages/index.html", "packages registry dependencies"),
     ("Tools", "Raz CLI, Forge, ObLink, LSP and C interoperability", "tools/index.html", "tools forge oblink lsp bindgen c-header"),
     ("WebAssembly", "Portable WebAssembly and RXE targets", "web/index.html", "wasm webassembly rxe portable target"),
@@ -335,7 +336,13 @@ def build_data():
             "prerelease": bool(release.get("prerelease")),
             "url": release.get("html_url"),
             "assets": [
-                {"name": asset.get("name"), "size": asset.get("size"), "url": asset.get("browser_download_url")}
+                {
+                    "name": asset.get("name"),
+                    "size": asset.get("size"),
+                    "url": asset.get("browser_download_url"),
+                    "content_type": asset.get("content_type"),
+                    "digest": asset.get("digest"),
+                }
                 for asset in release.get("assets", [])
             ],
         })
@@ -374,7 +381,12 @@ def build_data():
         "binary_releases": {
             "published": bool(releases),
             "count": len(releases),
-            "latest": releases[0] if releases else None,
+            "latest": next((item for item in releases if not item.get("prerelease")), releases[0] if releases else None),
+            "source": {
+                "repository": "raz-language/raz",
+                "url": RAZ_RELEASES,
+                "api": URLS["releases.json"],
+            },
             "nightly": nightly,
         },
         "platforms": platforms,
@@ -1030,59 +1042,128 @@ def platform_table(platforms):
     return f'<div class="release-table" role="table" aria-label="Qualified native targets"><div class="tr head"><span>Target</span><span>Backend</span><span>ABI / object</span></div>{rows}</div>'
 
 
+def latest_stable_release(releases):
+    return next((release for release in releases if not release.get("prerelease")), releases[0] if releases else None)
+
+
+def human_size(size):
+    if not isinstance(size, (int, float)) or size < 0:
+        return ""
+    value = float(size)
+    for unit in ("B", "KB", "MB", "GB"):
+        if value < 1024 or unit == "GB":
+            return f"{value:.1f} {unit}" if unit != "B" else f"{int(value)} {unit}"
+        value /= 1024
+    return ""
+
+
+def find_release_asset(assets, predicate):
+    return next((asset for asset in assets if predicate((asset.get("name") or "").lower())), None)
+
+
+def checksum_asset(assets, artifact):
+    if not artifact:
+        return None
+    expected = (artifact.get("name") or "") + ".sha256"
+    return next((asset for asset in assets if (asset.get("name") or "") == expected), None)
+
+
+def release_download_card(assets, artifact, title, description, recommended=False):
+    if not artifact:
+        return ""
+    checksum = checksum_asset(assets, artifact)
+    size = human_size(artifact.get("size"))
+    badge = '<span class="download-badge">RECOMMENDED</span>' if recommended else ""
+    checksum_link = f'<a class="download-checksum" href="{esc(checksum["url"])}">SHA-256 ↗</a>' if checksum else ""
+    button_class = "button-primary" if recommended else "button-secondary"
+    return f'''<article class="install-download-card">{badge}<div><b>{esc(title)}</b><p>{esc(description)}</p><small>{esc(artifact.get("name") or "")}{(" · " + esc(size)) if size else ""}</small></div><div class="download-actions"><a class="button {button_class} button-small" href="{esc(artifact["url"])}">Download</a>{checksum_link}</div></article>'''
+
+
+def release_artifacts(latest):
+    assets = latest.get("assets", []) if latest else []
+    windows_msi = find_release_asset(assets, lambda name: name.endswith(".msi") and ".sha256" not in name)
+    windows_zip = find_release_asset(assets, lambda name: "windows" in name and name.endswith(".zip") and ".sha256" not in name)
+    linux_tar = find_release_asset(assets, lambda name: "linux" in name and name.endswith(".tar.gz") and ".sha256" not in name)
+    sums = find_release_asset(assets, lambda name: name == "sha256sums")
+    notes = find_release_asset(assets, lambda name: name == "release-notes.md")
+    return {
+        "windows_msi": windows_msi,
+        "windows_zip": windows_zip,
+        "linux_tar": linux_tar,
+        "sha256sums": sums,
+        "release_notes": notes,
+    }
+
+
 def render_releases(releases, site):
     page = ROOT / "releases" / "index.html"
     pre, footer = shell_parts(page)
+    pre = rewrite_head(pre, "Raz Releases — Official toolchain downloads", "Download official Raz stable toolchains for Windows x64 and Linux x86-64, with checksums and release notes from raz-language/raz.")
     nightly = site["binary_releases"]["nightly"]
     nightly_status = nightly.get("status", "unknown")
     nightly_version = nightly.get("version", "—")
-    if releases:
-        latest = releases[0]
-        hero_actions = f'<div class="button-row"><a class="button button-primary" href="{esc(latest["url"])}">Latest release ↗</a><a class="button button-secondary" href="{INSTALLER}/releases">Release history ↗</a></div>'
-        primary = f'<article class="release-main"><span class="status-pill">PUBLISHED</span><h2>{esc(latest["name"] or latest["tag"])}</h2><p>The latest published Raz toolchain release is available from the installer repository.</p><a class="text-link" href="{esc(latest["url"])}">Open latest release ↗</a></article>'
+    latest = latest_stable_release(releases)
+    if latest:
+        artifacts = release_artifacts(latest)
+        assets = latest.get("assets", [])
+        download_cards = "".join(filter(None, [
+            release_download_card(assets, artifacts["windows_msi"], "Windows x64 Installer", "Recommended Windows installation using the official MSI package.", True),
+            release_download_card(assets, artifacts["windows_zip"], "Windows x64 Portable ZIP", "Portable Windows toolchain without the installer."),
+            release_download_card(assets, artifacts["linux_tar"], "Linux x86-64 Toolchain", "Official prebuilt Linux x86-64 toolchain archive."),
+        ]))
+        notes_link = f'<a class="button button-secondary" href="{esc(artifacts["release_notes"]["url"])}">Release notes ↗</a>' if artifacts["release_notes"] else f'<a class="button button-secondary" href="{esc(latest["url"])}">Release notes ↗</a>'
+        sums_link = f'<a href="{esc(artifacts["sha256sums"]["url"])}">SHA256SUMS ↗</a>' if artifacts["sha256sums"] else ""
+        hero_actions = f'<div class="button-row"><a class="button button-primary" href="../install/index.html">Download Raz {esc((latest.get("tag") or "").lstrip("v"))}</a>{notes_link}</div>'
+        primary = f'''<article class="release-main"><span class="status-pill">CURRENT STABLE</span><h2>{esc(latest["name"] or latest["tag"])}</h2><p>Official Raz binaries are published directly from <code>raz-language/raz</code>. Windows x64 and Linux x86-64 artifacts are available in this release.</p><a class="text-link" href="{esc(latest["url"])}">Open GitHub release ↗</a></article>'''
+        downloads = f'''<section class="section section-soft"><div class="shell"><div class="section-top compact"><div><p class="kicker">OFFICIAL DOWNLOADS</p><h2>Prebuilt toolchains for supported hosts.</h2></div><p>Downloads and checksum links below come directly from the published Raz GitHub release.</p></div><div class="release-download-grid">{download_cards}</div><div class="release-integrity-links">{sums_link}<a href="{esc(latest["url"])}">All release assets ↗</a></div></div></section>'''
     else:
-        hero_actions = f'<div class="button-row"><a class="button button-primary" href="{RAZ}">Build from source ↗</a><a class="button button-secondary" href="{INSTALLER}/releases">Watch releases ↗</a></div>'
-        primary = f'<article class="release-main release-pending"><span class="status-pill pending-pill">NOT YET PUBLISHED</span><h2>Binary releases pending</h2><p>Raz 1.0 is the stable language contract, but the installer repository currently contains no published GitHub release. Build from source until qualified binary artifacts are published.</p><a class="text-link" href="{RAZ}">Build Raz from source ↗</a></article>'
-    body = f'''<header class="page-hero"><div class="shell narrow"><p class="kicker">RELEASES</p><h1>Language stability and toolchain publication, clearly separated.</h1><p class="page-lead">Release state is generated from the installer repository rather than being hard-coded into the website.</p>{hero_actions}</div></header>
-<main id="main" class="after-hero"><section class="section section-white"><div class="shell"><div class="release-grid">{primary}<article><span class="status-pill muted-pill">NIGHTLY</span><h3>{esc(nightly_status.title())}</h3><p>The nightly channel currently reports version <code>{esc(nightly_version)}</code> with status <code>{esc(nightly_status)}</code>.</p><a href="https://raw.githubusercontent.com/raz-language/installer/main/channels/nightly.txt">View channel manifest ↗</a></article><article><span class="status-pill muted-pill">LANGUAGE</span><h3>Raz 1.0 stable</h3><p>The Raz 1.x compatibility contract is stable independently of prebuilt installer publication.</p><a href="{RAZ}/blob/main/docs/LANGUAGE-STABILITY.md">Stability contract ↗</a></article></div><div class="data-freshness release-freshness"><span class="live-dot"></span><span>{len(releases)} published installer release{'s' if len(releases) != 1 else ''} detected</span></div></div></section>
-<section class="section section-soft"><div class="shell"><div class="section-top compact"><div><p class="kicker">QUALIFIED TARGETS</p><h2>Generated from platform support.</h2></div><p>These are compiler/toolchain target qualifications, not a promise that a prebuilt archive currently exists for every target.</p></div>{platform_table(site['platforms'])}</div></section></main>'''
+        hero_actions = f'<div class="button-row"><a class="button button-primary" href="{RAZ_RELEASES}">View Raz releases ↗</a></div>'
+        primary = f'''<article class="release-main release-pending"><span class="status-pill pending-pill">NO STABLE RELEASE</span><h2>No published stable toolchain</h2><p>The website could not find a stable release in the canonical <code>raz-language/raz</code> release feed.</p><a class="text-link" href="{RAZ_RELEASES}">Check Raz releases ↗</a></article>'''
+        downloads = ""
+    body = f'''<header class="page-hero"><div class="shell narrow"><p class="kicker">RELEASES</p><h1>Official Raz toolchain releases.</h1><p class="page-lead">Stable binaries, checksums, and release notes are synchronized directly from GitHub Releases on <code>raz-language/raz</code>. Nightly channel state remains independent.</p>{hero_actions}</div></header>
+<main id="main" class="after-hero"><section class="section section-white"><div class="shell"><div class="release-grid">{primary}<article><span class="status-pill muted-pill">NIGHTLY</span><h3>{esc(nightly_status.title())}</h3><p>The nightly channel currently reports version <code>{esc(nightly_version)}</code> with status <code>{esc(nightly_status)}</code>.</p><a href="https://raw.githubusercontent.com/raz-language/installer/main/channels/nightly.txt">View channel manifest ↗</a></article><article><span class="status-pill muted-pill">LANGUAGE</span><h3>Raz 1.0 stable</h3><p>The Raz 1.x language compatibility contract is stable independently of nightly publication.</p><a href="{RAZ}/blob/main/docs/LANGUAGE-STABILITY.md">Stability contract ↗</a></article></div><div class="data-freshness release-freshness"><span class="live-dot"></span><span>{len(releases)} published Raz release{'s' if len(releases) != 1 else ''} detected from <code>raz-language/raz</code></span></div></div></section>{downloads}
+<section class="section section-white"><div class="shell"><div class="section-top compact"><div><p class="kicker">QUALIFIED TARGETS</p><h2>Compiler target support.</h2></div><p>The target matrix describes compiler qualification. Published binary archives are listed separately above so availability is never implied where no artifact exists.</p></div>{platform_table(site['platforms'])}</div></section></main>'''
     page.write_text(pre + body + footer, encoding="utf-8")
 
 
-def asset_cards(assets, keyword):
-    matches = [asset for asset in assets if keyword in (asset.get("name") or "").lower()]
-    if not matches:
-        return '<div class="install-option unavailable"><b>No matching artifact in latest release</b><span>Check the release page or use the source build path.</span><em>Not available</em></div>'
-    return "".join(
-        f'<a href="{esc(asset["url"])}"><b>{esc(asset["name"])}</b><span>Official release artifact</span><em>Download ↗</em></a>'
-        for asset in matches
-    )
+def unavailable_release_card(title, message):
+    return f'<div class="install-option unavailable"><b>{esc(title)}</b><span>{esc(message)}</span><em>Not available in this release</em></div>'
 
 
 def render_install(releases, site):
     page = ROOT / "install" / "index.html"
     pre, footer = shell_parts(page)
-    if releases:
-        latest = releases[0]
+    pre = rewrite_head(pre, "Install Raz — Official Windows and Linux downloads", "Download the official Raz toolchain: Windows x64 MSI or portable ZIP, and Linux x86-64 tarball with published SHA-256 checksums.")
+    latest = latest_stable_release(releases)
+    if latest:
+        artifacts = release_artifacts(latest)
         assets = latest.get("assets", [])
-        hero_actions = f'<div class="button-row"><a class="button button-primary" href="{esc(latest["url"])}">Latest release ↗</a><a class="button button-secondary" href="../releases/index.html">Release details</a></div>'
-        notice = f'<div class="release-notice release-ready"><span class="status-pill">PUBLISHED</span><div><b>{esc(latest["name"] or latest["tag"])} is available.</b><p>Artifact links below are generated from the latest GitHub release.</p></div></div>'
-        windows_options = asset_cards(assets, "windows")
-        linux_options = asset_cards(assets, "linux")
+        version = (latest.get("tag") or latest.get("name") or "").lstrip("v")
+        hero_actions = f'<div class="button-row"><a class="button button-primary" href="#downloads">Choose your download</a><a class="button button-secondary" href="{esc(latest["url"])}">Raz {esc(version)} release ↗</a></div>'
+        notice = f'<div class="release-notice release-ready"><span class="status-pill">CURRENT STABLE</span><div><b>Raz {esc(version)} is available for Windows x64 and Linux x86-64.</b><p>These are official prebuilt toolchains published from the Raz repository.</p></div></div>'
+        windows_options = "".join(filter(None, [
+            release_download_card(assets, artifacts["windows_msi"], "Windows x64 Installer", "Recommended. Installs the Raz toolchain using the official MSI package.", True),
+            release_download_card(assets, artifacts["windows_zip"], "Portable ZIP", "Portable Windows x64 toolchain for manual placement or CI environments."),
+        ])) or unavailable_release_card("Windows x64", "No Windows artifact was found in the current stable release.")
+        linux_options = release_download_card(assets, artifacts["linux_tar"], "Linux x86-64 Toolchain", "Official prebuilt x86-64 Linux archive.", True) or unavailable_release_card("Linux x86-64", "No Linux artifact was found in the current stable release.")
+        other_copy = f'''<div class="install-options"><div class="install-option unavailable"><b>No prebuilt artifact for this host</b><span>Raz currently publishes stable prebuilt toolchains for Windows x64 and Linux x86-64. Check qualified compiler targets and future releases for additional hosts.</span><em>See platform support</em></div></div><div class="button-row"><a class="button button-secondary" href="../status/index.html">Platform support</a><a class="text-link" href="{RAZ_RELEASES}">All Raz releases ↗</a></div>'''
     else:
-        hero_actions = f'<div class="button-row"><a class="button button-primary" href="{RAZ}">Build from source ↗</a><a class="button button-secondary" href="../releases/index.html">Release status</a></div>'
-        notice = '<div class="release-notice"><span class="status-pill pending-pill">BINARY PUBLICATION PENDING</span><div><b>Raz 1.0 is stable; prebuilt installer releases are not published yet.</b><p>Download controls will appear automatically when qualified artifacts are published.</p></div></div>'
-        windows_options = '<div class="install-option unavailable"><b>Windows installer artifacts</b><span>MSI and portable ZIP publication is pending.</span><em>Not published</em></div>'
-        linux_options = '<div class="install-option unavailable"><b>Linux release artifact</b><span>Portable tarball publication is pending.</span><em>Not published</em></div>'
-    body = f'''<header class="page-hero"><div class="shell narrow"><p class="kicker">INSTALL RAZ</p><h1>Get a verified Raz toolchain.</h1><p class="page-lead">The installer view is generated from real release publication state, while the source-build path always points to the canonical compiler repository.</p>{hero_actions}</div></header>
-<main id="main" class="after-hero">{notice}<section class="section section-white"><div class="shell install-layout"><aside class="platform-switch" aria-label="Choose platform"><p>YOUR PLATFORM</p><button class="active" data-platform-button="windows">Windows</button><button data-platform-button="linux">Linux</button><button data-platform-button="source">Other / source</button><small data-platform-detected></small></aside><div class="platform-panels">
-<section data-platform-panel="windows"><p class="kicker">WINDOWS</p><h2>MSI or portable toolchain.</h2><p>Published artifacts appear here automatically when the installer repository has a qualified Windows release.</p><div class="install-options">{windows_options}</div></section>
-<section data-platform-panel="linux" hidden><p class="kicker">LINUX</p><h2>Portable toolchain.</h2><p>Published Linux artifacts appear here automatically when present in the latest installer release.</p><div class="install-options">{linux_options}</div></section>
-<section data-platform-panel="source" hidden><p class="kicker">SOURCE BUILD</p><h2>Bootstrap the production compiler.</h2><p>x86-64 Windows/Linux use the repository bootstrap path. Other qualified hosts follow the documented stage-0/toolchain contract.</p><div class="install-options"><a href="{RAZ}/blob/main/docs/COMPILER-BOOTSTRAP.md"><b>Compiler bootstrap</b><span>Stage-0 and self-hosting architecture</span><em>Read docs ↗</em></a><a href="{RAZ}"><b>Compiler source</b><span>Clone and build the canonical Raz repository</span><em>GitHub ↗</em></a></div></section>
-</div></div></section><section class="section section-soft"><div class="shell two-col"><div><p class="kicker">AFTER INSTALLATION</p><h2>Verify before you build.</h2><p class="section-copy">The normal first checks are intentionally small and deterministic.</p></div><div class="code-card"><div class="code-bar"><span>shell</span><button class="copy-button" type="button" data-copy="raz --version&#10;raz doctor&#10;raz new hello&#10;cd hello&#10;raz run">Copy</button></div><pre><code>raz --version\nraz doctor\nraz new hello\ncd hello\nraz run</code></pre></div></div></section></main>'''
+        hero_actions = f'<div class="button-row"><a class="button button-primary" href="{RAZ_RELEASES}">View Raz releases ↗</a></div>'
+        notice = '<div class="release-notice"><span class="status-pill pending-pill">RELEASE FEED UNAVAILABLE</span><div><b>No stable binary release was found in the canonical Raz release feed.</b><p>Check the Raz GitHub Releases page for current publication state.</p></div></div>'
+        windows_options = unavailable_release_card("Windows x64", "No stable Windows artifact was found.")
+        linux_options = unavailable_release_card("Linux x86-64", "No stable Linux artifact was found.")
+        other_copy = f'<div class="button-row"><a class="button button-secondary" href="../status/index.html">Platform support</a><a class="text-link" href="{RAZ_RELEASES}">All Raz releases ↗</a></div>'
+    body = f'''<header class="page-hero"><div class="shell narrow"><p class="kicker">INSTALL RAZ</p><h1>Download the official Raz toolchain.</h1><p class="page-lead">Stable installation artifacts are published on <code>raz-language/raz</code> GitHub Releases. Choose the prebuilt toolchain for your operating system.</p>{hero_actions}</div></header>
+<main id="main" class="after-hero">{notice}<section class="section section-white" id="downloads"><div class="shell install-layout"><aside class="platform-switch" aria-label="Choose platform"><p>YOUR PLATFORM</p><button type="button" class="active" data-platform-button="windows">Windows</button><button type="button" data-platform-button="linux">Linux</button><button type="button" data-platform-button="other">Other</button><small data-platform-detected></small></aside><div class="platform-panels">
+<section data-platform-panel="windows"><p class="kicker">WINDOWS X64</p><h2>Installer or portable toolchain.</h2><p>The MSI is the recommended Windows installation. The portable ZIP contains the same release toolchain for manual or CI use.</p><div class="install-options install-options-stacked">{windows_options}</div></section>
+<section data-platform-panel="linux" hidden><p class="kicker">LINUX X86-64</p><h2>Prebuilt Linux toolchain.</h2><p>Download the official x86-64 Linux release archive and verify it with the published SHA-256 checksum when required.</p><div class="install-options install-options-stacked">{linux_options}</div></section>
+<section data-platform-panel="other" hidden><p class="kicker">OTHER HOSTS</p><h2>Check platform and release support.</h2><p>The compiler supports more qualified targets than the set of currently published prebuilt host toolchains.</p>{other_copy}</section>
+</div></div></section><section class="section section-soft"><div class="shell two-col"><div><p class="kicker">AFTER INSTALLATION</p><h2>Verify your toolchain.</h2><p class="section-copy">Confirm the installed version, run the toolchain health check, then create a project.</p></div><div class="code-card"><div class="code-bar"><span>shell</span><button class="copy-button" type="button" data-copy="raz --version&#10;raz doctor&#10;raz new hello&#10;cd hello&#10;raz run">Copy</button></div><pre><code>raz --version
+raz doctor
+raz new hello
+cd hello
+raz run</code></pre></div></div></section></main>'''
     page.write_text(pre + body + footer, encoding="utf-8")
-
-
 
 DIAGNOSTIC_FALLBACK = [
     ("lexer", "D0001", "unterminated block comment"),
@@ -1950,7 +2031,7 @@ def render_machine_files(packages, docs, releases, site):
 
 
 def apply_canonical_metadata():
-    base = os.getenv("RAZ_SITE_URL", "").strip().rstrip("/")
+    base = (os.getenv("RAZ_SITE_URL") or "https://raz-language.github.io").strip().rstrip("/")
     sitemap = ROOT / "sitemap.xml"
     robots = ROOT / "robots.txt"
     if not base:
@@ -1987,7 +2068,9 @@ def apply_canonical_metadata():
         injection = f'  <link rel="canonical" href="{esc(canonical)}">\n  <meta property="og:url" content="{esc(canonical)}">\n'
         text = text.replace("</head>", injection + "</head>")
         page.write_text(text, encoding="utf-8")
-        if rel != "404.html":
+        robots_match = re.search(r'<meta name="robots" content="([^"]+)">', text, re.I)
+        noindex = bool(robots_match and "noindex" in robots_match.group(1).lower())
+        if rel != "404.html" and not noindex:
             urls.append(canonical)
 
     xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -2362,6 +2445,15 @@ def main():
     enhancer_v12 = ROOT / "scripts" / "enhance_v12.py"
     if enhancer_v12.exists():
         subprocess.run([sys.executable, str(enhancer_v12)], cwd=ROOT, check=True)
+    enhancer_v21 = ROOT / "scripts" / "enhance_v21.py"
+    if enhancer_v21.exists():
+        subprocess.run([sys.executable, str(enhancer_v21)], cwd=ROOT, check=True)
+    enhancer_v22 = ROOT / "scripts" / "enhance_v22.py"
+    if enhancer_v22.exists():
+        subprocess.run([sys.executable, str(enhancer_v22)], cwd=ROOT, check=True)
+    enhancer_v23 = ROOT / "scripts" / "enhance_v23.py"
+    if enhancer_v23.exists():
+        subprocess.run([sys.executable, str(enhancer_v23)], cwd=ROOT, check=True)
     enhancer_v19 = ROOT / "scripts" / "enhance_v19.py"
     if enhancer_v19.exists():
         subprocess.run([sys.executable, str(enhancer_v19)], cwd=ROOT, check=True)

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Deterministic self-reproduction and the inputs it depends on">
+  <meta name="theme-color" content="#0b1018">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Raz">
+  <meta property="og:title" content="Compiler reproducibility — Raz documentation">
+  <meta property="og:description" content="Deterministic self-reproduction and the inputs it depends on">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Compiler reproducibility — Raz documentation">
+  <meta name="twitter:description" content="Deterministic self-reproduction and the inputs it depends on">
+  <title>Compiler reproducibility — Raz documentation</title>
+  <link rel="icon" href="../../../../assets/favicon.png" type="image/png">
+  <link rel="manifest" href="../../../../site.webmanifest">
+  <link rel="stylesheet" href="../../../../assets/styles.css?v=765ceafd9920">
+  <script>window.RAZ_BASE="../";</script>
+  <script src="../../../../assets/site.js?v=b66e3676da9e" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz","codeRepository":"https://github.com/raz-language/raz","license":"https://www.apache.org/licenses/LICENSE-2.0","description":"A systems programming language for native software that has to be fast, safe, and predictable."}</script>
+  <meta name="raz-doc-version" content="1.0-snapshot">
+  <link rel="canonical" href="https://raz-language.github.io/docs/reference/compiler-reproducibility/">
+  <meta property="og:url" content="https://raz-language.github.io/docs/reference/compiler-reproducibility/">
+  <meta property="og:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
+  <meta property="og:image:type" content="image/png" data-v12-social="true">
+  <meta property="og:image:width" content="1200" data-v12-social="true">
+  <meta property="og:image:height" content="630" data-v12-social="true">
+  <meta property="og:image:alt" content="Raz — Fast. Safe. Predictable." data-v12-social="true">
+  <meta property="og:locale" content="en_US" data-v12-social="true">
+  <meta name="twitter:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
+  <meta name="robots" content="noindex,follow">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-inner">
+      <a class="brand" href="../../../../index.html" aria-label="Raz home">
+        <img src="../../../../assets/raz-mark-128.png" alt="" width="38" height="38">
+        <span>Raz</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-links"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
+      <nav class="primary-links" id="primary-links" aria-label="Primary navigation">
+        <a href="../../../../learn/index.html">Learn</a>
+        <a href="../../index.html" aria-current="page">Docs</a>
+        <a href="../../../../packages/index.html">Packages</a>
+        <a href="../../../../tools/index.html">Tools</a>
+        <a href="../../../../community/index.html">Community</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="Search site"><span aria-hidden="true">⌕</span><span class="search-label">Search</span><kbd>Ctrl K</kbd></button>
+        <a class="github-link" href="https://github.com/raz-language" target="_blank" rel="noopener" aria-label="Raz on GitHub">GitHub ↗</a>
+        <a class="button button-primary button-small" href="../../../../install/index.html">Get Raz</a>
+      </div>
+    </div>
+  </header>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="search-backdrop" data-search-close></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search Raz website">
+      <div class="search-box"><span aria-hidden="true">⌕</span><input type="search" data-site-search autocomplete="off" spellcheck="false" placeholder="Search Raz…" aria-label="Search Raz website"><kbd>Esc</kbd></div>
+      <div class="search-results" data-search-results role="status" aria-live="polite"></div>
+      <p class="search-hint">Search documentation, installation, packages, tools, and project pages.</p>
+    </section>
+  </div>
+<header class="page-hero doc-reference-hero"><div class="shell narrow"><details class="doc-version-switcher"><summary><span>Raz</span><b>1.0</b><em>snapshot</em></summary><div class="doc-version-menu"><a href="../../../reference/compiler-reproducibility/index.html" class=""><span>Current stable</span><b>1.0</b></a><a href="index.html" class="active"><span>Frozen snapshot</span><b>1.0</b></a></div></details><div class="doc-breadcrumbs"><a href="../../index.html">Docs</a><span>/</span><span>Compiler internals</span></div><p class="kicker">CANONICAL RAZ DOCUMENTATION</p><h1>Compiler reproducibility</h1><p class="page-lead">Deterministic self-reproduction and the inputs it depends on</p><div class="doc-source-meta"><span>Synced from <code>docs/COMPILER-REPRODUCIBILITY.md</code></span><a href="https://github.com/raz-language/raz/blob/main/docs/COMPILER-REPRODUCIBILITY.md">View source ↗</a></div></div></header>
+<main id="main" class="after-hero"><div class="shell doc-reference-layout"><aside class="doc-reference-sidebar"><a class="back-docs" href="../../index.html">← All documentation</a><p>ON THIS PAGE</p><nav aria-label="On this page"><a class="toc-level-2" href="#deterministic-inputs">Deterministic inputs</a><a class="toc-level-2" href="#qualification">Qualification</a><a class="toc-level-2" href="#performance-sensitive-implementation">Performance-sensitive implementation</a><a class="toc-level-2" href="#measuring-compiler-throughput">Measuring compiler throughput</a></nav></aside><article class="doc-reference-content"><p>Normal Raz bootstrap performs one self-hosted compiler rebuild from the canonical <code>compiler/src/</code> source tree. Release/CI jobs can additionally verify deterministic fixed-point output with a second independent generation.</p>
+<h2 id="deterministic-inputs">Deterministic inputs<a class="heading-anchor" href="#deterministic-inputs" aria-label="Link to this section">#</a></h2>
+<p>Reproducibility requires stable:</p>
+<ul>
+<li>project/module discovery;</li>
+<li>dependency ordering;</li>
+<li>semantic metadata;</li>
+<li>HIR and MIR construction;</li>
+<li>backend lowering;</li>
+<li>object generation; and</li>
+<li>native link inputs.</li>
+</ul>
+<p>The compiler has no source-order metadata. Host-side qualification discovers <code>compiler/src/**/*.rz</code> directly, and normal compiler builds use semantic module imports and the project graph.</p>
+<h2 id="qualification">Qualification<a class="heading-anchor" href="#qualification" aria-label="Link to this section">#</a></h2>
+<p>Normal bootstrap constructs the production compiler and rebuilds it once with itself. This final self-hosted compiler lives under <code>target/bootstrap/repro-1/</code>. For deterministic release verification, run <code>tools/bootstrap.py --verify-reproducibility</code>; that creates an independent <code>repro-2</code> generation and requires the two generated compiler objects to be identical.</p>
+<p>Qualification workspaces and generated compilers are stored under <code>target/bootstrap/</code>. The Raz repository&#x27;s native CMake host/runtime/Forge build lives separately under <code>build/&lt;profile&gt;/</code>. Each self-host/verification workspace uses the same canonical profile layout as an ordinary Raz project: <code>target/&lt;profile&gt;/bin</code>, <code>lib</code>, <code>obj</code>, <code>ir</code>, <code>modules</code>, and <code>packages</code>. The recursive compiler executable lives in <code>bin/</code> and its native object in <code>obj/</code>, so Stage-0 and Raz-owned compiler builds never invent different target shapes. The normal <code>repro-1</code> workspace retains its incremental cache across bootstraps; <code>repro-2</code> is always constructed independently when verification is requested.</p>
+<p>Release self-host compilation uses Forge <code>-O2</code> by default so the generated compiler is representative of the optimized production toolchain. Debug bootstrap defaults to <code>-O0</code>. The level can be overridden with <code>tools/bootstrap.py --repro-opt</code> or <code>bootstrap.repro-opt</code>; an optional verification generation always uses the same level as <code>repro-1</code>.</p>
+<p>The check is intentionally broader than a compiler unit test: it exercises project loading, parsing, semantic analysis, HIR/MIR, Forge lowering, native object emission, linking, filesystem behavior, and deterministic metadata together.</p>
+<h2 id="performance-sensitive-implementation">Performance-sensitive implementation<a class="heading-anchor" href="#performance-sensitive-implementation" aria-label="Link to this section">#</a></h2>
+<p>The compiler uses reusable arenas and stable metadata, avoids redundant full-source scans on the normal parse path, integrates with Forge through structured in-process APIs, fingerprints native link inputs, and avoids replacing unchanged native objects. Bootstrap also seeds <code>repro-1</code> with only the safe assembled-project input cache and preserves <code>repro-1/target/cache</code> between runs, so unchanged bootstraps can restore the already-qualified artifact without pretending a Stage-0 artifact is self-hosted.</p>
+<h2 id="measuring-compiler-throughput">Measuring compiler throughput<a class="heading-anchor" href="#measuring-compiler-throughput" aria-label="Link to this section">#</a></h2>
+<p>When comparing compiler performance, record the host CPU, memory, operating system, native toolchain, optimization profile, source module count, frontend/backend elapsed time, output size, and peak memory where available. Use the same source tree and configuration for comparisons.</p><nav class="doc-pager" aria-label="Documentation pagination"><a href="../compiler-bootstrap/index.html"><span>Previous</span><b>← Compiler bootstrap</b></a><a class="next" href="../licensing/index.html"><span>Next</span><b>Licensing →</b></a></nav></article></div></main><footer class="site-footer">
+    <div class="shell footer-main">
+      <div class="footer-intro"><a class="footer-wordmark" href="../../../../index.html">Raz</a><p>Fast, safe, predictable systems programming with a visible cost model.</p></div>
+      <div><h2>Learn</h2><a href="../../../../learn/index.html">Getting started</a><a href="../../index.html">Documentation</a><a href="../../../../packages/index.html">Packages</a><a href="../../../../install/index.html">Install</a></div>
+      <div><h2>Reference</h2><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SPECIFICATION.md">Specification ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY.md">Standard library ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/CLI.md">CLI reference ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/PLATFORM-SUPPORT.md">Platforms ↗</a></div>
+      <div><h2>Project</h2><a href="https://github.com/raz-language">GitHub ↗</a><a href="https://github.com/raz-language/raz/blob/main/CONTRIBUTING.md">Contributing ↗</a><a href="https://github.com/raz-language/raz/blob/main/SECURITY.md">Security ↗</a><a <a data-project-release-link href="../../../../releases/index.html">Releases</a><a data-project-news-link href="../../../../news/index.html">News</a>href="../../../../status/index.html">Status</a><a href="https://github.com/raz-language/raz/blob/main/LICENSE">Apache-2.0 ↗</a></div>
+    </div>
+    <div class="shell footer-meta"><span>Raz 1.0 stable</span><span>Built in the open</span><span>© 2026 Raz Project</span></div>
+  </footer>
+</body>
+</html>

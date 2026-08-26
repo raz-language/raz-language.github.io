@@ -20,6 +20,8 @@ FILES = [
     "performance-budget.json",
 ]
 OPTIONAL_FILES = ["sitemap.xml"]
+SOURCE_ONLY_ASSETS = {"raz-logo.png", "raz-logo-original.png", "raz-mark.png"}
+
 DIRECTORIES = [
     "assets",
     "learn",
@@ -31,13 +33,16 @@ DIRECTORIES = [
     "web",
     "community",
     "status",
+    "news",
     "api",
     ".well-known",
 ]
 
 
-def copy_tree(src: Path, dst: Path):
-    shutil.copytree(src, dst, dirs_exist_ok=True)
+def copy_tree(src: Path, dst: Path, *, exclude_names=None):
+    exclude_names = set(exclude_names or ())
+    ignore = (lambda _directory, names: [name for name in names if name in exclude_names]) if exclude_names else None
+    shutil.copytree(src, dst, dirs_exist_ok=True, ignore=ignore)
 
 
 def main():
@@ -69,7 +74,7 @@ def main():
         if not src.exists():
             missing.append(rel + "/")
             continue
-        copy_tree(src, out / rel)
+        copy_tree(src, out / rel, exclude_names=SOURCE_ONLY_ASSETS if rel == "assets" else None)
 
     if missing:
         print("missing deployable inputs:", file=sys.stderr)

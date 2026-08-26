@@ -6,11 +6,11 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ("styles.css", "site.js", "search-index.js")
+ASSETS = ("styles.css", "site.js")
 versions = {name: hashlib.sha256((ROOT / "assets" / name).read_bytes()).hexdigest()[:12] for name in ASSETS}
 errors = []
 checked = 0
-pattern = re.compile(r'(?:href|src)="(?:\.\./)*assets/(styles\.css|site\.js|search-index\.js)(?:\?v=([0-9a-f]+))?"')
+pattern = re.compile(r'(?:href|src)="(?:\.\./)*assets/(styles\.css|site\.js)(?:\?v=([0-9a-f]+))?"')
 for page in ROOT.rglob('*.html'):
     if '_site' in page.relative_to(ROOT).parts:
         continue

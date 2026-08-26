@@ -17,9 +17,11 @@ DEPLOY_FILES = {
     ".nojekyll", "_headers", "_redirects", "vercel.json",
     "performance-budget.json", "sitemap.xml",
 }
+SOURCE_ONLY_ASSETS = {"raz-logo.png", "raz-logo-original.png", "raz-mark.png"}
+
 DEPLOY_DIRECTORIES = {
     "assets", "learn", "docs", "install", "releases", "packages", "tools",
-    "web", "community", "status", "api", ".well-known",
+    "web", "community", "status", "news", "api", ".well-known",
 }
 
 def is_staged(root: Path) -> bool:
@@ -36,7 +38,10 @@ def deployable_files(root: Path):
     for name in DEPLOY_DIRECTORIES:
         d = root / name
         if d.is_dir():
-            files.extend(p for p in d.rglob("*") if p.is_file())
+            files.extend(
+                p for p in d.rglob("*")
+                if p.is_file() and not (name == "assets" and p.name in SOURCE_ONLY_ASSETS)
+            )
     return files
 
 def main():
@@ -49,7 +54,8 @@ def main():
         ("homepage_html_bytes", root / "index.html"),
         ("styles_css_bytes", root / "assets/styles.css"),
         ("site_js_bytes", root / "assets/site.js"),
-        ("search_index_js_bytes", root / "assets/search-index.js"),
+        ("search_core_json_bytes", root / "assets/search-core.json"),
+        ("search_api_json_bytes", root / "assets/search-api.json"),
     ]
     errors = []
     for key, path in checks:

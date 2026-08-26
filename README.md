@@ -13,7 +13,7 @@ Changing public information is synchronized at build time from the canonical Raz
 - documentation index: `raz-language/raz/docs/README.md`
 - canonical documentation Markdown: individual files referenced by that index
 - qualified target matrix: `raz-language/raz/docs/PLATFORM-SUPPORT.md`
-- installer releases: GitHub Releases on `raz-language/installer`
+- stable toolchain releases and downloadable artifacts: GitHub Releases on `raz-language/raz`
 - nightly publication state: `raz-language/installer/channels/nightly.txt`
 - compiler repository metadata and security policy: `raz-language/raz`
 
@@ -105,13 +105,21 @@ A six-hour schedule keeps docs, packages, releases, and target information curre
 
 ## Publication semantics
 
-The site deliberately distinguishes **Raz 1.0 language stability** from **prebuilt toolchain publication**. Download buttons are generated only from actual installer releases; when no qualified binary release exists, the site presents source-build instructions instead of a dead or invented download link.
+The site treats GitHub Releases on `raz-language/raz` as the canonical stable toolchain distribution feed. `/install/`, `/releases/`, `/status/`, and `/api/v1/releases.json` are generated from real published assets. Windows MSI, Windows portable ZIP, Linux tarball, checksum, and release-note links appear only when those artifacts exist in the release feed. Compiler bootstrap instructions remain developer documentation rather than the normal installation path.
 
 ## Canonical production URL
 
-Set `RAZ_SITE_URL` during a production build to the public origin, for example the eventual Raz domain. The generator then adds canonical URLs and `og:url` metadata to every page, emits `sitemap.xml`, and advertises it from `robots.txt`. If the variable is unset, those origin-dependent files are omitted rather than guessing a domain.
+The default production origin is `https://raz-language.github.io`. Generated pages carry canonical URLs, Open Graph URL/image metadata, and the build emits `sitemap.xml` plus the matching `robots.txt` declaration. `RAZ_SITE_URL` can override the default when the project moves to a custom domain without changing page-generation logic.
 
-The GitHub Pages workflow reads this from the repository variable `RAZ_SITE_URL`.
+## Client search architecture
+
+Global search is generated at build time as `assets/search-index.json` and is **not** loaded during ordinary page navigation. `assets/site.js` fetches the content-hashed index only when the search dialog is opened, then ranks exact titles, diagnostic codes, package names, commands, modules, symbols, descriptions, and keywords locally in the browser. The public site therefore keeps the complete source-derived search corpus without charging every page view for it.
+
+The search dialog supports `Ctrl/Cmd+K`, `/`, Escape, arrow-key result navigation, and a keyboard focus loop. Search results and generated catalog counts use live-region semantics where appropriate.
+
+## Production branding assets
+
+High-resolution source artwork remains in the repository for design work, while deployment staging excludes those originals and ships optimized header, application-icon, and social-preview derivatives. This keeps the real Raz artwork while avoiding hundreds of kilobytes of unnecessary image transfer on ordinary pages.
 
 ## Documentation product surfaces
 
@@ -186,3 +194,28 @@ GitHub Pages deployment now rejects stale workflow runs by comparing the workflo
 - Makes the package catalog visibly hide non-matching cards even when component display styles would otherwise override the HTML `hidden` attribute.
 - Adds an explicit semantic `[hidden]` CSS rule and a package-specific filtered-out fallback class.
 - Adds `scripts/test_package_search.py` to both validation and Pages deployment workflows so the search wiring cannot silently regress.
+
+## Documentation versioning
+
+`/docs/` and `/learn/book/` are the current-stable documentation surfaces. Stable language releases also receive frozen, directly navigable snapshots under `/docs/<major.minor>/` and `/learn/<major.minor>/book/`. Internal links inside a frozen snapshot remain inside that snapshot, while links to non-versioned project surfaces such as installation, packages, status, and the repository continue to resolve to the current project site.
+
+`/api/v1/versions.json` advertises the current stable version and the current/frozen documentation routes. A version selector is rendered on documentation, reference, standard-library, diagnostics, API, and Book pages. While a frozen snapshot is byte-equivalent to the current stable documentation, it is marked `noindex,follow` to avoid duplicate search indexing; when a later stable line becomes current, historical snapshot indexing policy can be relaxed without changing its URLs.
+
+## Package documentation product
+
+Package overview and source-derived API pages share a single navigation model for overview, API documentation, dependencies, immutable versions, and canonical source. Package landing pages summarize module, public-API, and dependency counts. API landing pages provide local module/symbol filtering while preserving stable module and item URLs. The official GitHub registry remains authoritative; these pages are generated documentation and discovery views, not a second package database.
+
+## Release publication and project news
+
+Stable toolchain releases are sourced from GitHub Releases on `raz-language/raz`. The website does not maintain a second release database. Each synchronized GitHub release receives a permanent route under `/releases/<tag>/` containing the published artifacts, sizes, integrity digests when GitHub exposes them, and links back to the canonical release. `/releases/` remains the download/history index.
+
+`/news/` is a durable publication surface rather than a development log. Release announcements are generated automatically from the canonical release feed and are exposed through `/news/feed.xml` and `/api/v1/news.json`. Future editorial entries should be limited to durable project updates such as migrations, security announcements, and major ecosystem changes; ordinary development activity belongs in GitHub.
+
+## Search scaling model
+
+Global search is client-side but does not preload its corpus. The generated index is split into two cache-versioned JSON shards:
+
+- `assets/search-core.json` contains navigation, documentation, packages, diagnostics, modules, releases, and project pages;
+- `assets/search-api.json` contains high-cardinality standard-library and package API symbol entries.
+
+Opening search loads only the core shard. The API shard is fetched after the user begins a query, keeping ordinary pages and an unopened search dialog independent of API-corpus growth. Both shards have separate performance budgets and content-derived cache keys.

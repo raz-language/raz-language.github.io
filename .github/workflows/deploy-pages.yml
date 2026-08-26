@@ -47,15 +47,36 @@ jobs:
       - name: Run generator regression tests
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_sync_regressions.py
+      - name: Check release/news publication
+        if: steps.freshness.outputs.current == 'true'
+        run: python3 scripts/test_release_news.py
+      - name: Check official release distribution
+        if: steps.freshness.outputs.current == 'true'
+        run: python3 scripts/test_release_distribution.py
       - name: Check package search contract
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_package_search.py
+      - name: Check versioned documentation snapshots
+        if: steps.freshness.outputs.current == 'true'
+        run: python3 scripts/test_versioned_docs.py
+      - name: Check package product UX
+        if: steps.freshness.outputs.current == 'true'
+        run: python3 scripts/test_package_product_ux.py
+      - name: Check lazy global search
+        if: steps.freshness.outputs.current == 'true'
+        run: python3 scripts/test_lazy_search.py
       - name: Check browser asset cache keys
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_asset_cache_busting.py
       - name: Check generated performance budget regression
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_performance_budget_generation.py
+      - name: Check accessibility contract
+        if: steps.freshness.outputs.current == 'true'
+        run: python3 scripts/test_accessibility_contract.py
+      - name: Check production metadata
+        if: steps.freshness.outputs.current == 'true'
+        run: python3 scripts/test_production_metadata.py
       - name: Validate generated source tree
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/validate.py

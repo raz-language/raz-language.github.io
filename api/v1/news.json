@@ -1,0 +1,14 @@
+{
+  "entries": [
+    {
+      "description": "Official Raz 1.0.0 stable toolchain release with 8 published assets.",
+      "github_url": "https://github.com/raz-language/raz/releases/tag/v1.0.0",
+      "prerelease": false,
+      "published_at": "2026-08-24T20:18:50Z",
+      "tag": "v1.0.0",
+      "title": "Raz 1.0.0 released",
+      "url": "releases/v1.0.0/index.html"
+    }
+  ],
+  "generated_from": "raz-language/raz GitHub Releases"
+}

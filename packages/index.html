@@ -10,24 +10,32 @@
   <meta property="og:site_name" content="Raz">
   <meta property="og:title" content="Raz Packages — Official package registry">
   <meta property="og:description" content="Search official Raz packages for data formats, security, web protocols, databases, testing, compression and numeric types.">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Raz Packages — Official package registry">
   <meta name="twitter:description" content="Search official Raz packages for data formats, security, web protocols, databases, testing, compression and numeric types.">
   <title>Raz Packages — Official package registry</title>
   <link rel="icon" href="../assets/favicon.png" type="image/png">
   <link rel="manifest" href="../site.webmanifest">
-  <link rel="stylesheet" href="../assets/styles.css?v=265335437bd1">
+  <link rel="stylesheet" href="../assets/styles.css?v=765ceafd9920">
   <script>window.RAZ_BASE="../";</script>
-  <script src="../assets/search-index.js?v=66e27a8bb6ec"></script>
-  <script src="../assets/site.js?v=0697e572a76a" defer></script>
+  <script src="../assets/site.js?v=b66e3676da9e" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz","codeRepository":"https://github.com/raz-language/raz","license":"https://www.apache.org/licenses/LICENSE-2.0","description":"A systems programming language for native software that has to be fast, safe, and predictable."}</script>
+  <link rel="canonical" href="https://raz-language.github.io/packages/">
+  <meta property="og:url" content="https://raz-language.github.io/packages/">
+  <meta property="og:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
+  <meta property="og:image:type" content="image/png" data-v12-social="true">
+  <meta property="og:image:width" content="1200" data-v12-social="true">
+  <meta property="og:image:height" content="630" data-v12-social="true">
+  <meta property="og:image:alt" content="Raz — Fast. Safe. Predictable." data-v12-social="true">
+  <meta property="og:locale" content="en_US" data-v12-social="true">
+  <meta name="twitter:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="shell nav-inner">
       <a class="brand" href="../index.html" aria-label="Raz home">
-        <img src="../assets/raz-mark.png" alt="" width="38" height="38">
+        <img src="../assets/raz-mark-128.png" alt="" width="38" height="38">
         <span>Raz</span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-links"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
@@ -49,7 +57,7 @@
     <div class="search-backdrop" data-search-close></div>
     <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search Raz website">
       <div class="search-box"><span aria-hidden="true">⌕</span><input type="search" data-site-search autocomplete="off" spellcheck="false" placeholder="Search Raz…" aria-label="Search Raz website"><kbd>Esc</kbd></div>
-      <div class="search-results" data-search-results></div>
+      <div class="search-results" data-search-results role="status" aria-live="polite"></div>
       <p class="search-hint">Search documentation, installation, packages, tools, and project pages.</p>
     </section>
   </div>
@@ -58,7 +66,7 @@
   <div class="package-toolbar"><label><span class="sr-only">Search packages</span><input type="search" placeholder="Search packages…" data-package-search></label><div class="package-filters" aria-label="Filter packages"><button type="button" class="active" aria-pressed="true" data-package-filter="all">All</button><button type="button" aria-pressed="false" data-package-filter="archive">Archive</button><button type="button" aria-pressed="false" data-package-filter="security">Security</button><button type="button" aria-pressed="false" data-package-filter="numeric">Numeric</button><button type="button" aria-pressed="false" data-package-filter="data">Data</button><button type="button" aria-pressed="false" data-package-filter="utility">Utility</button><button type="button" aria-pressed="false" data-package-filter="web">Web</button><button type="button" aria-pressed="false" data-package-filter="runtime">Runtime</button><button type="button" aria-pressed="false" data-package-filter="database">Database</button><button type="button" aria-pressed="false" data-package-filter="dev">Dev</button></div></div>
   <div class="registry-stats"><div><b>46</b><span>official packages</span></div><div><b>54</b><span>published versions</span></div><div><b>1</b><span>source docs cached offline</span></div></div>
   <div class="data-freshness"><span class="live-dot"></span><span>Registry metadata comes from <code>search.txt</code>/<code>index.txt</code>; package docs come from <code>sources/&lt;package&gt;</code>.</span></div>
-  <div class="package-count" data-package-count>46 packages</div>
+  <div class="package-count" data-package-count role="status" aria-live="polite">46 packages</div>
   <div class="package-catalog"><article class="package-item" data-package data-name="archive" data-category="archive" data-search="archive safe, allocation-free archive format primitives for raz. archive">
       <a class="package-item-link" href="archive/index.html"><div><span>ARCHIVE</span><div class="package-title-row"><h3>archive</h3><small>v0.1.0</small></div><p>Safe, allocation-free archive format primitives for Raz.</p><small class="package-history-count">1 version</small></div><b>View package →</b></a>
       <button type="button" class="copy-command" data-copy="raz add archive">raz add archive</button>
@@ -204,7 +212,7 @@
   const search = document.querySelector('[data-package-search]');
   const buttons = [...document.querySelectorAll('[data-package-filter]')];
   const items = [...document.querySelectorAll('[data-package]')];
-  const count = document.querySelector('[data-package-count]');
+  const count = document.querySelector('[data-package-count role="status" aria-live="polite"]');
   const empty = document.querySelector('[data-package-empty]');
   if (!items.length) return;
   let category = 'all';
@@ -248,7 +256,7 @@
       <div class="footer-intro"><a class="footer-wordmark" href="../index.html">Raz</a><p>Fast, safe, predictable systems programming with a visible cost model.</p></div>
       <div><h2>Learn</h2><a href="../learn/index.html">Getting started</a><a href="../docs/index.html">Documentation</a><a href="../packages/index.html">Packages</a><a href="../install/index.html">Install</a></div>
       <div><h2>Reference</h2><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SPECIFICATION.md">Specification ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY.md">Standard library ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/CLI.md">CLI reference ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/PLATFORM-SUPPORT.md">Platforms ↗</a></div>
-      <div><h2>Project</h2><a href="https://github.com/raz-language">GitHub ↗</a><a href="https://github.com/raz-language/raz/blob/main/CONTRIBUTING.md">Contributing ↗</a><a href="https://github.com/raz-language/raz/blob/main/SECURITY.md">Security ↗</a><a href="../status/index.html">Status</a><a href="https://github.com/raz-language/raz/blob/main/LICENSE">Apache-2.0 ↗</a></div>
+      <div><h2>Project</h2><a href="https://github.com/raz-language">GitHub ↗</a><a href="https://github.com/raz-language/raz/blob/main/CONTRIBUTING.md">Contributing ↗</a><a href="https://github.com/raz-language/raz/blob/main/SECURITY.md">Security ↗</a><a <a data-project-release-link href="../releases/index.html">Releases</a><a data-project-news-link href="../news/index.html">News</a>href="../status/index.html">Status</a><a href="https://github.com/raz-language/raz/blob/main/LICENSE">Apache-2.0 ↗</a></div>
     </div>
     <div class="shell footer-meta"><span>Raz 1.0 stable</span><span>Built in the open</span><span>© 2026 Raz Project</span></div>
   </footer>
