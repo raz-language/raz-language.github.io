@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Method in collections::vector.">
+  <meta name="theme-color" content="#0b1018">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Raz">
+  <meta property="og:title" content="get_ptr — collections::vector — Raz stdlib">
+  <meta property="og:description" content="Method in collections::vector.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="get_ptr — collections::vector — Raz stdlib">
+  <meta name="twitter:description" content="Method in collections::vector.">
+  <title>get_ptr — collections::vector — Raz stdlib</title>
+  <link rel="icon" href="../../../../../../../assets/favicon.png" type="image/png">
+  <link rel="manifest" href="../../../../../../../site.webmanifest">
+  <link rel="stylesheet" href="../../../../../../../assets/styles.css">
+  <script>window.RAZ_BASE="../../../../../../../";</script>
+  <script src="../../../../../../../assets/search-index.js"></script>
+  <script src="../../../../../../../assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz","codeRepository":"https://github.com/raz-language/raz","license":"https://www.apache.org/licenses/LICENSE-2.0","description":"A systems programming language for native software that has to be fast, safe, and predictable."}</script>
+  <meta name="raz-doc-version" content="1.0">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-inner">
+      <a class="brand" href="../../../../../../../index.html" aria-label="Raz home">
+        <img src="../../../../../../../assets/raz-mark.png" alt="" width="38" height="38">
+        <span>Raz</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-links"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
+      <nav class="primary-links" id="primary-links" aria-label="Primary navigation">
+        <a href="../../../../../../../learn/index.html">Learn</a>
+        <a href="../../../../../../../docs/index.html" aria-current="page">Docs</a>
+        <a href="../../../../../../../packages/index.html">Packages</a>
+        <a href="../../../../../../../tools/index.html">Tools</a>
+        <a href="../../../../../../../community/index.html">Community</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="Search site"><span aria-hidden="true">⌕</span><span class="search-label">Search</span><kbd>Ctrl K</kbd></button>
+        <a class="github-link" href="https://github.com/raz-language" target="_blank" rel="noopener" aria-label="Raz on GitHub">GitHub ↗</a>
+        <a class="button button-primary button-small" href="../../../../../../../install/index.html">Get Raz</a>
+      </div>
+    </div>
+  </header>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="search-backdrop" data-search-close></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search Raz website">
+      <div class="search-box"><span aria-hidden="true">⌕</span><input type="search" data-site-search autocomplete="off" spellcheck="false" placeholder="Search Raz…" aria-label="Search Raz website"><kbd>Esc</kbd></div>
+      <div class="search-results" data-search-results></div>
+      <p class="search-hint">Search documentation, installation, packages, tools, and project pages.</p>
+    </section>
+  </div>
+<header class="page-hero api-item-hero"><div class="shell narrow"><div class="doc-breadcrumbs"><a href="../../../../../index.html">Standard library</a><span>/</span><a href="../../../index.html">collections::vector</a><span>/</span><span>get_ptr</span></div><p class="kicker">METHOD · RAZ STDLIB</p><h1><code>get_ptr</code></h1><p class="page-lead">Method in collections::vector.</p></div></header>
+<main id="main" class="after-hero"><section class="section section-white"><div class="shell api-item-layout"><article><p class="kicker">SIGNATURE</p><div class="api-signature-card"><code class="language-raz">fn get_ptr(Vector&lt;T&gt;&amp; self, i64 index) -&gt; T*const</code><button type="button" data-copy="fn get_ptr(Vector&lt;T&gt;&amp; self, i64 index) -&gt; T*const">Copy</button></div><p class="api-description muted">The generated index does not currently carry an extended documentation sentence for this item.</p><div class="button-row"><a class="button button-secondary" href="../../../index.html">← Back to module</a><a class="button button-secondary" href="https://github.com/raz-language/raz/blob/main/library/collections/vector/vector.rz">Source file ↗</a></div></article><aside class="api-meta-card"><div><span>Module</span><a href="../../../index.html">collections::vector</a></div><div><span>Kind</span><b>method</b></div><div><span>Section</span><b>Methods on `Vector&lt;T&gt;`</b></div><div><span>Receiver / implementation</span><code>Vector&lt;T&gt;</code></div><div><span>Layer</span><b>collections</b></div></aside></div></section></main><footer class="site-footer">
+    <div class="shell footer-main">
+      <div class="footer-intro"><a class="footer-wordmark" href="../../../../../../../index.html">Raz</a><p>Fast, safe, predictable systems programming with a visible cost model.</p></div>
+      <div><h2>Learn</h2><a href="../../../../../../../learn/index.html">Getting started</a><a href="../../../../../../../docs/index.html">Documentation</a><a href="../../../../../../../packages/index.html">Packages</a><a href="../../../../../../../install/index.html">Install</a></div>
+      <div><h2>Reference</h2><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SPECIFICATION.md">Specification ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY.md">Standard library ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/CLI.md">CLI reference ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/PLATFORM-SUPPORT.md">Platforms ↗</a></div>
+      <div><h2>Project</h2><a href="https://github.com/raz-language">GitHub ↗</a><a href="https://github.com/raz-language/raz/blob/main/CONTRIBUTING.md">Contributing ↗</a><a href="https://github.com/raz-language/raz/blob/main/SECURITY.md">Security ↗</a><a href="../../../../../../../status/index.html">Status</a><a href="https://github.com/raz-language/raz/blob/main/LICENSE">Apache-2.0 ↗</a></div>
+    </div>
+    <div class="shell footer-meta"><span>Raz 1.0 stable</span><span>Built in the open</span><span>© 2026 Raz Project</span></div>
+  </footer>
+</body>
+</html>

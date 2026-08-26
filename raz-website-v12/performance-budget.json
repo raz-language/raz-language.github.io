@@ -1,0 +1,12 @@
+{
+  "limits": {
+    "homepage_html_bytes": 65536,
+    "largest_public_file_bytes": 1048576,
+    "search_index_js_bytes": 524288,
+    "site_js_bytes": 65536,
+    "staged_site_bytes": 10485760,
+    "styles_css_bytes": 131072
+  },
+  "notes": "Budgets are intentionally generous enough for generated static API documentation while preventing accidental framework-scale regressions.",
+  "version": 1
+}

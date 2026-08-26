@@ -1,0 +1,46 @@
+archive	0.1.0	raz-language	Safe, allocation-free archive format primitives for Raz.
+base58	0.1.0	raz-language	Allocation-free Bitcoin-alphabet Base58 for Raz.
+bech32	0.1.0	raz-language	Strict BIP-173 Bech32 and BIP-350 Bech32m codecs for Raz.
+bigint	0.1.0	raz-language	Caller-buffered arbitrary-precision unsigned integer arithmetic for Raz.
+cbor	0.1.0	raz-language	An allocation-free CBOR codec for Raz.
+compression	0.1.0	raz-language	Stable package-level LZ4 block compression for Raz with caller-owned buffers.
+crypto	0.4.0	raz-language	Cryptographic primitives and secure utilities for Raz.
+csv	0.1.0	raz-language	A streaming, zero-copy CSV reader and allocation-free writer for Raz.
+datetime	0.2.0	raz-language	High-performance civil date/time, UTC offset, duration, Unix timestamp, and RFC 3339 utilities for Raz.
+decimal	0.1.0	raz-language	Checked fixed-scale decimal arithmetic for finance and deterministic applications.
+dns	0.1.0	raz-language	Bounded DNS wire-format and resolution helpers for Raz.
+encoding	0.1.0	raz-language	Allocation-free binary-to-text codecs and checksums for Raz.
+graphql	0.1.0	raz-language	Bounded GraphQL document and JSON-envelope helpers for Raz clients and gateways.
+http-router	0.2.0	raz-language	High-performance, allocation-conscious HTTP routing for Raz.
+http3	0.1.0	raz-language	Bounded HTTP/3 framing primitives for Raz.
+json	0.1.0	raz-language	A strict, allocation-conscious JSON toolkit for Raz.
+jwt	0.1.0	raz-language	JWT, JWS, registered-claim, and JWK support for Raz.
+merkle	0.2.0	raz-language	Deterministic SHA-256 Merkle trees for Raz.
+metrics	0.1.0	raz-language	Allocation-free concurrent metrics primitives for Raz.
+mmap	0.1.0	raz-language	Owned anonymous virtual-memory mappings for Raz.
+msgpack	0.1.0	raz-language	An allocation-free MessagePack codec for Raz.
+multipart	0.1.0	raz-language	Streaming MIME multipart/form-data support for Raz.
+oauth2	0.1.0	raz-language	OAuth 2.0 authorization-code helpers with S256 Proof Key for Code Exchange (PKCE).
+postgres	0.3.0	raz-language	Native PostgreSQL wire-protocol client for Raz.
+protobuf	0.1.0	raz-language	An allocation-free Protocol Buffers wire codec for Raz.
+quic	0.1.0	raz-language	Bounded QUIC wire primitives for Raz.
+redis	0.1.0	raz-language	Zero-copy RESP2/RESP3 protocol primitives for Raz.
+regex	0.2.1	raz-language	`regex` is the official allocation-conscious regular-expression package for Raz.
+rlp	0.1.0	raz-language	Canonical Recursive Length Prefix encoding for Raz.
+rpc	0.1.0	raz-language	Transport-neutral bounded RPC framing for Raz.
+secp256k1	0.1.0	raz-language	Strict secp256k1 key and signature wire validation for Raz.
+semver	0.2.0	raz-language	Strict Semantic Versioning 2.0.0 parsing, precedence, and package-manager version requirements for Raz.
+serde	0.2.1	raz-language	`serde` defines Raz's format-neutral serialization contracts.
+sqlite	0.3.0	raz-language	Native SQLite integration for Raz with an allocation-conscious Raz API over SQLite's stable C ABI.
+ssz	0.1.0	raz-language	SimpleSerialize primitives and tree hashing for Raz.
+testing	0.2.0	raz-language	Reusable assertions, deterministic property generators, shrinking, and benchmark statistics for Raz.
+toml	0.2.0	raz-language	Native TOML parsing for Raz, designed around source-backed documents and low allocation overhead.
+tracing	0.1.0	raz-language	Allocation-free distributed tracing primitives for Raz.
+uring	0.1.0	raz-language	Allocation-free io_uring-style operation and queue primitives for Raz runtimes.
+uuid	0.2.0	raz-language	Fast UUID primitives for Raz.
+wasm-component	0.1.0	raz-language	Allocation-free WebAssembly Component Model binary inspection for Raz.
+wasm-runtime	0.1.0	raz-language	Bounded WebAssembly core execution primitives for Raz.
+websocket	0.2.0	raz-language	RFC 6455 WebSocket protocol primitives for Raz.
+xml	0.1.0	raz-language	Streaming zero-copy XML tokenizer and attribute reader for Raz.
+yaml	0.1.0	raz-language	A bounded block-style YAML 1.2 core for Raz.
+zstd	0.1.0	raz-language	Bounded Zstandard frame support for Raz.

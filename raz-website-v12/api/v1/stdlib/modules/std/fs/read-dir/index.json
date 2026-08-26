@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 5,
+  "items": [],
+  "layer": "std",
+  "name": "std::fs::read_dir",
+  "path": null,
+  "slug": "std/fs/read-dir",
+  "website_url": "/docs/stdlib/std/fs/read-dir/index.html"
+}

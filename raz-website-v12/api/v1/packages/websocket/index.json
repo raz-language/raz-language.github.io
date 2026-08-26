@@ -1,0 +1,10 @@
+{
+  "available": false,
+  "dependencies": [],
+  "modules": [],
+  "name": "websocket",
+  "package": {},
+  "source_root": "https://github.com/raz-language/packages/tree/main/sources/websocket",
+  "version": "0.2.0",
+  "website_url": "/packages/websocket/docs/"
+}

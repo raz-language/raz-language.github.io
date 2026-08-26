@@ -1,0 +1,628 @@
+[
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "archive",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/archive",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "base58",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/base58",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "bech32",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/bech32",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "bigint",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/bigint",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "cbor",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/cbor",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "compression",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/compression",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "crypto",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/crypto",
+    "version": "0.4.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "csv",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/csv",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "datetime",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/datetime",
+    "version": "0.2.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "decimal",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/decimal",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "dns",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/dns",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "encoding",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/encoding",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "graphql",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/graphql",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "http-router",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/http-router",
+    "version": "0.2.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "http3",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/http3",
+    "version": "0.1.0"
+  },
+  {
+    "available": true,
+    "dependencies": [
+      {
+        "name": "alloc",
+        "requirement": "../../../raz/library/alloc",
+        "section": "dependencies"
+      },
+      {
+        "name": "core",
+        "requirement": "../../../raz/library/core",
+        "section": "dependencies"
+      },
+      {
+        "name": "serde",
+        "requirement": "../serde",
+        "section": "dependencies"
+      },
+      {
+        "name": "std",
+        "requirement": "../../../raz/library/std",
+        "section": "dependencies"
+      }
+    ],
+    "modules": [
+      {
+        "file": "src/core.rz",
+        "name": "json::core",
+        "slug": "json-core",
+        "source_url": "https://github.com/raz-language/packages/blob/main/sources/json/src/core.rz",
+        "symbols": []
+      },
+      {
+        "file": "src/document.rz",
+        "name": "json::document",
+        "slug": "json-document",
+        "source_url": "https://github.com/raz-language/packages/blob/main/sources/json/src/document.rz",
+        "symbols": []
+      },
+      {
+        "file": "src/lib.rz",
+        "name": "json",
+        "slug": "json",
+        "source_url": "https://github.com/raz-language/packages/blob/main/sources/json/src/lib.rz",
+        "symbols": [
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "version_major",
+            "signature": "public fn version_major() -> i64",
+            "slug": "fn/version-major"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "version_minor",
+            "signature": "public fn version_minor() -> i64",
+            "slug": "fn/version-minor"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "version_patch",
+            "signature": "public fn version_patch() -> i64",
+            "slug": "fn/version-patch"
+          }
+        ]
+      },
+      {
+        "file": "src/pointer.rz",
+        "name": "json::pointer",
+        "slug": "json-pointer",
+        "source_url": "https://github.com/raz-language/packages/blob/main/sources/json/src/pointer.rz",
+        "symbols": [
+          {
+            "description": "",
+            "kind": "enum",
+            "name": "PointerError",
+            "signature": "public enum PointerError",
+            "slug": "enum/pointererror"
+          },
+          {
+            "description": "Resolves RFC 6901 JSON Pointer bytes against a parsed document. `segment` and `key_scratch` are reusable caller-owned strings.",
+            "kind": "fn",
+            "name": "resolve",
+            "signature": "public fn resolve( JsonDocument& document, usize pointer, i64 length, String&mut segment, String&mut key_scratch, i64&mut output, ) -> PointerError",
+            "slug": "fn/resolve"
+          }
+        ]
+      },
+      {
+        "file": "src/writer.rz",
+        "name": "json::writer",
+        "slug": "json-writer",
+        "source_url": "https://github.com/raz-language/packages/blob/main/sources/json/src/writer.rz",
+        "symbols": [
+          {
+            "description": "",
+            "kind": "enum",
+            "name": "WriterError",
+            "signature": "public enum WriterError",
+            "slug": "enum/writererror"
+          },
+          {
+            "description": "",
+            "kind": "struct",
+            "name": "JsonWriter",
+            "signature": "public struct JsonWriter",
+            "slug": "struct/jsonwriter"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "create",
+            "signature": "public fn create(i64 capacity) -> JsonWriter",
+            "slug": "fn/create"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "begin_array",
+            "signature": "public fn begin_array(JsonWriter&mut writer) -> bool",
+            "slug": "fn/begin-array"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "begin_object",
+            "signature": "public fn begin_object(JsonWriter&mut writer) -> bool",
+            "slug": "fn/begin-object"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "key",
+            "signature": "public fn key(JsonWriter&mut writer, usize data, i64 length) -> bool",
+            "slug": "fn/key"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "string",
+            "signature": "public fn string(JsonWriter&mut writer, usize data, i64 length) -> bool",
+            "slug": "fn/string"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "signed",
+            "signature": "public fn signed(JsonWriter&mut writer, i64 value) -> bool",
+            "slug": "fn/signed"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "unsigned",
+            "signature": "public fn unsigned(JsonWriter&mut writer, u64 value) -> bool",
+            "slug": "fn/unsigned"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "boolean",
+            "signature": "public fn boolean(JsonWriter&mut writer, bool value) -> bool",
+            "slug": "fn/boolean"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "null_value",
+            "signature": "public fn null_value(JsonWriter&mut writer) -> bool",
+            "slug": "fn/null-value"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "end",
+            "signature": "public fn end(JsonWriter&mut writer) -> bool",
+            "slug": "fn/end"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "complete",
+            "signature": "public fn complete(JsonWriter& writer) -> bool",
+            "slug": "fn/complete"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "error",
+            "signature": "public fn error(JsonWriter& writer) -> WriterError",
+            "slug": "fn/error"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "view",
+            "signature": "public fn view(JsonWriter& writer) -> BytesView",
+            "slug": "fn/view"
+          },
+          {
+            "description": "",
+            "kind": "fn",
+            "name": "take",
+            "signature": "public fn take(JsonWriter&mut writer) -> String",
+            "slug": "fn/take"
+          }
+        ]
+      }
+    ],
+    "name": "json",
+    "package": {
+      "entry": "src/lib.rz",
+      "kind": "static-library",
+      "name": "json",
+      "version": "0.1.0"
+    },
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/json",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "jwt",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/jwt",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "merkle",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/merkle",
+    "version": "0.2.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "metrics",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/metrics",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "mmap",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/mmap",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "msgpack",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/msgpack",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "multipart",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/multipart",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "oauth2",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/oauth2",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "postgres",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/postgres",
+    "version": "0.3.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "protobuf",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/protobuf",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "quic",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/quic",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "redis",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/redis",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "regex",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/regex",
+    "version": "0.2.1"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "rlp",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/rlp",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "rpc",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/rpc",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "secp256k1",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/secp256k1",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "semver",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/semver",
+    "version": "0.2.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "serde",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/serde",
+    "version": "0.2.1"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "sqlite",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/sqlite",
+    "version": "0.3.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "ssz",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/ssz",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "testing",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/testing",
+    "version": "0.2.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "toml",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/toml",
+    "version": "0.2.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "tracing",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/tracing",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "uring",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/uring",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "uuid",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/uuid",
+    "version": "0.2.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "wasm-component",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/wasm-component",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "wasm-runtime",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/wasm-runtime",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "websocket",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/websocket",
+    "version": "0.2.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "xml",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/xml",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "yaml",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/yaml",
+    "version": "0.1.0"
+  },
+  {
+    "available": false,
+    "dependencies": [],
+    "modules": [],
+    "name": "zstd",
+    "package": {},
+    "source_root": "https://github.com/raz-language/packages/tree/main/sources/zstd",
+    "version": "0.1.0"
+  }
+]

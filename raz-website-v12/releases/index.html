@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find official Raz stable and nightly release channels, supported platform artifacts, checksums and source releases.">
+  <meta name="theme-color" content="#0b1018">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Raz">
+  <meta property="og:title" content="Raz Releases — Stable and nightly toolchains">
+  <meta property="og:description" content="Find official Raz stable and nightly release channels, supported platform artifacts, checksums and source releases.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Raz Releases — Stable and nightly toolchains">
+  <meta name="twitter:description" content="Find official Raz stable and nightly release channels, supported platform artifacts, checksums and source releases.">
+  <title>Raz Releases — Stable and nightly toolchains</title>
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>window.RAZ_BASE="../";</script>
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz","codeRepository":"https://github.com/raz-language/raz","license":"https://www.apache.org/licenses/LICENSE-2.0","description":"A systems programming language for native software that has to be fast, safe, and predictable."}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-inner">
+      <a class="brand" href="../index.html" aria-label="Raz home">
+        <img src="../assets/raz-mark.png" alt="" width="38" height="38">
+        <span>Raz</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-links"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
+      <nav class="primary-links" id="primary-links" aria-label="Primary navigation">
+        <a href="../learn/index.html">Learn</a>
+        <a href="../docs/index.html">Docs</a>
+        <a href="../packages/index.html">Packages</a>
+        <a href="../tools/index.html">Tools</a>
+        <a href="../community/index.html">Community</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="Search site"><span aria-hidden="true">⌕</span><span class="search-label">Search</span><kbd>Ctrl K</kbd></button>
+        <a class="github-link" href="https://github.com/raz-language" target="_blank" rel="noopener" aria-label="Raz on GitHub">GitHub ↗</a>
+        <a class="button button-primary button-small" href="../install/index.html">Get Raz</a>
+      </div>
+    </div>
+  </header>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="search-backdrop" data-search-close></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search Raz website">
+      <div class="search-box"><span aria-hidden="true">⌕</span><input type="search" data-site-search autocomplete="off" spellcheck="false" placeholder="Search Raz…" aria-label="Search Raz website"><kbd>Esc</kbd></div>
+      <div class="search-results" data-search-results></div>
+      <p class="search-hint">Search documentation, installation, packages, tools, and project pages.</p>
+    </section>
+  </div>
+<header class="page-hero"><div class="shell narrow"><p class="kicker">RELEASES</p><h1>Language stability and toolchain publication, clearly separated.</h1><p class="page-lead">Release state is generated from the installer repository rather than being hard-coded into the website.</p><div class="button-row"><a class="button button-primary" href="https://github.com/raz-language/raz">Build from source ↗</a><a class="button button-secondary" href="https://github.com/raz-language/installer/releases">Watch releases ↗</a></div></div></header>
+<main id="main" class="after-hero"><section class="section section-white"><div class="shell"><div class="release-grid"><article class="release-main release-pending"><span class="status-pill pending-pill">NOT YET PUBLISHED</span><h2>Binary releases pending</h2><p>Raz 1.0 is the stable language contract, but the installer repository currently contains no published GitHub release. Build from source until qualified binary artifacts are published.</p><a class="text-link" href="https://github.com/raz-language/raz">Build Raz from source ↗</a></article><article><span class="status-pill muted-pill">NIGHTLY</span><h3>Pending</h3><p>The nightly channel currently reports version <code>1.0.0</code> with status <code>pending</code>.</p><a href="https://raw.githubusercontent.com/raz-language/installer/main/channels/nightly.txt">View channel manifest ↗</a></article><article><span class="status-pill muted-pill">LANGUAGE</span><h3>Raz 1.0 stable</h3><p>The Raz 1.x compatibility contract is stable independently of prebuilt installer publication.</p><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-STABILITY.md">Stability contract ↗</a></article></div><div class="data-freshness release-freshness"><span class="live-dot"></span><span>0 published installer releases detected</span></div></div></section>
+<section class="section section-soft"><div class="shell"><div class="section-top compact"><div><p class="kicker">QUALIFIED TARGETS</p><h2>Generated from platform support.</h2></div><p>These are compiler/toolchain target qualifications, not a promise that a prebuilt archive currently exists for every target.</p></div><div class="release-table" role="table" aria-label="Qualified native targets"><div class="tr head"><span>Target</span><span>Backend</span><span>ABI / object</span></div><div class="tr"><code>x86_64-pc-windows-msvc</code><span>Forge or LLVM</span><span>Windows x64 · COFF</span></div><div class="tr"><code>x86_64-unknown-linux-gnu</code><span>Forge or LLVM</span><span>System V AMD64 · ELF64</span></div><div class="tr"><code>aarch64-unknown-linux-gnu</code><span>LLVM</span><span>AAPCS64 · ELF64</span></div><div class="tr"><code>arm64-apple-macos</code><span>LLVM</span><span>Darwin AArch64 · Mach-O 64</span></div></div></div></section></main><footer class="site-footer">
+    <div class="shell footer-main">
+      <div class="footer-intro"><a class="footer-wordmark" href="../index.html">Raz</a><p>Fast, safe, predictable systems programming with a visible cost model.</p></div>
+      <div><h2>Learn</h2><a href="../learn/index.html">Getting started</a><a href="../docs/index.html">Documentation</a><a href="../packages/index.html">Packages</a><a href="../install/index.html">Install</a></div>
+      <div><h2>Reference</h2><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SPECIFICATION.md">Specification ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY.md">Standard library ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/CLI.md">CLI reference ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/PLATFORM-SUPPORT.md">Platforms ↗</a></div>
+      <div><h2>Project</h2><a href="https://github.com/raz-language">GitHub ↗</a><a href="https://github.com/raz-language/raz/blob/main/CONTRIBUTING.md">Contributing ↗</a><a href="https://github.com/raz-language/raz/blob/main/SECURITY.md">Security ↗</a><a href="../status/index.html">Status</a><a href="https://github.com/raz-language/raz/blob/main/LICENSE">Apache-2.0 ↗</a></div>
+    </div>
+    <div class="shell footer-meta"><span>Raz 1.0 stable</span><span>Built in the open</span><span>© 2026 Raz Project</span></div>
+  </footer>
+</body>
+</html>

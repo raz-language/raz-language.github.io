@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 6,
+  "items": [],
+  "layer": "std",
+  "name": "std::thread::latch",
+  "path": null,
+  "slug": "std/thread/latch",
+  "website_url": "/docs/stdlib/std/thread/latch/index.html"
+}

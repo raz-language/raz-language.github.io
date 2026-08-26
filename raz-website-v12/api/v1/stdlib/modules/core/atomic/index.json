@@ -1,0 +1,181 @@
+{
+  "documented_items": 17,
+  "item_count": 17,
+  "items": [
+    {
+      "description": "",
+      "group": "Types",
+      "kind": "constant",
+      "name": "relaxed",
+      "owner": null,
+      "signature": "const i64 relaxed = 0",
+      "slug": "constant/relaxed",
+      "website_url": "/docs/stdlib/core/atomic/constant/relaxed/index.html"
+    },
+    {
+      "description": "",
+      "group": "Types",
+      "kind": "constant",
+      "name": "acquire",
+      "owner": null,
+      "signature": "const i64 acquire = 1",
+      "slug": "constant/acquire",
+      "website_url": "/docs/stdlib/core/atomic/constant/acquire/index.html"
+    },
+    {
+      "description": "",
+      "group": "Types",
+      "kind": "constant",
+      "name": "release",
+      "owner": null,
+      "signature": "const i64 release = 2",
+      "slug": "constant/release",
+      "website_url": "/docs/stdlib/core/atomic/constant/release/index.html"
+    },
+    {
+      "description": "",
+      "group": "Types",
+      "kind": "constant",
+      "name": "acquire_release",
+      "owner": null,
+      "signature": "const i64 acquire_release = 3",
+      "slug": "constant/acquire-release",
+      "website_url": "/docs/stdlib/core/atomic/constant/acquire-release/index.html"
+    },
+    {
+      "description": "",
+      "group": "Types",
+      "kind": "constant",
+      "name": "sequentially_consistent",
+      "owner": null,
+      "signature": "const i64 sequentially_consistent = 4",
+      "slug": "constant/sequentially-consistent",
+      "website_url": "/docs/stdlib/core/atomic/constant/sequentially-consistent/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "load_i64",
+      "owner": null,
+      "signature": "fn load_i64(usize value) -> i64",
+      "slug": "function/load-i64",
+      "website_url": "/docs/stdlib/core/atomic/function/load-i64/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "store_i64",
+      "owner": null,
+      "signature": "fn store_i64(usize value, i64 desired)",
+      "slug": "function/store-i64",
+      "website_url": "/docs/stdlib/core/atomic/function/store-i64/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "fetch_add_i64",
+      "owner": null,
+      "signature": "fn fetch_add_i64(usize value, i64 delta) -> i64",
+      "slug": "function/fetch-add-i64",
+      "website_url": "/docs/stdlib/core/atomic/function/fetch-add-i64/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "exchange_i64",
+      "owner": null,
+      "signature": "fn exchange_i64(usize value, i64 desired) -> i64",
+      "slug": "function/exchange-i64",
+      "website_url": "/docs/stdlib/core/atomic/function/exchange-i64/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "compare_exchange_i64",
+      "owner": null,
+      "signature": "fn compare_exchange_i64(usize value, i64 expected, i64 desired) -> bool",
+      "slug": "function/compare-exchange-i64",
+      "website_url": "/docs/stdlib/core/atomic/function/compare-exchange-i64/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "load_i64_ordered",
+      "owner": null,
+      "signature": "fn load_i64_ordered(usize value, i64 order) -> i64",
+      "slug": "function/load-i64-ordered",
+      "website_url": "/docs/stdlib/core/atomic/function/load-i64-ordered/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "store_i64_ordered",
+      "owner": null,
+      "signature": "fn store_i64_ordered(usize value, i64 desired, i64 order)",
+      "slug": "function/store-i64-ordered",
+      "website_url": "/docs/stdlib/core/atomic/function/store-i64-ordered/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "fetch_add_i64_ordered",
+      "owner": null,
+      "signature": "fn fetch_add_i64_ordered(usize value, i64 delta, i64 order) -> i64",
+      "slug": "function/fetch-add-i64-ordered",
+      "website_url": "/docs/stdlib/core/atomic/function/fetch-add-i64-ordered/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "exchange_i64_ordered",
+      "owner": null,
+      "signature": "fn exchange_i64_ordered(usize value, i64 desired, i64 order) -> i64",
+      "slug": "function/exchange-i64-ordered",
+      "website_url": "/docs/stdlib/core/atomic/function/exchange-i64-ordered/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "compare_exchange_i64_ordered",
+      "owner": null,
+      "signature": "fn compare_exchange_i64_ordered(usize value, i64 expected, i64 desired, i64 success_order, i64 failure_order) -> bool",
+      "slug": "function/compare-exchange-i64-ordered",
+      "website_url": "/docs/stdlib/core/atomic/function/compare-exchange-i64-ordered/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "cpu_relax",
+      "owner": null,
+      "signature": "fn cpu_relax()",
+      "slug": "function/cpu-relax",
+      "website_url": "/docs/stdlib/core/atomic/function/cpu-relax/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "fence",
+      "owner": null,
+      "signature": "fn fence(i64 order)",
+      "slug": "function/fence",
+      "website_url": "/docs/stdlib/core/atomic/function/fence/index.html"
+    }
+  ],
+  "layer": "core",
+  "name": "core::atomic",
+  "path": "library/core/atomic/atomic.rz",
+  "slug": "core/atomic",
+  "website_url": "/docs/stdlib/core/atomic/index.html"
+}

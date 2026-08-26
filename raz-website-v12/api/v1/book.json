@@ -1,0 +1,409 @@
+{
+  "canonical": false,
+  "chapter_count": 29,
+  "chapters": [
+    {
+      "canonical": false,
+      "description": "Understand Raz's visible cost model, native execution model, and the role of Forge and LLVM.",
+      "diagnostics": [
+        "D4000"
+      ],
+      "group": "Start here",
+      "number": 1,
+      "slug": "chapter-01",
+      "spec_anchor": "18-compilation-semantics",
+      "spec_label": "Compilation semantics",
+      "title": "What Raz Is",
+      "url": "learn/book/chapter-01/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Create a package, understand raz.toml, and learn the normal check/build/run/test workflow.",
+      "diagnostics": [],
+      "group": "Start here",
+      "number": 2,
+      "slug": "chapter-02",
+      "spec_anchor": "17-packages-and-dependencies",
+      "spec_label": "Packages and dependencies",
+      "title": "Create and Build a Project",
+      "url": "learn/book/chapter-02/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Write functions, type-first parameters, semicolon-terminated statements, and documentation comments.",
+      "diagnostics": [
+        "D1001"
+      ],
+      "group": "Start here",
+      "number": 3,
+      "slug": "chapter-03",
+      "spec_anchor": "1-source-files-and-declarations",
+      "spec_label": "Source files and declarations",
+      "title": "Your First Program",
+      "url": "learn/book/chapter-03/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Use Raz scalar types and make numeric conversions explicit with as.",
+      "diagnostics": [
+        "D2009",
+        "D2289"
+      ],
+      "group": "Start here",
+      "number": 4,
+      "slug": "chapter-04",
+      "spec_anchor": "4-primitive-and-compound-types",
+      "spec_label": "Primitive and compound types",
+      "title": "Variables and Types",
+      "url": "learn/book/chapter-04/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Work with fixed arrays, borrowed slices, references, and explicit raw-pointer boundaries.",
+      "diagnostics": [
+        "D2056",
+        "D2064"
+      ],
+      "group": "Start here",
+      "number": 5,
+      "slug": "chapter-05",
+      "spec_anchor": "9-ownership-moves-and-references",
+      "spec_label": "Ownership, moves, and references",
+      "title": "Arrays, Slices, References, and Pointers",
+      "url": "learn/book/chapter-05/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Use operators, bool-only conditions, loops, ranges, break, continue, and return.",
+      "diagnostics": [
+        "D2007",
+        "D3006",
+        "D3007"
+      ],
+      "group": "Language foundations",
+      "number": 6,
+      "slug": "chapter-06",
+      "spec_anchor": "7-control-flow",
+      "spec_label": "Control flow",
+      "title": "Expressions and Control Flow",
+      "url": "learn/book/chapter-06/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Model data with type-first fields and attach behavior through explicit impl receivers.",
+      "diagnostics": [],
+      "group": "Language foundations",
+      "number": 7,
+      "slug": "chapter-07",
+      "spec_anchor": "5-structs-and-enums",
+      "spec_label": "Structs and enums",
+      "title": "Structs and Methods",
+      "url": "learn/book/chapter-07/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Use payload enums and exhaustive pattern matching so missing cases become compile-time errors.",
+      "diagnostics": [
+        "D2038"
+      ],
+      "group": "Language foundations",
+      "number": 8,
+      "slug": "chapter-08",
+      "spec_anchor": "8-pattern-matching",
+      "spec_label": "Pattern matching",
+      "title": "Enums and Exhaustive Match",
+      "url": "learn/book/chapter-08/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Represent absence and recoverable failure in types and propagate failure with postfix ?.",
+      "diagnostics": [
+        "D2047"
+      ],
+      "group": "Language foundations",
+      "number": 9,
+      "slug": "chapter-09",
+      "spec_anchor": "8-pattern-matching",
+      "spec_label": "Pattern matching and recoverable errors",
+      "title": "Option, Result, and ?",
+      "url": "learn/book/chapter-09/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Learn the single-owner model, explicit move, and why moved sources become unusable.",
+      "diagnostics": [
+        "D2052",
+        "D2054",
+        "D2055"
+      ],
+      "group": "Ownership & abstraction",
+      "number": 10,
+      "slug": "chapter-10",
+      "spec_anchor": "9-ownership-moves-and-references",
+      "spec_label": "Ownership, moves, and references",
+      "title": "Ownership and Moves",
+      "url": "learn/book/chapter-10/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Use many shared or one mutable borrow with non-lexical loan analysis and safe reference escape rules.",
+      "diagnostics": [
+        "D2056",
+        "D2057",
+        "D2064"
+      ],
+      "group": "Ownership & abstraction",
+      "number": 11,
+      "slug": "chapter-11",
+      "spec_anchor": "9-ownership-moves-and-references",
+      "spec_label": "Ownership, moves, and references",
+      "title": "Borrowing and Lifetimes",
+      "url": "learn/book/chapter-11/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Build deterministic cleanup with type-owned Drop and lexical LIFO defer.",
+      "diagnostics": [
+        "D2050",
+        "D2068"
+      ],
+      "group": "Ownership & abstraction",
+      "number": 12,
+      "slug": "chapter-12",
+      "spec_anchor": "10-deterministic-destruction",
+      "spec_label": "Deterministic destruction",
+      "title": "Drop and defer",
+      "url": "learn/book/chapter-12/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Write statically specialized generic functions, types, const generics, and bounded abstractions.",
+      "diagnostics": [
+        "D2097"
+      ],
+      "group": "Ownership & abstraction",
+      "number": 13,
+      "slug": "chapter-13",
+      "spec_anchor": "11-generics-and-traits",
+      "spec_label": "Generics and traits",
+      "title": "Generics",
+      "url": "learn/book/chapter-13/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Define reusable behavior with traits, associated items, static dispatch, and explicit dyn dispatch.",
+      "diagnostics": [
+        "D2097",
+        "D2114"
+      ],
+      "group": "Ownership & abstraction",
+      "number": 14,
+      "slug": "chapter-14",
+      "spec_anchor": "11-generics-and-traits",
+      "spec_label": "Generics and traits",
+      "title": "Traits and Associated Items",
+      "url": "learn/book/chapter-14/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Understand the Iterator and IntoIterator contracts that power for loops beyond built-in arrays.",
+      "diagnostics": [],
+      "group": "Ownership & abstraction",
+      "number": 15,
+      "slug": "chapter-15",
+      "spec_anchor": "12-iteration",
+      "spec_label": "Iteration",
+      "title": "Iterators and Ranges",
+      "url": "learn/book/chapter-15/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Use deterministic bounded comptime execution, const functions, reflection, and layout queries.",
+      "diagnostics": [
+        "D2212",
+        "D2240"
+      ],
+      "group": "Ownership & abstraction",
+      "number": 16,
+      "slug": "chapter-16",
+      "spec_anchor": "13-compile-time-programming",
+      "spec_label": "Compile-time programming",
+      "title": "Compile-Time Programming",
+      "url": "learn/book/chapter-16/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Capture by shared borrow, mutable borrow, or move and understand callable ownership modes.",
+      "diagnostics": [
+        "D2125"
+      ],
+      "group": "Ownership & abstraction",
+      "number": 17,
+      "slug": "chapter-17",
+      "spec_anchor": "14-closures-and-function-pointers",
+      "spec_label": "Closures and function pointers",
+      "title": "Closures and Callable Values",
+      "url": "learn/book/chapter-17/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Use async fn, spawn, and await while preserving ownership across compiler-generated suspension frames.",
+      "diagnostics": [],
+      "group": "Ownership & abstraction",
+      "number": 18,
+      "slug": "chapter-18",
+      "spec_anchor": "15-async",
+      "spec_label": "Async",
+      "title": "Async, Tasks, and await",
+      "url": "learn/book/chapter-18/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Split code into modules, import namespaces, lock dependency graphs, and consume the official registry.",
+      "diagnostics": [],
+      "group": "Build real software",
+      "number": 19,
+      "slug": "chapter-19",
+      "spec_anchor": "17-packages-and-dependencies",
+      "spec_label": "Packages and dependencies",
+      "title": "Modules, Packages, and Dependencies",
+      "url": "learn/book/chapter-19/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Navigate core, alloc, collections, and std and understand why APIs live in each layer.",
+      "diagnostics": [],
+      "group": "Build real software",
+      "number": 20,
+      "slug": "chapter-20",
+      "spec_anchor": "4-primitive-and-compound-types",
+      "spec_label": "Types and library foundations",
+      "title": "Standard Library",
+      "url": "learn/book/chapter-20/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Build with threads, atomics, locks, channels, futures, tasks, timers, and cancellation.",
+      "diagnostics": [],
+      "group": "Build real software",
+      "number": 21,
+      "slug": "chapter-21",
+      "spec_anchor": "18-compilation-semantics",
+      "spec_label": "Compilation semantics",
+      "title": "Concurrency and Synchronization",
+      "url": "learn/book/chapter-21/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Use caller-controlled buffering, sockets, DNS, readiness, filesystem, and async I/O foundations.",
+      "diagnostics": [],
+      "group": "Build real software",
+      "number": 22,
+      "slug": "chapter-22",
+      "spec_anchor": "18-compilation-semantics",
+      "spec_label": "Compilation semantics",
+      "title": "Networking and I/O",
+      "url": "learn/book/chapter-22/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Keep extern, raw pointers, casts, and C ABI boundaries small, explicit, and auditable.",
+      "diagnostics": [
+        "D2289"
+      ],
+      "group": "Build real software",
+      "number": 23,
+      "slug": "chapter-23",
+      "spec_anchor": "16-unsafe-code-and-native-abi",
+      "spec_label": "Unsafe code and native ABI",
+      "title": "Unsafe Code and Native Interop",
+      "url": "learn/book/chapter-23/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Follow source through semantic analysis, typed HIR, verified MIR, Forge, LLVM, WebAssembly, and RXE.",
+      "diagnostics": [
+        "D4000"
+      ],
+      "group": "Compiler & production",
+      "number": 24,
+      "slug": "chapter-24",
+      "spec_anchor": "18-compilation-semantics",
+      "spec_label": "Compilation semantics",
+      "title": "The Compiler Pipeline",
+      "url": "learn/book/chapter-24/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Reason about performance across language semantics, library allocation behavior, and backend optimization.",
+      "diagnostics": [],
+      "group": "Compiler & production",
+      "number": 25,
+      "slug": "chapter-25",
+      "spec_anchor": "18-compilation-semantics",
+      "spec_label": "Compilation semantics",
+      "title": "Native Performance",
+      "url": "learn/book/chapter-25/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Use stable diagnostic codes, canonical formatting, tests, and project inspection tools.",
+      "diagnostics": [
+        "D2008",
+        "D2009"
+      ],
+      "group": "Compiler & production",
+      "number": 26,
+      "slug": "chapter-26",
+      "spec_anchor": "19-diagnostics-and-implementation-freedom",
+      "spec_label": "Diagnostics and implementation freedom",
+      "title": "Diagnostics, Formatting, and Testing",
+      "url": "learn/book/chapter-26/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Combine traits, generics, borrowing, enums, matching, and deterministic values in one program.",
+      "diagnostics": [],
+      "group": "Compiler & production",
+      "number": 27,
+      "slug": "chapter-27",
+      "spec_anchor": "11-generics-and-traits",
+      "spec_label": "Generics and traits",
+      "title": "A Complete Small Program",
+      "url": "learn/book/chapter-27/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Keep the core Raz syntax forms close at hand while writing real code.",
+      "diagnostics": [],
+      "group": "Compiler & production",
+      "number": 28,
+      "slug": "chapter-28",
+      "spec_anchor": "appendix-b-grammar-summary",
+      "spec_label": "Grammar summary",
+      "title": "Quick Reference",
+      "url": "learn/book/chapter-28/index.html"
+    },
+    {
+      "canonical": false,
+      "description": "Turn the tutorial into a real project: resources, modules, tests, concurrency, packages, and carefully bounded unsafe code.",
+      "diagnostics": [],
+      "group": "Compiler & production",
+      "number": 29,
+      "slug": "chapter-29",
+      "spec_anchor": "contents",
+      "spec_label": "Specification contents",
+      "title": "Where to Go Next",
+      "url": "learn/book/chapter-29/index.html"
+    }
+  ],
+  "groups": [
+    "Start here",
+    "Language foundations",
+    "Ownership & abstraction",
+    "Build real software",
+    "Compiler & production"
+  ],
+  "source": "https://github.com/raz-language/raz/blob/main/docs/GETTING-STARTED.md",
+  "title": "The Raz Book"
+}

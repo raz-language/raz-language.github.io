@@ -1,0 +1,15 @@
+{
+  "name": "Raz Programming Language",
+  "short_name": "Raz",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b1018",
+  "theme_color": "#0b1018",
+  "icons": [
+    {
+      "src": "assets/favicon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}

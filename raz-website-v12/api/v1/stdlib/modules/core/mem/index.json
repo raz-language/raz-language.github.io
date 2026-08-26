@@ -1,0 +1,111 @@
+{
+  "documented_items": 10,
+  "item_count": 10,
+  "items": [
+    {
+      "description": "Runtime layout descriptor backed by the compiler's concrete generic layout.",
+      "group": "Types",
+      "kind": "struct",
+      "name": "Layout",
+      "owner": null,
+      "signature": "struct Layout",
+      "slug": "struct/layout",
+      "website_url": "/docs/stdlib/core/mem/struct/layout/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "min_i64",
+      "owner": null,
+      "signature": "fn min_i64(i64 left, i64 right) -> i64",
+      "slug": "function/min-i64",
+      "website_url": "/docs/stdlib/core/mem/function/min-i64/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "max_i64",
+      "owner": null,
+      "signature": "fn max_i64(i64 left, i64 right) -> i64",
+      "slug": "function/max-i64",
+      "website_url": "/docs/stdlib/core/mem/function/max-i64/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "clamp_i64",
+      "owner": null,
+      "signature": "fn clamp_i64(i64 value, i64 low, i64 high) -> i64",
+      "slug": "function/clamp-i64",
+      "website_url": "/docs/stdlib/core/mem/function/clamp-i64/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "copy_bytes",
+      "owner": null,
+      "signature": "fn copy_bytes(usize destination, usize source, i64 size)",
+      "slug": "function/copy-bytes",
+      "website_url": "/docs/stdlib/core/mem/function/copy-bytes/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "move_bytes",
+      "owner": null,
+      "signature": "fn move_bytes(usize destination, usize source, i64 size)",
+      "slug": "function/move-bytes",
+      "website_url": "/docs/stdlib/core/mem/function/move-bytes/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "fill_bytes",
+      "owner": null,
+      "signature": "fn fill_bytes(usize destination, i64 value, i64 size)",
+      "slug": "function/fill-bytes",
+      "website_url": "/docs/stdlib/core/mem/function/fill-bytes/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "layout_of",
+      "owner": null,
+      "signature": "fn layout_of<T>() -> Layout",
+      "slug": "function/layout-of",
+      "website_url": "/docs/stdlib/core/mem/function/layout-of/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "layout_is_valid",
+      "owner": null,
+      "signature": "fn layout_is_valid(Layout& layout) -> bool",
+      "slug": "function/layout-is-valid",
+      "website_url": "/docs/stdlib/core/mem/function/layout-is-valid/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "layout_array_bytes",
+      "owner": null,
+      "signature": "fn layout_array_bytes(Layout& layout, i64 count) -> i64",
+      "slug": "function/layout-array-bytes",
+      "website_url": "/docs/stdlib/core/mem/function/layout-array-bytes/index.html"
+    }
+  ],
+  "layer": "core",
+  "name": "core::mem",
+  "path": "library/core/mem/mem.rz",
+  "slug": "core/mem",
+  "website_url": "/docs/stdlib/core/mem/index.html"
+}

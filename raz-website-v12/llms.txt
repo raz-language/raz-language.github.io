@@ -1,0 +1,13 @@
+# Raz
+
+> Raz is a systems programming language for safe, fast, predictable native software.
+
+## Primary resources
+- /learn/book/ — The Raz Book, a chapter-based language guide
+- /docs/ — documentation portal
+- /packages/ — official package catalog
+- /install/ — toolchain installation and publication status
+- /tools/ — compiler and toolchain overview
+- https://github.com/raz-language/raz — canonical compiler source
+
+This snapshot contains 46 official packages and 8 locally mirrored canonical documents.

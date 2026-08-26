@@ -1,0 +1,66 @@
+{
+  "binary_releases": {
+    "count": 0,
+    "latest": null,
+    "nightly": {
+      "status": "pending",
+      "version": "1.0.0"
+    },
+    "published": false
+  },
+  "language": {
+    "stability": "stable",
+    "version": "1.0"
+  },
+  "platforms": [
+    {
+      "abi": "Windows x64",
+      "backend": "Forge or LLVM",
+      "host_use": "native / cross object",
+      "object": "COFF",
+      "target": "x86_64-pc-windows-msvc"
+    },
+    {
+      "abi": "System V AMD64",
+      "backend": "Forge or LLVM",
+      "host_use": "native / cross object",
+      "object": "ELF64",
+      "target": "x86_64-unknown-linux-gnu"
+    },
+    {
+      "abi": "AAPCS64",
+      "backend": "LLVM",
+      "host_use": "native / cross object",
+      "object": "ELF64",
+      "target": "aarch64-unknown-linux-gnu"
+    },
+    {
+      "abi": "Darwin AArch64",
+      "backend": "LLVM",
+      "host_use": "native / cross object",
+      "object": "Mach-O 64",
+      "target": "arm64-apple-macos"
+    }
+  ],
+  "source_audit": {
+    "warning_count": 3,
+    "warnings": [
+      {
+        "code": "security-version-drift",
+        "message": "SECURITY.md still describes Raz as pre-1.0 while the language stability contract declares Raz 1.0 stable.",
+        "source": "raz-language/raz/SECURITY.md"
+      },
+      {
+        "code": "missing-indexed-doc",
+        "message": "The canonical documentation index references BACKENDS.md, but the source path was unavailable during synchronization.",
+        "source": "BACKENDS.md"
+      },
+      {
+        "code": "stdlib-index-count-drift",
+        "message": "STANDARD-LIBRARY.md declares 102 modules / 1427 public items, while its generated module table enumerates 103 modules / 1447 items.",
+        "source": "raz-language/raz/docs/STANDARD-LIBRARY.md"
+      }
+    ]
+  },
+  "url": "status/index.html"
+}

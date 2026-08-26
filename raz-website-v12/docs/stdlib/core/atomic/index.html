@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="17 public items in the Raz core::atomic module.">
+  <meta name="theme-color" content="#0b1018">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Raz">
+  <meta property="og:title" content="core::atomic — Raz standard library">
+  <meta property="og:description" content="17 public items in the Raz core::atomic module.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="core::atomic — Raz standard library">
+  <meta name="twitter:description" content="17 public items in the Raz core::atomic module.">
+  <title>core::atomic — Raz standard library</title>
+  <link rel="icon" href="../../../../assets/favicon.png" type="image/png">
+  <link rel="manifest" href="../../../../site.webmanifest">
+  <link rel="stylesheet" href="../../../../assets/styles.css">
+  <script>window.RAZ_BASE="../../../../";</script>
+  <script src="../../../../assets/search-index.js"></script>
+  <script src="../../../../assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz","codeRepository":"https://github.com/raz-language/raz","license":"https://www.apache.org/licenses/LICENSE-2.0","description":"A systems programming language for native software that has to be fast, safe, and predictable."}</script>
+  <meta name="raz-doc-version" content="1.0">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-inner">
+      <a class="brand" href="../../../../index.html" aria-label="Raz home">
+        <img src="../../../../assets/raz-mark.png" alt="" width="38" height="38">
+        <span>Raz</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-links"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
+      <nav class="primary-links" id="primary-links" aria-label="Primary navigation">
+        <a href="../../../../learn/index.html">Learn</a>
+        <a href="../../../../docs/index.html" aria-current="page">Docs</a>
+        <a href="../../../../packages/index.html">Packages</a>
+        <a href="../../../../tools/index.html">Tools</a>
+        <a href="../../../../community/index.html">Community</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="Search site"><span aria-hidden="true">⌕</span><span class="search-label">Search</span><kbd>Ctrl K</kbd></button>
+        <a class="github-link" href="https://github.com/raz-language" target="_blank" rel="noopener" aria-label="Raz on GitHub">GitHub ↗</a>
+        <a class="button button-primary button-small" href="../../../../install/index.html">Get Raz</a>
+      </div>
+    </div>
+  </header>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="search-backdrop" data-search-close></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search Raz website">
+      <div class="search-box"><span aria-hidden="true">⌕</span><input type="search" data-site-search autocomplete="off" spellcheck="false" placeholder="Search Raz…" aria-label="Search Raz website"><kbd>Esc</kbd></div>
+      <div class="search-results" data-search-results></div>
+      <p class="search-hint">Search documentation, installation, packages, tools, and project pages.</p>
+    </section>
+  </div>
+<header class="page-hero api-module-hero"><div class="shell narrow"><div class="doc-breadcrumbs"><a href="../../index.html">Standard library</a><span>/</span><span>core::atomic</span></div><p class="kicker">CORE · MODULE</p><h1><code>core::atomic</code></h1><p class="page-lead">17 public items in the Raz core::atomic module.</p><div class="button-row"><a class="button button-primary" href="https://github.com/raz-language/raz/blob/main/library/core/atomic/atomic.rz">Source ↗</a><a class="button button-secondary" href="../../index.html">All modules</a></div></div></header>
+<main id="main" class="after-hero"><section class="section section-white"><div class="shell"><div class="api-module-stats"><div><b>17</b><span>public items</span></div><div><b>17</b><span>documented here</span></div><div><b>core</b><span>library layer</span></div></div><div class="api-source-path"><span>Source</span><code>library/core/atomic/atomic.rz</code></div><div class="reference-toolbar api-local-search"><label><span class="sr-only">Search this module</span><input type="search" placeholder="Search core::atomic…" data-stdlib-item-search></label><span data-stdlib-item-count>17 documented items</span></div><div data-stdlib-item-groups><section class="api-group"><div class="api-group-title"><h2>Types</h2><span>5 items</span></div><div class="api-item-list"><a class="api-item-row" href="constant/relaxed/index.html" data-stdlib-api-item data-search="relaxed const i64 relaxed = 0 constant  "><span class="api-kind">const</span><div><code class="language-raz">const i64 relaxed = 0</code></div><b>→</b></a><a class="api-item-row" href="constant/acquire/index.html" data-stdlib-api-item data-search="acquire const i64 acquire = 1 constant  "><span class="api-kind">const</span><div><code class="language-raz">const i64 acquire = 1</code></div><b>→</b></a><a class="api-item-row" href="constant/release/index.html" data-stdlib-api-item data-search="release const i64 release = 2 constant  "><span class="api-kind">const</span><div><code class="language-raz">const i64 release = 2</code></div><b>→</b></a><a class="api-item-row" href="constant/acquire-release/index.html" data-stdlib-api-item data-search="acquire_release const i64 acquire_release = 3 constant  "><span class="api-kind">const</span><div><code class="language-raz">const i64 acquire_release = 3</code></div><b>→</b></a><a class="api-item-row" href="constant/sequentially-consistent/index.html" data-stdlib-api-item data-search="sequentially_consistent const i64 sequentially_consistent = 4 constant  "><span class="api-kind">const</span><div><code class="language-raz">const i64 sequentially_consistent = 4</code></div><b>→</b></a></div></section><section class="api-group"><div class="api-group-title"><h2>Functions</h2><span>12 items</span></div><div class="api-item-list"><a class="api-item-row" href="function/load-i64/index.html" data-stdlib-api-item data-search="load_i64 fn load_i64(usize value) -&gt; i64 function  "><span class="api-kind">function</span><div><code class="language-raz">fn load_i64(usize value) -&gt; i64</code></div><b>→</b></a><a class="api-item-row" href="function/store-i64/index.html" data-stdlib-api-item data-search="store_i64 fn store_i64(usize value, i64 desired) function  "><span class="api-kind">function</span><div><code class="language-raz">fn store_i64(usize value, i64 desired)</code></div><b>→</b></a><a class="api-item-row" href="function/fetch-add-i64/index.html" data-stdlib-api-item data-search="fetch_add_i64 fn fetch_add_i64(usize value, i64 delta) -&gt; i64 function  "><span class="api-kind">function</span><div><code class="language-raz">fn fetch_add_i64(usize value, i64 delta) -&gt; i64</code></div><b>→</b></a><a class="api-item-row" href="function/exchange-i64/index.html" data-stdlib-api-item data-search="exchange_i64 fn exchange_i64(usize value, i64 desired) -&gt; i64 function  "><span class="api-kind">function</span><div><code class="language-raz">fn exchange_i64(usize value, i64 desired) -&gt; i64</code></div><b>→</b></a><a class="api-item-row" href="function/compare-exchange-i64/index.html" data-stdlib-api-item data-search="compare_exchange_i64 fn compare_exchange_i64(usize value, i64 expected, i64 desired) -&gt; bool function  "><span class="api-kind">function</span><div><code class="language-raz">fn compare_exchange_i64(usize value, i64 expected, i64 desired) -&gt; bool</code></div><b>→</b></a><a class="api-item-row" href="function/load-i64-ordered/index.html" data-stdlib-api-item data-search="load_i64_ordered fn load_i64_ordered(usize value, i64 order) -&gt; i64 function  "><span class="api-kind">function</span><div><code class="language-raz">fn load_i64_ordered(usize value, i64 order) -&gt; i64</code></div><b>→</b></a><a class="api-item-row" href="function/store-i64-ordered/index.html" data-stdlib-api-item data-search="store_i64_ordered fn store_i64_ordered(usize value, i64 desired, i64 order) function  "><span class="api-kind">function</span><div><code class="language-raz">fn store_i64_ordered(usize value, i64 desired, i64 order)</code></div><b>→</b></a><a class="api-item-row" href="function/fetch-add-i64-ordered/index.html" data-stdlib-api-item data-search="fetch_add_i64_ordered fn fetch_add_i64_ordered(usize value, i64 delta, i64 order) -&gt; i64 function  "><span class="api-kind">function</span><div><code class="language-raz">fn fetch_add_i64_ordered(usize value, i64 delta, i64 order) -&gt; i64</code></div><b>→</b></a><a class="api-item-row" href="function/exchange-i64-ordered/index.html" data-stdlib-api-item data-search="exchange_i64_ordered fn exchange_i64_ordered(usize value, i64 desired, i64 order) -&gt; i64 function  "><span class="api-kind">function</span><div><code class="language-raz">fn exchange_i64_ordered(usize value, i64 desired, i64 order) -&gt; i64</code></div><b>→</b></a><a class="api-item-row" href="function/compare-exchange-i64-ordered/index.html" data-stdlib-api-item data-search="compare_exchange_i64_ordered fn compare_exchange_i64_ordered(usize value, i64 expected, i64 desired, i64 success_order, i64 failure_order) -&gt; bool function  "><span class="api-kind">function</span><div><code class="language-raz">fn compare_exchange_i64_ordered(usize value, i64 expected, i64 desired, i64 success_order, i64 failure_order) -&gt; bool</code></div><b>→</b></a><a class="api-item-row" href="function/cpu-relax/index.html" data-stdlib-api-item data-search="cpu_relax fn cpu_relax() function  "><span class="api-kind">function</span><div><code class="language-raz">fn cpu_relax()</code></div><b>→</b></a><a class="api-item-row" href="function/fence/index.html" data-stdlib-api-item data-search="fence fn fence(i64 order) function  "><span class="api-kind">function</span><div><code class="language-raz">fn fence(i64 order)</code></div><b>→</b></a></div></section></div><div class="empty-state" data-stdlib-item-empty hidden>No items match that search.</div></div></section></main><footer class="site-footer">
+    <div class="shell footer-main">
+      <div class="footer-intro"><a class="footer-wordmark" href="../../../../index.html">Raz</a><p>Fast, safe, predictable systems programming with a visible cost model.</p></div>
+      <div><h2>Learn</h2><a href="../../../../learn/index.html">Getting started</a><a href="../../../../docs/index.html">Documentation</a><a href="../../../../packages/index.html">Packages</a><a href="../../../../install/index.html">Install</a></div>
+      <div><h2>Reference</h2><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SPECIFICATION.md">Specification ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY.md">Standard library ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/CLI.md">CLI reference ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/PLATFORM-SUPPORT.md">Platforms ↗</a></div>
+      <div><h2>Project</h2><a href="https://github.com/raz-language">GitHub ↗</a><a href="https://github.com/raz-language/raz/blob/main/CONTRIBUTING.md">Contributing ↗</a><a href="https://github.com/raz-language/raz/blob/main/SECURITY.md">Security ↗</a><a href="../../../../status/index.html">Status</a><a href="https://github.com/raz-language/raz/blob/main/LICENSE">Apache-2.0 ↗</a></div>
+    </div>
+    <div class="shell footer-meta"><span>Raz 1.0 stable</span><span>Built in the open</span><span>© 2026 Raz Project</span></div>
+  </footer>
+</body>
+</html>

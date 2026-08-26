@@ -1,0 +1,740 @@
+[
+  {
+    "category": "archive",
+    "description": "Safe, allocation-free archive format primitives for Raz.",
+    "name": "archive",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/archive/0.1.0.dpk",
+        "checksum": "2aa222d13a3a6616",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/archive/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "security",
+    "description": "Allocation-free Bitcoin-alphabet Base58 for Raz.",
+    "name": "base58",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/base58/0.1.0.dpk",
+        "checksum": "c53e727b8aa98b76",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/base58/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "security",
+    "description": "Strict BIP-173 Bech32 and BIP-350 Bech32m codecs for Raz.",
+    "name": "bech32",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/bech32/0.1.0.dpk",
+        "checksum": "6ddce18137d5b393",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/bech32/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "numeric",
+    "description": "Caller-buffered arbitrary-precision unsigned integer arithmetic for Raz.",
+    "name": "bigint",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/bigint/0.1.0.dpk",
+        "checksum": "003fcc6770ac23aa",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/bigint/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "data",
+    "description": "An allocation-free CBOR codec for Raz.",
+    "name": "cbor",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/cbor/0.1.0.dpk",
+        "checksum": "eaa326a7a88b2eb4",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/cbor/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "archive",
+    "description": "Stable package-level LZ4 block compression for Raz with caller-owned buffers.",
+    "name": "compression",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/compression/0.1.0.dpk",
+        "checksum": "c85988ae7069266a",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/compression/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "security",
+    "description": "Cryptographic primitives and secure utilities for Raz.",
+    "name": "crypto",
+    "owner": "raz-language",
+    "version": "0.4.0",
+    "versions": [
+      {
+        "archive": "packages/crypto/0.4.0.dpk",
+        "checksum": "29c5d0340794fcfe",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/crypto/0.4.0.dpk",
+        "version": "0.4.0"
+      },
+      {
+        "archive": "packages/crypto/0.3.0.dpk",
+        "checksum": "1df2e1c031b738e3",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/crypto/0.3.0.dpk",
+        "version": "0.3.0"
+      },
+      {
+        "archive": "packages/crypto/0.2.0.dpk",
+        "checksum": "4b3d8ee62066fa71",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/crypto/0.2.0.dpk",
+        "version": "0.2.0"
+      }
+    ]
+  },
+  {
+    "category": "data",
+    "description": "A streaming, zero-copy CSV reader and allocation-free writer for Raz.",
+    "name": "csv",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/csv/0.1.0.dpk",
+        "checksum": "2e66143645449ae2",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/csv/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "utility",
+    "description": "High-performance civil date/time, UTC offset, duration, Unix timestamp, and RFC 3339 utilities for Raz.",
+    "name": "datetime",
+    "owner": "raz-language",
+    "version": "0.2.0",
+    "versions": [
+      {
+        "archive": "packages/datetime/0.2.0.dpk",
+        "checksum": "7ac713492ee461a1",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/datetime/0.2.0.dpk",
+        "version": "0.2.0"
+      }
+    ]
+  },
+  {
+    "category": "numeric",
+    "description": "Checked fixed-scale decimal arithmetic for finance and deterministic applications.",
+    "name": "decimal",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/decimal/0.1.0.dpk",
+        "checksum": "495744181419be33",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/decimal/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "web",
+    "description": "Bounded DNS wire-format and resolution helpers for Raz.",
+    "name": "dns",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/dns/0.1.0.dpk",
+        "checksum": "07fa0349b7486711",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/dns/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "data",
+    "description": "Allocation-free binary-to-text codecs and checksums for Raz.",
+    "name": "encoding",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/encoding/0.1.0.dpk",
+        "checksum": "bccac00ee6338ef5",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/encoding/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "web",
+    "description": "Bounded GraphQL document and JSON-envelope helpers for Raz clients and gateways.",
+    "name": "graphql",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/graphql/0.1.0.dpk",
+        "checksum": "fe963c5e32b9a24e",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/graphql/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "web",
+    "description": "High-performance, allocation-conscious HTTP routing for Raz.",
+    "name": "http-router",
+    "owner": "raz-language",
+    "version": "0.2.0",
+    "versions": [
+      {
+        "archive": "packages/http-router/0.2.0.dpk",
+        "checksum": "855c18e6062f3892",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/http-router/0.2.0.dpk",
+        "version": "0.2.0"
+      }
+    ]
+  },
+  {
+    "category": "web",
+    "description": "Bounded HTTP/3 framing primitives for Raz.",
+    "name": "http3",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/http3/0.1.0.dpk",
+        "checksum": "ab8abb1cff46772c",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/http3/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "data",
+    "description": "A strict, allocation-conscious JSON toolkit for Raz.",
+    "name": "json",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/json/0.1.0.dpk",
+        "checksum": "c6e7109f0bf1f621",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/json/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "security",
+    "description": "JWT, JWS, registered-claim, and JWK support for Raz.",
+    "name": "jwt",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/jwt/0.1.0.dpk",
+        "checksum": "6c5d154c4bb6ef5c",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/jwt/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "security",
+    "description": "Deterministic SHA-256 Merkle trees for Raz.",
+    "name": "merkle",
+    "owner": "raz-language",
+    "version": "0.2.0",
+    "versions": [
+      {
+        "archive": "packages/merkle/0.2.0.dpk",
+        "checksum": "4f04a96330f50e13",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/merkle/0.2.0.dpk",
+        "version": "0.2.0"
+      },
+      {
+        "archive": "packages/merkle/0.1.0.dpk",
+        "checksum": "9d3dc0ffa5146c35",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/merkle/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "runtime",
+    "description": "Allocation-free concurrent metrics primitives for Raz.",
+    "name": "metrics",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/metrics/0.1.0.dpk",
+        "checksum": "ae37b4356c5f87d7",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/metrics/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "runtime",
+    "description": "Owned anonymous virtual-memory mappings for Raz.",
+    "name": "mmap",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/mmap/0.1.0.dpk",
+        "checksum": "bc5a72cee690f388",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/mmap/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "data",
+    "description": "An allocation-free MessagePack codec for Raz.",
+    "name": "msgpack",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/msgpack/0.1.0.dpk",
+        "checksum": "73cd99166b6025c6",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/msgpack/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "web",
+    "description": "Streaming MIME multipart/form-data support for Raz.",
+    "name": "multipart",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/multipart/0.1.0.dpk",
+        "checksum": "23a57605277aa890",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/multipart/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "web",
+    "description": "OAuth 2.0 authorization-code helpers with S256 Proof Key for Code Exchange (PKCE).",
+    "name": "oauth2",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/oauth2/0.1.0.dpk",
+        "checksum": "7fb49fa2b1ab6883",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/oauth2/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "database",
+    "description": "Native PostgreSQL wire-protocol client for Raz.",
+    "name": "postgres",
+    "owner": "raz-language",
+    "version": "0.3.0",
+    "versions": [
+      {
+        "archive": "packages/postgres/0.3.0.dpk",
+        "checksum": "04a23207c8931529",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/postgres/0.3.0.dpk",
+        "version": "0.3.0"
+      },
+      {
+        "archive": "packages/postgres/0.2.0.dpk",
+        "checksum": "d477f8da171c0435",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/postgres/0.2.0.dpk",
+        "version": "0.2.0"
+      }
+    ]
+  },
+  {
+    "category": "data",
+    "description": "An allocation-free Protocol Buffers wire codec for Raz.",
+    "name": "protobuf",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/protobuf/0.1.0.dpk",
+        "checksum": "34b94273e8d7c2cc",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/protobuf/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "web",
+    "description": "Bounded QUIC wire primitives for Raz.",
+    "name": "quic",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/quic/0.1.0.dpk",
+        "checksum": "980119815eef1ef3",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/quic/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "database",
+    "description": "Zero-copy RESP2/RESP3 protocol primitives for Raz.",
+    "name": "redis",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/redis/0.1.0.dpk",
+        "checksum": "6ba84df250dffdfc",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/redis/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "utility",
+    "description": "`regex` is the official allocation-conscious regular-expression package for Raz.",
+    "name": "regex",
+    "owner": "raz-language",
+    "version": "0.2.1",
+    "versions": [
+      {
+        "archive": "packages/regex/0.2.1.dpk",
+        "checksum": "101bc294f86aee7e",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/regex/0.2.1.dpk",
+        "version": "0.2.1"
+      },
+      {
+        "archive": "packages/regex/0.2.0.dpk",
+        "checksum": "5692e2b54eb5ee64",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/regex/0.2.0.dpk",
+        "version": "0.2.0"
+      }
+    ]
+  },
+  {
+    "category": "data",
+    "description": "Canonical Recursive Length Prefix encoding for Raz.",
+    "name": "rlp",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/rlp/0.1.0.dpk",
+        "checksum": "22a4ac9c3d37250f",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/rlp/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "web",
+    "description": "Transport-neutral bounded RPC framing for Raz.",
+    "name": "rpc",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/rpc/0.1.0.dpk",
+        "checksum": "e707ba92235564bb",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/rpc/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "security",
+    "description": "Strict secp256k1 key and signature wire validation for Raz.",
+    "name": "secp256k1",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/secp256k1/0.1.0.dpk",
+        "checksum": "c135c2ce31e0c527",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/secp256k1/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "utility",
+    "description": "Strict Semantic Versioning 2.0.0 parsing, precedence, and package-manager version requirements for Raz.",
+    "name": "semver",
+    "owner": "raz-language",
+    "version": "0.2.0",
+    "versions": [
+      {
+        "archive": "packages/semver/0.2.0.dpk",
+        "checksum": "fd58f9d6c9c7552a",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/semver/0.2.0.dpk",
+        "version": "0.2.0"
+      }
+    ]
+  },
+  {
+    "category": "data",
+    "description": "`serde` defines Raz's format-neutral serialization contracts.",
+    "name": "serde",
+    "owner": "raz-language",
+    "version": "0.2.1",
+    "versions": [
+      {
+        "archive": "packages/serde/0.2.1.dpk",
+        "checksum": "92131aa58a749994",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/serde/0.2.1.dpk",
+        "version": "0.2.1"
+      },
+      {
+        "archive": "packages/serde/0.2.0.dpk",
+        "checksum": "60f152b9397fe2d3",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/serde/0.2.0.dpk",
+        "version": "0.2.0"
+      }
+    ]
+  },
+  {
+    "category": "database",
+    "description": "Native SQLite integration for Raz with an allocation-conscious Raz API over SQLite's stable C ABI.",
+    "name": "sqlite",
+    "owner": "raz-language",
+    "version": "0.3.0",
+    "versions": [
+      {
+        "archive": "packages/sqlite/0.3.0.dpk",
+        "checksum": "aa227f45bc4bab2a",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/sqlite/0.3.0.dpk",
+        "version": "0.3.0"
+      },
+      {
+        "archive": "packages/sqlite/0.2.0.dpk",
+        "checksum": "1d7b0d4385aa16ee",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/sqlite/0.2.0.dpk",
+        "version": "0.2.0"
+      }
+    ]
+  },
+  {
+    "category": "data",
+    "description": "SimpleSerialize primitives and tree hashing for Raz.",
+    "name": "ssz",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/ssz/0.1.0.dpk",
+        "checksum": "b55820d46c89fa37",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/ssz/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "dev",
+    "description": "Reusable assertions, deterministic property generators, shrinking, and benchmark statistics for Raz.",
+    "name": "testing",
+    "owner": "raz-language",
+    "version": "0.2.0",
+    "versions": [
+      {
+        "archive": "packages/testing/0.2.0.dpk",
+        "checksum": "d9a063e748c023de",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/testing/0.2.0.dpk",
+        "version": "0.2.0"
+      },
+      {
+        "archive": "packages/testing/0.1.0.dpk",
+        "checksum": "0f4b0b4a5bdd3e59",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/testing/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "data",
+    "description": "Native TOML parsing for Raz, designed around source-backed documents and low allocation overhead.",
+    "name": "toml",
+    "owner": "raz-language",
+    "version": "0.2.0",
+    "versions": [
+      {
+        "archive": "packages/toml/0.2.0.dpk",
+        "checksum": "742c52a8136206bf",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/toml/0.2.0.dpk",
+        "version": "0.2.0"
+      }
+    ]
+  },
+  {
+    "category": "runtime",
+    "description": "Allocation-free distributed tracing primitives for Raz.",
+    "name": "tracing",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/tracing/0.1.0.dpk",
+        "checksum": "cfe147351091733b",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/tracing/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "runtime",
+    "description": "Allocation-free io_uring-style operation and queue primitives for Raz runtimes.",
+    "name": "uring",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/uring/0.1.0.dpk",
+        "checksum": "8698b0c1c3cc8916",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/uring/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "security",
+    "description": "Fast UUID primitives for Raz.",
+    "name": "uuid",
+    "owner": "raz-language",
+    "version": "0.2.0",
+    "versions": [
+      {
+        "archive": "packages/uuid/0.2.0.dpk",
+        "checksum": "df3d25063958427c",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/uuid/0.2.0.dpk",
+        "version": "0.2.0"
+      }
+    ]
+  },
+  {
+    "category": "runtime",
+    "description": "Allocation-free WebAssembly Component Model binary inspection for Raz.",
+    "name": "wasm-component",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/wasm-component/0.1.0.dpk",
+        "checksum": "97d0e24936e12bfc",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/wasm-component/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "runtime",
+    "description": "Bounded WebAssembly core execution primitives for Raz.",
+    "name": "wasm-runtime",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/wasm-runtime/0.1.0.dpk",
+        "checksum": "e4032343a6c5f67f",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/wasm-runtime/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "web",
+    "description": "RFC 6455 WebSocket protocol primitives for Raz.",
+    "name": "websocket",
+    "owner": "raz-language",
+    "version": "0.2.0",
+    "versions": [
+      {
+        "archive": "packages/websocket/0.2.0.dpk",
+        "checksum": "f39fda7ace69ad43",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/websocket/0.2.0.dpk",
+        "version": "0.2.0"
+      }
+    ]
+  },
+  {
+    "category": "data",
+    "description": "Streaming zero-copy XML tokenizer and attribute reader for Raz.",
+    "name": "xml",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/xml/0.1.0.dpk",
+        "checksum": "addcac95d4b15c84",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/xml/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "data",
+    "description": "A bounded block-style YAML 1.2 core for Raz.",
+    "name": "yaml",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/yaml/0.1.0.dpk",
+        "checksum": "7146bbb29663e50b",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/yaml/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  },
+  {
+    "category": "archive",
+    "description": "Bounded Zstandard frame support for Raz.",
+    "name": "zstd",
+    "owner": "raz-language",
+    "version": "0.1.0",
+    "versions": [
+      {
+        "archive": "packages/zstd/0.1.0.dpk",
+        "checksum": "ae9d688b6292f3c0",
+        "source_url": "https://github.com/raz-language/packages/blob/main/packages/zstd/0.1.0.dpk",
+        "version": "0.1.0"
+      }
+    ]
+  }
+]

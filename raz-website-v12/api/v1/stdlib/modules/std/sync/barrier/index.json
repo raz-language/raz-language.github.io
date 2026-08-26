@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 4,
+  "items": [],
+  "layer": "std",
+  "name": "std::sync::barrier",
+  "path": null,
+  "slug": "std/sync/barrier",
+  "website_url": "/docs/stdlib/std/sync/barrier/index.html"
+}

@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 4,
+  "items": [],
+  "layer": "std",
+  "name": "std::sync::once",
+  "path": null,
+  "slug": "std/sync/once",
+  "website_url": "/docs/stdlib/std/sync/once/index.html"
+}

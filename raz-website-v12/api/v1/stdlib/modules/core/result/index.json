@@ -1,0 +1,61 @@
+{
+  "documented_items": 5,
+  "item_count": 5,
+  "items": [
+    {
+      "description": "Recoverable result with success and error payloads.",
+      "group": "Types",
+      "kind": "enum",
+      "name": "Result",
+      "owner": null,
+      "signature": "enum Result<T, E>",
+      "slug": "enum/result",
+      "website_url": "/docs/stdlib/core/result/enum/result/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Result<T, E>`",
+      "kind": "method",
+      "name": "is_ok",
+      "owner": "Result<T, E>",
+      "signature": "fn is_ok(Result<T, E>& self) -> bool",
+      "slug": "method/result-t-e/is-ok",
+      "website_url": "/docs/stdlib/core/result/method/result-t-e/is-ok/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Result<T, E>`",
+      "kind": "method",
+      "name": "is_error",
+      "owner": "Result<T, E>",
+      "signature": "fn is_error(Result<T, E>& self) -> bool",
+      "slug": "method/result-t-e/is-error",
+      "website_url": "/docs/stdlib/core/result/method/result-t-e/is-error/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Result<T, E>`",
+      "kind": "method",
+      "name": "unwrap_or",
+      "owner": "Result<T, E>",
+      "signature": "fn unwrap_or(Result<T, E> self, T fallback) -> T",
+      "slug": "method/result-t-e/unwrap-or",
+      "website_url": "/docs/stdlib/core/result/method/result-t-e/unwrap-or/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Result<T, E>`",
+      "kind": "method",
+      "name": "or",
+      "owner": "Result<T, E>",
+      "signature": "fn or(Result<T, E> self, Result<T, E> fallback) -> Result<T, E>",
+      "slug": "method/result-t-e/or",
+      "website_url": "/docs/stdlib/core/result/method/result-t-e/or/index.html"
+    }
+  ],
+  "layer": "core",
+  "name": "core::result",
+  "path": "library/core/result/result.rz",
+  "slug": "core/result",
+  "website_url": "/docs/stdlib/core/result/index.html"
+}

@@ -1,0 +1,10 @@
+{
+  "current": "1.0",
+  "docs": {
+    "1.0": "docs/index.html"
+  },
+  "language_status": "stable",
+  "stable": [
+    "1.0"
+  ]
+}

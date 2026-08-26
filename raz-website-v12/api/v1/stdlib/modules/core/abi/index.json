@@ -1,0 +1,201 @@
+{
+  "documented_items": 19,
+  "item_count": 19,
+  "items": [
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "pointer_size",
+      "owner": null,
+      "signature": "fn pointer_size() -> i64",
+      "slug": "function/pointer-size",
+      "website_url": "/docs/stdlib/core/abi/function/pointer-size/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "pointer_alignment",
+      "owner": null,
+      "signature": "fn pointer_alignment() -> i64",
+      "slug": "function/pointer-alignment",
+      "website_url": "/docs/stdlib/core/abi/function/pointer-alignment/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "bool_size",
+      "owner": null,
+      "signature": "fn bool_size() -> i64",
+      "slug": "function/bool-size",
+      "website_url": "/docs/stdlib/core/abi/function/bool-size/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "bool_alignment",
+      "owner": null,
+      "signature": "fn bool_alignment() -> i64",
+      "slug": "function/bool-alignment",
+      "website_url": "/docs/stdlib/core/abi/function/bool-alignment/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "i8_size",
+      "owner": null,
+      "signature": "fn i8_size() -> i64",
+      "slug": "function/i8-size",
+      "website_url": "/docs/stdlib/core/abi/function/i8-size/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "i8_alignment",
+      "owner": null,
+      "signature": "fn i8_alignment() -> i64",
+      "slug": "function/i8-alignment",
+      "website_url": "/docs/stdlib/core/abi/function/i8-alignment/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "i16_size",
+      "owner": null,
+      "signature": "fn i16_size() -> i64",
+      "slug": "function/i16-size",
+      "website_url": "/docs/stdlib/core/abi/function/i16-size/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "i16_alignment",
+      "owner": null,
+      "signature": "fn i16_alignment() -> i64",
+      "slug": "function/i16-alignment",
+      "website_url": "/docs/stdlib/core/abi/function/i16-alignment/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "i32_size",
+      "owner": null,
+      "signature": "fn i32_size() -> i64",
+      "slug": "function/i32-size",
+      "website_url": "/docs/stdlib/core/abi/function/i32-size/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "i32_alignment",
+      "owner": null,
+      "signature": "fn i32_alignment() -> i64",
+      "slug": "function/i32-alignment",
+      "website_url": "/docs/stdlib/core/abi/function/i32-alignment/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "i64_size",
+      "owner": null,
+      "signature": "fn i64_size() -> i64",
+      "slug": "function/i64-size",
+      "website_url": "/docs/stdlib/core/abi/function/i64-size/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "i64_alignment",
+      "owner": null,
+      "signature": "fn i64_alignment() -> i64",
+      "slug": "function/i64-alignment",
+      "website_url": "/docs/stdlib/core/abi/function/i64-alignment/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "f32_size",
+      "owner": null,
+      "signature": "fn f32_size() -> i64",
+      "slug": "function/f32-size",
+      "website_url": "/docs/stdlib/core/abi/function/f32-size/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "f32_alignment",
+      "owner": null,
+      "signature": "fn f32_alignment() -> i64",
+      "slug": "function/f32-alignment",
+      "website_url": "/docs/stdlib/core/abi/function/f32-alignment/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "f64_size",
+      "owner": null,
+      "signature": "fn f64_size() -> i64",
+      "slug": "function/f64-size",
+      "website_url": "/docs/stdlib/core/abi/function/f64-size/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "f64_alignment",
+      "owner": null,
+      "signature": "fn f64_alignment() -> i64",
+      "slug": "function/f64-alignment",
+      "website_url": "/docs/stdlib/core/abi/function/f64-alignment/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "size_t_size",
+      "owner": null,
+      "signature": "fn size_t_size() -> i64",
+      "slug": "function/size-t-size",
+      "website_url": "/docs/stdlib/core/abi/function/size-t-size/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "size_t_alignment",
+      "owner": null,
+      "signature": "fn size_t_alignment() -> i64",
+      "slug": "function/size-t-alignment",
+      "website_url": "/docs/stdlib/core/abi/function/size-t-alignment/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "little_endian",
+      "owner": null,
+      "signature": "fn little_endian() -> bool",
+      "slug": "function/little-endian",
+      "website_url": "/docs/stdlib/core/abi/function/little-endian/index.html"
+    }
+  ],
+  "layer": "core",
+  "name": "core::abi",
+  "path": "library/core/abi/abi.rz",
+  "slug": "core/abi",
+  "website_url": "/docs/stdlib/core/abi/index.html"
+}

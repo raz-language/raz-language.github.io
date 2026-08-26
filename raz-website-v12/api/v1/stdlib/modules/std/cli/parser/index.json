@@ -1,0 +1,101 @@
+{
+  "documented_items": 9,
+  "item_count": 9,
+  "items": [
+    {
+      "description": "Allocation-free view over one command-line token.",
+      "group": "Types",
+      "kind": "struct",
+      "name": "ArgView",
+      "owner": null,
+      "signature": "struct ArgView",
+      "slug": "struct/argview",
+      "website_url": "/docs/stdlib/std/cli/parser/struct/argview/index.html"
+    },
+    {
+      "description": "Result of splitting --name=value; has_value is false for --name.",
+      "group": "Types",
+      "kind": "struct",
+      "name": "LongOption",
+      "owner": null,
+      "signature": "struct LongOption",
+      "slug": "struct/longoption",
+      "website_url": "/docs/stdlib/std/cli/parser/struct/longoption/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "view",
+      "owner": null,
+      "signature": "fn view(usize data, i64 length) -> ArgView",
+      "slug": "function/view",
+      "website_url": "/docs/stdlib/std/cli/parser/function/view/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "valid",
+      "owner": null,
+      "signature": "fn valid(ArgView arg) -> bool",
+      "slug": "function/valid",
+      "website_url": "/docs/stdlib/std/cli/parser/function/valid/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "is_terminator",
+      "owner": null,
+      "signature": "fn is_terminator(ArgView arg) -> bool",
+      "slug": "function/is-terminator",
+      "website_url": "/docs/stdlib/std/cli/parser/function/is-terminator/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "is_long_option",
+      "owner": null,
+      "signature": "fn is_long_option(ArgView arg) -> bool",
+      "slug": "function/is-long-option",
+      "website_url": "/docs/stdlib/std/cli/parser/function/is-long-option/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "is_short_option",
+      "owner": null,
+      "signature": "fn is_short_option(ArgView arg) -> bool",
+      "slug": "function/is-short-option",
+      "website_url": "/docs/stdlib/std/cli/parser/function/is-short-option/index.html"
+    },
+    {
+      "description": "Splits a long option without allocating or copying.",
+      "group": "Functions",
+      "kind": "function",
+      "name": "split_long_option",
+      "owner": null,
+      "signature": "fn split_long_option(ArgView arg) -> LongOption",
+      "slug": "function/split-long-option",
+      "website_url": "/docs/stdlib/std/cli/parser/function/split-long-option/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "equals",
+      "owner": null,
+      "signature": "fn equals(ArgView arg, usize bytes, i64 length) -> bool",
+      "slug": "function/equals",
+      "website_url": "/docs/stdlib/std/cli/parser/function/equals/index.html"
+    }
+  ],
+  "layer": "std",
+  "name": "std::cli::parser",
+  "path": "library/std/cli/parser/parser.rz",
+  "slug": "std/cli/parser",
+  "website_url": "/docs/stdlib/std/cli/parser/index.html"
+}

@@ -1,0 +1,10 @@
+{
+  "available": false,
+  "dependencies": [],
+  "modules": [],
+  "name": "rlp",
+  "package": {},
+  "source_root": "https://github.com/raz-language/packages/tree/main/sources/rlp",
+  "version": "0.1.0",
+  "website_url": "/packages/rlp/docs/"
+}

@@ -1,0 +1,2281 @@
+{
+  "complete": false,
+  "consistency": {
+    "consistent": false,
+    "declared_layer_items": 1427,
+    "declared_layer_modules": 102,
+    "declared_total_items": 1427,
+    "declared_total_modules": 102,
+    "observed_items": 1447,
+    "observed_modules": 103
+  },
+  "documented_items": 144,
+  "documented_modules": 11,
+  "generated_item_pages": 144,
+  "generated_module_pages": 103,
+  "layers": [
+    {
+      "items": 158,
+      "modules": 16,
+      "name": "core",
+      "scope": "Language and runtime-independent foundations."
+    },
+    {
+      "items": 148,
+      "modules": 9,
+      "name": "alloc",
+      "scope": "Allocation-backed collections and memory utilities."
+    },
+    {
+      "items": 123,
+      "modules": 4,
+      "name": "collections",
+      "scope": "Growable container implementations."
+    },
+    {
+      "items": 998,
+      "modules": 73,
+      "name": "std",
+      "scope": "Operating-system, networking, concurrency, and application APIs."
+    }
+  ],
+  "modules": [
+    {
+      "documented_items": 19,
+      "item_count": 19,
+      "items": [
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "pointer_size",
+          "owner": null,
+          "signature": "fn pointer_size() -> i64",
+          "slug": "function/pointer-size"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "pointer_alignment",
+          "owner": null,
+          "signature": "fn pointer_alignment() -> i64",
+          "slug": "function/pointer-alignment"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "bool_size",
+          "owner": null,
+          "signature": "fn bool_size() -> i64",
+          "slug": "function/bool-size"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "bool_alignment",
+          "owner": null,
+          "signature": "fn bool_alignment() -> i64",
+          "slug": "function/bool-alignment"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "i8_size",
+          "owner": null,
+          "signature": "fn i8_size() -> i64",
+          "slug": "function/i8-size"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "i8_alignment",
+          "owner": null,
+          "signature": "fn i8_alignment() -> i64",
+          "slug": "function/i8-alignment"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "i16_size",
+          "owner": null,
+          "signature": "fn i16_size() -> i64",
+          "slug": "function/i16-size"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "i16_alignment",
+          "owner": null,
+          "signature": "fn i16_alignment() -> i64",
+          "slug": "function/i16-alignment"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "i32_size",
+          "owner": null,
+          "signature": "fn i32_size() -> i64",
+          "slug": "function/i32-size"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "i32_alignment",
+          "owner": null,
+          "signature": "fn i32_alignment() -> i64",
+          "slug": "function/i32-alignment"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "i64_size",
+          "owner": null,
+          "signature": "fn i64_size() -> i64",
+          "slug": "function/i64-size"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "i64_alignment",
+          "owner": null,
+          "signature": "fn i64_alignment() -> i64",
+          "slug": "function/i64-alignment"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "f32_size",
+          "owner": null,
+          "signature": "fn f32_size() -> i64",
+          "slug": "function/f32-size"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "f32_alignment",
+          "owner": null,
+          "signature": "fn f32_alignment() -> i64",
+          "slug": "function/f32-alignment"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "f64_size",
+          "owner": null,
+          "signature": "fn f64_size() -> i64",
+          "slug": "function/f64-size"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "f64_alignment",
+          "owner": null,
+          "signature": "fn f64_alignment() -> i64",
+          "slug": "function/f64-alignment"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "size_t_size",
+          "owner": null,
+          "signature": "fn size_t_size() -> i64",
+          "slug": "function/size-t-size"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "size_t_alignment",
+          "owner": null,
+          "signature": "fn size_t_alignment() -> i64",
+          "slug": "function/size-t-alignment"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "little_endian",
+          "owner": null,
+          "signature": "fn little_endian() -> bool",
+          "slug": "function/little-endian"
+        }
+      ],
+      "layer": "core",
+      "name": "core::abi",
+      "path": "library/core/abi/abi.rz",
+      "slug": "core/abi"
+    },
+    {
+      "documented_items": 13,
+      "item_count": 13,
+      "items": [
+        {
+          "description": "Returns true when the value is representable by one ASCII byte.",
+          "group": "Functions",
+          "kind": "function",
+          "name": "is_ascii",
+          "owner": null,
+          "signature": "fn is_ascii(i64 value) -> bool",
+          "slug": "function/is-ascii"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "is_digit",
+          "owner": null,
+          "signature": "fn is_digit(i64 value) -> bool",
+          "slug": "function/is-digit"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "is_lower",
+          "owner": null,
+          "signature": "fn is_lower(i64 value) -> bool",
+          "slug": "function/is-lower"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "is_upper",
+          "owner": null,
+          "signature": "fn is_upper(i64 value) -> bool",
+          "slug": "function/is-upper"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "is_alpha",
+          "owner": null,
+          "signature": "fn is_alpha(i64 value) -> bool",
+          "slug": "function/is-alpha"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "is_alphanumeric",
+          "owner": null,
+          "signature": "fn is_alphanumeric(i64 value) -> bool",
+          "slug": "function/is-alphanumeric"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "is_whitespace",
+          "owner": null,
+          "signature": "fn is_whitespace(i64 value) -> bool",
+          "slug": "function/is-whitespace"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "is_hex_digit",
+          "owner": null,
+          "signature": "fn is_hex_digit(i64 value) -> bool",
+          "slug": "function/is-hex-digit"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "digit_value",
+          "owner": null,
+          "signature": "fn digit_value(i64 value) -> i64",
+          "slug": "function/digit-value"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "hex_value",
+          "owner": null,
+          "signature": "fn hex_value(i64 value) -> i64",
+          "slug": "function/hex-value"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "to_lower",
+          "owner": null,
+          "signature": "fn to_lower(i64 value) -> i64",
+          "slug": "function/to-lower"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "to_upper",
+          "owner": null,
+          "signature": "fn to_upper(i64 value) -> i64",
+          "slug": "function/to-upper"
+        },
+        {
+          "description": "Allocation-free ASCII case-insensitive comparison over equal-length buffers.",
+          "group": "Functions",
+          "kind": "function",
+          "name": "equal_ignore_case",
+          "owner": null,
+          "signature": "fn equal_ignore_case(usize left, usize right, i64 length) -> bool",
+          "slug": "function/equal-ignore-case"
+        }
+      ],
+      "layer": "core",
+      "name": "core::ascii",
+      "path": "library/core/ascii/ascii.rz",
+      "slug": "core/ascii"
+    },
+    {
+      "documented_items": 17,
+      "item_count": 17,
+      "items": [
+        {
+          "description": "",
+          "group": "Types",
+          "kind": "constant",
+          "name": "relaxed",
+          "owner": null,
+          "signature": "const i64 relaxed = 0",
+          "slug": "constant/relaxed"
+        },
+        {
+          "description": "",
+          "group": "Types",
+          "kind": "constant",
+          "name": "acquire",
+          "owner": null,
+          "signature": "const i64 acquire = 1",
+          "slug": "constant/acquire"
+        },
+        {
+          "description": "",
+          "group": "Types",
+          "kind": "constant",
+          "name": "release",
+          "owner": null,
+          "signature": "const i64 release = 2",
+          "slug": "constant/release"
+        },
+        {
+          "description": "",
+          "group": "Types",
+          "kind": "constant",
+          "name": "acquire_release",
+          "owner": null,
+          "signature": "const i64 acquire_release = 3",
+          "slug": "constant/acquire-release"
+        },
+        {
+          "description": "",
+          "group": "Types",
+          "kind": "constant",
+          "name": "sequentially_consistent",
+          "owner": null,
+          "signature": "const i64 sequentially_consistent = 4",
+          "slug": "constant/sequentially-consistent"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "load_i64",
+          "owner": null,
+          "signature": "fn load_i64(usize value) -> i64",
+          "slug": "function/load-i64"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "store_i64",
+          "owner": null,
+          "signature": "fn store_i64(usize value, i64 desired)",
+          "slug": "function/store-i64"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "fetch_add_i64",
+          "owner": null,
+          "signature": "fn fetch_add_i64(usize value, i64 delta) -> i64",
+          "slug": "function/fetch-add-i64"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "exchange_i64",
+          "owner": null,
+          "signature": "fn exchange_i64(usize value, i64 desired) -> i64",
+          "slug": "function/exchange-i64"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "compare_exchange_i64",
+          "owner": null,
+          "signature": "fn compare_exchange_i64(usize value, i64 expected, i64 desired) -> bool",
+          "slug": "function/compare-exchange-i64"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "load_i64_ordered",
+          "owner": null,
+          "signature": "fn load_i64_ordered(usize value, i64 order) -> i64",
+          "slug": "function/load-i64-ordered"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "store_i64_ordered",
+          "owner": null,
+          "signature": "fn store_i64_ordered(usize value, i64 desired, i64 order)",
+          "slug": "function/store-i64-ordered"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "fetch_add_i64_ordered",
+          "owner": null,
+          "signature": "fn fetch_add_i64_ordered(usize value, i64 delta, i64 order) -> i64",
+          "slug": "function/fetch-add-i64-ordered"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "exchange_i64_ordered",
+          "owner": null,
+          "signature": "fn exchange_i64_ordered(usize value, i64 desired, i64 order) -> i64",
+          "slug": "function/exchange-i64-ordered"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "compare_exchange_i64_ordered",
+          "owner": null,
+          "signature": "fn compare_exchange_i64_ordered(usize value, i64 expected, i64 desired, i64 success_order, i64 failure_order) -> bool",
+          "slug": "function/compare-exchange-i64-ordered"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "cpu_relax",
+          "owner": null,
+          "signature": "fn cpu_relax()",
+          "slug": "function/cpu-relax"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "fence",
+          "owner": null,
+          "signature": "fn fence(i64 order)",
+          "slug": "function/fence"
+        }
+      ],
+      "layer": "core",
+      "name": "core::atomic",
+      "path": "library/core/atomic/atomic.rz",
+      "slug": "core/atomic"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 17,
+      "items": [],
+      "layer": "core",
+      "name": "core::bytes",
+      "path": null,
+      "slug": "core/bytes"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 4,
+      "items": [],
+      "layer": "core",
+      "name": "core::callable::weak",
+      "path": null,
+      "slug": "core/callable/weak"
+    },
+    {
+      "documented_items": 4,
+      "item_count": 4,
+      "items": [
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "has_sse2",
+          "owner": null,
+          "signature": "fn has_sse2() -> bool",
+          "slug": "function/has-sse2"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "has_avx2",
+          "owner": null,
+          "signature": "fn has_avx2() -> bool",
+          "slug": "function/has-avx2"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "has_neon",
+          "owner": null,
+          "signature": "fn has_neon() -> bool",
+          "slug": "function/has-neon"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "cache_line_size",
+          "owner": null,
+          "signature": "fn cache_line_size() -> i64",
+          "slug": "function/cache-line-size"
+        }
+      ],
+      "layer": "core",
+      "name": "core::hardware",
+      "path": "library/core/hardware/hardware.rz",
+      "slug": "core/hardware"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 22,
+      "items": [],
+      "layer": "core",
+      "name": "core::hash",
+      "path": null,
+      "slug": "core/hash"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 2,
+      "items": [],
+      "layer": "core",
+      "name": "core::iter::iterator",
+      "path": null,
+      "slug": "core/iter/iterator"
+    },
+    {
+      "documented_items": 10,
+      "item_count": 10,
+      "items": [
+        {
+          "description": "Runtime layout descriptor backed by the compiler's concrete generic layout.",
+          "group": "Types",
+          "kind": "struct",
+          "name": "Layout",
+          "owner": null,
+          "signature": "struct Layout",
+          "slug": "struct/layout"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "min_i64",
+          "owner": null,
+          "signature": "fn min_i64(i64 left, i64 right) -> i64",
+          "slug": "function/min-i64"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "max_i64",
+          "owner": null,
+          "signature": "fn max_i64(i64 left, i64 right) -> i64",
+          "slug": "function/max-i64"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "clamp_i64",
+          "owner": null,
+          "signature": "fn clamp_i64(i64 value, i64 low, i64 high) -> i64",
+          "slug": "function/clamp-i64"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "copy_bytes",
+          "owner": null,
+          "signature": "fn copy_bytes(usize destination, usize source, i64 size)",
+          "slug": "function/copy-bytes"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "move_bytes",
+          "owner": null,
+          "signature": "fn move_bytes(usize destination, usize source, i64 size)",
+          "slug": "function/move-bytes"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "fill_bytes",
+          "owner": null,
+          "signature": "fn fill_bytes(usize destination, i64 value, i64 size)",
+          "slug": "function/fill-bytes"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "layout_of",
+          "owner": null,
+          "signature": "fn layout_of<T>() -> Layout",
+          "slug": "function/layout-of"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "layout_is_valid",
+          "owner": null,
+          "signature": "fn layout_is_valid(Layout& layout) -> bool",
+          "slug": "function/layout-is-valid"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "layout_array_bytes",
+          "owner": null,
+          "signature": "fn layout_array_bytes(Layout& layout, i64 count) -> i64",
+          "slug": "function/layout-array-bytes"
+        }
+      ],
+      "layer": "core",
+      "name": "core::mem",
+      "path": "library/core/mem/mem.rz",
+      "slug": "core/mem"
+    },
+    {
+      "documented_items": 7,
+      "item_count": 7,
+      "items": [
+        {
+          "description": "Optional value with either no payload or one value.",
+          "group": "Types",
+          "kind": "enum",
+          "name": "Option",
+          "owner": null,
+          "signature": "enum Option<T>",
+          "slug": "enum/option"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Option<T>`",
+          "kind": "method",
+          "name": "is_some",
+          "owner": "Option<T>",
+          "signature": "fn is_some(Option<T>& self) -> bool",
+          "slug": "method/option-t/is-some"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Option<T>`",
+          "kind": "method",
+          "name": "is_none",
+          "owner": "Option<T>",
+          "signature": "fn is_none(Option<T>& self) -> bool",
+          "slug": "method/option-t/is-none"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Option<T>`",
+          "kind": "method",
+          "name": "unwrap_or",
+          "owner": "Option<T>",
+          "signature": "fn unwrap_or(Option<T> self, T fallback) -> T",
+          "slug": "method/option-t/unwrap-or"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Option<T>`",
+          "kind": "method",
+          "name": "or",
+          "owner": "Option<T>",
+          "signature": "fn or(Option<T> self, Option<T> fallback) -> Option<T>",
+          "slug": "method/option-t/or"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Option<T>`",
+          "kind": "method",
+          "name": "take",
+          "owner": "Option<T>",
+          "signature": "fn take(Option<T>&mut self) -> Option<T>",
+          "slug": "method/option-t/take"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Option<T>`",
+          "kind": "method",
+          "name": "replace",
+          "owner": "Option<T>",
+          "signature": "fn replace(Option<T>&mut self, T value) -> Option<T>",
+          "slug": "method/option-t/replace"
+        }
+      ],
+      "layer": "core",
+      "name": "core::option",
+      "path": "library/core/option/option.rz",
+      "slug": "core/option"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 1,
+      "items": [],
+      "layer": "core",
+      "name": "core::ptr",
+      "path": null,
+      "slug": "core/ptr"
+    },
+    {
+      "documented_items": 5,
+      "item_count": 5,
+      "items": [
+        {
+          "description": "Recoverable result with success and error payloads.",
+          "group": "Types",
+          "kind": "enum",
+          "name": "Result",
+          "owner": null,
+          "signature": "enum Result<T, E>",
+          "slug": "enum/result"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Result<T, E>`",
+          "kind": "method",
+          "name": "is_ok",
+          "owner": "Result<T, E>",
+          "signature": "fn is_ok(Result<T, E>& self) -> bool",
+          "slug": "method/result-t-e/is-ok"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Result<T, E>`",
+          "kind": "method",
+          "name": "is_error",
+          "owner": "Result<T, E>",
+          "signature": "fn is_error(Result<T, E>& self) -> bool",
+          "slug": "method/result-t-e/is-error"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Result<T, E>`",
+          "kind": "method",
+          "name": "unwrap_or",
+          "owner": "Result<T, E>",
+          "signature": "fn unwrap_or(Result<T, E> self, T fallback) -> T",
+          "slug": "method/result-t-e/unwrap-or"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Result<T, E>`",
+          "kind": "method",
+          "name": "or",
+          "owner": "Result<T, E>",
+          "signature": "fn or(Result<T, E> self, Result<T, E> fallback) -> Result<T, E>",
+          "slug": "method/result-t-e/or"
+        }
+      ],
+      "layer": "core",
+      "name": "core::result",
+      "path": "library/core/result/result.rz",
+      "slug": "core/result"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 29,
+      "items": [],
+      "layer": "core",
+      "name": "core::slice",
+      "path": null,
+      "slug": "core/slice"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 2,
+      "items": [],
+      "layer": "core",
+      "name": "core::trait_object::trait_identity",
+      "path": null,
+      "slug": "core/trait-object/trait-identity"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 2,
+      "items": [],
+      "layer": "core",
+      "name": "core::trait_object::type_identity",
+      "path": null,
+      "slug": "core/trait-object/type-identity"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 4,
+      "items": [],
+      "layer": "core",
+      "name": "core::trait_object::weak",
+      "path": null,
+      "slug": "core/trait-object/weak"
+    },
+    {
+      "documented_items": 15,
+      "item_count": 15,
+      "items": [
+        {
+          "description": "",
+          "group": "Types",
+          "kind": "struct",
+          "name": "BumpArena",
+          "owner": null,
+          "signature": "struct BumpArena",
+          "slug": "struct/bumparena"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "create_aligned",
+          "owner": null,
+          "signature": "fn create_aligned(i64 capacity, i64 max_alignment) -> BumpArena",
+          "slug": "function/create-aligned"
+        },
+        {
+          "description": "Creates an arena suitable for ordinary cacheline-aligned data structures.",
+          "group": "Functions",
+          "kind": "function",
+          "name": "create",
+          "owner": null,
+          "signature": "fn create(i64 capacity) -> BumpArena",
+          "slug": "function/create"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "valid",
+          "owner": null,
+          "signature": "fn valid(BumpArena& arena) -> bool",
+          "slug": "function/valid"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "capacity",
+          "owner": null,
+          "signature": "fn capacity(BumpArena& arena) -> i64",
+          "slug": "function/capacity"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "used",
+          "owner": null,
+          "signature": "fn used(BumpArena& arena) -> i64",
+          "slug": "function/used"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "remaining",
+          "owner": null,
+          "signature": "fn remaining(BumpArena& arena) -> i64",
+          "slug": "function/remaining"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "allocate",
+          "owner": null,
+          "signature": "fn allocate(BumpArena&mut arena, i64 size, i64 alignment) -> usize",
+          "slug": "function/allocate"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "allocate_zeroed",
+          "owner": null,
+          "signature": "fn allocate_zeroed(BumpArena&mut arena, i64 size, i64 alignment) -> usize",
+          "slug": "function/allocate-zeroed"
+        },
+        {
+          "description": "Captures a cheap stack-like checkpoint for scoped scratch allocations.",
+          "group": "Functions",
+          "kind": "function",
+          "name": "mark",
+          "owner": null,
+          "signature": "fn mark(BumpArena& arena) -> i64",
+          "slug": "function/mark"
+        },
+        {
+          "description": "Releases every allocation made after the checkpoint in O(1).",
+          "group": "Functions",
+          "kind": "function",
+          "name": "rewind",
+          "owner": null,
+          "signature": "fn rewind(BumpArena&mut arena, i64 checkpoint) -> bool",
+          "slug": "function/rewind"
+        },
+        {
+          "description": "Releases all arena allocations in O(1) while retaining the backing block.",
+          "group": "Functions",
+          "kind": "function",
+          "name": "reset",
+          "owner": null,
+          "signature": "fn reset(BumpArena&mut arena)",
+          "slug": "function/reset"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "contains",
+          "owner": null,
+          "signature": "fn contains(BumpArena& arena, usize pointer) -> bool",
+          "slug": "function/contains"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "destroy",
+          "owner": null,
+          "signature": "fn destroy(BumpArena&mut arena)",
+          "slug": "function/destroy"
+        },
+        {
+          "description": "",
+          "group": "Methods on `BumpArena : Drop`",
+          "kind": "method",
+          "name": "drop",
+          "owner": "BumpArena : Drop",
+          "signature": "fn drop(BumpArena&mut self)",
+          "slug": "method/bumparena-drop/drop"
+        }
+      ],
+      "layer": "alloc",
+      "name": "alloc::arena",
+      "path": "library/alloc/arena/arena.rz",
+      "slug": "alloc/arena"
+    },
+    {
+      "documented_items": 10,
+      "item_count": 10,
+      "items": [
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "allocate",
+          "owner": null,
+          "signature": "fn allocate(i64 size) -> usize",
+          "slug": "function/allocate"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "deallocate",
+          "owner": null,
+          "signature": "fn deallocate(usize pointer)",
+          "slug": "function/deallocate"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "allocate_aligned",
+          "owner": null,
+          "signature": "fn allocate_aligned(i64 size, i64 alignment) -> usize",
+          "slug": "function/allocate-aligned"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "deallocate_aligned",
+          "owner": null,
+          "signature": "fn deallocate_aligned(usize pointer, i64 alignment)",
+          "slug": "function/deallocate-aligned"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "allocate_zeroed",
+          "owner": null,
+          "signature": "fn allocate_zeroed(i64 size) -> usize",
+          "slug": "function/allocate-zeroed"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "allocate_zeroed_aligned",
+          "owner": null,
+          "signature": "fn allocate_zeroed_aligned(i64 size, i64 alignment) -> usize",
+          "slug": "function/allocate-zeroed-aligned"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "allocate_type",
+          "owner": null,
+          "signature": "fn allocate_type<T>() -> usize",
+          "slug": "function/allocate-type"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "allocate_array",
+          "owner": null,
+          "signature": "fn allocate_array<T>(i64 count) -> usize",
+          "slug": "function/allocate-array"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "deallocate_type",
+          "owner": null,
+          "signature": "fn deallocate_type<T>(usize pointer)",
+          "slug": "function/deallocate-type"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "allocate_zeroed_array",
+          "owner": null,
+          "signature": "fn allocate_zeroed_array<T>(i64 count) -> usize",
+          "slug": "function/allocate-zeroed-array"
+        }
+      ],
+      "layer": "alloc",
+      "name": "alloc::box",
+      "path": "library/alloc/box/box.rz",
+      "slug": "alloc/box"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 17,
+      "items": [],
+      "layer": "alloc",
+      "name": "alloc::deque",
+      "path": null,
+      "slug": "alloc/deque"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 14,
+      "items": [],
+      "layer": "alloc",
+      "name": "alloc::hash_map",
+      "path": null,
+      "slug": "alloc/hash-map"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 12,
+      "items": [],
+      "layer": "alloc",
+      "name": "alloc::hash_set",
+      "path": null,
+      "slug": "alloc/hash-set"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 14,
+      "items": [],
+      "layer": "alloc",
+      "name": "alloc::pool",
+      "path": null,
+      "slug": "alloc/pool"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 45,
+      "items": [],
+      "layer": "alloc",
+      "name": "alloc::string",
+      "path": null,
+      "slug": "alloc/string"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 2,
+      "items": [],
+      "layer": "alloc",
+      "name": "alloc::string::hash",
+      "path": null,
+      "slug": "alloc/string/hash"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 19,
+      "items": [],
+      "layer": "alloc",
+      "name": "alloc::vec",
+      "path": null,
+      "slug": "alloc/vec"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 30,
+      "items": [],
+      "layer": "collections",
+      "name": "collections::deque",
+      "path": null,
+      "slug": "collections/deque"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 35,
+      "items": [],
+      "layer": "collections",
+      "name": "collections::hash_map",
+      "path": null,
+      "slug": "collections/hash-map"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 23,
+      "items": [],
+      "layer": "collections",
+      "name": "collections::hash_set",
+      "path": null,
+      "slug": "collections/hash-set"
+    },
+    {
+      "documented_items": 35,
+      "item_count": 35,
+      "items": [
+        {
+          "description": "Typed growable contiguous storage with compiler-specialized element layout.",
+          "group": "Types",
+          "kind": "struct",
+          "name": "Vector",
+          "owner": null,
+          "signature": "struct Vector<T>",
+          "slug": "struct/vector"
+        },
+        {
+          "description": "",
+          "group": "Types",
+          "kind": "struct",
+          "name": "VectorIter",
+          "owner": null,
+          "signature": "struct VectorIter<T>",
+          "slug": "struct/vectoriter"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "new",
+          "owner": "Vector<T>",
+          "signature": "fn new() -> Vector<T>",
+          "slug": "method/vector-t/new"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "with_capacity",
+          "owner": "Vector<T>",
+          "signature": "fn with_capacity(i64 capacity) -> Vector<T>",
+          "slug": "method/vector-t/with-capacity"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "len",
+          "owner": "Vector<T>",
+          "signature": "fn len(Vector<T>& self) -> i64",
+          "slug": "method/vector-t/len"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "capacity",
+          "owner": "Vector<T>",
+          "signature": "fn capacity(Vector<T>& self) -> i64",
+          "slug": "method/vector-t/capacity"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "is_empty",
+          "owner": "Vector<T>",
+          "signature": "fn is_empty(Vector<T>& self) -> bool",
+          "slug": "method/vector-t/is-empty"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "reserve",
+          "owner": "Vector<T>",
+          "signature": "fn reserve(Vector<T>&mut self, i64 capacity) -> bool",
+          "slug": "method/vector-t/reserve"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "reserve_exact",
+          "owner": "Vector<T>",
+          "signature": "fn reserve_exact(Vector<T>&mut self, i64 capacity) -> bool",
+          "slug": "method/vector-t/reserve-exact"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "push",
+          "owner": "Vector<T>",
+          "signature": "fn push(Vector<T>&mut self, T value) -> bool",
+          "slug": "method/vector-t/push"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "get_ptr",
+          "owner": "Vector<T>",
+          "signature": "fn get_ptr(Vector<T>& self, i64 index) -> T*const",
+          "slug": "method/vector-t/get-ptr"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "get_mut_ptr",
+          "owner": "Vector<T>",
+          "signature": "fn get_mut_ptr(Vector<T>&mut self, i64 index) -> T*mut",
+          "slug": "method/vector-t/get-mut-ptr"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "pop",
+          "owner": "Vector<T>",
+          "signature": "fn pop(Vector<T>&mut self) -> Option<T>",
+          "slug": "method/vector-t/pop"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "remove",
+          "owner": "Vector<T>",
+          "signature": "fn remove(Vector<T>&mut self, i64 index) -> Option<T>",
+          "slug": "method/vector-t/remove"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "try_pop",
+          "owner": "Vector<T>",
+          "signature": "fn try_pop(Vector<T>&mut self, T&mut output) -> bool",
+          "slug": "method/vector-t/try-pop"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "try_remove",
+          "owner": "Vector<T>",
+          "signature": "fn try_remove(Vector<T>&mut self, i64 index, T&mut output) -> bool",
+          "slug": "method/vector-t/try-remove"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "first_ptr",
+          "owner": "Vector<T>",
+          "signature": "fn first_ptr(Vector<T>& self) -> T*const",
+          "slug": "method/vector-t/first-ptr"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "last_ptr",
+          "owner": "Vector<T>",
+          "signature": "fn last_ptr(Vector<T>& self) -> T*const",
+          "slug": "method/vector-t/last-ptr"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "insert",
+          "owner": "Vector<T>",
+          "signature": "fn insert(Vector<T>&mut self, i64 index, T value) -> bool",
+          "slug": "method/vector-t/insert"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "swap_remove",
+          "owner": "Vector<T>",
+          "signature": "fn swap_remove(Vector<T>&mut self, i64 index) -> Option<T>",
+          "slug": "method/vector-t/swap-remove"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "append",
+          "owner": "Vector<T>",
+          "signature": "fn append(Vector<T>&mut self, Vector<T>&mut other) -> bool",
+          "slug": "method/vector-t/append"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "shrink_to_fit",
+          "owner": "Vector<T>",
+          "signature": "fn shrink_to_fit(Vector<T>&mut self) -> bool",
+          "slug": "method/vector-t/shrink-to-fit"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "as_slice",
+          "owner": "Vector<T>",
+          "signature": "fn as_slice(Vector<T>& self) -> Slice<T>",
+          "slug": "method/vector-t/as-slice"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "as_mut_slice",
+          "owner": "Vector<T>",
+          "signature": "fn as_mut_slice(Vector<T>&mut self) -> SliceMut<T>",
+          "slug": "method/vector-t/as-mut-slice"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "truncate",
+          "owner": "Vector<T>",
+          "signature": "fn truncate(Vector<T>&mut self, i64 length) -> bool",
+          "slug": "method/vector-t/truncate"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "clear",
+          "owner": "Vector<T>",
+          "signature": "fn clear(Vector<T>&mut self)",
+          "slug": "method/vector-t/clear"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "iter",
+          "owner": "Vector<T>",
+          "signature": "fn iter(Vector<T>& self) -> VectorIter<T>",
+          "slug": "method/vector-t/iter"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "into_iter",
+          "owner": "Vector<T>",
+          "signature": "fn into_iter(Vector<T>&mut self) -> VectorIter<T>",
+          "slug": "method/vector-t/into-iter"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "position",
+          "owner": "Vector<T>",
+          "signature": "fn position(Vector<T>& self, T& value) -> i64",
+          "slug": "method/vector-t/position"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "contains",
+          "owner": "Vector<T>",
+          "signature": "fn contains(Vector<T>& self, T& value) -> bool",
+          "slug": "method/vector-t/contains"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "count",
+          "owner": "Vector<T>",
+          "signature": "fn count(Vector<T>& self, T& value) -> i64",
+          "slug": "method/vector-t/count"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T>`",
+          "kind": "method",
+          "name": "remove_first",
+          "owner": "Vector<T>",
+          "signature": "fn remove_first(Vector<T>&mut self, T& value) -> Option<T>",
+          "slug": "method/vector-t/remove-first"
+        },
+        {
+          "description": "",
+          "group": "Methods on `VectorIter<T> : Iterator`",
+          "kind": "method",
+          "name": "next",
+          "owner": "VectorIter<T> : Iterator",
+          "signature": "fn next(VectorIter<T>&mut self) -> bool",
+          "slug": "method/vectoriter-t-iterator/next"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T> : IntoIterator`",
+          "kind": "method",
+          "name": "into_iter",
+          "owner": "Vector<T> : IntoIterator",
+          "signature": "fn into_iter(Vector<T>&mut self) -> VectorIter<T>",
+          "slug": "method/vector-t-intoiterator/into-iter"
+        },
+        {
+          "description": "",
+          "group": "Methods on `Vector<T> : Drop`",
+          "kind": "method",
+          "name": "drop",
+          "owner": "Vector<T> : Drop",
+          "signature": "fn drop(Vector<T>&mut self)",
+          "slug": "method/vector-t-drop/drop"
+        }
+      ],
+      "layer": "collections",
+      "name": "collections::vector",
+      "path": "library/collections/vector/vector.rz",
+      "slug": "collections/vector"
+    },
+    {
+      "documented_items": 9,
+      "item_count": 9,
+      "items": [
+        {
+          "description": "Allocation-free view over one command-line token.",
+          "group": "Types",
+          "kind": "struct",
+          "name": "ArgView",
+          "owner": null,
+          "signature": "struct ArgView",
+          "slug": "struct/argview"
+        },
+        {
+          "description": "Result of splitting --name=value; has_value is false for --name.",
+          "group": "Types",
+          "kind": "struct",
+          "name": "LongOption",
+          "owner": null,
+          "signature": "struct LongOption",
+          "slug": "struct/longoption"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "view",
+          "owner": null,
+          "signature": "fn view(usize data, i64 length) -> ArgView",
+          "slug": "function/view"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "valid",
+          "owner": null,
+          "signature": "fn valid(ArgView arg) -> bool",
+          "slug": "function/valid"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "is_terminator",
+          "owner": null,
+          "signature": "fn is_terminator(ArgView arg) -> bool",
+          "slug": "function/is-terminator"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "is_long_option",
+          "owner": null,
+          "signature": "fn is_long_option(ArgView arg) -> bool",
+          "slug": "function/is-long-option"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "is_short_option",
+          "owner": null,
+          "signature": "fn is_short_option(ArgView arg) -> bool",
+          "slug": "function/is-short-option"
+        },
+        {
+          "description": "Splits a long option without allocating or copying.",
+          "group": "Functions",
+          "kind": "function",
+          "name": "split_long_option",
+          "owner": null,
+          "signature": "fn split_long_option(ArgView arg) -> LongOption",
+          "slug": "function/split-long-option"
+        },
+        {
+          "description": "",
+          "group": "Functions",
+          "kind": "function",
+          "name": "equals",
+          "owner": null,
+          "signature": "fn equals(ArgView arg, usize bytes, i64 length) -> bool",
+          "slug": "function/equals"
+        }
+      ],
+      "layer": "std",
+      "name": "std::cli::parser",
+      "path": "library/std/cli/parser/parser.rz",
+      "slug": "std/cli/parser"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 9,
+      "items": [],
+      "layer": "std",
+      "name": "std::compress::lz4",
+      "path": null,
+      "slug": "std/compress/lz4"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 6,
+      "items": [],
+      "layer": "std",
+      "name": "std::encoding::base64",
+      "path": null,
+      "slug": "std/encoding/base64"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 31,
+      "items": [],
+      "layer": "std",
+      "name": "std::encoding::binary",
+      "path": null,
+      "slug": "std/encoding/binary"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 4,
+      "items": [],
+      "layer": "std",
+      "name": "std::encoding::checksum",
+      "path": null,
+      "slug": "std/encoding/checksum"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 6,
+      "items": [],
+      "layer": "std",
+      "name": "std::encoding::hex",
+      "path": null,
+      "slug": "std/encoding/hex"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 15,
+      "items": [],
+      "layer": "std",
+      "name": "std::encoding::json",
+      "path": null,
+      "slug": "std/encoding/json"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 21,
+      "items": [],
+      "layer": "std",
+      "name": "std::encoding::json::document",
+      "path": null,
+      "slug": "std/encoding/json/document"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 4,
+      "items": [],
+      "layer": "std",
+      "name": "std::env",
+      "path": null,
+      "slug": "std/env"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 6,
+      "items": [],
+      "layer": "std",
+      "name": "std::env::owned",
+      "path": null,
+      "slug": "std/env/owned"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 1,
+      "items": [],
+      "layer": "std",
+      "name": "std::env::path",
+      "path": null,
+      "slug": "std/env/path"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 14,
+      "items": [],
+      "layer": "std",
+      "name": "std::fmt",
+      "path": null,
+      "slug": "std/fmt"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 22,
+      "items": [],
+      "layer": "std",
+      "name": "std::fs",
+      "path": null,
+      "slug": "std/fs"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 4,
+      "items": [],
+      "layer": "std",
+      "name": "std::fs::async_fs",
+      "path": null,
+      "slug": "std/fs/async-fs"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 3,
+      "items": [],
+      "layer": "std",
+      "name": "std::fs::bytes",
+      "path": null,
+      "slug": "std/fs/bytes"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 35,
+      "items": [],
+      "layer": "std",
+      "name": "std::fs::file",
+      "path": null,
+      "slug": "std/fs/file"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 6,
+      "items": [],
+      "layer": "std",
+      "name": "std::fs::metadata",
+      "path": null,
+      "slug": "std/fs/metadata"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 15,
+      "items": [],
+      "layer": "std",
+      "name": "std::fs::owned",
+      "path": null,
+      "slug": "std/fs/owned"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 5,
+      "items": [],
+      "layer": "std",
+      "name": "std::fs::read_dir",
+      "path": null,
+      "slug": "std/fs/read-dir"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 4,
+      "items": [],
+      "layer": "std",
+      "name": "std::fs::text",
+      "path": null,
+      "slug": "std/fs/text"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 2,
+      "items": [],
+      "layer": "std",
+      "name": "std::fs::tree",
+      "path": null,
+      "slug": "std/fs/tree"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 7,
+      "items": [],
+      "layer": "std",
+      "name": "std::io",
+      "path": null,
+      "slug": "std/io"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 8,
+      "items": [],
+      "layer": "std",
+      "name": "std::io::adapters",
+      "path": null,
+      "slug": "std/io/adapters"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 37,
+      "items": [],
+      "layer": "std",
+      "name": "std::io::buffer",
+      "path": null,
+      "slug": "std/io/buffer"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 20,
+      "items": [],
+      "layer": "std",
+      "name": "std::io::buffered",
+      "path": null,
+      "slug": "std/io/buffered"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 4,
+      "items": [],
+      "layer": "std",
+      "name": "std::io::error",
+      "path": null,
+      "slug": "std/io/error"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 20,
+      "items": [],
+      "layer": "std",
+      "name": "std::io::stdio",
+      "path": null,
+      "slug": "std/io/stdio"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 15,
+      "items": [],
+      "layer": "std",
+      "name": "std::log",
+      "path": null,
+      "slug": "std/log"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 78,
+      "items": [],
+      "layer": "std",
+      "name": "std::net",
+      "path": null,
+      "slug": "std/net"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 16,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::address",
+      "path": null,
+      "slug": "std/net/address"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 8,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::async_socket",
+      "path": null,
+      "slug": "std/net/async-socket"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 13,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::buffered",
+      "path": null,
+      "slug": "std/net/buffered"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 2,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::framed",
+      "path": null,
+      "slug": "std/net/framed"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 19,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::http",
+      "path": null,
+      "slug": "std/net/http"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 29,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::http::client",
+      "path": null,
+      "slug": "std/net/http/client"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 9,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::http::cookie",
+      "path": null,
+      "slug": "std/net/http/cookie"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 11,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::http::headers",
+      "path": null,
+      "slug": "std/net/http/headers"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 23,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::http::server",
+      "path": null,
+      "slug": "std/net/http/server"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 20,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::poll_set",
+      "path": null,
+      "slug": "std/net/poll-set"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 37,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::reactor",
+      "path": null,
+      "slug": "std/net/reactor"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 32,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::resolve",
+      "path": null,
+      "slug": "std/net/resolve"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 22,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::tls",
+      "path": null,
+      "slug": "std/net/tls"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 3,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::typed",
+      "path": null,
+      "slug": "std/net/typed"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 5,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::url",
+      "path": null,
+      "slug": "std/net/url"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 4,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::url::form",
+      "path": null,
+      "slug": "std/net/url/form"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 4,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::url::query",
+      "path": null,
+      "slug": "std/net/url/query"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 13,
+      "items": [],
+      "layer": "std",
+      "name": "std::net::vectored",
+      "path": null,
+      "slug": "std/net/vectored"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 17,
+      "items": [],
+      "layer": "std",
+      "name": "std::path",
+      "path": null,
+      "slug": "std/path"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 32,
+      "items": [],
+      "layer": "std",
+      "name": "std::path::buf",
+      "path": null,
+      "slug": "std/path/buf"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 4,
+      "items": [],
+      "layer": "std",
+      "name": "std::process",
+      "path": null,
+      "slug": "std/process"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 5,
+      "items": [],
+      "layer": "std",
+      "name": "std::process::args",
+      "path": null,
+      "slug": "std/process/args"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 14,
+      "items": [],
+      "layer": "std",
+      "name": "std::process::command",
+      "path": null,
+      "slug": "std/process/command"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 1,
+      "items": [],
+      "layer": "std",
+      "name": "std::process::owned",
+      "path": null,
+      "slug": "std/process/owned"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 17,
+      "items": [],
+      "layer": "std",
+      "name": "std::random",
+      "path": null,
+      "slug": "std/random"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 4,
+      "items": [],
+      "layer": "std",
+      "name": "std::sync::barrier",
+      "path": null,
+      "slug": "std/sync/barrier"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 15,
+      "items": [],
+      "layer": "std",
+      "name": "std::sync::condition",
+      "path": null,
+      "slug": "std/sync/condition"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 19,
+      "items": [],
+      "layer": "std",
+      "name": "std::sync::mutex",
+      "path": null,
+      "slug": "std/sync/mutex"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 4,
+      "items": [],
+      "layer": "std",
+      "name": "std::sync::once",
+      "path": null,
+      "slug": "std/sync/once"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 23,
+      "items": [],
+      "layer": "std",
+      "name": "std::sync::rwlock",
+      "path": null,
+      "slug": "std/sync/rwlock"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 7,
+      "items": [],
+      "layer": "std",
+      "name": "std::sync::semaphore",
+      "path": null,
+      "slug": "std/sync/semaphore"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 10,
+      "items": [],
+      "layer": "std",
+      "name": "std::thread",
+      "path": null,
+      "slug": "std/thread"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 9,
+      "items": [],
+      "layer": "std",
+      "name": "std::thread::cancellation",
+      "path": null,
+      "slug": "std/thread/cancellation"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 20,
+      "items": [],
+      "layer": "std",
+      "name": "std::thread::channel",
+      "path": null,
+      "slug": "std/thread/channel"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 17,
+      "items": [],
+      "layer": "std",
+      "name": "std::thread::executor",
+      "path": null,
+      "slug": "std/thread/executor"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 19,
+      "items": [],
+      "layer": "std",
+      "name": "std::thread::future",
+      "path": null,
+      "slug": "std/thread/future"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 6,
+      "items": [],
+      "layer": "std",
+      "name": "std::thread::latch",
+      "path": null,
+      "slug": "std/thread/latch"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 11,
+      "items": [],
+      "layer": "std",
+      "name": "std::thread::mpmc",
+      "path": null,
+      "slug": "std/thread/mpmc"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 16,
+      "items": [],
+      "layer": "std",
+      "name": "std::thread::pool",
+      "path": null,
+      "slug": "std/thread/pool"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 13,
+      "items": [],
+      "layer": "std",
+      "name": "std::thread::scheduler",
+      "path": null,
+      "slug": "std/thread/scheduler"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 13,
+      "items": [],
+      "layer": "std",
+      "name": "std::thread::spsc",
+      "path": null,
+      "slug": "std/thread/spsc"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 13,
+      "items": [],
+      "layer": "std",
+      "name": "std::thread::task",
+      "path": null,
+      "slug": "std/thread/task"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 6,
+      "items": [],
+      "layer": "std",
+      "name": "std::thread::timer",
+      "path": null,
+      "slug": "std/thread/timer"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 18,
+      "items": [],
+      "layer": "std",
+      "name": "std::time",
+      "path": null,
+      "slug": "std/time"
+    },
+    {
+      "documented_items": 0,
+      "item_count": 4,
+      "items": [],
+      "layer": "std",
+      "name": "std::testing",
+      "path": null,
+      "slug": "std/testing"
+    }
+  ],
+  "source": "https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY.md",
+  "total_items": 1427,
+  "total_modules": 102
+}

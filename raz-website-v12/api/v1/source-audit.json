@@ -1,0 +1,20 @@
+{
+  "warning_count": 3,
+  "warnings": [
+    {
+      "code": "security-version-drift",
+      "message": "SECURITY.md still describes Raz as pre-1.0 while the language stability contract declares Raz 1.0 stable.",
+      "source": "raz-language/raz/SECURITY.md"
+    },
+    {
+      "code": "missing-indexed-doc",
+      "message": "The canonical documentation index references BACKENDS.md, but the source path was unavailable during synchronization.",
+      "source": "BACKENDS.md"
+    },
+    {
+      "code": "stdlib-index-count-drift",
+      "message": "STANDARD-LIBRARY.md declares 102 modules / 1427 public items, while its generated module table enumerates 103 modules / 1447 items.",
+      "source": "raz-language/raz/docs/STANDARD-LIBRARY.md"
+    }
+  ]
+}

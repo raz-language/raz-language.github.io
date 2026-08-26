@@ -1,0 +1,30 @@
+// Copyright 2026 Mario Vinciguerra
+// SPDX-License-Identifier: Apache-2.0
+
+namespace json::pointer;
+
+import alloc::string;
+import core::bytes;
+import std::encoding::json::document;
+
+public enum PointerError {
+    None,
+    InvalidSyntax,
+    InvalidEscape,
+    InvalidIndex,
+    NotFound,
+    OutOfMemory,
+}
+
+/// Resolves RFC 6901 JSON Pointer bytes against a parsed document.
+/// `segment` and `key_scratch` are reusable caller-owned strings.
+public fn resolve(
+    JsonDocument& document,
+    usize pointer,
+    i64 length,
+    String&mut segment,
+    String&mut key_scratch,
+    i64&mut output,
+) -> PointerError {
+    return PointerError::None;
+}

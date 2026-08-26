@@ -1,0 +1,10 @@
+{
+  "available": false,
+  "dependencies": [],
+  "modules": [],
+  "name": "csv",
+  "package": {},
+  "source_root": "https://github.com/raz-language/packages/tree/main/sources/csv",
+  "version": "0.1.0",
+  "website_url": "/packages/csv/docs/"
+}

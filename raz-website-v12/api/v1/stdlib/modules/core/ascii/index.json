@@ -1,0 +1,141 @@
+{
+  "documented_items": 13,
+  "item_count": 13,
+  "items": [
+    {
+      "description": "Returns true when the value is representable by one ASCII byte.",
+      "group": "Functions",
+      "kind": "function",
+      "name": "is_ascii",
+      "owner": null,
+      "signature": "fn is_ascii(i64 value) -> bool",
+      "slug": "function/is-ascii",
+      "website_url": "/docs/stdlib/core/ascii/function/is-ascii/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "is_digit",
+      "owner": null,
+      "signature": "fn is_digit(i64 value) -> bool",
+      "slug": "function/is-digit",
+      "website_url": "/docs/stdlib/core/ascii/function/is-digit/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "is_lower",
+      "owner": null,
+      "signature": "fn is_lower(i64 value) -> bool",
+      "slug": "function/is-lower",
+      "website_url": "/docs/stdlib/core/ascii/function/is-lower/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "is_upper",
+      "owner": null,
+      "signature": "fn is_upper(i64 value) -> bool",
+      "slug": "function/is-upper",
+      "website_url": "/docs/stdlib/core/ascii/function/is-upper/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "is_alpha",
+      "owner": null,
+      "signature": "fn is_alpha(i64 value) -> bool",
+      "slug": "function/is-alpha",
+      "website_url": "/docs/stdlib/core/ascii/function/is-alpha/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "is_alphanumeric",
+      "owner": null,
+      "signature": "fn is_alphanumeric(i64 value) -> bool",
+      "slug": "function/is-alphanumeric",
+      "website_url": "/docs/stdlib/core/ascii/function/is-alphanumeric/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "is_whitespace",
+      "owner": null,
+      "signature": "fn is_whitespace(i64 value) -> bool",
+      "slug": "function/is-whitespace",
+      "website_url": "/docs/stdlib/core/ascii/function/is-whitespace/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "is_hex_digit",
+      "owner": null,
+      "signature": "fn is_hex_digit(i64 value) -> bool",
+      "slug": "function/is-hex-digit",
+      "website_url": "/docs/stdlib/core/ascii/function/is-hex-digit/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "digit_value",
+      "owner": null,
+      "signature": "fn digit_value(i64 value) -> i64",
+      "slug": "function/digit-value",
+      "website_url": "/docs/stdlib/core/ascii/function/digit-value/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "hex_value",
+      "owner": null,
+      "signature": "fn hex_value(i64 value) -> i64",
+      "slug": "function/hex-value",
+      "website_url": "/docs/stdlib/core/ascii/function/hex-value/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "to_lower",
+      "owner": null,
+      "signature": "fn to_lower(i64 value) -> i64",
+      "slug": "function/to-lower",
+      "website_url": "/docs/stdlib/core/ascii/function/to-lower/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "to_upper",
+      "owner": null,
+      "signature": "fn to_upper(i64 value) -> i64",
+      "slug": "function/to-upper",
+      "website_url": "/docs/stdlib/core/ascii/function/to-upper/index.html"
+    },
+    {
+      "description": "Allocation-free ASCII case-insensitive comparison over equal-length buffers.",
+      "group": "Functions",
+      "kind": "function",
+      "name": "equal_ignore_case",
+      "owner": null,
+      "signature": "fn equal_ignore_case(usize left, usize right, i64 length) -> bool",
+      "slug": "function/equal-ignore-case",
+      "website_url": "/docs/stdlib/core/ascii/function/equal-ignore-case/index.html"
+    }
+  ],
+  "layer": "core",
+  "name": "core::ascii",
+  "path": "library/core/ascii/ascii.rz",
+  "slug": "core/ascii",
+  "website_url": "/docs/stdlib/core/ascii/index.html"
+}

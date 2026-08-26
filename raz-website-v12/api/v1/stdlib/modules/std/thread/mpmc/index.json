@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 11,
+  "items": [],
+  "layer": "std",
+  "name": "std::thread::mpmc",
+  "path": null,
+  "slug": "std/thread/mpmc",
+  "website_url": "/docs/stdlib/std/thread/mpmc/index.html"
+}

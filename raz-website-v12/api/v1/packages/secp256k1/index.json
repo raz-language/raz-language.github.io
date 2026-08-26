@@ -1,0 +1,10 @@
+{
+  "available": false,
+  "dependencies": [],
+  "modules": [],
+  "name": "secp256k1",
+  "package": {},
+  "source_root": "https://github.com/raz-language/packages/tree/main/sources/secp256k1",
+  "version": "0.1.0",
+  "website_url": "/packages/secp256k1/docs/"
+}

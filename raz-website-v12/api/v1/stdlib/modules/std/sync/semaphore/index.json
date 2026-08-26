@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 7,
+  "items": [],
+  "layer": "std",
+  "name": "std::sync::semaphore",
+  "path": null,
+  "slug": "std/sync/semaphore",
+  "website_url": "/docs/stdlib/std/sync/semaphore/index.html"
+}

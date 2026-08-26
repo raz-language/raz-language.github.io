@@ -1,0 +1,24 @@
+name: validate-site
+on:
+  push:
+  pull_request:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check deterministic generated snapshot
+        run: python3 scripts/sync_site.py --offline --check
+      - name: Validate source tree
+        run: python3 scripts/validate.py
+      - name: Check performance budgets
+        run: python3 scripts/check_performance.py
+      - name: Stage deployable site
+        run: python3 scripts/stage_site.py --output _site
+      - name: Check deploy performance budgets
+        run: python3 scripts/check_performance.py --root _site
+      - name: Validate deployable site
+        run: python3 scripts/validate.py --root _site

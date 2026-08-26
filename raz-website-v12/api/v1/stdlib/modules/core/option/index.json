@@ -1,0 +1,81 @@
+{
+  "documented_items": 7,
+  "item_count": 7,
+  "items": [
+    {
+      "description": "Optional value with either no payload or one value.",
+      "group": "Types",
+      "kind": "enum",
+      "name": "Option",
+      "owner": null,
+      "signature": "enum Option<T>",
+      "slug": "enum/option",
+      "website_url": "/docs/stdlib/core/option/enum/option/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Option<T>`",
+      "kind": "method",
+      "name": "is_some",
+      "owner": "Option<T>",
+      "signature": "fn is_some(Option<T>& self) -> bool",
+      "slug": "method/option-t/is-some",
+      "website_url": "/docs/stdlib/core/option/method/option-t/is-some/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Option<T>`",
+      "kind": "method",
+      "name": "is_none",
+      "owner": "Option<T>",
+      "signature": "fn is_none(Option<T>& self) -> bool",
+      "slug": "method/option-t/is-none",
+      "website_url": "/docs/stdlib/core/option/method/option-t/is-none/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Option<T>`",
+      "kind": "method",
+      "name": "unwrap_or",
+      "owner": "Option<T>",
+      "signature": "fn unwrap_or(Option<T> self, T fallback) -> T",
+      "slug": "method/option-t/unwrap-or",
+      "website_url": "/docs/stdlib/core/option/method/option-t/unwrap-or/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Option<T>`",
+      "kind": "method",
+      "name": "or",
+      "owner": "Option<T>",
+      "signature": "fn or(Option<T> self, Option<T> fallback) -> Option<T>",
+      "slug": "method/option-t/or",
+      "website_url": "/docs/stdlib/core/option/method/option-t/or/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Option<T>`",
+      "kind": "method",
+      "name": "take",
+      "owner": "Option<T>",
+      "signature": "fn take(Option<T>&mut self) -> Option<T>",
+      "slug": "method/option-t/take",
+      "website_url": "/docs/stdlib/core/option/method/option-t/take/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Option<T>`",
+      "kind": "method",
+      "name": "replace",
+      "owner": "Option<T>",
+      "signature": "fn replace(Option<T>&mut self, T value) -> Option<T>",
+      "slug": "method/option-t/replace",
+      "website_url": "/docs/stdlib/core/option/method/option-t/replace/index.html"
+    }
+  ],
+  "layer": "core",
+  "name": "core::option",
+  "path": "library/core/option/option.rz",
+  "slug": "core/option",
+  "website_url": "/docs/stdlib/core/option/index.html"
+}

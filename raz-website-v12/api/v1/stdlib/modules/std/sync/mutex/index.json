@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 19,
+  "items": [],
+  "layer": "std",
+  "name": "std::sync::mutex",
+  "path": null,
+  "slug": "std/sync/mutex",
+  "website_url": "/docs/stdlib/std/sync/mutex/index.html"
+}

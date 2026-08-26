@@ -1,0 +1,111 @@
+{
+  "documented_items": 10,
+  "item_count": 10,
+  "items": [
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "allocate",
+      "owner": null,
+      "signature": "fn allocate(i64 size) -> usize",
+      "slug": "function/allocate",
+      "website_url": "/docs/stdlib/alloc/box/function/allocate/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "deallocate",
+      "owner": null,
+      "signature": "fn deallocate(usize pointer)",
+      "slug": "function/deallocate",
+      "website_url": "/docs/stdlib/alloc/box/function/deallocate/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "allocate_aligned",
+      "owner": null,
+      "signature": "fn allocate_aligned(i64 size, i64 alignment) -> usize",
+      "slug": "function/allocate-aligned",
+      "website_url": "/docs/stdlib/alloc/box/function/allocate-aligned/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "deallocate_aligned",
+      "owner": null,
+      "signature": "fn deallocate_aligned(usize pointer, i64 alignment)",
+      "slug": "function/deallocate-aligned",
+      "website_url": "/docs/stdlib/alloc/box/function/deallocate-aligned/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "allocate_zeroed",
+      "owner": null,
+      "signature": "fn allocate_zeroed(i64 size) -> usize",
+      "slug": "function/allocate-zeroed",
+      "website_url": "/docs/stdlib/alloc/box/function/allocate-zeroed/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "allocate_zeroed_aligned",
+      "owner": null,
+      "signature": "fn allocate_zeroed_aligned(i64 size, i64 alignment) -> usize",
+      "slug": "function/allocate-zeroed-aligned",
+      "website_url": "/docs/stdlib/alloc/box/function/allocate-zeroed-aligned/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "allocate_type",
+      "owner": null,
+      "signature": "fn allocate_type<T>() -> usize",
+      "slug": "function/allocate-type",
+      "website_url": "/docs/stdlib/alloc/box/function/allocate-type/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "allocate_array",
+      "owner": null,
+      "signature": "fn allocate_array<T>(i64 count) -> usize",
+      "slug": "function/allocate-array",
+      "website_url": "/docs/stdlib/alloc/box/function/allocate-array/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "deallocate_type",
+      "owner": null,
+      "signature": "fn deallocate_type<T>(usize pointer)",
+      "slug": "function/deallocate-type",
+      "website_url": "/docs/stdlib/alloc/box/function/deallocate-type/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "allocate_zeroed_array",
+      "owner": null,
+      "signature": "fn allocate_zeroed_array<T>(i64 count) -> usize",
+      "slug": "function/allocate-zeroed-array",
+      "website_url": "/docs/stdlib/alloc/box/function/allocate-zeroed-array/index.html"
+    }
+  ],
+  "layer": "alloc",
+  "name": "alloc::box",
+  "path": "library/alloc/box/box.rz",
+  "slug": "alloc/box",
+  "website_url": "/docs/stdlib/alloc/box/index.html"
+}

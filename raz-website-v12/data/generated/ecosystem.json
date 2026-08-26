@@ -1,0 +1,623 @@
+[
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "archive",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 14,
+      "state": "implemented",
+      "status": "0.1.0 safe TAR and stored-ZIP core implemented"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "base58",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "bech32",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "bigint",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "registry",
+      "status": "Published in official registry"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "cbor",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 20,
+      "state": "implemented",
+      "status": "0.1.0 allocation-free RFC 8949 codec implemented"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "compression",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "registry",
+      "status": "Published in official registry"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "crypto",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 1,
+      "state": "implemented",
+      "status": "0.4.0 crypto core implemented"
+    },
+    "source_available": false,
+    "version": "0.4.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "csv",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 18,
+      "state": "implemented",
+      "status": "0.1.0 streaming reader and bounded writer implemented"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "datetime",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 7,
+      "state": "implemented",
+      "status": "0.2.0 civil time, timestamps, durations, UTC offsets, and RFC 3339 implemented"
+    },
+    "source_available": false,
+    "version": "0.2.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "decimal",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "registry",
+      "status": "Published in official registry"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "dns",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "encoding",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 16,
+      "state": "implemented",
+      "status": "0.1.0 hex, Base64url, Base32, and checksum APIs implemented"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "graphql",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "http-router",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 9,
+      "state": "implemented",
+      "status": "0.2.0 compiled allocation-conscious router implemented"
+    },
+    "source_available": false,
+    "version": "0.2.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "http3",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "registry",
+      "status": "Published in official registry"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [
+      {
+        "name": "alloc",
+        "requirement": "../../../raz/library/alloc",
+        "section": "dependencies"
+      },
+      {
+        "name": "core",
+        "requirement": "../../../raz/library/core",
+        "section": "dependencies"
+      },
+      {
+        "name": "serde",
+        "requirement": "../serde",
+        "section": "dependencies"
+      },
+      {
+        "name": "std",
+        "requirement": "../../../raz/library/std",
+        "section": "dependencies"
+      }
+    ],
+    "modules": 5,
+    "name": "json",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 17,
+      "state": "implemented",
+      "status": "0.1.0 strict parser facade, document, pointer, and writer APIs implemented"
+    },
+    "source_available": true,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "jwt",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 12,
+      "state": "implemented",
+      "status": "0.1.0 HS256 JWS, registered claims, and symmetric JWK implemented"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "merkle",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.2.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "metrics",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "mmap",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "msgpack",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 21,
+      "state": "implemented",
+      "status": "0.1.0 allocation-free MessagePack codec implemented"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "multipart",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 13,
+      "state": "implemented",
+      "status": "0.1.0 bounded form-data reader and writer implemented"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "oauth2",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "postgres",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 11,
+      "state": "implemented",
+      "status": "0.3.0 PostgreSQL v3 client implemented"
+    },
+    "source_available": false,
+    "version": "0.3.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "protobuf",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 22,
+      "state": "implemented",
+      "status": "0.1.0 Protocol Buffers wire codec implemented"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "quic",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "redis",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "registry",
+      "status": "Published in official registry"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "regex",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 4,
+      "state": "implemented",
+      "status": "0.2.0 Thompson/Pike NFA engine implemented"
+    },
+    "source_available": false,
+    "version": "0.2.1"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "rlp",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "rpc",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "secp256k1",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "semver",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 6,
+      "state": "implemented",
+      "status": "0.2.0 SemVer parser and requirement engine implemented"
+    },
+    "source_available": false,
+    "version": "0.2.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "serde",
+    "reverse_dependencies": [
+      "json"
+    ],
+    "roadmap": {
+      "order": 2,
+      "state": "implemented",
+      "status": "0.2.0 core contracts implemented"
+    },
+    "source_available": false,
+    "version": "0.2.1"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "sqlite",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 10,
+      "state": "implemented",
+      "status": "0.3.0 client implemented"
+    },
+    "source_available": false,
+    "version": "0.3.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "ssz",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "testing",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 15,
+      "state": "implemented",
+      "status": "0.1.0 assertions, deterministic properties, and benchmark statistics implemented"
+    },
+    "source_available": false,
+    "version": "0.2.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "toml",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 3,
+      "state": "implemented",
+      "status": "0.2.0 parser/document core implemented"
+    },
+    "source_available": false,
+    "version": "0.2.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "tracing",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "uring",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "candidate",
+      "status": "Future candidate"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "uuid",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 5,
+      "state": "implemented",
+      "status": "0.2.0 RFC 9562 v4/v7 core implemented"
+    },
+    "source_available": false,
+    "version": "0.2.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "wasm-component",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "registry",
+      "status": "Published in official registry"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "wasm-runtime",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "registry",
+      "status": "Published in official registry"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "websocket",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 8,
+      "state": "implemented",
+      "status": "0.2.0 RFC 6455 protocol core implemented"
+    },
+    "source_available": false,
+    "version": "0.2.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "xml",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "registry",
+      "status": "Published in official registry"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "yaml",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": 19,
+      "state": "implemented",
+      "status": "0.1.0 bounded block-style YAML core implemented"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  },
+  {
+    "dependencies": [],
+    "modules": 0,
+    "name": "zstd",
+    "reverse_dependencies": [],
+    "roadmap": {
+      "order": null,
+      "state": "registry",
+      "status": "Published in official registry"
+    },
+    "source_available": false,
+    "version": "0.1.0"
+  }
+]

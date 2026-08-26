@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 2,
+  "items": [],
+  "layer": "alloc",
+  "name": "alloc::string::hash",
+  "path": null,
+  "slug": "alloc/string/hash",
+  "website_url": "/docs/stdlib/alloc/string/hash/index.html"
+}

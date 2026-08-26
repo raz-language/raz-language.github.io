@@ -1,0 +1,40 @@
+// Copyright 2026 Mario Vinciguerra
+// SPDX-License-Identifier: Apache-2.0
+
+namespace json::writer;
+
+import alloc::string;
+import core::bytes;
+import std::encoding::json;
+
+public enum WriterError {
+    None,
+    InvalidState,
+    DepthExceeded,
+    OutOfMemory,
+}
+
+public struct JsonWriter {
+    String output;
+    u8 kinds[64];
+    i64 counts[64];
+    bool awaiting_value[64];
+    i64 depth;
+    bool root_written;
+    WriterError error;
+}
+
+public fn create(i64 capacity) -> JsonWriter { JsonWriter writer; return move writer; }
+public fn begin_array(JsonWriter&mut writer) -> bool { return true; }
+public fn begin_object(JsonWriter&mut writer) -> bool { return true; }
+public fn key(JsonWriter&mut writer, usize data, i64 length) -> bool { return true; }
+public fn string(JsonWriter&mut writer, usize data, i64 length) -> bool { return true; }
+public fn signed(JsonWriter&mut writer, i64 value) -> bool { return true; }
+public fn unsigned(JsonWriter&mut writer, u64 value) -> bool { return true; }
+public fn boolean(JsonWriter&mut writer, bool value) -> bool { return true; }
+public fn null_value(JsonWriter&mut writer) -> bool { return true; }
+public fn end(JsonWriter&mut writer) -> bool { return true; }
+public fn complete(JsonWriter& writer) -> bool { return true; }
+public fn error(JsonWriter& writer) -> WriterError { return writer.error; }
+public fn view(JsonWriter& writer) -> BytesView { BytesView view; return view; }
+public fn take(JsonWriter&mut writer) -> String { String output; return move output; }

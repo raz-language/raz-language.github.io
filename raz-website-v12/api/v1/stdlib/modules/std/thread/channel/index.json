@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 20,
+  "items": [],
+  "layer": "std",
+  "name": "std::thread::channel",
+  "path": null,
+  "slug": "std/thread/channel",
+  "website_url": "/docs/stdlib/std/thread/channel/index.html"
+}

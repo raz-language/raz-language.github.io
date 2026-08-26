@@ -1,0 +1,10 @@
+{
+  "available": false,
+  "dependencies": [],
+  "modules": [],
+  "name": "regex",
+  "package": {},
+  "source_root": "https://github.com/raz-language/packages/tree/main/sources/regex",
+  "version": "0.2.1",
+  "website_url": "/packages/regex/docs/"
+}

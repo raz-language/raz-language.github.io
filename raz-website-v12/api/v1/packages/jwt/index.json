@@ -1,0 +1,10 @@
+{
+  "available": false,
+  "dependencies": [],
+  "modules": [],
+  "name": "jwt",
+  "package": {},
+  "source_root": "https://github.com/raz-language/packages/tree/main/sources/jwt",
+  "version": "0.1.0",
+  "website_url": "/packages/jwt/docs/"
+}

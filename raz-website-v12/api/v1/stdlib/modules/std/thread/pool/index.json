@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 16,
+  "items": [],
+  "layer": "std",
+  "name": "std::thread::pool",
+  "path": null,
+  "slug": "std/thread/pool",
+  "website_url": "/docs/stdlib/std/thread/pool/index.html"
+}

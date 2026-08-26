@@ -1,0 +1,99 @@
+{
+  "binary_releases": {
+    "count": 0,
+    "latest": null,
+    "nightly": {
+      "status": "pending",
+      "version": "1.0.0"
+    },
+    "published": false
+  },
+  "language": {
+    "stability": "stable",
+    "version": "1.0"
+  },
+  "platforms": [
+    {
+      "abi": "Windows x64",
+      "backend": "Forge or LLVM",
+      "host_use": "native / cross object",
+      "object": "COFF",
+      "target": "x86_64-pc-windows-msvc"
+    },
+    {
+      "abi": "System V AMD64",
+      "backend": "Forge or LLVM",
+      "host_use": "native / cross object",
+      "object": "ELF64",
+      "target": "x86_64-unknown-linux-gnu"
+    },
+    {
+      "abi": "AAPCS64",
+      "backend": "LLVM",
+      "host_use": "native / cross object",
+      "object": "ELF64",
+      "target": "aarch64-unknown-linux-gnu"
+    },
+    {
+      "abi": "Darwin AArch64",
+      "backend": "LLVM",
+      "host_use": "native / cross object",
+      "object": "Mach-O 64",
+      "target": "arm64-apple-macos"
+    }
+  ],
+  "repository": {
+    "default_branch": "main",
+    "description": "A systems programming language for safe, fast and predictable native software.",
+    "full_name": "raz-language/raz",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-08-25T21:08:43Z"
+  },
+  "snapshot": {
+    "snapshot_generated_at": "2026-08-26T02:55:00Z",
+    "sources": {
+      "docs-readme.md": {
+        "sha": "54bd2d1372ff827c2210a2d0bf8d956e3323bd5b",
+        "url": "https://raw.githubusercontent.com/raz-language/raz/main/docs/README.md"
+      },
+      "nightly.txt": {
+        "sha": "8b22174d74ef6605b9a95cdf1a65e1cd1b77208f",
+        "url": "https://raw.githubusercontent.com/raz-language/installer/main/channels/nightly.txt"
+      },
+      "packages-search.txt": {
+        "sha": "41754efb618c9c789bddc07f7a168d4a8c2a1f3a",
+        "url": "https://raw.githubusercontent.com/raz-language/packages/main/search.txt"
+      },
+      "platform-support.md": {
+        "sha": "d95206b1fd8169f66be009ebc9a8a420e40bcbbb",
+        "url": "https://raw.githubusercontent.com/raz-language/raz/main/docs/PLATFORM-SUPPORT.md"
+      },
+      "raz-repo.json": {
+        "url": "https://api.github.com/repos/raz-language/raz"
+      },
+      "releases.json": {
+        "url": "https://api.github.com/repos/raz-language/installer/releases"
+      }
+    }
+  },
+  "source_audit": {
+    "warning_count": 3,
+    "warnings": [
+      {
+        "code": "security-version-drift",
+        "message": "SECURITY.md still describes Raz as pre-1.0 while the language stability contract declares Raz 1.0 stable.",
+        "source": "raz-language/raz/SECURITY.md"
+      },
+      {
+        "code": "missing-indexed-doc",
+        "message": "The canonical documentation index references BACKENDS.md, but the source path was unavailable during synchronization.",
+        "source": "BACKENDS.md"
+      },
+      {
+        "code": "stdlib-index-count-drift",
+        "message": "STANDARD-LIBRARY.md declares 102 modules / 1427 public items, while its generated module table enumerates 103 modules / 1447 items.",
+        "source": "raz-language/raz/docs/STANDARD-LIBRARY.md"
+      }
+    ]
+  }
+}

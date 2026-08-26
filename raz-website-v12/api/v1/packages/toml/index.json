@@ -1,0 +1,10 @@
+{
+  "available": false,
+  "dependencies": [],
+  "modules": [],
+  "name": "toml",
+  "package": {},
+  "source_root": "https://github.com/raz-language/packages/tree/main/sources/toml",
+  "version": "0.2.0",
+  "website_url": "/packages/toml/docs/"
+}

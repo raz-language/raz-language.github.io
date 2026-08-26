@@ -1,0 +1,361 @@
+{
+  "documented_items": 35,
+  "item_count": 35,
+  "items": [
+    {
+      "description": "Typed growable contiguous storage with compiler-specialized element layout.",
+      "group": "Types",
+      "kind": "struct",
+      "name": "Vector",
+      "owner": null,
+      "signature": "struct Vector<T>",
+      "slug": "struct/vector",
+      "website_url": "/docs/stdlib/collections/vector/struct/vector/index.html"
+    },
+    {
+      "description": "",
+      "group": "Types",
+      "kind": "struct",
+      "name": "VectorIter",
+      "owner": null,
+      "signature": "struct VectorIter<T>",
+      "slug": "struct/vectoriter",
+      "website_url": "/docs/stdlib/collections/vector/struct/vectoriter/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "new",
+      "owner": "Vector<T>",
+      "signature": "fn new() -> Vector<T>",
+      "slug": "method/vector-t/new",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/new/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "with_capacity",
+      "owner": "Vector<T>",
+      "signature": "fn with_capacity(i64 capacity) -> Vector<T>",
+      "slug": "method/vector-t/with-capacity",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/with-capacity/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "len",
+      "owner": "Vector<T>",
+      "signature": "fn len(Vector<T>& self) -> i64",
+      "slug": "method/vector-t/len",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/len/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "capacity",
+      "owner": "Vector<T>",
+      "signature": "fn capacity(Vector<T>& self) -> i64",
+      "slug": "method/vector-t/capacity",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/capacity/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "is_empty",
+      "owner": "Vector<T>",
+      "signature": "fn is_empty(Vector<T>& self) -> bool",
+      "slug": "method/vector-t/is-empty",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/is-empty/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "reserve",
+      "owner": "Vector<T>",
+      "signature": "fn reserve(Vector<T>&mut self, i64 capacity) -> bool",
+      "slug": "method/vector-t/reserve",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/reserve/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "reserve_exact",
+      "owner": "Vector<T>",
+      "signature": "fn reserve_exact(Vector<T>&mut self, i64 capacity) -> bool",
+      "slug": "method/vector-t/reserve-exact",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/reserve-exact/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "push",
+      "owner": "Vector<T>",
+      "signature": "fn push(Vector<T>&mut self, T value) -> bool",
+      "slug": "method/vector-t/push",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/push/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "get_ptr",
+      "owner": "Vector<T>",
+      "signature": "fn get_ptr(Vector<T>& self, i64 index) -> T*const",
+      "slug": "method/vector-t/get-ptr",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/get-ptr/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "get_mut_ptr",
+      "owner": "Vector<T>",
+      "signature": "fn get_mut_ptr(Vector<T>&mut self, i64 index) -> T*mut",
+      "slug": "method/vector-t/get-mut-ptr",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/get-mut-ptr/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "pop",
+      "owner": "Vector<T>",
+      "signature": "fn pop(Vector<T>&mut self) -> Option<T>",
+      "slug": "method/vector-t/pop",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/pop/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "remove",
+      "owner": "Vector<T>",
+      "signature": "fn remove(Vector<T>&mut self, i64 index) -> Option<T>",
+      "slug": "method/vector-t/remove",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/remove/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "try_pop",
+      "owner": "Vector<T>",
+      "signature": "fn try_pop(Vector<T>&mut self, T&mut output) -> bool",
+      "slug": "method/vector-t/try-pop",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/try-pop/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "try_remove",
+      "owner": "Vector<T>",
+      "signature": "fn try_remove(Vector<T>&mut self, i64 index, T&mut output) -> bool",
+      "slug": "method/vector-t/try-remove",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/try-remove/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "first_ptr",
+      "owner": "Vector<T>",
+      "signature": "fn first_ptr(Vector<T>& self) -> T*const",
+      "slug": "method/vector-t/first-ptr",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/first-ptr/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "last_ptr",
+      "owner": "Vector<T>",
+      "signature": "fn last_ptr(Vector<T>& self) -> T*const",
+      "slug": "method/vector-t/last-ptr",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/last-ptr/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "insert",
+      "owner": "Vector<T>",
+      "signature": "fn insert(Vector<T>&mut self, i64 index, T value) -> bool",
+      "slug": "method/vector-t/insert",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/insert/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "swap_remove",
+      "owner": "Vector<T>",
+      "signature": "fn swap_remove(Vector<T>&mut self, i64 index) -> Option<T>",
+      "slug": "method/vector-t/swap-remove",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/swap-remove/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "append",
+      "owner": "Vector<T>",
+      "signature": "fn append(Vector<T>&mut self, Vector<T>&mut other) -> bool",
+      "slug": "method/vector-t/append",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/append/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "shrink_to_fit",
+      "owner": "Vector<T>",
+      "signature": "fn shrink_to_fit(Vector<T>&mut self) -> bool",
+      "slug": "method/vector-t/shrink-to-fit",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/shrink-to-fit/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "as_slice",
+      "owner": "Vector<T>",
+      "signature": "fn as_slice(Vector<T>& self) -> Slice<T>",
+      "slug": "method/vector-t/as-slice",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/as-slice/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "as_mut_slice",
+      "owner": "Vector<T>",
+      "signature": "fn as_mut_slice(Vector<T>&mut self) -> SliceMut<T>",
+      "slug": "method/vector-t/as-mut-slice",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/as-mut-slice/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "truncate",
+      "owner": "Vector<T>",
+      "signature": "fn truncate(Vector<T>&mut self, i64 length) -> bool",
+      "slug": "method/vector-t/truncate",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/truncate/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "clear",
+      "owner": "Vector<T>",
+      "signature": "fn clear(Vector<T>&mut self)",
+      "slug": "method/vector-t/clear",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/clear/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "iter",
+      "owner": "Vector<T>",
+      "signature": "fn iter(Vector<T>& self) -> VectorIter<T>",
+      "slug": "method/vector-t/iter",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/iter/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "into_iter",
+      "owner": "Vector<T>",
+      "signature": "fn into_iter(Vector<T>&mut self) -> VectorIter<T>",
+      "slug": "method/vector-t/into-iter",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/into-iter/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "position",
+      "owner": "Vector<T>",
+      "signature": "fn position(Vector<T>& self, T& value) -> i64",
+      "slug": "method/vector-t/position",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/position/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "contains",
+      "owner": "Vector<T>",
+      "signature": "fn contains(Vector<T>& self, T& value) -> bool",
+      "slug": "method/vector-t/contains",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/contains/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "count",
+      "owner": "Vector<T>",
+      "signature": "fn count(Vector<T>& self, T& value) -> i64",
+      "slug": "method/vector-t/count",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/count/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T>`",
+      "kind": "method",
+      "name": "remove_first",
+      "owner": "Vector<T>",
+      "signature": "fn remove_first(Vector<T>&mut self, T& value) -> Option<T>",
+      "slug": "method/vector-t/remove-first",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t/remove-first/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `VectorIter<T> : Iterator`",
+      "kind": "method",
+      "name": "next",
+      "owner": "VectorIter<T> : Iterator",
+      "signature": "fn next(VectorIter<T>&mut self) -> bool",
+      "slug": "method/vectoriter-t-iterator/next",
+      "website_url": "/docs/stdlib/collections/vector/method/vectoriter-t-iterator/next/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T> : IntoIterator`",
+      "kind": "method",
+      "name": "into_iter",
+      "owner": "Vector<T> : IntoIterator",
+      "signature": "fn into_iter(Vector<T>&mut self) -> VectorIter<T>",
+      "slug": "method/vector-t-intoiterator/into-iter",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t-intoiterator/into-iter/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `Vector<T> : Drop`",
+      "kind": "method",
+      "name": "drop",
+      "owner": "Vector<T> : Drop",
+      "signature": "fn drop(Vector<T>&mut self)",
+      "slug": "method/vector-t-drop/drop",
+      "website_url": "/docs/stdlib/collections/vector/method/vector-t-drop/drop/index.html"
+    }
+  ],
+  "layer": "collections",
+  "name": "collections::vector",
+  "path": "library/collections/vector/vector.rz",
+  "slug": "collections/vector",
+  "website_url": "/docs/stdlib/collections/vector/index.html"
+}

@@ -1,0 +1,51 @@
+{
+  "documented_items": 4,
+  "item_count": 4,
+  "items": [
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "has_sse2",
+      "owner": null,
+      "signature": "fn has_sse2() -> bool",
+      "slug": "function/has-sse2",
+      "website_url": "/docs/stdlib/core/hardware/function/has-sse2/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "has_avx2",
+      "owner": null,
+      "signature": "fn has_avx2() -> bool",
+      "slug": "function/has-avx2",
+      "website_url": "/docs/stdlib/core/hardware/function/has-avx2/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "has_neon",
+      "owner": null,
+      "signature": "fn has_neon() -> bool",
+      "slug": "function/has-neon",
+      "website_url": "/docs/stdlib/core/hardware/function/has-neon/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "cache_line_size",
+      "owner": null,
+      "signature": "fn cache_line_size() -> i64",
+      "slug": "function/cache-line-size",
+      "website_url": "/docs/stdlib/core/hardware/function/cache-line-size/index.html"
+    }
+  ],
+  "layer": "core",
+  "name": "core::hardware",
+  "path": "library/core/hardware/hardware.rz",
+  "slug": "core/hardware",
+  "website_url": "/docs/stdlib/core/hardware/index.html"
+}

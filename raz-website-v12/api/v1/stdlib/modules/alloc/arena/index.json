@@ -1,0 +1,161 @@
+{
+  "documented_items": 15,
+  "item_count": 15,
+  "items": [
+    {
+      "description": "",
+      "group": "Types",
+      "kind": "struct",
+      "name": "BumpArena",
+      "owner": null,
+      "signature": "struct BumpArena",
+      "slug": "struct/bumparena",
+      "website_url": "/docs/stdlib/alloc/arena/struct/bumparena/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "create_aligned",
+      "owner": null,
+      "signature": "fn create_aligned(i64 capacity, i64 max_alignment) -> BumpArena",
+      "slug": "function/create-aligned",
+      "website_url": "/docs/stdlib/alloc/arena/function/create-aligned/index.html"
+    },
+    {
+      "description": "Creates an arena suitable for ordinary cacheline-aligned data structures.",
+      "group": "Functions",
+      "kind": "function",
+      "name": "create",
+      "owner": null,
+      "signature": "fn create(i64 capacity) -> BumpArena",
+      "slug": "function/create",
+      "website_url": "/docs/stdlib/alloc/arena/function/create/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "valid",
+      "owner": null,
+      "signature": "fn valid(BumpArena& arena) -> bool",
+      "slug": "function/valid",
+      "website_url": "/docs/stdlib/alloc/arena/function/valid/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "capacity",
+      "owner": null,
+      "signature": "fn capacity(BumpArena& arena) -> i64",
+      "slug": "function/capacity",
+      "website_url": "/docs/stdlib/alloc/arena/function/capacity/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "used",
+      "owner": null,
+      "signature": "fn used(BumpArena& arena) -> i64",
+      "slug": "function/used",
+      "website_url": "/docs/stdlib/alloc/arena/function/used/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "remaining",
+      "owner": null,
+      "signature": "fn remaining(BumpArena& arena) -> i64",
+      "slug": "function/remaining",
+      "website_url": "/docs/stdlib/alloc/arena/function/remaining/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "allocate",
+      "owner": null,
+      "signature": "fn allocate(BumpArena&mut arena, i64 size, i64 alignment) -> usize",
+      "slug": "function/allocate",
+      "website_url": "/docs/stdlib/alloc/arena/function/allocate/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "allocate_zeroed",
+      "owner": null,
+      "signature": "fn allocate_zeroed(BumpArena&mut arena, i64 size, i64 alignment) -> usize",
+      "slug": "function/allocate-zeroed",
+      "website_url": "/docs/stdlib/alloc/arena/function/allocate-zeroed/index.html"
+    },
+    {
+      "description": "Captures a cheap stack-like checkpoint for scoped scratch allocations.",
+      "group": "Functions",
+      "kind": "function",
+      "name": "mark",
+      "owner": null,
+      "signature": "fn mark(BumpArena& arena) -> i64",
+      "slug": "function/mark",
+      "website_url": "/docs/stdlib/alloc/arena/function/mark/index.html"
+    },
+    {
+      "description": "Releases every allocation made after the checkpoint in O(1).",
+      "group": "Functions",
+      "kind": "function",
+      "name": "rewind",
+      "owner": null,
+      "signature": "fn rewind(BumpArena&mut arena, i64 checkpoint) -> bool",
+      "slug": "function/rewind",
+      "website_url": "/docs/stdlib/alloc/arena/function/rewind/index.html"
+    },
+    {
+      "description": "Releases all arena allocations in O(1) while retaining the backing block.",
+      "group": "Functions",
+      "kind": "function",
+      "name": "reset",
+      "owner": null,
+      "signature": "fn reset(BumpArena&mut arena)",
+      "slug": "function/reset",
+      "website_url": "/docs/stdlib/alloc/arena/function/reset/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "contains",
+      "owner": null,
+      "signature": "fn contains(BumpArena& arena, usize pointer) -> bool",
+      "slug": "function/contains",
+      "website_url": "/docs/stdlib/alloc/arena/function/contains/index.html"
+    },
+    {
+      "description": "",
+      "group": "Functions",
+      "kind": "function",
+      "name": "destroy",
+      "owner": null,
+      "signature": "fn destroy(BumpArena&mut arena)",
+      "slug": "function/destroy",
+      "website_url": "/docs/stdlib/alloc/arena/function/destroy/index.html"
+    },
+    {
+      "description": "",
+      "group": "Methods on `BumpArena : Drop`",
+      "kind": "method",
+      "name": "drop",
+      "owner": "BumpArena : Drop",
+      "signature": "fn drop(BumpArena&mut self)",
+      "slug": "method/bumparena-drop/drop",
+      "website_url": "/docs/stdlib/alloc/arena/method/bumparena-drop/drop/index.html"
+    }
+  ],
+  "layer": "alloc",
+  "name": "alloc::arena",
+  "path": "library/alloc/arena/arena.rz",
+  "slug": "alloc/arena",
+  "website_url": "/docs/stdlib/alloc/arena/index.html"
+}

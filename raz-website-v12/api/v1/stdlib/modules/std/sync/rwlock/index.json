@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 23,
+  "items": [],
+  "layer": "std",
+  "name": "std::sync::rwlock",
+  "path": null,
+  "slug": "std/sync/rwlock",
+  "website_url": "/docs/stdlib/std/sync/rwlock/index.html"
+}

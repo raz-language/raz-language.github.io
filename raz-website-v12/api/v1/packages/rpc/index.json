@@ -1,0 +1,10 @@
+{
+  "available": false,
+  "dependencies": [],
+  "modules": [],
+  "name": "rpc",
+  "package": {},
+  "source_root": "https://github.com/raz-language/packages/tree/main/sources/rpc",
+  "version": "0.1.0",
+  "website_url": "/packages/rpc/docs/"
+}

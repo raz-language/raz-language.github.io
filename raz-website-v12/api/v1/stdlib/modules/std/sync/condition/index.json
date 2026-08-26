@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 15,
+  "items": [],
+  "layer": "std",
+  "name": "std::sync::condition",
+  "path": null,
+  "slug": "std/sync/condition",
+  "website_url": "/docs/stdlib/std/sync/condition/index.html"
+}

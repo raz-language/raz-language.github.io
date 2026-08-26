@@ -1,0 +1,10 @@
+{
+  "available": false,
+  "dependencies": [],
+  "modules": [],
+  "name": "uuid",
+  "package": {},
+  "source_root": "https://github.com/raz-language/packages/tree/main/sources/uuid",
+  "version": "0.2.0",
+  "website_url": "/packages/uuid/docs/"
+}

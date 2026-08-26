@@ -1,0 +1,10 @@
+{
+  "available": false,
+  "dependencies": [],
+  "modules": [],
+  "name": "crypto",
+  "package": {},
+  "source_root": "https://github.com/raz-language/packages/tree/main/sources/crypto",
+  "version": "0.4.0",
+  "website_url": "/packages/crypto/docs/"
+}

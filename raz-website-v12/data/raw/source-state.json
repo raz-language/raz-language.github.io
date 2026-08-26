@@ -1,0 +1,11 @@
+{
+  "snapshot_generated_at": "2026-08-26T02:55:00Z",
+  "sources": {
+    "packages-search.txt": {"url": "https://raw.githubusercontent.com/raz-language/packages/main/search.txt", "sha": "41754efb618c9c789bddc07f7a168d4a8c2a1f3a"},
+    "docs-readme.md": {"url": "https://raw.githubusercontent.com/raz-language/raz/main/docs/README.md", "sha": "54bd2d1372ff827c2210a2d0bf8d956e3323bd5b"},
+    "platform-support.md": {"url": "https://raw.githubusercontent.com/raz-language/raz/main/docs/PLATFORM-SUPPORT.md", "sha": "d95206b1fd8169f66be009ebc9a8a420e40bcbbb"},
+    "nightly.txt": {"url": "https://raw.githubusercontent.com/raz-language/installer/main/channels/nightly.txt", "sha": "8b22174d74ef6605b9a95cdf1a65e1cd1b77208f"},
+    "releases.json": {"url": "https://api.github.com/repos/raz-language/installer/releases"},
+    "raz-repo.json": {"url": "https://api.github.com/repos/raz-language/raz"}
+  }
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the Raz project CLI, compiler interfaces, Forge, ObLink, language server, formatter, package tools and C interoperability.">
+  <meta name="theme-color" content="#0b1018">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Raz">
+  <meta property="og:title" content="Raz Tools — CLI, Forge, ObLink and editor tooling">
+  <meta property="og:description" content="Explore the Raz project CLI, compiler interfaces, Forge, ObLink, language server, formatter, package tools and C interoperability.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Raz Tools — CLI, Forge, ObLink and editor tooling">
+  <meta name="twitter:description" content="Explore the Raz project CLI, compiler interfaces, Forge, ObLink, language server, formatter, package tools and C interoperability.">
+  <title>Raz Tools — CLI, Forge, ObLink and editor tooling</title>
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>window.RAZ_BASE="../";</script>
+  <script src="../assets/search-index.js"></script>
+  <script src="../assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz","codeRepository":"https://github.com/raz-language/raz","license":"https://www.apache.org/licenses/LICENSE-2.0","description":"A systems programming language for native software that has to be fast, safe, and predictable."}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-inner">
+      <a class="brand" href="../index.html" aria-label="Raz home">
+        <img src="../assets/raz-mark.png" alt="" width="38" height="38">
+        <span>Raz</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-links"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
+      <nav class="primary-links" id="primary-links" aria-label="Primary navigation">
+        <a href="../learn/index.html">Learn</a>
+        <a href="../docs/index.html">Docs</a>
+        <a href="../packages/index.html">Packages</a>
+        <a href="../tools/index.html" aria-current="page">Tools</a>
+        <a href="../community/index.html">Community</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="Search site"><span aria-hidden="true">⌕</span><span class="search-label">Search</span><kbd>Ctrl K</kbd></button>
+        <a class="github-link" href="https://github.com/raz-language" target="_blank" rel="noopener" aria-label="Raz on GitHub">GitHub ↗</a>
+        <a class="button button-primary button-small" href="../install/index.html">Get Raz</a>
+      </div>
+    </div>
+  </header>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="search-backdrop" data-search-close></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search Raz website">
+      <div class="search-box"><span aria-hidden="true">⌕</span><input type="search" data-site-search autocomplete="off" spellcheck="false" placeholder="Search Raz…" aria-label="Search Raz website"><kbd>Esc</kbd></div>
+      <div class="search-results" data-search-results></div>
+      <p class="search-hint">Search documentation, installation, packages, tools, and project pages.</p>
+    </section>
+  </div>
+<header class="page-hero"><div class="shell narrow"><p class="kicker">TOOLS</p><h1>A toolchain designed with the language.</h1><p class="page-lead">The compiler, project driver and language server share semantics instead of reimplementing Raz in separate tools.</p><div class="button-row"><a class="button button-primary" href="https://github.com/raz-language/raz/blob/main/docs/CLI.md">CLI reference ↗</a><a class="button button-secondary" href="../docs/toolchain/index.html">Toolchain guide</a></div></div></header><main id="main" class="after-hero"><section class="section section-white"><div class="shell"><div class="tool-list"><article><div><span>01</span><h2><code>raz</code></h2></div><p>The primary project driver: create, check, build, run, test, lint, format, document, package, publish and inspect targets.</p><a href="https://github.com/raz-language/raz/blob/main/docs/CLI.md">CLI reference ↗</a></article><article><div><span>02</span><h2><code>razc</code></h2></div><p>The direct compiler interface used for lower-level compiler and conformance workflows.</p><a href="https://github.com/raz-language/raz">Compiler repository ↗</a></article><article><div><span>03</span><h2>Forge</h2></div><p>The default bundled native backend, integrated in-process and also available as a standalone tool suite.</p><a href="https://github.com/raz-language/forge">Forge repository ↗</a></article><article><div><span>04</span><h2>ObLink</h2></div><p>The standalone native linker component used by the Raz toolchain.</p><a href="https://github.com/raz-language/oblink">ObLink repository ↗</a></article><article><div><span>05</span><h2><code>raz lsp</code></h2></div><p>Compiler-backed diagnostics, navigation, rename, hover, semantic tokens, completion, formatting and code actions.</p><a href="https://github.com/raz-language/raz-vscode">VS Code extension ↗</a></article><article><div><span>06</span><h2>C ABI tooling</h2></div><p><code>raz bindgen</code> imports supported C ABI declarations; <code>raz c-header</code> exports explicit Raz C-ABI declarations.</p><a href="https://github.com/raz-language/raz/blob/main/docs/C-INTEROPERABILITY.md">Interop docs ↗</a></article></div></div></section>
+<section class="section section-dark"><div class="shell command-showcase"><div><p class="kicker kicker-bright">PROJECT DRIVER</p><h2>Common commands stay discoverable.</h2><p class="section-copy">Command parsing fails before build work begins and diagnostics are designed to be stable and machine-readable.</p></div><div class="command-list dark-list"><div><code>raz new</code><span>Create a package</span></div><div><code>raz check</code><span>Validate without an artifact</span></div><div><code>raz build --release</code><span>Optimized build</span></div><div><code>raz test</code><span>Run tests</span></div><div><code>raz doc</code><span>Generate API docs</span></div><div><code>raz doctor</code><span>Inspect environment</span></div></div></div></section></main>
+  <footer class="site-footer">
+    <div class="shell footer-main">
+      <div class="footer-intro"><a class="footer-wordmark" href="../index.html">Raz</a><p>Fast, safe, predictable systems programming with a visible cost model.</p></div>
+      <div><h2>Learn</h2><a href="../learn/index.html">Getting started</a><a href="../docs/index.html">Documentation</a><a href="../packages/index.html">Packages</a><a href="../install/index.html">Install</a></div>
+      <div><h2>Reference</h2><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SPECIFICATION.md">Specification ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY.md">Standard library ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/CLI.md">CLI reference ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/PLATFORM-SUPPORT.md">Platforms ↗</a></div>
+      <div><h2>Project</h2><a href="https://github.com/raz-language">GitHub ↗</a><a href="https://github.com/raz-language/raz/blob/main/CONTRIBUTING.md">Contributing ↗</a><a href="https://github.com/raz-language/raz/blob/main/SECURITY.md">Security ↗</a><a href="../status/index.html">Status</a><a href="https://github.com/raz-language/raz/blob/main/LICENSE">Apache-2.0 ↗</a></div>
+    </div>
+    <div class="shell footer-meta"><span>Raz 1.0 stable</span><span>Built in the open</span><span>© 2026 Raz Project</span></div>
+  </footer>
+</body>
+</html>

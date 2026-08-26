@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 17,
+  "items": [],
+  "layer": "std",
+  "name": "std::thread::executor",
+  "path": null,
+  "slug": "std/thread/executor",
+  "website_url": "/docs/stdlib/std/thread/executor/index.html"
+}

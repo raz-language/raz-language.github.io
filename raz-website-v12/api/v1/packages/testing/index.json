@@ -1,0 +1,10 @@
+{
+  "available": false,
+  "dependencies": [],
+  "modules": [],
+  "name": "testing",
+  "package": {},
+  "source_root": "https://github.com/raz-language/packages/tree/main/sources/testing",
+  "version": "0.2.0",
+  "website_url": "/packages/testing/docs/"
+}

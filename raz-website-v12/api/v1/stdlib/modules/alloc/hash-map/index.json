@@ -1,0 +1,10 @@
+{
+  "documented_items": 0,
+  "item_count": 14,
+  "items": [],
+  "layer": "alloc",
+  "name": "alloc::hash_map",
+  "path": null,
+  "slug": "alloc/hash-map",
+  "website_url": "/docs/stdlib/alloc/hash-map/index.html"
+}

@@ -1,0 +1,56 @@
+{
+  "ARCHITECTURE.md": {
+    "available": true,
+    "sha256": "1a4c95dc6f3c5aa56de5c5bf3c49dca0397023dff8a4925c32dc14198b6e2a14",
+    "snapshot": "connector-verified-2026-08-25",
+    "url": "https://raw.githubusercontent.com/raz-language/raz/main/docs/ARCHITECTURE.md"
+  },
+  "BACKENDS.md": {
+    "available": false,
+    "snapshot": "connector-verified-2026-08-25",
+    "status": 404,
+    "url": "https://raw.githubusercontent.com/raz-language/raz/main/docs/BACKENDS.md"
+  },
+  "COMPILER-BOOTSTRAP.md": {
+    "available": true,
+    "sha256": "61827519011f3e6157531882bfe190328cbfa027fad68e74c799cee92bcbeaee",
+    "snapshot": "connector-verified-2026-08-25",
+    "url": "https://raw.githubusercontent.com/raz-language/raz/main/docs/COMPILER-BOOTSTRAP.md"
+  },
+  "COMPILER-REPRODUCIBILITY.md": {
+    "available": true,
+    "sha256": "b2101d3fac8e369ae129be82d0649eb3a6afee1210b9bd928842fa71a0790ceb",
+    "snapshot": "connector-verified-2026-08-25",
+    "url": "https://raw.githubusercontent.com/raz-language/raz/main/docs/COMPILER-REPRODUCIBILITY.md"
+  },
+  "FORMATTING.md": {
+    "available": true,
+    "sha256": "237b2601777abbf6c9e2c1b7c01549ee6124fb47a895bd10a1e92063c6a4ffd0",
+    "snapshot": "connector-verified-2026-08-25",
+    "url": "https://raw.githubusercontent.com/raz-language/raz/main/docs/FORMATTING.md"
+  },
+  "LANGUAGE-SERVER.md": {
+    "available": true,
+    "sha256": "ec32b727d4cd419c474e72353b1d49566e039e4441124385d201d191543aa62e",
+    "snapshot": "connector-verified-2026-08-25",
+    "url": "https://raw.githubusercontent.com/raz-language/raz/main/docs/LANGUAGE-SERVER.md"
+  },
+  "LANGUAGE-STABILITY.md": {
+    "available": true,
+    "sha256": "446dd97f923d82d649efefca51f0dc102646607b2c8115d10f00da646f28747d",
+    "snapshot": "connector-verified-2026-08-25",
+    "url": "https://raw.githubusercontent.com/raz-language/raz/main/docs/LANGUAGE-STABILITY.md"
+  },
+  "LICENSING.md": {
+    "available": true,
+    "sha256": "409bd6d0c547218a458256d465df89e8e58dad14d1bdfef69f2040be73364762",
+    "snapshot": "connector-verified-2026-08-25",
+    "url": "https://raw.githubusercontent.com/raz-language/raz/main/docs/LICENSING.md"
+  },
+  "MIR.md": {
+    "available": true,
+    "sha256": "fedf33189193a842d6a62cf4fb81d391292e60f6436ac6fb76ab7f127e9e2618",
+    "snapshot": "connector-verified-2026-08-25",
+    "url": "https://raw.githubusercontent.com/raz-language/raz/main/docs/MIR.md"
+  }
+}

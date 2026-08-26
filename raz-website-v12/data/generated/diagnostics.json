@@ -1,0 +1,220 @@
+{
+  "complete": false,
+  "counts": {
+    "backend": 3,
+    "lexer": 4,
+    "lowering": 4,
+    "parser": 1,
+    "semantic": 28
+  },
+  "ranges": {
+    "backend": "D4000\u2013D4999",
+    "lexer": "D0000\u2013D0999",
+    "lowering": "D3000\u2013D3999",
+    "parser": "D1000\u2013D1999",
+    "semantic": "D2000\u2013D2999"
+  },
+  "records": [
+    {
+      "category": "lexer",
+      "code": "D0001",
+      "message": "unterminated block comment"
+    },
+    {
+      "category": "lexer",
+      "code": "D0004",
+      "message": "unterminated string literal"
+    },
+    {
+      "category": "lexer",
+      "code": "D0006",
+      "message": "character literal must contain exactly one character"
+    },
+    {
+      "category": "lexer",
+      "code": "D0007",
+      "message": "unexpected character in source file"
+    },
+    {
+      "category": "parser",
+      "code": "D1001",
+      "message": "expected <...> (message names the construct the parser required)"
+    },
+    {
+      "category": "semantic",
+      "code": "D2001",
+      "message": "duplicate top-level declaration '<...>'"
+    },
+    {
+      "category": "semantic",
+      "code": "D2005",
+      "message": "cannot initialize '<...>' with '<...>'"
+    },
+    {
+      "category": "semantic",
+      "code": "D2007",
+      "message": "condition must have type 'bool'"
+    },
+    {
+      "category": "semantic",
+      "code": "D2008",
+      "message": "unknown name '<...>'"
+    },
+    {
+      "category": "semantic",
+      "code": "D2009",
+      "message": "binary operands have incompatible types '<...>' and '<...>'"
+    },
+    {
+      "category": "semantic",
+      "code": "D2011",
+      "message": "unknown function '<...>'"
+    },
+    {
+      "category": "semantic",
+      "code": "D2038",
+      "message": "non-exhaustive match; missing variant '<...>.<...>'"
+    },
+    {
+      "category": "semantic",
+      "code": "D2047",
+      "message": "the '?' operator requires Result<T,E> or Option<T>"
+    },
+    {
+      "category": "semantic",
+      "code": "D2050",
+      "message": "deferred code cannot contain return, break, or continue"
+    },
+    {
+      "category": "semantic",
+      "code": "D2052",
+      "message": "moving Copy value '<...>' is equivalent to copying it"
+    },
+    {
+      "category": "semantic",
+      "code": "D2053",
+      "message": "value '<...>' has already been moved"
+    },
+    {
+      "category": "semantic",
+      "code": "D2054",
+      "message": "use of moved value '<...>'"
+    },
+    {
+      "category": "semantic",
+      "code": "D2055",
+      "message": "cannot move '<...>' while it is borrowed"
+    },
+    {
+      "category": "semantic",
+      "code": "D2056",
+      "message": "cannot mutably borrow '<...>' while an overlapping borrow is active"
+    },
+    {
+      "category": "semantic",
+      "code": "D2057",
+      "message": "cannot immutably borrow '<...>' while an overlapping mutable borrow is active"
+    },
+    {
+      "category": "semantic",
+      "code": "D2064",
+      "message": "cannot return a reference to local storage '<...>'"
+    },
+    {
+      "category": "semantic",
+      "code": "D2068",
+      "message": "type '<...>' cannot implement both Copy and Drop"
+    },
+    {
+      "category": "semantic",
+      "code": "D2097",
+      "message": "type '<...>' does not satisfy trait bound '<...>'"
+    },
+    {
+      "category": "semantic",
+      "code": "D2114",
+      "message": "implementation of '<...>' requires supertrait '<...>' for '<...>'"
+    },
+    {
+      "category": "semantic",
+      "code": "D2125",
+      "message": "FnOnce closure '<...>' has already been called"
+    },
+    {
+      "category": "semantic",
+      "code": "D2135",
+      "message": "cannot partially move '<...>' because '<...>' implements Drop"
+    },
+    {
+      "category": "semantic",
+      "code": "D2155",
+      "message": "assignment through a shared slice is not allowed"
+    },
+    {
+      "category": "semantic",
+      "code": "D2205",
+      "message": "division by zero during compile-time evaluation"
+    },
+    {
+      "category": "semantic",
+      "code": "D2212",
+      "message": "compile-time assertion failed"
+    },
+    {
+      "category": "semantic",
+      "code": "D2215",
+      "message": "@no_panic function contains an operation that may panic"
+    },
+    {
+      "category": "semantic",
+      "code": "D2240",
+      "message": "compile-time execution exceeded 100000 steps"
+    },
+    {
+      "category": "semantic",
+      "code": "D2286",
+      "message": "type '<...>' does not implement trait '<...>'"
+    },
+    {
+      "category": "semantic",
+      "code": "D2289",
+      "message": "'as' requires numeric types or an unsafe raw-pointer cast"
+    },
+    {
+      "category": "lowering",
+      "code": "D3001",
+      "message": "function '<...>' may exit without returning a value"
+    },
+    {
+      "category": "lowering",
+      "code": "D3006",
+      "message": "break used outside a loop"
+    },
+    {
+      "category": "lowering",
+      "code": "D3007",
+      "message": "continue used outside a loop"
+    },
+    {
+      "category": "lowering",
+      "code": "D3033",
+      "message": "dynamic trait object lowering requires a reference or compatible object initializer"
+    },
+    {
+      "category": "backend",
+      "code": "D4000",
+      "message": "Forge IR verification failed: <...>"
+    },
+    {
+      "category": "backend",
+      "code": "D4004",
+      "message": "unsupported numeric cast from '<...>' to '<...>'"
+    },
+    {
+      "category": "backend",
+      "code": "D4013",
+      "message": "trait method invocation has no typed dispatch ABI descriptor"
+    }
+  ],
+  "source": "https://github.com/raz-language/raz/blob/main/docs/DIAGNOSTIC-INDEX.md"
+}

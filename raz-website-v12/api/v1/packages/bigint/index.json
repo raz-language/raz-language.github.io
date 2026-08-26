@@ -1,0 +1,10 @@
+{
+  "available": false,
+  "dependencies": [],
+  "modules": [],
+  "name": "bigint",
+  "package": {},
+  "source_root": "https://github.com/raz-language/packages/tree/main/sources/bigint",
+  "version": "0.1.0",
+  "website_url": "/packages/bigint/docs/"
+}

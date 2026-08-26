@@ -1,0 +1,4 @@
+Contact: https://github.com/raz-language/raz/security/advisories/new
+Expires: 2027-08-26T02:55:00Z
+Policy: https://github.com/raz-language/raz/blob/main/SECURITY.md
+Preferred-Languages: en
