@@ -170,3 +170,8 @@ appear after a live canonical refresh. It verifies GitHub-compatible Markdown
 heading anchors and Raz type-first constant extraction (`public const T NAME = ...`).
 The deployment and validation workflows run this regression test before the full
 site validator.
+
+
+## v16 deployment budget semantics
+
+The performance checker separates page/request cost from the size of the complete generated documentation corpus. `site.js`, CSS, the homepage, the search index, and every individual public file retain tight byte ceilings. The fully staged site uses a 64 MiB corpus-growth guardrail because canonical refresh can generate tens of megabytes of independent API/documentation pages; users never download that corpus as one request. Both the checked-in budget and `enhance_v12.py` are regression-tested so refresh cannot silently restore obsolete limits.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Enforce Raz.org static deployment performance budgets.
+"""Enforce Raz.org per-request performance budgets and corpus-growth guardrails.
 
 Source-tree checks intentionally inspect only files that stage_site.py can deploy.
 This keeps Git metadata, caches, archives, and local build artifacts out of the
@@ -72,7 +72,7 @@ def main():
             )
         total = sum(p.stat().st_size for p in public)
         if is_staged(root) and total > budget["staged_site_bytes"]:
-            errors.append(f"staged site: {total} bytes exceeds {budget['staged_site_bytes']}")
+            errors.append(f"staged documentation corpus: {total} bytes exceeds {budget['staged_site_bytes']}")
 
     if errors:
         print("performance budget failed:", file=sys.stderr)
