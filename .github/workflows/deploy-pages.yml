@@ -77,6 +77,9 @@ jobs:
       - name: Check production metadata
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_production_metadata.py
+      - name: Check production-origin fallback
+        if: steps.freshness.outputs.current == 'true'
+        run: python3 scripts/test_site_origin_fallback.py
       - name: Validate generated source tree
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/validate.py

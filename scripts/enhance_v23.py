@@ -27,7 +27,7 @@ STYLES = ASSETS / "styles.css"
 SEARCH_INDEX = ASSETS / "search-index.json"
 SEARCH_CORE = ASSETS / "search-core.json"
 SEARCH_API = ASSETS / "search-api.json"
-SITE_ORIGIN = os.getenv("RAZ_SITE_URL", "https://raz-language.github.io").rstrip("/")
+SITE_ORIGIN = (os.getenv("RAZ_SITE_URL") or "https://raz-language.github.io").strip().rstrip("/")
 RAZ_RELEASES = "https://github.com/raz-language/raz/releases"
 
 
@@ -376,12 +376,12 @@ def update_sitemap() -> None:
     urls = []
     for page in sorted(ROOT.rglob("*.html")):
         rel = page.relative_to(ROOT)
-        if "_site" in rel.parts:
+        if "_site" in rel.parts or rel.as_posix() == "404.html":
             continue
         text = page.read_text(encoding="utf-8", errors="ignore")
-        if re.search(r'<meta name="robots" content="[^"]*noindex', text):
+        if re.search(r'<meta name="robots" content="[^"]*noindex', text, re.I):
             continue
-        route = "/" if str(rel) == "index.html" else "/" + str(rel).replace("\\", "/").removesuffix("index.html")
+        route = "/" if rel.as_posix() == "index.html" else "/" + rel.as_posix().removesuffix("index.html")
         urls.append(f"{SITE_ORIGIN}{route}")
     content = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'  <url><loc>{html.escape(url)}</loc></url>\n' for url in urls) + '</urlset>\n'
     path.write_text(content, encoding="utf-8")

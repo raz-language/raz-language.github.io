@@ -18,6 +18,7 @@ elif '<meta name="robots" content="noindex' in home: errors.append('homepage mus
 if sitemap.exists():
     sx=sitemap.read_text(encoding='utf-8')
     if f'<loc>{ORIGIN}/</loc>' not in sx: errors.append('sitemap omits homepage')
+    if f'<loc>{ORIGIN}/404.html</loc>' in sx: errors.append('sitemap must not include the 404 page')
     if f'{ORIGIN}/docs/1.0/' in sx: errors.append('noindex duplicate 1.0 snapshot should not be in sitemap while 1.0 is current stable')
 for asset,limit in [('raz-mark-128.png',50000),('raz-social.png',250000)]:
     p=ROOT/'assets'/asset

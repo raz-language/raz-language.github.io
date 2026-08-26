@@ -219,3 +219,5 @@ Global search is client-side but does not preload its corpus. The generated inde
 - `assets/search-api.json` contains high-cardinality standard-library and package API symbol entries.
 
 Opening search loads only the core shard. The API shard is fetched after the user begins a query, keeping ordinary pages and an unopened search dialog independent of API-corpus growth. Both shards have separate performance budgets and content-derived cache keys.
+
+The GitHub Pages workflow reads this from the repository variable `RAZ_SITE_URL`. An unset or explicitly empty variable is treated identically and falls back to `https://raz-language.github.io`; release/news feeds and sitemap generation use the same origin resolver so CI cannot emit relative production URLs.
