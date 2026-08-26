@@ -49,8 +49,8 @@
   const pkgSearch=q('[data-package-search]'), pkgButtons=qa('[data-package-filter]'), pkgItems=qa('[data-package]'), pkgCount=q('[data-package-count]'), pkgEmpty=q('[data-package-empty]');
   if(pkgItems.length){
     let category='all';
-    const filter=()=>{const term=(pkgSearch?.value||'').trim().toLowerCase();let shown=0;pkgItems.forEach(item=>{const okCat=category==='all'||item.dataset.category===category;const okTerm=!term||(item.dataset.search||'').includes(term);const show=okCat&&okTerm;item.hidden=!show;item.classList.toggle('package-filtered-out',!show);if(show)shown++;});if(pkgCount)pkgCount.textContent=`${shown} package${shown===1?'':'s'}`;if(pkgEmpty)pkgEmpty.hidden=shown!==0;};
-    pkgSearch&&pkgSearch.addEventListener('input',filter); pkgButtons.forEach(b=>b.addEventListener('click',()=>{category=b.dataset.packageFilter;pkgButtons.forEach(x=>x.classList.toggle('active',x===b));filter();}));
+    const filter=()=>{const term=(pkgSearch?.value||'').trim().toLowerCase();let shown=0;pkgItems.forEach(item=>{const okCat=category==='all'||item.dataset.category===category;const okTerm=!term||(item.dataset.search||'').includes(term);const show=okCat&&okTerm;item.hidden=!show;item.classList.toggle('package-filtered-out',!show);if(show){item.style.removeProperty('display');shown++;}else{item.style.setProperty('display','none','important');}});if(pkgCount)pkgCount.textContent=`${shown} package${shown===1?'':'s'}`;if(pkgEmpty){pkgEmpty.hidden=shown!==0;if(shown===0)pkgEmpty.style.removeProperty('display');else pkgEmpty.style.setProperty('display','none','important');}};
+    pkgSearch&&pkgSearch.addEventListener('input',filter); pkgButtons.forEach(b=>b.addEventListener('click',()=>{category=b.dataset.packageFilter||'all';pkgButtons.forEach(x=>{const active=x===b;x.classList.toggle('active',active);x.setAttribute('aria-pressed',String(active));});filter();})); filter();
   }
 
 

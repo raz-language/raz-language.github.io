@@ -16,10 +16,10 @@
   <title>Raz Packages — Official package registry</title>
   <link rel="icon" href="../assets/favicon.png" type="image/png">
   <link rel="manifest" href="../site.webmanifest">
-  <link rel="stylesheet" href="../assets/styles.css">
+  <link rel="stylesheet" href="../assets/styles.css?v=265335437bd1">
   <script>window.RAZ_BASE="../";</script>
-  <script src="../assets/search-index.js"></script>
-  <script src="../assets/site.js" defer></script>
+  <script src="../assets/search-index.js?v=66e27a8bb6ec"></script>
+  <script src="../assets/site.js?v=0697e572a76a" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz","codeRepository":"https://github.com/raz-language/raz","license":"https://www.apache.org/licenses/LICENSE-2.0","description":"A systems programming language for native software that has to be fast, safe, and predictable."}</script>
 </head>
 <body>
@@ -55,7 +55,7 @@
   </div>
 <header class="page-hero"><div class="shell narrow"><p class="kicker">PACKAGES</p><h1>Build on the official Raz package ecosystem.</h1><p class="page-lead">Search immutable registry releases, then move directly into source-derived package documentation without leaving the Raz site.</p><div class="button-row"><a class="button button-primary" href="https://github.com/raz-language/packages">Registry source ↗</a><a class="button button-secondary" href="https://github.com/raz-language/raz/blob/main/docs/PACKAGE-MANAGEMENT.md">Package docs ↗</a></div></div></header>
 <main id="main" class="after-hero"><section class="section section-white"><div class="shell">
-  <div class="package-toolbar"><label><span class="sr-only">Search packages</span><input type="search" placeholder="Search packages…" data-package-search></label><div class="package-filters" aria-label="Filter packages"><button class="active" data-package-filter="all">All</button><button data-package-filter="archive">Archive</button><button data-package-filter="security">Security</button><button data-package-filter="numeric">Numeric</button><button data-package-filter="data">Data</button><button data-package-filter="utility">Utility</button><button data-package-filter="web">Web</button><button data-package-filter="runtime">Runtime</button><button data-package-filter="database">Database</button><button data-package-filter="dev">Dev</button></div></div>
+  <div class="package-toolbar"><label><span class="sr-only">Search packages</span><input type="search" placeholder="Search packages…" data-package-search></label><div class="package-filters" aria-label="Filter packages"><button type="button" class="active" aria-pressed="true" data-package-filter="all">All</button><button type="button" aria-pressed="false" data-package-filter="archive">Archive</button><button type="button" aria-pressed="false" data-package-filter="security">Security</button><button type="button" aria-pressed="false" data-package-filter="numeric">Numeric</button><button type="button" aria-pressed="false" data-package-filter="data">Data</button><button type="button" aria-pressed="false" data-package-filter="utility">Utility</button><button type="button" aria-pressed="false" data-package-filter="web">Web</button><button type="button" aria-pressed="false" data-package-filter="runtime">Runtime</button><button type="button" aria-pressed="false" data-package-filter="database">Database</button><button type="button" aria-pressed="false" data-package-filter="dev">Dev</button></div></div>
   <div class="registry-stats"><div><b>46</b><span>official packages</span></div><div><b>54</b><span>published versions</span></div><div><b>1</b><span>source docs cached offline</span></div></div>
   <div class="data-freshness"><span class="live-dot"></span><span>Registry metadata comes from <code>search.txt</code>/<code>index.txt</code>; package docs come from <code>sources/&lt;package&gt;</code>.</span></div>
   <div class="package-count" data-package-count>46 packages</div>
@@ -198,7 +198,52 @@
       <a class="package-item-link" href="zstd/index.html"><div><span>ARCHIVE</span><div class="package-title-row"><h3>zstd</h3><small>v0.1.0</small></div><p>Bounded Zstandard frame support for Raz.</p><small class="package-history-count">1 version</small></div><b>View package →</b></a>
       <button type="button" class="copy-command" data-copy="raz add zstd">raz add zstd</button>
     </article></div><div class="empty-state" data-package-empty hidden>No packages match that search.</div>
-</div></section></main><footer class="site-footer">
+</div></section></main>
+<script data-package-filter-controller>
+(() => {
+  const search = document.querySelector('[data-package-search]');
+  const buttons = [...document.querySelectorAll('[data-package-filter]')];
+  const items = [...document.querySelectorAll('[data-package]')];
+  const count = document.querySelector('[data-package-count]');
+  const empty = document.querySelector('[data-package-empty]');
+  if (!items.length) return;
+  let category = 'all';
+  const apply = () => {
+    const term = (search?.value || '').trim().toLowerCase();
+    let shown = 0;
+    items.forEach(item => {
+      const matchesCategory = category === 'all' || item.dataset.category === category;
+      const matchesSearch = !term || (item.dataset.search || '').includes(term);
+      const visible = matchesCategory && matchesSearch;
+      item.hidden = !visible;
+      item.classList.toggle('package-filtered-out', !visible);
+      if (visible) {
+        item.style.removeProperty('display');
+        shown += 1;
+      } else {
+        item.style.setProperty('display', 'none', 'important');
+      }
+    });
+    if (count) count.textContent = `${shown} package${shown === 1 ? '' : 's'}`;
+    if (empty) {
+      empty.hidden = shown !== 0;
+      if (shown === 0) empty.style.removeProperty('display');
+      else empty.style.setProperty('display', 'none', 'important');
+    }
+  };
+  search?.addEventListener('input', apply);
+  buttons.forEach(button => button.addEventListener('click', () => {
+    category = button.dataset.packageFilter || 'all';
+    buttons.forEach(candidate => {
+      const active = candidate === button;
+      candidate.classList.toggle('active', active);
+      candidate.setAttribute('aria-pressed', String(active));
+    });
+    apply();
+  }));
+  apply();
+})();
+</script><footer class="site-footer">
     <div class="shell footer-main">
       <div class="footer-intro"><a class="footer-wordmark" href="../index.html">Raz</a><p>Fast, safe, predictable systems programming with a visible cost model.</p></div>
       <div><h2>Learn</h2><a href="../learn/index.html">Getting started</a><a href="../docs/index.html">Documentation</a><a href="../packages/index.html">Packages</a><a href="../install/index.html">Install</a></div>

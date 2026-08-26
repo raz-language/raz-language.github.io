@@ -24,6 +24,8 @@ jobs:
         run: python3 scripts/test_sync_regressions.py
       - name: Check package search contract
         run: python3 scripts/test_package_search.py
+      - name: Check browser asset cache keys
+        run: python3 scripts/test_asset_cache_busting.py
       - name: Check generated performance budget regression
         run: python3 scripts/test_performance_budget_generation.py
       - name: Validate source tree

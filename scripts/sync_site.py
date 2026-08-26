@@ -683,8 +683,8 @@ def render_packages(packages):
     for package in packages:
         if package["category"] not in categories:
             categories.append(package["category"])
-    filters = '<button class="active" data-package-filter="all">All</button>' + "".join(
-        f'<button data-package-filter="{esc(category)}">{esc(category.title())}</button>' for category in categories
+    filters = '<button type="button" class="active" aria-pressed="true" data-package-filter="all">All</button>' + "".join(
+        f'<button type="button" aria-pressed="false" data-package-filter="{esc(category)}">{esc(category.title())}</button>' for category in categories
     )
     cards = "".join(package_card(package) for package in packages)
     version_records = sum(len(package.get("versions", [])) for package in packages)
@@ -696,7 +696,52 @@ def render_packages(packages):
   <div class="data-freshness"><span class="live-dot"></span><span>Registry metadata comes from <code>search.txt</code>/<code>index.txt</code>; package docs come from <code>sources/&lt;package&gt;</code>.</span></div>
   <div class="package-count" data-package-count>{len(packages)} packages</div>
   <div class="package-catalog">{cards}</div><div class="empty-state" data-package-empty hidden>No packages match that search.</div>
-</div></section></main>'''
+</div></section></main>
+<script data-package-filter-controller>
+(() => {{
+  const search = document.querySelector('[data-package-search]');
+  const buttons = [...document.querySelectorAll('[data-package-filter]')];
+  const items = [...document.querySelectorAll('[data-package]')];
+  const count = document.querySelector('[data-package-count]');
+  const empty = document.querySelector('[data-package-empty]');
+  if (!items.length) return;
+  let category = 'all';
+  const apply = () => {{
+    const term = (search?.value || '').trim().toLowerCase();
+    let shown = 0;
+    items.forEach(item => {{
+      const matchesCategory = category === 'all' || item.dataset.category === category;
+      const matchesSearch = !term || (item.dataset.search || '').includes(term);
+      const visible = matchesCategory && matchesSearch;
+      item.hidden = !visible;
+      item.classList.toggle('package-filtered-out', !visible);
+      if (visible) {{
+        item.style.removeProperty('display');
+        shown += 1;
+      }} else {{
+        item.style.setProperty('display', 'none', 'important');
+      }}
+    }});
+    if (count) count.textContent = `${{shown}} package${{shown === 1 ? '' : 's'}}`;
+    if (empty) {{
+      empty.hidden = shown !== 0;
+      if (shown === 0) empty.style.removeProperty('display');
+      else empty.style.setProperty('display', 'none', 'important');
+    }}
+  }};
+  search?.addEventListener('input', apply);
+  buttons.forEach(button => button.addEventListener('click', () => {{
+    category = button.dataset.packageFilter || 'all';
+    buttons.forEach(candidate => {{
+      const active = candidate === button;
+      candidate.classList.toggle('active', active);
+      candidate.setAttribute('aria-pressed', String(active));
+    }});
+    apply();
+  }}));
+  apply();
+}})();
+</script>'''
     page.write_text(pre + body + footer, encoding="utf-8")
 
     valid = {package["name"] for package in packages}
@@ -1838,7 +1883,7 @@ def render_search(packages, docs):
         base = "" if rel_root == "." else rel_root.rstrip("/") + "/"
         scripts = f'<script>window.RAZ_BASE={json.dumps(base)};</script>\n  <script src="{rel_search}"></script>'
         text = re.sub(r'<script>window\.RAZ_SEARCH=.*?</script>', scripts, text, flags=re.S)
-        text = re.sub(r'<script>window\.RAZ_BASE=.*?</script>\s*<script src="[^"]*search-index\.js"></script>', scripts, text, flags=re.S)
+        text = re.sub(r'<script>window\.RAZ_BASE=.*?</script>\s*<script src="[^"]*search-index\.js(?:\?v=[^"]*)?"></script>', scripts, text, flags=re.S)
         page.write_text(text, encoding="utf-8")
 
 
@@ -2317,6 +2362,9 @@ def main():
     enhancer_v12 = ROOT / "scripts" / "enhance_v12.py"
     if enhancer_v12.exists():
         subprocess.run([sys.executable, str(enhancer_v12)], cwd=ROOT, check=True)
+    enhancer_v19 = ROOT / "scripts" / "enhance_v19.py"
+    if enhancer_v19.exists():
+        subprocess.run([sys.executable, str(enhancer_v19)], cwd=ROOT, check=True)
 
     if args.check:
         after = snapshot_files()

@@ -50,6 +50,9 @@ jobs:
       - name: Check package search contract
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_package_search.py
+      - name: Check browser asset cache keys
+        if: steps.freshness.outputs.current == 'true'
+        run: python3 scripts/test_asset_cache_busting.py
       - name: Check generated performance budget regression
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_performance_budget_generation.py
