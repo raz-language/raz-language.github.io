@@ -17,7 +17,19 @@ BOOK = ROOT / "learn" / "book"
 BOOK_SNAPSHOT = ROOT / "learn" / "1.0" / "book"
 GEN = ROOT / "data" / "generated"
 API = ROOT / "api" / "v1"
-VERSION = "1.0"
+def _current_version() -> str:
+    site = GEN / "site.json"
+    if site.exists():
+        try:
+            value = json.loads(site.read_text(encoding="utf-8")).get("language", {}).get("version")
+            if value:
+                return str(value)
+        except Exception:
+            pass
+    return "1.0"
+
+
+VERSION = _current_version()
 
 
 def esc(value: object) -> str:
@@ -99,46 +111,102 @@ def _copy_tree(source_root: Path, destination_root: Path, exclude: set[str] | No
     return count
 
 
-def _counterpart(page: Path, snapshot: bool) -> Path | None:
-    if snapshot:
-        if _inside(page, DOC_SNAPSHOT):
-            return DOCS / page.relative_to(DOC_SNAPSHOT)
-        if _inside(page, BOOK_SNAPSHOT):
-            return BOOK / page.relative_to(BOOK_SNAPSHOT)
-    else:
-        if _inside(page, DOCS) and not _inside(page, DOC_SNAPSHOT):
-            return DOC_SNAPSHOT / page.relative_to(DOCS)
-        if _inside(page, BOOK):
-            return BOOK_SNAPSHOT / page.relative_to(BOOK)
+def _version_names() -> list[str]:
+    names = {VERSION}
+    if DOCS.exists():
+        for child in DOCS.iterdir():
+            if child.is_dir() and re.fullmatch(r"\d+\.\d+", child.name):
+                names.add(child.name)
+    learn = ROOT / "learn"
+    if learn.exists():
+        for child in learn.iterdir():
+            if child.is_dir() and re.fullmatch(r"\d+\.\d+", child.name) and (child / "book").is_dir():
+                names.add(child.name)
+    return sorted(names, key=lambda v: tuple(int(x) for x in v.split('.')), reverse=True)
+
+
+def _doc_version_root(version: str) -> Path:
+    return DOCS / version
+
+
+def _book_version_root(version: str) -> Path:
+    return ROOT / "learn" / version / "book"
+
+
+def _current_doc_page(page: Path) -> bool:
+    if not _inside(page, DOCS):
+        return False
+    return not any(_inside(page, _doc_version_root(v)) for v in _version_names())
+
+
+def _page_channel(page: Path) -> tuple[str, str | None, Path] | None:
+    """Return (kind, version, relative path) for docs/book current or snapshots."""
+    if _inside(page, BOOK):
+        return ("book", None, page.relative_to(BOOK))
+    if _inside(page, DOCS):
+        for version in _version_names():
+            root = _doc_version_root(version)
+            if _inside(page, root):
+                return ("docs", version, page.relative_to(root))
+        return ("docs", None, page.relative_to(DOCS))
+    for version in _version_names():
+        root = _book_version_root(version)
+        if _inside(page, root):
+            return ("book", version, page.relative_to(root))
     return None
+
+
+def _channel_target(kind: str, version: str | None, rel: Path) -> Path:
+    if kind == "docs":
+        return (DOCS if version is None else _doc_version_root(version)) / rel
+    return (BOOK if version is None else _book_version_root(version)) / rel
 
 
 def _rel(page: Path, target: Path) -> str:
     return os.path.relpath(target, page.parent).replace("\\", "/")
 
 
-def _version_switcher(page: Path, snapshot: bool) -> str:
-    other = _counterpart(page, snapshot)
-    current_target = other if snapshot else page
-    snapshot_target = page if snapshot else other
-    current_href = _rel(page, current_target) if current_target else "#"
-    snapshot_href = _rel(page, snapshot_target) if snapshot_target else "#"
+def _version_switcher(page: Path) -> str:
+    channel = _page_channel(page)
+    if channel is None:
+        return ""
+    kind, page_version, rel = channel
+    shown_version = page_version or VERSION
+    shown_state = "stable" if page_version is None else ("snapshot" if page_version == VERSION else "historical")
+    links = []
+    current = _channel_target(kind, None, rel)
+    if current.exists():
+        links.append(
+            f'<a href="{esc(_rel(page, current))}" class="{"active" if page_version is None else ""}">'
+            f'<span>Current stable</span><b>{esc(VERSION)}</b></a>'
+        )
+    for version in _version_names():
+        target = _channel_target(kind, version, rel)
+        if not target.exists():
+            continue
+        label = "Frozen snapshot" if version == VERSION else "Historical"
+        links.append(
+            f'<a href="{esc(_rel(page, target))}" class="{"active" if page_version == version else ""}">'
+            f'<span>{label}</span><b>{esc(version)}</b></a>'
+        )
     return (
         '<details class="doc-version-switcher">'
-        f'<summary><span>Raz</span><b>{VERSION}</b><em>{"snapshot" if snapshot else "stable"}</em></summary>'
-        '<div class="doc-version-menu">'
-        f'<a href="{esc(current_href)}" class="{"active" if not snapshot else ""}"><span>Current stable</span><b>{VERSION}</b></a>'
-        f'<a href="{esc(snapshot_href)}" class="{"active" if snapshot else ""}"><span>Frozen snapshot</span><b>{VERSION}</b></a>'
-        '</div></details>'
+        f'<summary><span>Raz</span><b>{esc(shown_version)}</b><em>{shown_state}</em></summary>'
+        '<div class="doc-version-menu">' + ''.join(links) + '</div></details>'
     )
 
 
-def _inject_version_switchers(root: Path, snapshot: bool) -> int:
+def _inject_version_switchers(root: Path, *, exclude_roots: list[Path] | None = None) -> int:
     changed = 0
+    excludes = exclude_roots or []
     for page in root.rglob("*.html"):
+        if any(_inside(page, excluded) for excluded in excludes):
+            continue
         text = page.read_text(encoding="utf-8")
         text = re.sub(r'<details class="doc-version-switcher">.*?</details>', '', text, flags=re.S)
-        switcher = _version_switcher(page, snapshot)
+        switcher = _version_switcher(page)
+        if not switcher:
+            continue
         marker = '<div class="doc-breadcrumbs">'
         if marker in text:
             text = text.replace(marker, switcher + marker, 1)
@@ -151,24 +219,41 @@ def _inject_version_switchers(root: Path, snapshot: bool) -> int:
     return changed
 
 
+def _normalize_snapshot_indexing(version: str) -> None:
+    """Current-version duplicate snapshots are noindex; older snapshots are indexable."""
+    for root in (_doc_version_root(version), _book_version_root(version)):
+        if not root.exists():
+            continue
+        for page in root.rglob("*.html"):
+            text = page.read_text(encoding="utf-8")
+            exact = '<meta name="robots" content="noindex,follow">'
+            if version == VERSION:
+                if exact not in text:
+                    text = text.replace('</head>', f'  {exact}\n</head>', 1)
+            else:
+                text = text.replace(f'  {exact}\n', '').replace(exact, '')
+            page.write_text(text, encoding="utf-8")
+
+
 def write_version_manifest() -> None:
-    versions = {
+    versions = _version_names()
+    payload = {
         "current": VERSION,
         "language_status": "stable",
-        "stable": [VERSION],
-        "docs": {
-            VERSION: {
-                "current_url": "docs/index.html",
-                "snapshot_url": f"docs/{VERSION}/index.html",
-                "book_current_url": "learn/book/index.html",
-                "book_snapshot_url": f"learn/{VERSION}/book/index.html",
-                "mode": "frozen-snapshot",
-            }
-        },
+        "stable": versions,
+        "docs": {},
     }
+    for version in versions:
+        payload["docs"][version] = {
+            "current_url": "docs/index.html" if version == VERSION else None,
+            "snapshot_url": f"docs/{version}/index.html",
+            "book_current_url": "learn/book/index.html" if version == VERSION else None,
+            "book_snapshot_url": f"learn/{version}/book/index.html",
+            "mode": "current-frozen-snapshot" if version == VERSION else "historical-snapshot",
+        }
     for path in (GEN / "versions.json", API / "versions.json"):
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(versions, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     index = API / "index.json"
     if index.exists():
         data = json.loads(index.read_text(encoding="utf-8"))
@@ -188,7 +273,7 @@ def _package_nav(page: Path, package: str, active: str) -> str:
     for key, target, label in items:
         href = _rel(page, target)
         if key == "dependencies":
-            href += "#dependencies"
+            href += "#package-dependencies"
         elif key == "versions":
             href += "#versions"
         current = ' aria-current="page"' if key == active else ""
@@ -197,6 +282,25 @@ def _package_nav(page: Path, package: str, active: str) -> str:
     links.append(f'<a href="{esc(source)}">Source ↗</a>')
     return '<nav class="package-product-nav" aria-label="Package navigation">' + "".join(links) + "</nav>"
 
+
+
+def _anchor_manifest_dependencies(text: str) -> str:
+    """Assign a website-owned dependency anchor without colliding with README headings.
+
+    Package READMEs are rendered with their source heading IDs intact. A README may
+    legitimately contain ``# Dependencies`` -> ``id="package-dependencies"``. The manifest
+    dependency section therefore uses the Raz-site-owned ``package-dependencies`` ID.
+    The matcher also normalizes older generated pages that used ``id="package-dependencies"``.
+    """
+    pattern = re.compile(
+        r'<section class="section section-white"(?: id="(?:dependencies|package-dependencies)")?>'
+        r'<div class="shell"><div class="section-top compact"><div><p class="kicker">DEPENDENCIES</p>'
+    )
+    replacement = (
+        '<section class="section section-white" id="package-dependencies">'
+        '<div class="shell"><div class="section-top compact"><div><p class="kicker">DEPENDENCIES</p>'
+    )
+    return pattern.sub(replacement, text, count=1)
 
 def _public_item_count(doc: dict) -> int:
     return sum(len(module.get("symbols", [])) for module in doc.get("modules", []))
@@ -233,7 +337,7 @@ def enhance_packages() -> int:
             text = api_landing.read_text(encoding="utf-8")
             text = re.sub(r'<nav class="package-product-nav".*?</nav>', '', text, flags=re.S)
             text = text.replace('</header>\n<main id="main"', '</header>' + _package_nav(api_landing, package, "api") + '\n<main id="main"', 1)
-            text = text.replace('<section class="section section-white"><div class="shell"><div class="section-top compact"><div><p class="kicker">DEPENDENCIES</p>', '<section class="section section-white" id="dependencies"><div class="shell"><div class="section-top compact"><div><p class="kicker">DEPENDENCIES</p>', 1)
+            text = _anchor_manifest_dependencies(text)
             # Make module rows searchable by module and symbol names.
             modules = doc.get("modules", [])
             for module in modules:
@@ -279,14 +383,23 @@ def add_styles() -> None:
 def main() -> None:
     package_pages = enhance_packages()
     add_styles()
-    docs_files = _copy_tree(DOCS, DOC_SNAPSHOT, exclude={"1.0"})
+    existing_versions = _version_names()
+    version_roots = [_doc_version_root(v) for v in existing_versions]
+    docs_files = _copy_tree(DOCS, DOC_SNAPSHOT, exclude=set(existing_versions))
     book_files = _copy_tree(BOOK, BOOK_SNAPSHOT)
-    current_docs = _inject_version_switchers(DOCS, snapshot=False)
-    current_book = _inject_version_switchers(BOOK, snapshot=False)
-    frozen_docs = _inject_version_switchers(DOC_SNAPSHOT, snapshot=True)
-    frozen_book = _inject_version_switchers(BOOK_SNAPSHOT, snapshot=True)
+    versions = _version_names()
+    for version in versions:
+        _normalize_snapshot_indexing(version)
+    current_docs = _inject_version_switchers(DOCS, exclude_roots=[_doc_version_root(v) for v in versions])
+    current_book = _inject_version_switchers(BOOK)
+    frozen = 0
+    for version in versions:
+        if _doc_version_root(version).exists():
+            frozen += _inject_version_switchers(_doc_version_root(version))
+        if _book_version_root(version).exists():
+            frozen += _inject_version_switchers(_book_version_root(version))
     write_version_manifest()
-    print(f"OK: v21 versioned docs ({docs_files} docs files, {book_files} book files; switchers {current_docs+current_book+frozen_docs+frozen_book}; package pages {package_pages})")
+    print(f"OK: v21 versioned docs ({docs_files} docs files, {book_files} book files; switchers {current_docs+current_book+frozen}; package pages {package_pages}; versions {','.join(versions)})")
 
 
 if __name__ == "__main__":

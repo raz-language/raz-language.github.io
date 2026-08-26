@@ -156,6 +156,8 @@ The official package registry is now treated as a documentation source as well a
 
 The checked-in offline snapshot includes the canonical `json` package as a populated reference implementation while preserving stable documentation routes for every official registry package. Production refreshes expand the same static hierarchy from the current package source repository without requiring GitHub access in the browser.
 
+Package README heading IDs remain source-derived. Website-owned package fragment IDs use a `package-` prefix (for example `#package-dependencies`) so generated navigation cannot collide with headings such as `# Dependencies` in synchronized README content. CI scans every generated package documentation page for duplicate IDs after each refresh.
+
 ## v12 release-quality hardening
 
 The website now generates `/status/` from the canonical platform/release snapshot, publishes `/api/v1/status.json` and `/api/v1/versions.json`, and carries explicit performance budgets. Deployment staging includes `_headers`, `_redirects`, and `vercel.json` so hosts that support static configuration can apply CSP/security headers, cache policy, and compatibility redirects. GitHub Pages still serves the same static files; header configuration is naturally host-dependent.
@@ -221,3 +223,19 @@ Global search is client-side but does not preload its corpus. The generated inde
 Opening search loads only the core shard. The API shard is fetched after the user begins a query, keeping ordinary pages and an unopened search dialog independent of API-corpus growth. Both shards have separate performance budgets and content-derived cache keys.
 
 The GitHub Pages workflow reads this from the repository variable `RAZ_SITE_URL`. An unset or explicitly empty variable is treated identically and falls back to `https://raz-language.github.io`; release/news feeds and sitemap generation use the same origin resolver so CI cannot emit relative production URLs.
+
+## Documentation version architecture
+
+`/docs/` and `/learn/book/` are aliases for the current stable Raz documentation line. The current language version is read from generated canonical site data rather than hard-coded into the versioning enhancer. A frozen snapshot is published at `/docs/<major.minor>/` and `/learn/<major.minor>/book/`; older snapshot directories are preserved when the current stable line advances. The current-version duplicate snapshot is `noindex,follow`, while superseded historical snapshots become independently indexable. `/api/v1/versions.json` is the machine-readable version manifest used to describe the available documentation lines.
+
+Release detail pages derive their documentation line from the release tag's `major.minor` version and fall back to the current stable documentation only when that line is not present in the version manifest.
+
+## HTML and metadata integrity
+
+The site validator treats malformed attribute names and invalid nested anchors/buttons as build failures in addition to checking links, fragments, IDs, metadata, accessibility basics, and generated data invariants. Indexable pages are required to self-canonicalize; frozen current-version duplicate documentation is the deliberate exception because it remains `noindex,follow` and canonicalizes to the current stable route.
+
+Route-aware JSON-LD is emitted for public pages, with `TechArticle`, `SoftwareSourceCode`, `WebPage`, or `WebSite` selected by surface. Pages with visible breadcrumb navigation also receive matching `BreadcrumbList` structured data.
+
+## Portable binary installation
+
+The public install page follows the official release archive contract. Windows MSI remains the recommended installation. The Windows portable ZIP contains a single toolchain directory with `install.ps1` / `uninstall.ps1`; the Linux archive contains a single toolchain directory with `install.sh` / `uninstall.sh`. Linux's installer manages the toolchain below `${XDG_DATA_HOME:-~/.local/share}/raz` and command links in `~/.local/bin` without editing shell startup files.

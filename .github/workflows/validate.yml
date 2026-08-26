@@ -44,6 +44,8 @@ jobs:
         run: python3 scripts/test_production_metadata.py
       - name: Check production-origin fallback
         run: python3 scripts/test_site_origin_fallback.py
+      - name: Check v24 correctness hardening
+        run: python3 scripts/test_v24_hardening.py
       - name: Validate source tree
         run: python3 scripts/validate.py
       - name: Check performance budgets

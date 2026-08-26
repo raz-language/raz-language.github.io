@@ -140,6 +140,24 @@ def release_asset_rows(release: dict) -> str:
     return ''.join(rows) or '<div class="empty-state">No published assets are recorded for this release.</div>'
 
 
+
+def release_doc_line(release: dict) -> str:
+    """Map a release tag to the closest published language-doc line."""
+    tag = str(release.get("tag") or release.get("name") or "").lstrip("v")
+    match = re.match(r"^(\d+)\.(\d+)", tag)
+    candidate = f"{match.group(1)}.{match.group(2)}" if match else ""
+    manifest = GEN / "versions.json"
+    available = []
+    current = "1.0"
+    if manifest.exists():
+        try:
+            payload = json.loads(manifest.read_text(encoding="utf-8"))
+            current = str(payload.get("current") or current)
+            available = list((payload.get("docs") or {}).keys())
+        except Exception:
+            pass
+    return candidate if candidate in available else current
+
 def render_release_details(releases: list[dict]) -> list[dict]:
     pre_base, footer_base = shell_parts()
     root = ROOT / "releases"
@@ -168,8 +186,9 @@ def render_release_details(releases: list[dict]) -> list[dict]:
         notes = next((a for a in release.get("assets", []) if (a.get("name") or "").lower() == "release-notes.md"), None)
         notes_link = f'<a class="button button-secondary" href="{esc(notes["url"])}">Release notes ↗</a>' if notes else ''
         published = release.get("published_at") or ""
+        doc_line = release_doc_line(release)
         body = f'''<header class="page-hero"><div class="shell narrow"><div class="doc-breadcrumbs"><a href="../index.html">Releases</a><span>/</span><span>{esc(release.get('tag') or release.get('name') or version)}</span></div><p class="kicker">RAZ RELEASE</p><h1>Raz {esc(version)}</h1><p class="page-lead">Published <time datetime="{esc(published)}">{esc(display_date(published))}</time>. This page is generated from the canonical <code>raz-language/raz</code> GitHub release and remains a stable record of the published artifacts.</p><div class="button-row"><a class="button button-primary" href="{esc(release.get('url') or RAZ_RELEASES)}">GitHub release ↗</a>{notes_link}</div></div></header>
-<main id="main" class="after-hero"><section class="section section-white"><div class="shell"><div class="release-detail-summary"><article><span>CHANNEL</span><b>{status}</b><p>{'Pre-release toolchain build.' if release.get('prerelease') else 'Stable Raz toolchain release.'}</p></article><article><span>PUBLISHED</span><b>{esc(display_date(published))}</b><p>Canonical release timestamp from GitHub.</p></article><article><span>ASSETS</span><b>{len(release.get('assets', []))}</b><p>Published files including checksums and notes.</p></article></div></div></section><section class="section section-soft"><div class="shell"><div class="section-top compact"><div><p class="kicker">RELEASE ASSETS</p><h2>Downloads and integrity metadata.</h2></div><p>Artifact names, sizes, SHA-256 digests where available, and download URLs are preserved directly from the release feed.</p></div><div class="release-assets-list">{release_asset_rows(release)}</div></div></section><section class="section section-white"><div class="shell release-detail-foot"><div><p class="kicker">DOCUMENTATION</p><h2>Use the matching Raz documentation.</h2><p>Raz 1.0 documentation is preserved as a versioned static snapshot so release-era language and API references remain stable.</p></div><div class="button-row"><a class="button button-primary" href="../../docs/1.0/index.html">Raz 1.0 docs</a><a class="button button-secondary" href="../../learn/1.0/book/index.html">Raz 1.0 Book</a><a class="text-link" href="../index.html">All releases →</a></div></div></section></main>'''
+<main id="main" class="after-hero"><section class="section section-white"><div class="shell"><div class="release-detail-summary"><article><span>CHANNEL</span><b>{status}</b><p>{'Pre-release toolchain build.' if release.get('prerelease') else 'Stable Raz toolchain release.'}</p></article><article><span>PUBLISHED</span><b>{esc(display_date(published))}</b><p>Canonical release timestamp from GitHub.</p></article><article><span>ASSETS</span><b>{len(release.get('assets', []))}</b><p>Published files including checksums and notes.</p></article></div></div></section><section class="section section-soft"><div class="shell"><div class="section-top compact"><div><p class="kicker">RELEASE ASSETS</p><h2>Downloads and integrity metadata.</h2></div><p>Artifact names, sizes, SHA-256 digests where available, and download URLs are preserved directly from the release feed.</p></div><div class="release-assets-list">{release_asset_rows(release)}</div></div></section><section class="section section-white"><div class="shell release-detail-foot"><div><p class="kicker">DOCUMENTATION</p><h2>Use the matching Raz documentation.</h2><p>Raz {esc(doc_line)} documentation is preserved as a versioned static snapshot so release-era language and API references remain stable.</p></div><div class="button-row"><a class="button button-primary" href="../../docs/{esc(doc_line)}/index.html">Raz {esc(doc_line)} docs</a><a class="button button-secondary" href="../../learn/{esc(doc_line)}/book/index.html">Raz {esc(doc_line)} Book</a><a class="text-link" href="../index.html">All releases →</a></div></div></section></main>'''
         (target / "index.html").write_text(pre + body + footer, encoding="utf-8")
         entries.append({
             "title": f"Raz {version} released",
@@ -265,14 +284,21 @@ def add_footer_links() -> None:
         if "_site" in page.relative_to(ROOT).parts:
             continue
         text = page.read_text(encoding="utf-8")
-        # Remove prior generated footer links so relative paths can be recomputed deterministically.
+        # Normalize both valid prior injections and the malformed v23 form that
+        # inserted generated links after the literal "<a " of Status.
         text = re.sub(r'<a data-project-release-link[^>]*>Releases</a><a data-project-news-link[^>]*>News</a>', '', text)
-        match = re.search(r'href="(?P<prefix>(?:\.\./)*)status/index\.html">Status</a>', text)
+        text = re.sub(
+            r'<a\s+(?=<a\s+data-project-release-link)',
+            '',
+            text,
+        )
+        match = re.search(r'(?P<tag><a\s+href="(?P<prefix>(?:\.\./)*)status/index\.html">Status</a>)', text)
         if not match:
             continue
         prefix = match.group("prefix")
-        insert = f'<a data-project-release-link href="{prefix}releases/index.html">Releases</a><a data-project-news-link href="{prefix}news/index.html">News</a>'
-        text = text[:match.start()] + insert + text[match.start():]
+        insert = (f'<a data-project-release-link href="{prefix}releases/index.html">Releases</a>'
+                  f'<a data-project-news-link href="{prefix}news/index.html">News</a>')
+        text = text[:match.start("tag")] + insert + text[match.start("tag"):]
         page.write_text(text, encoding="utf-8")
 
 

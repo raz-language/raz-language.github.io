@@ -4,6 +4,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 import argparse
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -25,8 +26,23 @@ class PageParser(HTMLParser):
         self.has_lang = False
         self.blank_target_links = []
         self.missing_alt = 0
+        self.invalid_attributes = []
+        self.nested_interactive = []
+        self._anchor_depth = 0
+        self._button_depth = 0
 
     def handle_starttag(self, tag, attrs):
+        for name, _value in attrs:
+            if not name or not re.fullmatch(r"[A-Za-z_:][A-Za-z0-9_:.\-]*", name):
+                self.invalid_attributes.append(name or "<empty>")
+        if tag == "a":
+            if self._anchor_depth:
+                self.nested_interactive.append("nested <a>")
+            self._anchor_depth += 1
+        if tag == "button":
+            if self._button_depth:
+                self.nested_interactive.append("nested <button>")
+            self._button_depth += 1
         d = dict(attrs)
         if tag == "html" and d.get("lang"):
             self.has_lang = True
@@ -54,6 +70,12 @@ class PageParser(HTMLParser):
             if value:
                 self.refs.append((attr, value))
 
+    def handle_endtag(self, tag):
+        if tag == "a" and self._anchor_depth:
+            self._anchor_depth -= 1
+        if tag == "button" and self._button_depth:
+            self._button_depth -= 1
+
 
 def parse_pages(root):
     parsed = {}
@@ -78,6 +100,10 @@ def parse_pages(root):
             errors.append(f"{path}: expected exactly one h1, found {parser.h1_count}")
         if parser.duplicate_ids:
             errors.append(f"{path}: duplicate ids: {', '.join(sorted(parser.duplicate_ids))}")
+        if parser.invalid_attributes:
+            errors.append(f"{path}: malformed HTML attribute name(s): {', '.join(sorted(set(parser.invalid_attributes)))}")
+        if parser.nested_interactive:
+            errors.append(f"{path}: invalid interactive nesting: {', '.join(sorted(set(parser.nested_interactive)))}")
         if parser.missing_alt:
             errors.append(f"{path}: {parser.missing_alt} image(s) missing alt")
         for href in parser.blank_target_links:

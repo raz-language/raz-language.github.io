@@ -5,7 +5,7 @@
       "book_current_url": "learn/book/index.html",
       "book_snapshot_url": "learn/1.0/book/index.html",
       "current_url": "docs/index.html",
-      "mode": "frozen-snapshot",
+      "mode": "current-frozen-snapshot",
       "snapshot_url": "docs/1.0/index.html"
     }
   },

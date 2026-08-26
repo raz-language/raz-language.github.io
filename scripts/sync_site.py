@@ -1147,16 +1147,29 @@ def render_install(releases, site):
         ])) or unavailable_release_card("Windows x64", "No Windows artifact was found in the current stable release.")
         linux_options = release_download_card(assets, artifacts["linux_tar"], "Linux x86-64 Toolchain", "Official prebuilt x86-64 Linux archive.", True) or unavailable_release_card("Linux x86-64", "No Linux artifact was found in the current stable release.")
         other_copy = f'''<div class="install-options"><div class="install-option unavailable"><b>No prebuilt artifact for this host</b><span>Raz currently publishes stable prebuilt toolchains for Windows x64 and Linux x86-64. Check qualified compiler targets and future releases for additional hosts.</span><em>See platform support</em></div></div><div class="button-row"><a class="button button-secondary" href="../status/index.html">Platform support</a><a class="text-link" href="{RAZ_RELEASES}">All Raz releases ↗</a></div>'''
+        win_zip_name = artifacts["windows_zip"].get("name") if artifacts.get("windows_zip") else "raz-<version>-windows-x86_64.zip"
+        win_dir = win_zip_name[:-4] if win_zip_name.endswith(".zip") else "raz-<version>-windows-x86_64"
+        linux_name = artifacts["linux_tar"].get("name") if artifacts.get("linux_tar") else "raz-<version>-linux-x86_64.tar.gz"
+        linux_dir = linux_name[:-7] if linux_name.endswith(".tar.gz") else "raz-<version>-linux-x86_64"
+        windows_portable_steps = f'''<div class="portable-install-steps"><h3>Using the portable ZIP</h3><p>Extract the archive, then run its bundled installer script. It registers the portable toolchain for the current user.</p><div class="code-card"><div class="code-bar"><span>PowerShell</span><button class="copy-button" type="button" data-copy="Expand-Archive ./{esc(win_zip_name)} -DestinationPath .&#10;&amp; ./{esc(win_dir)}/install.ps1">Copy</button></div><pre><code>Expand-Archive ./{esc(win_zip_name)} -DestinationPath .
+&amp; ./{esc(win_dir)}/install.ps1</code></pre></div></div>'''
+        linux_install_steps = f'''<div class="portable-install-steps"><h3>Install the Linux archive</h3><p>The archive contains <code>install.sh</code>. It installs under <code>${{XDG_DATA_HOME:-~/.local/share}}/raz</code> and creates managed command links in <code>~/.local/bin</code> without editing shell startup files.</p><div class="code-card"><div class="code-bar"><span>shell</span><button class="copy-button" type="button" data-copy="tar -xzf {esc(linux_name)}&#10;cd {esc(linux_dir)}&#10;./install.sh&#10;raz --version&#10;raz doctor">Copy</button></div><pre><code>tar -xzf {esc(linux_name)}
+cd {esc(linux_dir)}
+./install.sh
+raz --version
+raz doctor</code></pre></div><p class="install-path-note">If <code>raz</code> is not found afterward, add <code>~/.local/bin</code> to your shell <code>PATH</code>.</p></div>'''
     else:
         hero_actions = f'<div class="button-row"><a class="button button-primary" href="{RAZ_RELEASES}">View Raz releases ↗</a></div>'
         notice = '<div class="release-notice"><span class="status-pill pending-pill">RELEASE FEED UNAVAILABLE</span><div><b>No stable binary release was found in the canonical Raz release feed.</b><p>Check the Raz GitHub Releases page for current publication state.</p></div></div>'
         windows_options = unavailable_release_card("Windows x64", "No stable Windows artifact was found.")
         linux_options = unavailable_release_card("Linux x86-64", "No stable Linux artifact was found.")
         other_copy = f'<div class="button-row"><a class="button button-secondary" href="../status/index.html">Platform support</a><a class="text-link" href="{RAZ_RELEASES}">All Raz releases ↗</a></div>'
+        windows_portable_steps = ""
+        linux_install_steps = ""
     body = f'''<header class="page-hero"><div class="shell narrow"><p class="kicker">INSTALL RAZ</p><h1>Download the official Raz toolchain.</h1><p class="page-lead">Stable installation artifacts are published on <code>raz-language/raz</code> GitHub Releases. Choose the prebuilt toolchain for your operating system.</p>{hero_actions}</div></header>
 <main id="main" class="after-hero">{notice}<section class="section section-white" id="downloads"><div class="shell install-layout"><aside class="platform-switch" aria-label="Choose platform"><p>YOUR PLATFORM</p><button type="button" class="active" data-platform-button="windows">Windows</button><button type="button" data-platform-button="linux">Linux</button><button type="button" data-platform-button="other">Other</button><small data-platform-detected></small></aside><div class="platform-panels">
-<section data-platform-panel="windows"><p class="kicker">WINDOWS X64</p><h2>Installer or portable toolchain.</h2><p>The MSI is the recommended Windows installation. The portable ZIP contains the same release toolchain for manual or CI use.</p><div class="install-options install-options-stacked">{windows_options}</div></section>
-<section data-platform-panel="linux" hidden><p class="kicker">LINUX X86-64</p><h2>Prebuilt Linux toolchain.</h2><p>Download the official x86-64 Linux release archive and verify it with the published SHA-256 checksum when required.</p><div class="install-options install-options-stacked">{linux_options}</div></section>
+<section data-platform-panel="windows"><p class="kicker">WINDOWS X64</p><h2>Installer or portable toolchain.</h2><p>The MSI is the recommended Windows installation. The portable ZIP contains the same release toolchain for manual or CI use.</p><div class="install-options install-options-stacked">{windows_options}</div>{windows_portable_steps}</section>
+<section data-platform-panel="linux" hidden><p class="kicker">LINUX X86-64</p><h2>Prebuilt Linux toolchain.</h2><p>Download the official x86-64 Linux release archive and verify it with the published SHA-256 checksum when required.</p><div class="install-options install-options-stacked">{linux_options}</div>{linux_install_steps}</section>
 <section data-platform-panel="other" hidden><p class="kicker">OTHER HOSTS</p><h2>Check platform and release support.</h2><p>The compiler supports more qualified targets than the set of currently published prebuilt host toolchains.</p>{other_copy}</section>
 </div></div></section><section class="section section-soft"><div class="shell two-col"><div><p class="kicker">AFTER INSTALLATION</p><h2>Verify your toolchain.</h2><p class="section-copy">Confirm the installed version, run the toolchain health check, then create a project.</p></div><div class="code-card"><div class="code-bar"><span>shell</span><button class="copy-button" type="button" data-copy="raz --version&#10;raz doctor&#10;raz new hello&#10;cd hello&#10;raz run">Copy</button></div><pre><code>raz --version
 raz doctor
@@ -2454,6 +2467,9 @@ def main():
     enhancer_v23 = ROOT / "scripts" / "enhance_v23.py"
     if enhancer_v23.exists():
         subprocess.run([sys.executable, str(enhancer_v23)], cwd=ROOT, check=True)
+    enhancer_v24 = ROOT / "scripts" / "enhance_v24.py"
+    if enhancer_v24.exists():
+        subprocess.run([sys.executable, str(enhancer_v24)], cwd=ROOT, check=True)
     enhancer_v19 = ROOT / "scripts" / "enhance_v19.py"
     if enhancer_v19.exists():
         subprocess.run([sys.executable, str(enhancer_v19)], cwd=ROOT, check=True)
