@@ -47,6 +47,9 @@ jobs:
       - name: Run generator regression tests
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_sync_regressions.py
+      - name: Check package search contract
+        if: steps.freshness.outputs.current == 'true'
+        run: python3 scripts/test_package_search.py
       - name: Check generated performance budget regression
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_performance_budget_generation.py

@@ -180,3 +180,9 @@ The performance checker separates page/request cost from the size of the complet
 ## v17 deployment queue hardening
 
 GitHub Pages deployment now rejects stale workflow runs by comparing the workflow commit to the current `main` SHA both before the build and immediately before artifact upload. The Pages concurrency group no longer allows a delayed run to cancel a newer successful build. Main-branch pushes run the complete validation suite only once through `deploy-pages`; `validate-site` is reserved for pull requests, non-main branches, and manual validation.
+
+## v18 package search fix
+
+- Makes the package catalog visibly hide non-matching cards even when component display styles would otherwise override the HTML `hidden` attribute.
+- Adds an explicit semantic `[hidden]` CSS rule and a package-specific filtered-out fallback class.
+- Adds `scripts/test_package_search.py` to both validation and Pages deployment workflows so the search wiring cannot silently regress.
