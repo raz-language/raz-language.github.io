@@ -476,9 +476,20 @@ def _package_source_doc(package_name):
                 docs.append(stripped[3:].strip())
                 i += 1
                 continue
-            m = re.match(r"^\s*public\s+(fn|struct|enum|trait|const|type)\s+([A-Za-z_][A-Za-z0-9_]*)", line)
+            # Raz declarations are type-first. Constants therefore use
+            # `public const <Type> NAME = ...`; parsing the token immediately
+            # after `const` would incorrectly use the type as the API name.
+            const_match = re.match(
+                r"^\s*public\s+const\s+.+?\s+([A-Za-z_][A-Za-z0-9_]*)\s*=", line
+            )
+            m = const_match or re.match(
+                r"^\s*public\s+(fn|struct|enum|trait|type)\s+([A-Za-z_][A-Za-z0-9_]*)", line
+            )
             if m:
-                kind, name = m.groups()
+                if const_match:
+                    kind, name = "const", const_match.group(1)
+                else:
+                    kind, name = m.groups()
                 sig_parts = [stripped]
                 if kind == "fn":
                     balance = stripped.count("(") - stripped.count(")")
@@ -718,9 +729,19 @@ def render_packages(packages):
     return render_package_docs(packages)
 
 def heading_slug(text):
-    clean = re.sub(r"[`*_]", "", text).lower()
+    """Return the GitHub-Markdown-compatible base anchor for a heading.
+
+    Canonical Raz Markdown links use GitHub's heading IDs. Punctuation is
+    removed (rather than replaced with hyphens), whitespace becomes a hyphen,
+    and underscores are preserved. Thus `2.6 Precedence` becomes
+    `26-precedence`, while `core::hash_map` becomes `corehash_map`.
+    """
+    clean = re.sub(r"`([^`]*)`", r"\1", text)
     clean = re.sub(r"<[^>]+>", "", clean)
-    return re.sub(r"[^a-z0-9]+", "-", clean).strip("-") or "section"
+    clean = html.unescape(clean).lower()
+    clean = re.sub(r"[^\w\s-]", "", clean, flags=re.UNICODE)
+    clean = re.sub(r"\s+", "-", clean).strip("-")
+    return clean or "section"
 
 
 def inline_markdown(text, docs_by_name):
@@ -733,6 +754,9 @@ def inline_markdown(text, docs_by_name):
     def link_repl(match):
         label = match.group(1)
         target = html.unescape(match.group(2))
+        # Markdown permits punctuation escapes inside link destinations.
+        # Canonical docs use these in fragments such as `#coretrait\_object`.
+        target = re.sub(r"\\([\\`*_{}\[\]()#+.!-])", r"\1", target)
         if target.startswith(("http://", "https://", "mailto:")):
             href = target
         else:
@@ -771,6 +795,7 @@ def markdown_to_html(markdown, docs):
     code_lines = []
     list_type = None
     table_rows = []
+    heading_counts = {}
 
     def flush_paragraph():
         nonlocal paragraph
@@ -823,7 +848,10 @@ def markdown_to_html(markdown, docs):
             flush_paragraph(); flush_list(); flush_table()
             level = len(heading.group(1))
             title = heading.group(2).strip()
-            ident = heading_slug(title)
+            base_ident = heading_slug(title)
+            seen = heading_counts.get(base_ident, 0)
+            ident = base_ident if seen == 0 else f"{base_ident}-{seen}"
+            heading_counts[base_ident] = seen + 1
             if level in (2, 3):
                 toc.append((level, re.sub(r"[`*_]", "", title), ident))
             if level == 1:
@@ -2164,6 +2192,15 @@ def render_book_chapters(book, docs):
     nav = _book_nav(book["chapters"], href_prefix="../")
     for index, chapter in enumerate(book["chapters"]):
         article_html, toc = markdown_to_html(chapter["markdown"], docs)
+        # markdown_to_html emits local canonical-doc links relative to a
+        # /docs/reference/<doc>/ page. Book chapters live three levels deeper,
+        # so retarget those references into /docs/reference explicitly.
+        for linked_doc in docs:
+            if linked_doc.get("available"):
+                article_html = article_html.replace(
+                    f'href="../{linked_doc["slug"]}/index.html',
+                    f'href="../../../docs/reference/{linked_doc["slug"]}/index.html',
+                )
         article_html = _decorate_book_html(article_html)
         toc_html = ''.join(f'<a class="toc-level-{level}" href="#{esc(anchor)}">{esc(label)}</a>' for level, label, anchor in toc)
         previous = book["chapters"][index - 1] if index else None

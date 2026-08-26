@@ -25,6 +25,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RAZ_SITE_URL: ${{ vars.RAZ_SITE_URL }}
         run: python3 scripts/sync_site.py --refresh
+      - name: Run generator regression tests
+        run: python3 scripts/test_sync_regressions.py
       - name: Validate generated source tree
         run: python3 scripts/validate.py
       - name: Check performance budgets

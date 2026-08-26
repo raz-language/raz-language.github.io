@@ -162,3 +162,11 @@ python3 scripts/stage_site.py --output _site
 python3 scripts/validate.py --root _site
 python3 scripts/check_performance.py --root _site
 ```
+
+## Refresh-sensitive CI regressions
+
+The build includes `scripts/test_sync_regressions.py` to cover failures that only
+appear after a live canonical refresh. It verifies GitHub-compatible Markdown
+heading anchors and Raz type-first constant extraction (`public const T NAME = ...`).
+The deployment and validation workflows run this regression test before the full
+site validator.
