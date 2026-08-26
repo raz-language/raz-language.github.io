@@ -9,38 +9,80 @@ permissions:
   contents: read
   pages: write
   id-token: write
+# Never let a delayed/stale run cancel a newer successful Pages build.
+# Stale commits are detected explicitly below and exit without deploying.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      should_deploy: ${{ steps.freshness_final.outputs.current }}
     steps:
       - uses: actions/checkout@v4
+      - name: Check whether this run is still current
+        id: freshness
+        shell: bash
+        run: |
+          latest="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          echo "workflow sha: $GITHUB_SHA"
+          echo "current main: $latest"
+          if [ "$GITHUB_SHA" = "$latest" ]; then
+            echo "current=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "current=false" >> "$GITHUB_OUTPUT"
+            echo "This is a stale workflow run; build and deployment will be skipped."
+          fi
       - uses: actions/setup-python@v5
+        if: steps.freshness.outputs.current == 'true'
         with:
           python-version: '3.12'
       - name: Refresh canonical Raz data and documentation
+        if: steps.freshness.outputs.current == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RAZ_SITE_URL: ${{ vars.RAZ_SITE_URL }}
         run: python3 scripts/sync_site.py --refresh
       - name: Run generator regression tests
+        if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_sync_regressions.py
       - name: Check generated performance budget regression
+        if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_performance_budget_generation.py
       - name: Validate generated source tree
+        if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/validate.py
       - name: Check performance budgets
+        if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/check_performance.py
       - name: Stage public website
+        if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/stage_site.py --output _site
       - name: Check deploy performance budgets
+        if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/check_performance.py --root _site
       - name: Validate deploy artifact
+        if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/validate.py --root _site
+      - name: Confirm this run is still current before upload
+        id: freshness_final
+        if: steps.freshness.outputs.current == 'true'
+        shell: bash
+        run: |
+          latest="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          echo "workflow sha: $GITHUB_SHA"
+          echo "current main: $latest"
+          if [ "$GITHUB_SHA" = "$latest" ]; then
+            echo "current=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "current=false" >> "$GITHUB_OUTPUT"
+            echo "A newer main commit appeared while this run was building; artifact upload will be skipped."
+          fi
       - uses: actions/configure-pages@v5
+        if: steps.freshness_final.outputs.current == 'true'
       - uses: actions/upload-pages-artifact@v3
+        if: steps.freshness_final.outputs.current == 'true'
         with:
           path: _site
   deploy:
@@ -49,6 +91,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+    if: needs.build.outputs.should_deploy == 'true'
     steps:
       - name: Deploy
         id: deployment

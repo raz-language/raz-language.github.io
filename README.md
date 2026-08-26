@@ -175,3 +175,8 @@ site validator.
 ## v16 deployment budget semantics
 
 The performance checker separates page/request cost from the size of the complete generated documentation corpus. `site.js`, CSS, the homepage, the search index, and every individual public file retain tight byte ceilings. The fully staged site uses a 64 MiB corpus-growth guardrail because canonical refresh can generate tens of megabytes of independent API/documentation pages; users never download that corpus as one request. Both the checked-in budget and `enhance_v12.py` are regression-tested so refresh cannot silently restore obsolete limits.
+
+
+## v17 deployment queue hardening
+
+GitHub Pages deployment now rejects stale workflow runs by comparing the workflow commit to the current `main` SHA both before the build and immediately before artifact upload. The Pages concurrency group no longer allows a delayed run to cancel a newer successful build. Main-branch pushes run the complete validation suite only once through `deploy-pages`; `validate-site` is reserved for pull requests, non-main branches, and manual validation.
