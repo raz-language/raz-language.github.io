@@ -9,29 +9,36 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 core = ROOT / 'assets' / 'search-core.json'
 api = ROOT / 'assets' / 'search-api.json'
+api_manifest = ROOT / 'assets' / 'search-api-manifest.json'
 site_js = ROOT / 'assets' / 'site.js'
 errors = []
-for path in (core, api):
+for path in (core, api, api_manifest):
     if not path.exists(): errors.append(f'{path.relative_to(ROOT)} is missing')
 if (ROOT / 'assets' / 'search-index.json').exists(): errors.append('legacy combined assets/search-index.json still exists')
 if (ROOT / 'assets' / 'search-index.js').exists(): errors.append('legacy eager assets/search-index.js still exists')
 core_items = api_items = []
-for path, label in ((core, 'core'), (api, 'api')):
-    if path.exists():
-        try:
-            value = json.loads(path.read_text(encoding='utf-8'))
-            if not isinstance(value, list): errors.append(f'{label} search shard must be a JSON array')
-            elif label == 'core': core_items = value
-            else: api_items = value
-        except Exception as exc: errors.append(f'{label} search shard is invalid: {exc}')
+if core.exists():
+    try:
+        value=json.loads(core.read_text(encoding='utf-8'))
+        if not isinstance(value,list): errors.append('core search shard must be a JSON array')
+        else: core_items=value
+    except Exception as exc: errors.append(f'core search shard is invalid: {exc}')
+if api_manifest.exists():
+    try:
+        manifest=json.loads(api_manifest.read_text(encoding='utf-8'))
+        for shard in manifest.get('shards',[]):
+            path=ROOT/'assets'/shard['file']; value=json.loads(path.read_text(encoding='utf-8'))
+            if not isinstance(value,list): errors.append(f"API search shard {shard['file']} must be a JSON array")
+            else: api_items.extend(value)
+    except Exception as exc: errors.append(f'API search manifest/shards are invalid: {exc}')
 if not core_items: errors.append('core search shard must be non-empty')
 text = site_js.read_text(encoding='utf-8')
 core_digest = hashlib.sha256(core.read_bytes()).hexdigest()[:12] if core.exists() else ''
-api_digest = hashlib.sha256(api.read_bytes()).hexdigest()[:12] if api.exists() else ''
+api_digest = hashlib.sha256(api_manifest.read_bytes()).hexdigest()[:12] if api_manifest.exists() else ''
 for needle in (
     f"const coreVersion='{core_digest}',apiVersion='{api_digest}'",
     "fetch(searchURL('search-core.json'",
-    "fetch(searchURL('search-api.json'",
+    "fetch(searchURL('search-api-manifest.json'",
     "if(term.length>=2)",
     "e.key==='ArrowDown'",
     "e.key==='Tab'",

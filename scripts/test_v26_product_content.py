@@ -37,16 +37,16 @@ if release.exists():
         need(bool(re.search(r'<(?:h[2-6]|ul|ol|p)\b', article.group(1))), 'release notes rendered content has no semantic structure')
     need('Canonical tagged changelog section' in t or 'Published RELEASE-NOTES.md asset' in t or 'Cached canonical release notes' in t,'release notes source provenance missing')
 
-for fn in ('assets/search-core.json','assets/search-api.json'):
-    p=ROOT/fn
-    items=json.loads(p.read_text(encoding='utf-8'))
+core=json.loads((ROOT/'assets/search-core.json').read_text())
+manifest=json.loads((ROOT/'assets/search-api-manifest.json').read_text())
+api=[]
+for shard in manifest.get('shards',[]): api.extend(json.loads((ROOT/'assets'/shard['file']).read_text()))
+for fn,items in (('assets/search-core.json',core),('assets/search-api-manifest.json shards',api)):
     need(bool(items),f'{fn} empty')
     for i,item in enumerate(items):
         for key in ('kind','name','namespace','qualified_name'):
             need(key in item,f'{fn} item {i} missing {key}')
-core=json.loads((ROOT/'assets/search-core.json').read_text())
 need(any(i.get('url')=='about/index.html' and i.get('kind')=='page' for i in core),'About missing from core search')
-api=json.loads((ROOT/'assets/search-api.json').read_text())
 ptr=next((i for i in api if i.get('name')=='pointer_size'),None)
 need(ptr is not None,'pointer_size structured search fixture missing')
 if ptr:
