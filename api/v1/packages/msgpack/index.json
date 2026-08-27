@@ -6,5 +6,18 @@
   "package": {},
   "source_root": "https://github.com/raz-language/packages/tree/main/sources/msgpack",
   "version": "0.1.0",
+  "versions": [
+    {
+      "archive": "packages/msgpack/0.1.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/msgpack/0.1.0.dpk",
+      "checksum": "73cd99166b6025c6",
+      "docs_state": "frozen-current-source",
+      "docs_url": "/packages/msgpack/0.1.0/docs/",
+      "latest": true,
+      "package": "msgpack",
+      "version": "0.1.0",
+      "website_url": "/packages/msgpack/0.1.0/"
+    }
+  ],
   "website_url": "/packages/msgpack/docs/"
 }

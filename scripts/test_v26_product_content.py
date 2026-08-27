@@ -23,9 +23,19 @@ if release.exists():
     t=release.read_text(encoding='utf-8')
     need('release-notes-rendered:start' in t,'release notes section not rendered')
     need('WHAT CHANGED' in t and 'Release notes.' in t,'release notes heading missing')
-    for heading in ('Language','Compiler','CLI and tooling','Packages','Standard library','Platforms and distribution'):
-        need(heading in t,f'release notes missing {heading}')
-    need('Canonical tagged changelog section' in t or 'Published RELEASE-NOTES.md asset' in t,'release notes source provenance missing')
+    # Release note structure belongs to the canonical upstream source.  Online
+    # refreshes prefer the published RELEASE-NOTES.md asset, while offline
+    # builds may use the tagged changelog fallback; those sources need not
+    # share the same section headings.  Verify meaningful rendered content
+    # and provenance without imposing the fallback's outline on the asset.
+    article = re.search(r'<article class="release-notes-prose">(.*?)</article>', t, re.S)
+    need(article is not None,'release notes prose article missing')
+    if article:
+        prose = re.sub(r'<[^>]+>', ' ', article.group(1))
+        prose = re.sub(r'\s+', ' ', prose).strip()
+        need(len(prose) >= 200,'release notes rendered content is unexpectedly short')
+        need(bool(re.search(r'<(?:h[2-6]|ul|ol|p)\b', article.group(1))), 'release notes rendered content has no semantic structure')
+    need('Canonical tagged changelog section' in t or 'Published RELEASE-NOTES.md asset' in t or 'Cached canonical release notes' in t,'release notes source provenance missing')
 
 for fn in ('assets/search-core.json','assets/search-api.json'):
     p=ROOT/fn

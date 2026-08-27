@@ -6,5 +6,18 @@
   "package": {},
   "source_root": "https://github.com/raz-language/packages/tree/main/sources/encoding",
   "version": "0.1.0",
+  "versions": [
+    {
+      "archive": "packages/encoding/0.1.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/encoding/0.1.0.dpk",
+      "checksum": "bccac00ee6338ef5",
+      "docs_state": "frozen-current-source",
+      "docs_url": "/packages/encoding/0.1.0/docs/",
+      "latest": true,
+      "package": "encoding",
+      "version": "0.1.0",
+      "website_url": "/packages/encoding/0.1.0/"
+    }
+  ],
   "website_url": "/packages/encoding/docs/"
 }

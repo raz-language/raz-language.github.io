@@ -6,5 +6,18 @@
   "package": {},
   "source_root": "https://github.com/raz-language/packages/tree/main/sources/http3",
   "version": "0.1.0",
+  "versions": [
+    {
+      "archive": "packages/http3/0.1.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/http3/0.1.0.dpk",
+      "checksum": "ab8abb1cff46772c",
+      "docs_state": "frozen-current-source",
+      "docs_url": "/packages/http3/0.1.0/docs/",
+      "latest": true,
+      "package": "http3",
+      "version": "0.1.0",
+      "website_url": "/packages/http3/0.1.0/"
+    }
+  ],
   "website_url": "/packages/http3/docs/"
 }

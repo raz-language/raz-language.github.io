@@ -6,5 +6,29 @@
   "package": {},
   "source_root": "https://github.com/raz-language/packages/tree/main/sources/sqlite",
   "version": "0.3.0",
+  "versions": [
+    {
+      "archive": "packages/sqlite/0.3.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/sqlite/0.3.0.dpk",
+      "checksum": "aa227f45bc4bab2a",
+      "docs_state": "frozen-current-source",
+      "docs_url": "/packages/sqlite/0.3.0/docs/",
+      "latest": true,
+      "package": "sqlite",
+      "version": "0.3.0",
+      "website_url": "/packages/sqlite/0.3.0/"
+    },
+    {
+      "archive": "packages/sqlite/0.2.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/sqlite/0.2.0.dpk",
+      "checksum": "1d7b0d4385aa16ee",
+      "docs_state": "historical-source-not-cached",
+      "docs_url": "/packages/sqlite/0.2.0/docs/",
+      "latest": false,
+      "package": "sqlite",
+      "version": "0.2.0",
+      "website_url": "/packages/sqlite/0.2.0/"
+    }
+  ],
   "website_url": "/packages/sqlite/docs/"
 }

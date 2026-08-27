@@ -6,5 +6,18 @@
   "package": {},
   "source_root": "https://github.com/raz-language/packages/tree/main/sources/websocket",
   "version": "0.2.0",
+  "versions": [
+    {
+      "archive": "packages/websocket/0.2.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/websocket/0.2.0.dpk",
+      "checksum": "f39fda7ace69ad43",
+      "docs_state": "frozen-current-source",
+      "docs_url": "/packages/websocket/0.2.0/docs/",
+      "latest": true,
+      "package": "websocket",
+      "version": "0.2.0",
+      "website_url": "/packages/websocket/0.2.0/"
+    }
+  ],
   "website_url": "/packages/websocket/docs/"
 }

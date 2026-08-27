@@ -6,5 +6,18 @@
   "package": {},
   "source_root": "https://github.com/raz-language/packages/tree/main/sources/http-router",
   "version": "0.2.0",
+  "versions": [
+    {
+      "archive": "packages/http-router/0.2.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/http-router/0.2.0.dpk",
+      "checksum": "855c18e6062f3892",
+      "docs_state": "frozen-current-source",
+      "docs_url": "/packages/http-router/0.2.0/docs/",
+      "latest": true,
+      "package": "http-router",
+      "version": "0.2.0",
+      "website_url": "/packages/http-router/0.2.0/"
+    }
+  ],
   "website_url": "/packages/http-router/docs/"
 }

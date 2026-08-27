@@ -64,6 +64,8 @@ jobs:
         run: python3 scripts/test_v30_developer_surfaces.py
       - name: Validate footer balance
         run: python3 scripts/test_v30_1_footer_balance.py
+      - name: Validate v31 navigation and README
+        run: python3 scripts/test_v31_navigation_readme.py
       - name: Validate source tree
         run: python3 scripts/validate.py
       - name: Check performance budgets

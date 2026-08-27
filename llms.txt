@@ -8,6 +8,10 @@
 - /packages/ — official package catalog
 - /install/ — toolchain installation and publication status
 - /tools/ — compiler and toolchain overview
+- /releases/ — official stable toolchain releases and checksums
+- /news/ — official release announcements and durable project updates
+- /docs/api/ — unified generated API reference
+- /api/v1/ — machine-readable website data
 - https://github.com/raz-language/raz — canonical compiler source
 
 This snapshot contains 46 official packages and 8 locally mirrored canonical documents.

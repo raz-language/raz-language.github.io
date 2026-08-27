@@ -6,5 +6,18 @@
   "package": {},
   "source_root": "https://github.com/raz-language/packages/tree/main/sources/bigint",
   "version": "0.1.0",
+  "versions": [
+    {
+      "archive": "packages/bigint/0.1.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/bigint/0.1.0.dpk",
+      "checksum": "003fcc6770ac23aa",
+      "docs_state": "frozen-current-source",
+      "docs_url": "/packages/bigint/0.1.0/docs/",
+      "latest": true,
+      "package": "bigint",
+      "version": "0.1.0",
+      "website_url": "/packages/bigint/0.1.0/"
+    }
+  ],
   "website_url": "/packages/bigint/docs/"
 }

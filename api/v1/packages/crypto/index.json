@@ -6,5 +6,40 @@
   "package": {},
   "source_root": "https://github.com/raz-language/packages/tree/main/sources/crypto",
   "version": "0.4.0",
+  "versions": [
+    {
+      "archive": "packages/crypto/0.4.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/crypto/0.4.0.dpk",
+      "checksum": "29c5d0340794fcfe",
+      "docs_state": "frozen-current-source",
+      "docs_url": "/packages/crypto/0.4.0/docs/",
+      "latest": true,
+      "package": "crypto",
+      "version": "0.4.0",
+      "website_url": "/packages/crypto/0.4.0/"
+    },
+    {
+      "archive": "packages/crypto/0.3.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/crypto/0.3.0.dpk",
+      "checksum": "1df2e1c031b738e3",
+      "docs_state": "historical-source-not-cached",
+      "docs_url": "/packages/crypto/0.3.0/docs/",
+      "latest": false,
+      "package": "crypto",
+      "version": "0.3.0",
+      "website_url": "/packages/crypto/0.3.0/"
+    },
+    {
+      "archive": "packages/crypto/0.2.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/crypto/0.2.0.dpk",
+      "checksum": "4b3d8ee62066fa71",
+      "docs_state": "historical-source-not-cached",
+      "docs_url": "/packages/crypto/0.2.0/docs/",
+      "latest": false,
+      "package": "crypto",
+      "version": "0.2.0",
+      "website_url": "/packages/crypto/0.2.0/"
+    }
+  ],
   "website_url": "/packages/crypto/docs/"
 }

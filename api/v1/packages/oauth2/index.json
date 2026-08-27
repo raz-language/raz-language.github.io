@@ -6,5 +6,18 @@
   "package": {},
   "source_root": "https://github.com/raz-language/packages/tree/main/sources/oauth2",
   "version": "0.1.0",
+  "versions": [
+    {
+      "archive": "packages/oauth2/0.1.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/oauth2/0.1.0.dpk",
+      "checksum": "7fb49fa2b1ab6883",
+      "docs_state": "frozen-current-source",
+      "docs_url": "/packages/oauth2/0.1.0/docs/",
+      "latest": true,
+      "package": "oauth2",
+      "version": "0.1.0",
+      "website_url": "/packages/oauth2/0.1.0/"
+    }
+  ],
   "website_url": "/packages/oauth2/docs/"
 }

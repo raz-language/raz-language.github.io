@@ -218,5 +218,18 @@
   },
   "source_root": "https://github.com/raz-language/packages/tree/main/sources/json",
   "version": "0.1.0",
+  "versions": [
+    {
+      "archive": "packages/json/0.1.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/json/0.1.0.dpk",
+      "checksum": "c6e7109f0bf1f621",
+      "docs_state": "frozen-current-source",
+      "docs_url": "/packages/json/0.1.0/docs/",
+      "latest": true,
+      "package": "json",
+      "version": "0.1.0",
+      "website_url": "/packages/json/0.1.0/"
+    }
+  ],
   "website_url": "/packages/json/docs/"
 }

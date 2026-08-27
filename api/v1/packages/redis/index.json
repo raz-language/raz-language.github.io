@@ -6,5 +6,18 @@
   "package": {},
   "source_root": "https://github.com/raz-language/packages/tree/main/sources/redis",
   "version": "0.1.0",
+  "versions": [
+    {
+      "archive": "packages/redis/0.1.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/redis/0.1.0.dpk",
+      "checksum": "6ba84df250dffdfc",
+      "docs_state": "frozen-current-source",
+      "docs_url": "/packages/redis/0.1.0/docs/",
+      "latest": true,
+      "package": "redis",
+      "version": "0.1.0",
+      "website_url": "/packages/redis/0.1.0/"
+    }
+  ],
   "website_url": "/packages/redis/docs/"
 }

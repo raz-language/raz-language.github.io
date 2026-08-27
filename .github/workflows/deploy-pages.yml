@@ -105,6 +105,9 @@ jobs:
       - name: Validate footer balance
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_v30_1_footer_balance.py
+      - name: Validate v31 navigation and README
+        if: steps.freshness.outputs.current == 'true'
+        run: python3 scripts/test_v31_navigation_readme.py
       - name: Validate generated source tree
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/validate.py

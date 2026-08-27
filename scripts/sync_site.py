@@ -2555,6 +2555,9 @@ def main():
     enhancer_v19 = ROOT / "scripts" / "enhance_v19.py"
     if enhancer_v19.exists():
         subprocess.run([sys.executable, str(enhancer_v19)], cwd=ROOT, check=True)
+    enhancer_v31 = ROOT / "scripts" / "enhance_v31.py"
+    if enhancer_v31.exists():
+        subprocess.run([sys.executable, str(enhancer_v31)], cwd=ROOT, check=True)
 
     if args.check:
         after = snapshot_files()

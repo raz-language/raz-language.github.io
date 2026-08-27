@@ -6,5 +6,18 @@
   "package": {},
   "source_root": "https://github.com/raz-language/packages/tree/main/sources/decimal",
   "version": "0.1.0",
+  "versions": [
+    {
+      "archive": "packages/decimal/0.1.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/decimal/0.1.0.dpk",
+      "checksum": "495744181419be33",
+      "docs_state": "frozen-current-source",
+      "docs_url": "/packages/decimal/0.1.0/docs/",
+      "latest": true,
+      "package": "decimal",
+      "version": "0.1.0",
+      "website_url": "/packages/decimal/0.1.0/"
+    }
+  ],
   "website_url": "/packages/decimal/docs/"
 }

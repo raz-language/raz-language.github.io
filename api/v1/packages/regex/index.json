@@ -6,5 +6,29 @@
   "package": {},
   "source_root": "https://github.com/raz-language/packages/tree/main/sources/regex",
   "version": "0.2.1",
+  "versions": [
+    {
+      "archive": "packages/regex/0.2.1.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/regex/0.2.1.dpk",
+      "checksum": "101bc294f86aee7e",
+      "docs_state": "frozen-current-source",
+      "docs_url": "/packages/regex/0.2.1/docs/",
+      "latest": true,
+      "package": "regex",
+      "version": "0.2.1",
+      "website_url": "/packages/regex/0.2.1/"
+    },
+    {
+      "archive": "packages/regex/0.2.0.dpk",
+      "archive_url": "https://github.com/raz-language/packages/blob/main/packages/regex/0.2.0.dpk",
+      "checksum": "5692e2b54eb5ee64",
+      "docs_state": "historical-source-not-cached",
+      "docs_url": "/packages/regex/0.2.0/docs/",
+      "latest": false,
+      "package": "regex",
+      "version": "0.2.0",
+      "website_url": "/packages/regex/0.2.0/"
+    }
+  ],
   "website_url": "/packages/regex/docs/"
 }
