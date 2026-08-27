@@ -239,3 +239,17 @@ Route-aware JSON-LD is emitted for public pages, with `TechArticle`, `SoftwareSo
 ## Portable binary installation
 
 The public install page follows the official release archive contract. Windows MSI remains the recommended installation. The Windows portable ZIP contains a single toolchain directory with `install.ps1` / `uninstall.ps1`; the Linux archive contains a single toolchain directory with `install.sh` / `uninstall.sh`. Linux's installer manages the toolchain below `${XDG_DATA_HOME:-~/.local/share}/raz` and command links in `~/.local/bin` without editing shell startup files.
+
+## Page-opening hierarchy
+
+The public site uses one visual system with page openings matched to the job of
+the route rather than a universal hero template. The homepage retains its
+bespoke hero; major onboarding surfaces use a marketing opening; documentation
+and project entrances use a smaller section opening; package surfaces use a
+dense product masthead with controls and metadata; and high-density reference
+surfaces use compact breadcrumb/title headers so content begins quickly.
+
+`enhance_v25.py` applies this hierarchy after generated content and versioned
+snapshots exist, while `test_v25_layout_hierarchy.py` keeps current and frozen
+routes consistent and verifies that package/diagnostic controls remain attached
+to their intended product openings.

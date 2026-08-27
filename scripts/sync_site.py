@@ -407,7 +407,7 @@ def build_data():
 
 def shell_parts(path):
     text = path.read_text(encoding="utf-8")
-    hero = re.search(r'<header class="page-hero(?: [^"]*)?">', text)
+    hero = re.search(r'<header class="(?:page-hero|marketing-hero|section-hero|product-masthead|reference-header)(?: [^"]*)?">', text)
     if not hero:
         raise ValueError(f"page shell has no page hero: {path}")
     before_hero = text[:hero.start()]
@@ -2470,6 +2470,9 @@ def main():
     enhancer_v24 = ROOT / "scripts" / "enhance_v24.py"
     if enhancer_v24.exists():
         subprocess.run([sys.executable, str(enhancer_v24)], cwd=ROOT, check=True)
+    enhancer_v25 = ROOT / "scripts" / "enhance_v25.py"
+    if enhancer_v25.exists():
+        subprocess.run([sys.executable, str(enhancer_v25)], cwd=ROOT, check=True)
     enhancer_v19 = ROOT / "scripts" / "enhance_v19.py"
     if enhancer_v19.exists():
         subprocess.run([sys.executable, str(enhancer_v19)], cwd=ROOT, check=True)

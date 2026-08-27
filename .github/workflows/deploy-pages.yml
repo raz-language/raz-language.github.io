@@ -83,6 +83,8 @@ jobs:
       - name: Check v24 correctness hardening
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_v24_hardening.py
+      - name: Check page layout hierarchy
+        run: python3 scripts/test_v25_layout_hierarchy.py
       - name: Validate generated source tree
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/validate.py
