@@ -1,0 +1,12 @@
+{
+  "measurements": [],
+  "policy": {
+    "raw_data_required": true,
+    "reproducible": true
+  },
+  "sources": [
+    "https://github.com/raz-language/raz/blob/main/docs/PERFORMANCE.md",
+    "https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY-PERFORMANCE.md"
+  ],
+  "status": "methodology-only"
+}

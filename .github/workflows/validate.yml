@@ -52,6 +52,18 @@ jobs:
         run: python3 scripts/test_markdown_tokens.py
       - name: Check homepage hero
         run: python3 scripts/test_homepage_hero.py
+      - name: Check v26 product content
+        run: python3 scripts/test_v26_product_content.py
+      - name: Check package version routes
+        run: python3 scripts/test_v27_package_versions.py
+      - name: Check responsive/reference usability
+        run: python3 scripts/test_v28_responsive.py
+      - name: Check evidence and discovery
+        run: python3 scripts/test_v29_evidence_discovery.py
+      - name: Check CLI and contributor surfaces
+        run: python3 scripts/test_v30_developer_surfaces.py
+      - name: Validate footer balance
+        run: python3 scripts/test_v30_1_footer_balance.py
       - name: Validate source tree
         run: python3 scripts/validate.py
       - name: Check performance budgets

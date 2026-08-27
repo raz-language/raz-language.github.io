@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Raz performance methodology, reproducibility requirements, and the evidence contract for future published benchmarks.">
+  <meta name="theme-color" content="#0b1018">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Raz">
+  <meta property="og:title" content="Raz Performance — Evidence, methodology and cost model">
+  <meta property="og:description" content="Raz performance methodology, reproducibility requirements, and the evidence contract for future published benchmarks.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Raz Performance — Evidence, methodology and cost model">
+  <meta name="twitter:description" content="Raz performance methodology, reproducibility requirements, and the evidence contract for future published benchmarks.">
+  <title>Raz Performance — Evidence, methodology and cost model</title>
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="stylesheet" href="../assets/styles.css?v=d9a894e43b97">
+  <script>window.RAZ_BASE="../";</script>
+  <script src="../assets/site.js?v=7b435b865172" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"Why Raz","url":"https://raz-language.github.io/about/","description":"Why Raz exists, how its ownership and compiler model differ from C++ and Rust, and what kinds of systems software the language is designed for.","mainEntity":{"@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz","codeRepository":"https://github.com/raz-language/raz","license":"https://www.apache.org/licenses/LICENSE-2.0"}}</script>
+  <script type="application/ld+json" data-v24-schema="page">{"@context":"https://schema.org","@type":"TechArticle","headline":"Raz performance and benchmarking","description":"Raz performance methodology, reproducibility requirements, and the evidence contract for future published benchmarks.","url":"https://raz-language.github.io/performance/","about":{"@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz"}}</script>
+  <link rel="canonical" href="https://raz-language.github.io/performance/">
+  <meta property="og:url" content="https://raz-language.github.io/performance/">
+  <meta property="og:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
+  <meta property="og:image:type" content="image/png" data-v12-social="true">
+  <meta property="og:image:width" content="1200" data-v12-social="true">
+  <meta property="og:image:height" content="630" data-v12-social="true">
+  <meta property="og:image:alt" content="Raz — Fast. Safe. Predictable." data-v12-social="true">
+  <meta property="og:locale" content="en_US" data-v12-social="true">
+  <meta name="twitter:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-inner">
+      <a class="brand" href="../index.html" aria-label="Raz home">
+        <img src="../assets/raz-mark-128.png" alt="" width="38" height="38">
+        <span>Raz</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-links"><span class="sr-only">Toggle navigation</span><span></span><span></span><span></span></button>
+      <nav class="primary-links" id="primary-links" aria-label="Primary navigation">
+        <a href="../learn/index.html">Learn</a>
+        <a href="../docs/index.html">Docs</a>
+        <a href="../packages/index.html">Packages</a>
+        <a href="../tools/index.html">Tools</a>
+        <a href="../community/index.html">Community</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="search-trigger" type="button" data-search-open aria-label="Search site"><span aria-hidden="true">⌕</span><span class="search-label">Search</span><kbd>Ctrl K</kbd></button>
+        <a class="github-link" href="https://github.com/raz-language" target="_blank" rel="noopener" aria-label="Raz on GitHub">GitHub ↗</a>
+        <a class="button button-primary button-small" href="../install/index.html">Get Raz</a>
+      </div>
+    </div>
+  </header>
+  <div class="search-dialog" data-search-dialog hidden>
+    <div class="search-backdrop" data-search-close></div>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-label="Search Raz website">
+      <div class="search-box"><span aria-hidden="true">⌕</span><input type="search" data-site-search autocomplete="off" spellcheck="false" placeholder="Search Raz…" aria-label="Search Raz website"><kbd>Esc</kbd></div>
+      <div class="search-results" data-search-results role="status" aria-live="polite"></div>
+      <p class="search-hint">Search documentation, installation, packages, tools, and project pages.</p>
+    </section>
+  </div>
+<header class="section-hero"><div class="shell narrow"><p class="kicker">PERFORMANCE</p><h1>Measure first. Publish evidence second.</h1><p class="page-lead">Raz is designed for predictable native performance, but this website does not publish benchmark numbers until the project has a reproducible canonical result corpus.</p><div class="button-row"><a class="button button-primary" href="https://github.com/raz-language/raz/blob/main/docs/PERFORMANCE.md">Performance model ↗</a><a class="button button-secondary" href="https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY-PERFORMANCE.md">Library performance ↗</a></div></div></header>
+<main id="main" class="after-hero"><section class="section section-white"><div class="shell"><div class="section-top compact"><div><p class="kicker">EVIDENCE CONTRACT</p><h2>No unverifiable speed claims.</h2></div><p>Every future benchmark published here must identify source revision, compiler/backend, optimization profile, hardware, operating system, benchmark source, warmup policy, sample count, and raw result data.</p></div><div class="about-principle-grid"><article><span>01</span><h3>Reproducible</h3><p>Results must be runnable from public source with pinned inputs and commands.</p></article><article><span>02</span><h3>Comparable</h3><p>Cross-language comparisons must solve the same problem and disclose compiler flags and runtime assumptions.</p></article><article><span>03</span><h3>Representative</h3><p>Microbenchmarks may explain one mechanism; broader workloads are required before making general performance claims.</p></article><article><span>04</span><h3>Raw data preserved</h3><p>Charts are summaries. Machine-readable measurements and environment metadata remain the authoritative record.</p></article></div></div></section>
+<section class="section section-soft"><div class="shell"><div class="section-top compact"><div><p class="kicker">PLANNED SUITE</p><h2>What the benchmark corpus should cover.</h2></div><p>The site has the publication surface now; measurements remain intentionally unpublished until a canonical harness produces them.</p></div><div class="use-grid"><div><h3>Runtime throughput</h3><p>Integer, floating-point, collections, parsing, compression, hashing and representative application kernels.</p></div><div><h3>Latency</h3><p>Allocation, function dispatch, synchronization, filesystem/network operations and tail-latency-sensitive paths.</p></div><div><h3>Build performance</h3><p>Cold builds, incremental builds, self-host compilation and backend-specific code-generation time.</p></div><div><h3>Artifact characteristics</h3><p>Executable size, startup time, peak memory, allocation counts and generated-code size.</p></div></div></div></section>
+<section class="section section-white"><div class="shell two-col"><div><p class="kicker">CURRENT STATUS</p><h2>Methodology published. Result corpus pending.</h2><p class="section-copy">The absence of numbers here is deliberate. Once a canonical benchmark dataset exists, this page can render it without changing the surrounding contract.</p></div><div class="fact-list"><div><b>Published benchmark dataset</b><span>Not yet available</span></div><div><b>Performance model</b><span>Documented</span></div><div><b>Standard-library performance model</b><span>Documented</span></div><div><b>Invented estimates</b><span>Never published</span></div></div></div></section></main><footer class="site-footer">
+    <div class="shell footer-main">
+      <div class="footer-intro"><a class="footer-wordmark" href="../index.html">Raz</a><p>Fast, safe, predictable systems programming with a visible cost model.</p></div>
+      <div><h2>Learn</h2><a href="../learn/index.html">Getting started</a><a href="../docs/index.html">Documentation</a><a href="../packages/index.html">Packages</a><a href="../install/index.html">Install</a></div>
+      <div><h2>Reference</h2><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SPECIFICATION.md">Specification ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY.md">Standard library ↗</a><a data-project-cli-link href="../cli/index.html">CLI</a><a href="https://github.com/raz-language/raz/blob/main/docs/PLATFORM-SUPPORT.md">Platforms ↗</a></div>
+      <div><h2>Project</h2><a href="https://github.com/raz-language">GitHub ↗</a><a data-project-contribute-link href="../contribute/index.html">Contribute</a><a href="https://github.com/raz-language/raz/blob/main/SECURITY.md">Security ↗</a><a href="https://github.com/raz-language/raz/blob/main/LICENSE">Apache-2.0 ↗</a></div>
+      <div><h2>Explore</h2><a data-project-release-link href="../releases/index.html">Releases</a><a data-project-news-link href="../news/index.html">News</a><a data-project-about-link href="../about/index.html">About</a><a data-project-ecosystem-link href="../ecosystem/index.html">Ecosystem</a><a data-project-performance-link href="../performance/index.html">Performance</a><a href="../status/index.html">Status</a></div>
+    </div>
+    <div class="shell footer-meta"><span>Raz 1.0 stable</span><span>Built in the open</span><span>© 2026 Raz Project</span></div>
+  </footer>
+</body>
+</html>

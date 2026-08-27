@@ -1,0 +1,251 @@
+{
+  "schema": "raz-cli-site-v1",
+  "source": "https://github.com/raz-language/raz/blob/main/docs/CLI.md",
+  "commands": [
+    {
+      "category": "general",
+      "name": "doctor",
+      "usage": "raz doctor",
+      "description": "Inspect host/toolchain and project health.",
+      "url": "/cli/#doctor"
+    },
+    {
+      "category": "general",
+      "name": "backends",
+      "usage": "raz backends",
+      "description": "List available code-generation backends.",
+      "url": "/cli/#backends"
+    },
+    {
+      "category": "general",
+      "name": "targets",
+      "usage": "raz targets",
+      "description": "List supported target triples.",
+      "url": "/cli/#targets"
+    },
+    {
+      "category": "general",
+      "name": "diagnostics",
+      "usage": "raz diagnostics",
+      "description": "Print the compiler diagnostic catalog.",
+      "url": "/cli/#diagnostics"
+    },
+    {
+      "category": "build",
+      "name": "build",
+      "usage": "raz build [options] [input] [output]",
+      "description": "Build a project or source input; use --release for the release profile.",
+      "url": "/cli/#build"
+    },
+    {
+      "category": "build",
+      "name": "run",
+      "usage": "raz run <input>",
+      "description": "Build and run a native project, forwarding program args after --.",
+      "url": "/cli/#run"
+    },
+    {
+      "category": "build",
+      "name": "check",
+      "usage": "raz check <input>",
+      "description": "Type-check and validate without producing the normal executable.",
+      "url": "/cli/#check"
+    },
+    {
+      "category": "build",
+      "name": "test",
+      "usage": "raz test [--filter=<text>] <input>",
+      "description": "Run discovered test_ functions, optionally filtered.",
+      "url": "/cli/#test"
+    },
+    {
+      "category": "build",
+      "name": "lint",
+      "usage": "raz lint <input>",
+      "description": "Run compiler lint/warning analysis.",
+      "url": "/cli/#lint"
+    },
+    {
+      "category": "project",
+      "name": "new",
+      "usage": "raz new <name>",
+      "description": "Create a new Raz project.",
+      "url": "/cli/#new"
+    },
+    {
+      "category": "project",
+      "name": "init",
+      "usage": "raz init [path]",
+      "description": "Initialize a project in a directory.",
+      "url": "/cli/#init"
+    },
+    {
+      "category": "project",
+      "name": "clean",
+      "usage": "raz clean",
+      "description": "Remove project-local generated state under target/.",
+      "url": "/cli/#clean"
+    },
+    {
+      "category": "project",
+      "name": "fmt",
+      "usage": "raz fmt [--check] [file-or-directory]",
+      "description": "Format Raz source or verify formatting.",
+      "url": "/cli/#fmt"
+    },
+    {
+      "category": "project",
+      "name": "doc",
+      "usage": "raz doc <file.rz> [output.md]",
+      "description": "Generate source documentation.",
+      "url": "/cli/#doc"
+    },
+    {
+      "category": "package",
+      "name": "search",
+      "usage": "raz search <query>",
+      "description": "Search the official static package index.",
+      "url": "/cli/#search"
+    },
+    {
+      "category": "package",
+      "name": "info",
+      "usage": "raz info <package>",
+      "description": "Inspect package metadata.",
+      "url": "/cli/#info"
+    },
+    {
+      "category": "package",
+      "name": "add",
+      "usage": "raz add <package>[@<constraint>]",
+      "description": "Add a registry, path, or explicitly named dependency.",
+      "url": "/cli/#add"
+    },
+    {
+      "category": "package",
+      "name": "remove",
+      "usage": "raz remove <alias>",
+      "description": "Remove a dependency.",
+      "url": "/cli/#remove"
+    },
+    {
+      "category": "package",
+      "name": "outdated",
+      "usage": "raz outdated",
+      "description": "Report newer versions for tracked registry dependencies.",
+      "url": "/cli/#outdated"
+    },
+    {
+      "category": "package",
+      "name": "install",
+      "usage": "raz install <package>[@<constraint>]",
+      "description": "Install executable package targets into the managed user bin directory.",
+      "url": "/cli/#install"
+    },
+    {
+      "category": "package",
+      "name": "uninstall",
+      "usage": "raz uninstall <package>",
+      "description": "Remove a managed package tool.",
+      "url": "/cli/#uninstall"
+    },
+    {
+      "category": "package",
+      "name": "vendor",
+      "usage": "raz vendor [--check]",
+      "description": "Materialize or verify the vendored dependency tree.",
+      "url": "/cli/#vendor"
+    },
+    {
+      "category": "package",
+      "name": "update",
+      "usage": "raz update",
+      "description": "Resolve/update dependencies and the lockfile.",
+      "url": "/cli/#update"
+    },
+    {
+      "category": "package",
+      "name": "lock",
+      "usage": "raz lock",
+      "description": "Resolve and write the lockfile.",
+      "url": "/cli/#lock"
+    },
+    {
+      "category": "package",
+      "name": "metadata",
+      "usage": "raz metadata",
+      "description": "Emit project/package metadata.",
+      "url": "/cli/#metadata"
+    },
+    {
+      "category": "package",
+      "name": "graph",
+      "usage": "raz graph",
+      "description": "Emit the dependency graph.",
+      "url": "/cli/#graph"
+    },
+    {
+      "category": "package",
+      "name": "tree",
+      "usage": "raz tree",
+      "description": "Display dependency relationships.",
+      "url": "/cli/#tree"
+    },
+    {
+      "category": "package",
+      "name": "fetch",
+      "usage": "raz fetch",
+      "description": "Fetch locked dependencies.",
+      "url": "/cli/#fetch"
+    },
+    {
+      "category": "package",
+      "name": "pack",
+      "usage": "raz pack [output.dpk]",
+      "description": "Create a deterministic package archive.",
+      "url": "/cli/#pack"
+    },
+    {
+      "category": "package",
+      "name": "publish",
+      "usage": "raz publish",
+      "description": "Prepare/publish a package submission.",
+      "url": "/cli/#publish"
+    },
+    {
+      "category": "package",
+      "name": "keygen",
+      "usage": "raz keygen [prefix]",
+      "description": "Generate an Ed25519 package-signing key pair.",
+      "url": "/cli/#keygen"
+    },
+    {
+      "category": "interop",
+      "name": "bindgen",
+      "usage": "raz bindgen <header.h> [--target-abi=windows|unix] [output.rz]",
+      "description": "Translate supported C declarations into Raz.",
+      "url": "/cli/#bindgen"
+    },
+    {
+      "category": "interop",
+      "name": "c-header",
+      "usage": "raz c-header <source.rz|directory> [output.h]",
+      "description": "Generate a C header for explicit C-ABI Raz exports.",
+      "url": "/cli/#c-header"
+    },
+    {
+      "category": "backend",
+      "name": "forge",
+      "usage": "raz forge <input> <output.fir>",
+      "description": "Request Forge IR or Forge-native backend output.",
+      "url": "/cli/#forge"
+    },
+    {
+      "category": "backend",
+      "name": "llvm",
+      "usage": "raz llvm --emit=<kind> <input> <output>",
+      "description": "Use LLVM-specific emission and cross-target options.",
+      "url": "/cli/#llvm"
+    }
+  ]
+}

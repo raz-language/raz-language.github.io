@@ -181,6 +181,56 @@ def refresh_package_docs():
     if errors:
         print(f"warning: {len(errors)} package source file(s) could not be synchronized")
 
+def refresh_release_notes():
+    """Cache published Markdown release notes for offline/static rendering.
+
+    GitHub release assets are canonical distribution metadata but are not part
+    of the repository tree.  Refresh builds therefore cache RELEASE-NOTES.md
+    beside the other raw source snapshots.  A missing notes asset is not fatal.
+    """
+    releases_path = RAW / "releases.json"
+    notes_root = RAW / "release-notes"
+    notes_root.mkdir(parents=True, exist_ok=True)
+    state = {}
+    if not releases_path.exists():
+        return
+    releases = json.loads(releases_path.read_text(encoding="utf-8"))
+    wanted = set()
+    for release in releases:
+        tag = str(release.get("tag_name") or "").strip()
+        if not tag:
+            continue
+        safe = re.sub(r"[^A-Za-z0-9._-]+", "-", tag).strip("-").lower() or "release"
+        wanted.add(safe + ".md")
+        asset = next((a for a in release.get("assets", []) if str(a.get("name") or "").lower() == "release-notes.md"), None)
+        if not asset or not asset.get("browser_download_url"):
+            state[tag] = {"available": False, "source_kind": "release-asset"}
+            continue
+        try:
+            text = fetch(asset["browser_download_url"])
+            (notes_root / f"{safe}.md").write_text(text, encoding="utf-8")
+            state[tag] = {
+                "available": True,
+                "source": asset["browser_download_url"],
+                "source_kind": "release-asset",
+                "sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+            }
+        except Exception as error:
+            # Keep a checked-in fallback snapshot if one exists.  Release notes
+            # are presentation content; failure to fetch them must not hide the
+            # actual release artifacts or make the canonical sync unusable.
+            fallback = notes_root / f"{safe}.md"
+            state[tag] = {
+                "available": fallback.exists(),
+                "source_kind": "cached-fallback" if fallback.exists() else "release-asset",
+                "error": str(error),
+            }
+    for old in notes_root.glob("*.md"):
+        if old.name not in wanted:
+            old.unlink()
+    (RAW / "release-notes-state.json").write_text(json.dumps(state, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
 def refresh_raw():
     RAW.mkdir(parents=True, exist_ok=True)
     DOC_RAW.mkdir(parents=True, exist_ok=True)
@@ -194,6 +244,8 @@ def refresh_raw():
             text = json.dumps(json.loads(text), indent=2, sort_keys=True) + "\n"
         (RAW / name).write_text(text, encoding="utf-8")
         state["sources"][name] = {"url": url}
+
+    refresh_release_notes()
 
     docs_state = {}
     indexed = parse_doc_index_text((RAW / "docs-readme.md").read_text(encoding="utf-8"))
@@ -2482,6 +2534,24 @@ def main():
     enhancer_v25 = ROOT / "scripts" / "enhance_v25.py"
     if enhancer_v25.exists():
         subprocess.run([sys.executable, str(enhancer_v25)], cwd=ROOT, check=True)
+    enhancer_v26 = ROOT / "scripts" / "enhance_v26.py"
+    if enhancer_v26.exists():
+        subprocess.run([sys.executable, str(enhancer_v26)], cwd=ROOT, check=True)
+    enhancer_v27 = ROOT / "scripts" / "enhance_v27.py"
+    if enhancer_v27.exists():
+        subprocess.run([sys.executable, str(enhancer_v27)], cwd=ROOT, check=True)
+    enhancer_v28 = ROOT / "scripts" / "enhance_v28.py"
+    if enhancer_v28.exists():
+        subprocess.run([sys.executable, str(enhancer_v28)], cwd=ROOT, check=True)
+    enhancer_v29 = ROOT / "scripts" / "enhance_v29.py"
+    if enhancer_v29.exists():
+        subprocess.run([sys.executable, str(enhancer_v29)], cwd=ROOT, check=True)
+    enhancer_v30 = ROOT / "scripts" / "enhance_v30.py"
+    if enhancer_v30.exists():
+        subprocess.run([sys.executable, str(enhancer_v30)], cwd=ROOT, check=True)
+    enhancer_v30_1 = ROOT / "scripts" / "enhance_v30_1.py"
+    if enhancer_v30_1.exists():
+        subprocess.run([sys.executable, str(enhancer_v30_1)], cwd=ROOT, check=True)
     enhancer_v19 = ROOT / "scripts" / "enhance_v19.py"
     if enhancer_v19.exists():
         subprocess.run([sys.executable, str(enhancer_v19)], cwd=ROOT, check=True)

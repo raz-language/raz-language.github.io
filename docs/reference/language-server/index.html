@@ -16,11 +16,12 @@
   <title>Language server — Raz documentation</title>
   <link rel="icon" href="../../../assets/favicon.png" type="image/png">
   <link rel="manifest" href="../../../site.webmanifest">
-  <link rel="stylesheet" href="../../../assets/styles.css?v=fa8a8c34be8f">
+  <link rel="stylesheet" href="../../../assets/styles.css?v=d9a894e43b97">
   <script>window.RAZ_BASE="../";</script>
-  <script src="../../../assets/site.js?v=b66e3676da9e" defer></script>
+  <script src="../../../assets/site.js?v=7b435b865172" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz","codeRepository":"https://github.com/raz-language/raz","license":"https://www.apache.org/licenses/LICENSE-2.0","description":"A systems programming language for native software that has to be fast, safe, and predictable."}</script>
   <meta name="raz-doc-version" content="1.0">
+  <script type="application/ld+json" data-v24-schema="page">{"@context":"https://schema.org","@type":"TechArticle","name":"Raz Documentation \u2014 Language, toolchain and compiler","headline":"Raz Documentation \u2014 Language, toolchain and compiler","description":"Documentation portal for the Raz language, standard library, CLI, package system, compiler architecture and platform support.","url":"https://raz-language.github.io/docs/","isPartOf":{"@type":"WebSite","name":"Raz","url":"https://raz-language.github.io/"}}</script>
   <link rel="canonical" href="https://raz-language.github.io/docs/reference/language-server/">
   <meta property="og:url" content="https://raz-language.github.io/docs/reference/language-server/">
   <meta property="og:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
@@ -30,8 +31,6 @@
   <meta property="og:image:alt" content="Raz — Fast. Safe. Predictable." data-v12-social="true">
   <meta property="og:locale" content="en_US" data-v12-social="true">
   <meta name="twitter:image" content="https://raz-language.github.io/assets/raz-social.png" data-v12-social="true">
-  <script type="application/ld+json" data-v24-schema="page">{"@context":"https://schema.org","@type":"TechArticle","name":"Language server \u2014 Raz documentation","headline":"Language server \u2014 Raz documentation","description":"Editor integration surface","url":"https://raz-language.github.io/docs/reference/language-server/","isPartOf":{"@type":"WebSite","name":"Raz","url":"https://raz-language.github.io/"}}</script>
-  <script type="application/ld+json" data-v24-schema="breadcrumbs">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Docs","item":"https://raz-language.github.io/docs/index.html"},{"@type":"ListItem","position":2,"name":"Build applications","item":"https://raz-language.github.io/docs/reference/language-server/"}]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -64,7 +63,7 @@
       <p class="search-hint">Search documentation, installation, packages, tools, and project pages.</p>
     </section>
   </div>
-<header class="reference-header doc-reference-hero"><div class="shell narrow"><details class="doc-version-switcher"><summary><span>Raz</span><b>1.0</b><em>stable</em></summary><div class="doc-version-menu"><a href="index.html" class="active"><span>Current stable</span><b>1.0</b></a><a href="../../1.0/reference/language-server/index.html" class=""><span>Frozen snapshot</span><b>1.0</b></a></div></details><div class="doc-breadcrumbs"><a href="../../index.html">Docs</a><span>/</span><span>Build applications</span></div><p class="kicker">CANONICAL RAZ DOCUMENTATION</p><h1>Language server</h1><p class="page-lead">Editor integration surface</p><div class="doc-source-meta"><span>Synced from <code>docs/LANGUAGE-SERVER.md</code></span><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SERVER.md">View source ↗</a></div></div></header>
+<header class="page-hero doc-reference-hero"><div class="shell narrow"><details class="doc-version-switcher"><summary><span>Raz</span><b>1.0</b><em>stable</em></summary><div class="doc-version-menu"><a href="index.html" class="active"><span>Current stable</span><b>1.0</b></a><a href="../../1.0/reference/language-server/index.html" class=""><span>Frozen snapshot</span><b>1.0</b></a></div></details><div class="doc-breadcrumbs"><a href="../../index.html">Docs</a><span>/</span><span>Build applications</span></div><p class="kicker">CANONICAL RAZ DOCUMENTATION</p><h1>Language server</h1><p class="page-lead">Editor integration surface</p><div class="doc-source-meta"><span>Synced from <code>docs/LANGUAGE-SERVER.md</code></span><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SERVER.md">View source ↗</a></div></div></header>
 <main id="main" class="after-hero"><div class="shell doc-reference-layout"><aside class="doc-reference-sidebar"><a class="back-docs" href="../../index.html">← All documentation</a><p>ON THIS PAGE</p><nav aria-label="On this page"><a class="toc-level-2" href="#compiler-ownership">Compiler ownership</a><a class="toc-level-2" href="#synchronization">Synchronization</a><a class="toc-level-2" href="#current-capabilities">Current capabilities</a><a class="toc-level-2" href="#diagnostics">Diagnostics</a><a class="toc-level-2" href="#formatting-and-quick-fixes">Formatting and quick fixes</a><a class="toc-level-2" href="#release-qualification">Release qualification</a></nav></aside><article class="doc-reference-content"><p>Raz ships its language server as a command of the production project driver:</p>
 <div class="doc-code" data-language="text"><div class="doc-code-toolbar"><span class="doc-code-label">text</span><button type="button" class="doc-code-copy" data-copy="raz lsp">Copy</button></div><pre><code>raz lsp</code></pre></div>
 <p>The server uses Language Server Protocol <code>Content-Length</code> framing over standard input and output. Editors should launch it as a child process and reserve stdout exclusively for protocol traffic.</p>
@@ -82,7 +81,7 @@
 <p>Source positions are converted from UTF-8 byte offsets to zero-based UTF-16 line/character positions as required by LSP clients. Non-BMP code points count as two UTF-16 code units.</p>
 <h2 id="current-capabilities">Current capabilities<a class="heading-anchor" href="#current-capabilities" aria-label="Link to this section">#</a></h2>
 <p>The production server advertises only capabilities it implements:</p>
-<div class="doc-table-wrap"><table class="doc-table"><caption class="sr-only">Reference data</caption><thead><tr><th>LSP method</th><th>Behavior</th></tr></thead><tbody>
+<div class="doc-table-wrap"><table class="doc-table"><thead><tr><th>LSP method</th><th>Behavior</th></tr></thead><tbody>
 <tr><td><code>initialize</code> / <code>shutdown</code> / <code>exit</code></td><td>Normal server lifecycle</td></tr>
 <tr><td><code>textDocument/publishDiagnostics</code></td><td>Compiler-backed diagnostics for open buffers</td></tr>
 <tr><td><code>textDocument/completion</code></td><td>Keywords plus HIR-backed functions, parameters, and locals</td></tr>
@@ -122,8 +121,9 @@
     <div class="shell footer-main">
       <div class="footer-intro"><a class="footer-wordmark" href="../../../index.html">Raz</a><p>Fast, safe, predictable systems programming with a visible cost model.</p></div>
       <div><h2>Learn</h2><a href="../../../learn/index.html">Getting started</a><a href="../../../docs/index.html">Documentation</a><a href="../../../packages/index.html">Packages</a><a href="../../../install/index.html">Install</a></div>
-      <div><h2>Reference</h2><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SPECIFICATION.md">Specification ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY.md">Standard library ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/CLI.md">CLI reference ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/PLATFORM-SUPPORT.md">Platforms ↗</a></div>
-      <div><h2>Project</h2><a href="https://github.com/raz-language">GitHub ↗</a><a href="https://github.com/raz-language/raz/blob/main/CONTRIBUTING.md">Contributing ↗</a><a href="https://github.com/raz-language/raz/blob/main/SECURITY.md">Security ↗</a><a data-project-release-link href="../../../releases/index.html">Releases</a><a data-project-news-link href="../../../news/index.html">News</a><a href="../../../status/index.html">Status</a><a href="https://github.com/raz-language/raz/blob/main/LICENSE">Apache-2.0 ↗</a></div>
+      <div><h2>Reference</h2><a href="https://github.com/raz-language/raz/blob/main/docs/LANGUAGE-SPECIFICATION.md">Specification ↗</a><a href="https://github.com/raz-language/raz/blob/main/docs/STANDARD-LIBRARY.md">Standard library ↗</a><a data-project-cli-link href="../../../cli/index.html">CLI</a><a href="https://github.com/raz-language/raz/blob/main/docs/PLATFORM-SUPPORT.md">Platforms ↗</a></div>
+      <div><h2>Project</h2><a href="https://github.com/raz-language">GitHub ↗</a><a data-project-contribute-link href="../../../contribute/index.html">Contribute</a><a href="https://github.com/raz-language/raz/blob/main/SECURITY.md">Security ↗</a><a href="https://github.com/raz-language/raz/blob/main/LICENSE">Apache-2.0 ↗</a></div>
+      <div><h2>Explore</h2><a data-project-release-link href="../../../releases/index.html">Releases</a><a data-project-news-link href="../../../news/index.html">News</a><a data-project-about-link href="../../../about/index.html">About</a><a data-project-ecosystem-link href="../../../ecosystem/index.html">Ecosystem</a><a data-project-performance-link href="../../../performance/index.html">Performance</a><a href="../../../status/index.html">Status</a></div>
     </div>
     <div class="shell footer-meta"><span>Raz 1.0 stable</span><span>Built in the open</span><span>© 2026 Raz Project</span></div>
   </footer>

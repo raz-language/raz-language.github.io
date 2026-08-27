@@ -257,3 +257,38 @@ to their intended product openings.
 
 Inline Markdown rendering uses protected placeholders while parsing code spans and links. Nested constructs such as linked inline code are resolved transitively before HTML is emitted, and validation rejects any unresolved `@@TOKEN...@@` placeholder in a public page. This prevents build-time synchronization of canonical docs from leaking renderer internals into the website.
 
+
+## Technical positioning page
+
+`/about/` is the durable technical explanation of why Raz exists and where it fits. It is intentionally separate from the homepage: the homepage stays concise, while About explains the visible-cost model, ownership/safety goals, native/portable backend model, comparisons with adjacent language families, intended workloads, and cases where another language may currently be a better fit. The page is included in global search, sitemap generation, footer project navigation, and the deploy allowlist.
+
+## Release-note rendering
+
+Permanent release pages may render canonical release-era Markdown in addition to artifact metadata. Refresh builds prefer a published `RELEASE-NOTES.md` release asset and cache it under `data/raw/release-notes/` so offline builds remain deterministic. A checked-in tagged-changelog fallback may be used when a release asset cannot be retrieved; the rendered page always identifies the provenance rather than presenting rewritten website copy as canonical release notes.
+
+## Structured search records
+
+The two lazy search shards carry explicit `kind`, `name`, `namespace`, and `qualified_name` fields in addition to display text and keywords. Exact qualified symbol names receive the strongest ranking, followed by exact symbol names, titles, prefixes, and general text matches. This keeps search behavior deterministic as standard-library and package API symbol counts grow.
+
+## Package release documentation
+
+Each immutable package release receives a stable website route at `packages/<name>/<version>/`. The unversioned package and API routes continue to represent the latest registry release. The latest version also receives a frozen copy of the synchronized source-derived API tree at `packages/<name>/<version>/docs/`.
+
+Historical package versions retain permanent documentation routes even when their release-specific source snapshot is not yet cached. Those pages deliberately report that state instead of substituting the latest package source for an older immutable release. Machine-readable version records are published through `api/v1/package-versions.json`, and individual package API records include their version routes.
+
+## Responsive and dense-reference layout contract
+
+The site treats documentation, package APIs, diagnostics, standard-library pages, and release metadata as dense reading surfaces rather than scaled-down marketing pages. Generated identifiers and signatures must wrap without widening the viewport; wide tables remain horizontally scrollable and keyboard-focusable; sticky package navigation is a single touch-scrollable axis; reference and Book navigation remains available in bounded scroll regions on small screens; and the global search dialog becomes a bottom-sheet layout on narrow viewports. These rules are generated centrally so current docs, frozen language docs, and versioned package documentation share the same behavior.
+
+## Performance evidence and ecosystem architecture
+
+The website treats performance claims as an evidence publication problem rather than a marketing-number problem. `/performance/` documents the benchmark reproducibility contract and exposes `/api/v1/performance.json`; until a canonical Raz benchmark corpus exists, the API deliberately publishes an empty measurement set rather than estimates. Future measured results should preserve raw data, source revision, compiler/backend configuration, hardware, operating system, and benchmark commands.
+
+`/ecosystem/` documents repository ownership and integration boundaries across Raz, Forge, ObLink, packages, installer, and editor tooling. Contribution guidance mirrors the compiler repository's canonical component-first and embedded-component synchronization model. Package catalog sorting is deterministic and limited to metadata the registry actually has (name, category, and published-version count); the site does not invent popularity or download metrics.
+
+
+## CLI and contributor surfaces
+
+`/cli/` is a static command-discovery layer over the canonical Raz CLI contract. Command descriptions and usage forms remain subordinate to `raz/docs/CLI.md` and command-specific `raz <command> --help`. The generated `/api/v1/cli.json` catalog gives tools a stable machine-readable command index, while global search links directly to command anchors.
+
+`/contribute/` explains repository ownership and the integration workflow without replacing repository-specific contribution guides. In particular, standalone Forge and ObLink remain the canonical component homes; their embedded Raz copies are synchronized integration mirrors.

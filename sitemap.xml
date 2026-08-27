@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://raz-language.github.io/about/</loc></url>
+  <url><loc>https://raz-language.github.io/cli/</loc></url>
   <url><loc>https://raz-language.github.io/community/</loc></url>
+  <url><loc>https://raz-language.github.io/contribute/</loc></url>
   <url><loc>https://raz-language.github.io/docs/api/</loc></url>
   <url><loc>https://raz-language.github.io/docs/compiler/</loc></url>
   <url><loc>https://raz-language.github.io/docs/diagnostics/</loc></url>
@@ -263,6 +266,7 @@
   <url><loc>https://raz-language.github.io/docs/stdlib/std/thread/timer/</loc></url>
   <url><loc>https://raz-language.github.io/docs/stdlib/std/time/</loc></url>
   <url><loc>https://raz-language.github.io/docs/toolchain/</loc></url>
+  <url><loc>https://raz-language.github.io/ecosystem/</loc></url>
   <url><loc>https://raz-language.github.io/</loc></url>
   <url><loc>https://raz-language.github.io/install/</loc></url>
   <url><loc>https://raz-language.github.io/learn/book/chapter-01/</loc></url>
@@ -297,37 +301,55 @@
   <url><loc>https://raz-language.github.io/learn/book/</loc></url>
   <url><loc>https://raz-language.github.io/learn/</loc></url>
   <url><loc>https://raz-language.github.io/news/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/archive/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/archive/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/archive/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/base58/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/base58/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/base58/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/bech32/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/bech32/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/bech32/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/bigint/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/bigint/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/bigint/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/cbor/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/cbor/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/cbor/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/compression/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/compression/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/compression/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/crypto/0.2.0/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/crypto/0.3.0/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/crypto/0.4.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/crypto/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/crypto/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/csv/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/csv/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/csv/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/datetime/0.2.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/datetime/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/datetime/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/decimal/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/decimal/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/decimal/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/dns/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/dns/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/dns/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/encoding/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/encoding/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/encoding/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/graphql/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/graphql/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/graphql/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/http-router/0.2.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/http-router/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/http-router/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/http3/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/http3/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/http3/</loc></url>
   <url><loc>https://raz-language.github.io/packages/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/json/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/json/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/json/docs/module/json/core/</loc></url>
   <url><loc>https://raz-language.github.io/packages/json/docs/module/json/document/</loc></url>
@@ -356,66 +378,103 @@
   <url><loc>https://raz-language.github.io/packages/json/docs/module/json/writer/</loc></url>
   <url><loc>https://raz-language.github.io/packages/json/docs/module/json/writer/struct/jsonwriter/</loc></url>
   <url><loc>https://raz-language.github.io/packages/json/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/jwt/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/jwt/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/jwt/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/merkle/0.1.0/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/merkle/0.2.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/merkle/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/merkle/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/metrics/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/metrics/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/metrics/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/mmap/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/mmap/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/mmap/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/msgpack/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/msgpack/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/msgpack/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/multipart/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/multipart/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/multipart/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/oauth2/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/oauth2/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/oauth2/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/postgres/0.2.0/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/postgres/0.3.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/postgres/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/postgres/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/protobuf/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/protobuf/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/protobuf/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/quic/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/quic/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/quic/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/redis/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/redis/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/redis/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/regex/0.2.0/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/regex/0.2.1/</loc></url>
   <url><loc>https://raz-language.github.io/packages/regex/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/regex/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/rlp/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/rlp/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/rlp/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/rpc/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/rpc/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/rpc/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/secp256k1/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/secp256k1/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/secp256k1/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/semver/0.2.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/semver/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/semver/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/serde/0.2.0/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/serde/0.2.1/</loc></url>
   <url><loc>https://raz-language.github.io/packages/serde/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/serde/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/sqlite/0.2.0/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/sqlite/0.3.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/sqlite/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/sqlite/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/ssz/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/ssz/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/ssz/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/testing/0.1.0/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/testing/0.2.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/testing/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/testing/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/toml/0.2.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/toml/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/toml/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/tracing/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/tracing/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/tracing/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/uring/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/uring/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/uring/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/uuid/0.2.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/uuid/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/uuid/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/wasm-component/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/wasm-component/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/wasm-component/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/wasm-runtime/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/wasm-runtime/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/wasm-runtime/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/websocket/0.2.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/websocket/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/websocket/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/xml/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/xml/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/xml/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/yaml/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/yaml/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/yaml/</loc></url>
+  <url><loc>https://raz-language.github.io/packages/zstd/0.1.0/</loc></url>
   <url><loc>https://raz-language.github.io/packages/zstd/docs/</loc></url>
   <url><loc>https://raz-language.github.io/packages/zstd/</loc></url>
+  <url><loc>https://raz-language.github.io/performance/</loc></url>
   <url><loc>https://raz-language.github.io/releases/</loc></url>
   <url><loc>https://raz-language.github.io/releases/v1.0.0/</loc></url>
   <url><loc>https://raz-language.github.io/status/</loc></url>
