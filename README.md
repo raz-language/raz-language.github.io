@@ -253,3 +253,7 @@ surfaces use compact breadcrumb/title headers so content begins quickly.
 snapshots exist, while `test_v25_layout_hierarchy.py` keeps current and frozen
 routes consistent and verifies that package/diagnostic controls remain attached
 to their intended product openings.
+## Markdown rendering integrity
+
+Inline Markdown rendering uses protected placeholders while parsing code spans and links. Nested constructs such as linked inline code are resolved transitively before HTML is emitted, and validation rejects any unresolved `@@TOKEN...@@` placeholder in a public page. This prevents build-time synchronization of canonical docs from leaking renderer internals into the website.
+

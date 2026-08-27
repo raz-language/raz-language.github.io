@@ -83,7 +83,10 @@ def parse_pages(root):
     for path in sorted(root.rglob("*.html")):
         parser = PageParser(path)
         try:
-            parser.feed(path.read_text(encoding="utf-8"))
+            raw_text = path.read_text(encoding="utf-8")
+            if "@@TOKEN" in raw_text:
+                errors.append(f"{path}: unresolved Markdown token placeholder")
+            parser.feed(raw_text)
         except Exception as error:
             errors.append(f"{path}: HTML parser error: {error}")
             continue

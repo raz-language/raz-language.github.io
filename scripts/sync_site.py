@@ -836,8 +836,17 @@ def inline_markdown(text, docs_by_name):
     text = re.sub(r"\[([^]]+)\]\(([^)]+)\)", link_repl, text)
     text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
     text = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", text)
-    for i, token in enumerate(tokens):
-        text = text.replace(f"@@TOKEN{i}@@", token)
+    # Resolve protected inline tokens until no placeholders remain. Tokens can
+    # reference earlier tokens (for example a Markdown link whose label is an
+    # inline-code token), so a single forward replacement pass can leak
+    # @@TOKENn@@ into generated HTML after a live documentation refresh.
+    previous = None
+    passes = 0
+    while text != previous and passes <= len(tokens) + 1:
+        previous = text
+        for i in range(len(tokens) - 1, -1, -1):
+            text = text.replace(f"@@TOKEN{i}@@", tokens[i])
+        passes += 1
     return text
 
 

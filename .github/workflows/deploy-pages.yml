@@ -85,6 +85,10 @@ jobs:
         run: python3 scripts/test_v24_hardening.py
       - name: Check page layout hierarchy
         run: python3 scripts/test_v25_layout_hierarchy.py
+      - name: Check Markdown token rendering
+        run: python3 scripts/test_markdown_tokens.py
+      - name: Check homepage hero
+        run: python3 scripts/test_homepage_hero.py
       - name: Validate generated source tree
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/validate.py
