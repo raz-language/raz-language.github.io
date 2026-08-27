@@ -14,7 +14,7 @@ def require(path, pattern, label):
     t=text(path)
     if not re.search(pattern,t,re.S): errors.append(f"{path}: {label}")
 
-require("index.html", r'<section class="hero">', "homepage bespoke hero changed")
+require("index.html", r'<section class="[^"]*\bhero\b[^"]*">', "homepage bespoke hero changed")
 require("install/index.html", r'<header class="marketing-hero', "install must retain marketing hero")
 require("docs/index.html", r'<header class="section-hero', "docs should use section hero")
 require("tools/index.html", r'<header class="section-hero', "tools should use section hero")

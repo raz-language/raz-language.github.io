@@ -272,7 +272,9 @@ def inject_home_release(entries: list[dict]) -> None:
         text = text.split(start, 1)[0] + text.split(end, 1)[1]
     entry = sorted(entries, key=lambda x: x.get("published_at") or "", reverse=True)[0]
     strip = f'''{start}<section class="home-release-strip" aria-label="Latest Raz release"><div class="shell"><div><span>LATEST RELEASE</span><b>{esc(entry['title'])}</b><small>{esc(display_date(entry.get('published_at')))}</small></div><div><a href="{esc(entry['url'])}">Release details →</a><a href="news/index.html">Project news →</a></div></div></section>{end}'''
-    hero_end = text.find('</section>', text.find('<section class="hero">'))
+    hero_match = re.search(r'<section class="[^"]*\bhero\b[^"]*">', text)
+    hero_start = hero_match.start() if hero_match else -1
+    hero_end = text.find('</section>', hero_start) if hero_start >= 0 else -1
     if hero_end >= 0:
         hero_end += len('</section>')
         text = text[:hero_end] + strip + text[hero_end:]

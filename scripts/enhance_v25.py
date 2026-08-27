@@ -140,6 +140,14 @@ def add_styles() -> None:
         text = text.split(marker, 1)[0].rstrip() + "\n"
     text += f'''
 {marker}
+/* Homepage: after removing the code showcase, use the full hero width intentionally. */
+.hero-centered::before{{background:radial-gradient(circle at 50% 14%,rgba(45,107,255,.18),transparent 30%),radial-gradient(circle at 50% 88%,rgba(216,69,232,.09),transparent 29%)}}
+.hero-grid-centered{{display:flex;grid-template-columns:none;justify-content:center;align-items:center;text-align:center}}
+.hero-copy-centered{{width:min(100%,980px);margin-inline:auto;text-align:center}}
+.hero-copy-centered .hero-lead{{max-width:760px;margin:27px auto 0}}
+.hero-copy-centered .hero-actions{{justify-content:center}}
+.hero-copy-centered .trust-row{{justify-content:center;max-width:760px;margin:42px auto 0}}
+.hero-copy-centered .trust-row span:last-child{{padding-right:0;margin-right:0}}
 /* Major section entrances retain breathing room without impersonating the homepage. */
 .marketing-hero{{padding:70px 0 76px;background:#f9fafc;border-bottom:1px solid var(--line)}}
 .marketing-hero h1{{margin:0;font-size:clamp(3.2rem,6.5vw,6.2rem);line-height:.93;letter-spacing:-.062em}}
