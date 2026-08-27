@@ -68,6 +68,8 @@ jobs:
         run: python3 scripts/test_v31_navigation_readme.py
       - name: Validate bounded API search shards
         run: python3 scripts/test_v31_1_search_shards.py
+      - name: Validate final browser asset cache keys
+        run: python3 scripts/test_v31_2_final_asset_cache.py
       - name: Validate source tree
         run: python3 scripts/validate.py
       - name: Check performance budgets

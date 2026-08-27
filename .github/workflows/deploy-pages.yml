@@ -111,6 +111,9 @@ jobs:
       - name: Validate bounded API search shards
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/test_v31_1_search_shards.py
+      - name: Validate final browser asset cache keys
+        if: steps.freshness.outputs.current == 'true'
+        run: python3 scripts/test_v31_2_final_asset_cache.py
       - name: Validate generated source tree
         if: steps.freshness.outputs.current == 'true'
         run: python3 scripts/validate.py
