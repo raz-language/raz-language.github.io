@@ -112,13 +112,8 @@
     }
   ],
   "source_audit": {
-    "warning_count": 3,
+    "warning_count": 2,
     "warnings": [
-      {
-        "code": "security-version-drift",
-        "message": "SECURITY.md still describes Raz as pre-1.0 while the language stability contract declares Raz 1.0 stable.",
-        "source": "raz-language/raz/SECURITY.md"
-      },
       {
         "code": "missing-indexed-doc",
         "message": "The canonical documentation index references BACKENDS.md, but the source path was unavailable during synchronization.",

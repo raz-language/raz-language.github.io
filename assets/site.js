@@ -18,7 +18,7 @@
   // v23 sharded lazy global search
   const dialog=q('[data-search-dialog]'),input=q('[data-site-search]'),results=q('[data-search-results]');
   let lastFocus=null,coreItems=null,apiItems=null,corePromise=null,apiPromise=null;
-  const coreVersion='163b41f2fb70',apiVersion='23a7c8b7c5e1';
+  const coreVersion='4f9bd5c76dcd',apiVersion='23a7c8b7c5e1';
   const searchURL=(name,version)=>`${window.RAZ_BASE||''}assets/${name}?v=${version}`;
   const loadCore=()=>{if(coreItems)return Promise.resolve(coreItems);if(!corePromise)corePromise=fetch(searchURL('search-core.json',coreVersion),{credentials:'same-origin'}).then(r=>{if(!r.ok)throw new Error(`search core ${r.status}`);return r.json();}).then(data=>{coreItems=Array.isArray(data)?data:[];return coreItems;});return corePromise;};
   const loadAPI=()=>{if(apiItems)return Promise.resolve(apiItems);if(!apiPromise)apiPromise=fetch(searchURL('search-api-manifest.json',apiVersion),{credentials:'same-origin'}).then(r=>{if(!r.ok)throw new Error(`search api manifest ${r.status}`);return r.json();}).then(manifest=>Promise.all((Array.isArray(manifest.shards)?manifest.shards:[]).map(shard=>fetch(searchURL(shard.file,shard.digest),{credentials:'same-origin'}).then(r=>{if(!r.ok)throw new Error(`search api ${r.status}`);return r.json();})))).then(parts=>{apiItems=parts.flatMap(data=>Array.isArray(data)?data:[]);return apiItems;});return apiPromise;};

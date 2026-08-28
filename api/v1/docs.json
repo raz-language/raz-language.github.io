@@ -2,7 +2,7 @@
   {
     "available": false,
     "category": "Learn the language",
-    "description": "Twenty-nine chapters from first program to a complete one, with worked examples",
+    "description": "A guided tour from the first project through ownership, generics, async, packages, and native interop",
     "local_url": null,
     "path": "GETTING-STARTED.md",
     "sha256": null,

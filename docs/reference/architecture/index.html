@@ -18,7 +18,7 @@
   <link rel="manifest" href="../../../site.webmanifest">
   <link rel="stylesheet" href="../../../assets/styles.css?v=d9a894e43b97">
   <script>window.RAZ_BASE="../";</script>
-  <script src="../../../assets/site.js?v=aedb30663896" defer></script>
+  <script src="../../../assets/site.js?v=5415b9843feb" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Raz","programmingLanguage":"Raz","codeRepository":"https://github.com/raz-language/raz","license":"https://www.apache.org/licenses/LICENSE-2.0","description":"A systems programming language for native software that has to be fast, safe, and predictable."}</script>
   <meta name="raz-doc-version" content="1.0">
   <link rel="canonical" href="https://raz-language.github.io/docs/reference/architecture/">
@@ -105,7 +105,7 @@
 <p>The Raz compiler integrates Forge in-process through the audited <code>raz_forge_bridge</code> boundary. Structured Forge APIs carry scalar and aggregate values, globals, functions, blocks, target features, source ranges, alignment, attributes, and optimization settings without requiring a compiler-sized textual intermediate file.</p>
 <p>Textual Forge IR remains available for diagnostics, inspection, compatibility, and testing.</p>
 <h2 id="llvm-backend">LLVM backend<a class="heading-anchor" href="#llvm-backend" aria-label="Link to this section">#</a></h2>
-<p>The LLVM backend is implemented under <code>compiler/src/backend/llvm/</code> and consumes the same MIR as Forge. It emits LLVM IR and uses the configured LLVM/Clang toolchain for native object or executable production.</p>
+<p>The LLVM backend is implemented under <code>compiler/src/raz_codegen_llvm/src/llvm/</code> and consumes the same MIR as Forge. It emits LLVM IR and uses the configured LLVM/Clang toolchain for native object or executable production.</p>
 <p>Target triples, CPU/features, optimization, LTO, relocation/code models, visibility, libraries, and linker options are compiler configuration rather than language semantics. LLVM does not silently fall back to Forge.</p>
 <p>See <a href="https://github.com/raz-language/raz/blob/main/docs/BACKENDS.md">Backends</a>.</p>
 <h2 id="runtime-and-standard-library">Runtime and standard library<a class="heading-anchor" href="#runtime-and-standard-library" aria-label="Link to this section">#</a></h2>

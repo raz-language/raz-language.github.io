@@ -25,12 +25,8 @@ def desired_primary(rel: str) -> str | None:
         return "docs"
     if rel.startswith("packages/") or rel == "packages/index.html":
         return "packages"
-    if rel.startswith("tools/"):
+    if rel.startswith("tools/") or rel.startswith("cli/"):
         return "tools"
-    # CLI is a standalone command-reference destination. It is linked from
-    # Reference in the footer, but is not the Tools landing section itself.
-    if rel.startswith("cli/"):
-        return None
     if rel.startswith("community/") or rel.startswith("contribute/"):
         return "community"
     # Install/releases/news/about/ecosystem/performance/status are independent

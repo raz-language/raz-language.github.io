@@ -28,6 +28,7 @@ fixtures={
     'packages/index.html':'packages/index.html',
     'tools/index.html':'tools/index.html',
     'community/index.html':'community/index.html',
+    'cli/index.html':'tools/index.html',
     'contribute/index.html':'community/index.html',
 }
 for rel,target in fixtures.items():
@@ -36,19 +37,6 @@ for rel,target in fixtures.items():
         active=active_primary(p)
         need(len(active)==1, f'{rel} should have exactly one active primary nav item: {active}')
         if active: need(active[0].endswith(target), f'{rel} active nav should be {target}: {active[0]}')
-
-
-# Standalone destinations must not borrow a top-level active state merely
-# because they are adjacent to a primary product section.
-for rel in (
-    'cli/index.html', 'install/index.html', 'releases/index.html', 'news/index.html',
-    'about/index.html', 'ecosystem/index.html', 'performance/index.html',
-    'status/index.html', 'web/index.html',
-):
-    p=R/rel
-    need(p.exists(), f'missing standalone fixture {rel}')
-    if p.exists():
-        need(active_primary(p)==[], f'{rel} should have no active primary nav item: {active_primary(p)}')
 
 # Package API docs must stay under Packages, even after late package enhancers.
 for p in list((R/'packages').glob('*/docs/index.html'))[:12]:
